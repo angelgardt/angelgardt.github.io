@@ -373,7 +373,7 @@ summary {
 p = \frac{e^{\beta_0 + \beta_1 x}}{1 + e^{\beta_0 + \beta_1 x}},
 \]</span> где <span class="math inline">\(p\)</span> — вероятность «единицы», <span class="math inline">\(\beta_0\)</span> и <span class="math inline">\(\beta_1\)</span> — коэффициенты модели, <span class="math inline">\(x\)</span> — значение предиктора.</p>
 <p>Для краткости обозначим <span class="math inline">\(\beta_0 + \beta_1 x \equiv z\)</span>.</p>
-<p><strong>Необходимо доказать</strong>, что logit-преобразование <span class="math inline">\(\mathrm{logit}(p) = \ln \left(\frac{p}{1-p}\right)\)</span> сделает логистическую функцию линейной. Иначе, <span class="math inline">\(\ln \left(\frac{p}{1-p}\right) = z\)</span>.</p>
+<p><strong>Необходимо доказать</strong>, что logit-преобразование <span class="math inline">\(\displaystyle \mathrm{logit}(p) = \ln \left(\frac{p}{1-p}\right)\)</span> сделает логистическую функцию линейной. Иначе, <span class="math inline">\(\displaystyle \ln \left(\frac{p}{1-p}\right) = z\)</span>.</p>
 <div class="section level3">
 <h3>Доказательство</h3>
 <p>Подставим выражение для <span class="math inline">\(p\)</span> в формулу логита: <span class="math display">\[
@@ -394,7 +394,7 @@ p = \frac{e^{\beta_0 + \beta_1 x}}{1 + e^{\beta_0 + \beta_1 x}},
 \ln \left(\frac{p}{1-p}\right) = z,
 \]</span></p>
 <p>Q.E.D.</p>
-<p>Таким образом, <span class="math inline">\(\ln \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x\)</span>, то есть логистическая кривая становится прямой.</p>
+<p>Таким образом, <span class="math inline">\(\displaystyle \ln \left(\frac{p}{1-p}\right) = \beta_0 + \beta_1 x\)</span>, то есть логистическая кривая становится прямой.</p>
 </div>
 
 
