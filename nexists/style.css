@@ -1,0 +1,348 @@
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: url('fonts/HelveticaNeueLight.ttf') format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url('fonts/HelveticaBold.ttf') format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaRegular";
+  src: url('fonts/HelveticaRegular.ttf') format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaLight";
+  src: url('fonts/HelveticaLight.ttf') format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'GothamProBlack';
+  src: url('fonts/GothamProBlack.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(245, 245, 245);
+}
+
+a {
+  text-decoration: none;
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(20, 20, 20);
+  padding: 1%;
+}
+
+h1 {
+  font-family: 'GothamProBlack';
+  font-size: 50px;
+  margin-top: 2%;
+}
+
+h2 {
+  font-family: 'HelveticaBold';
+  font-size: 30px;
+}
+h2 a{
+  color: rgb(20, 20, 20)
+}
+h2 a:hover{
+  text-decoration: underline;
+}
+
+h3 {
+  font-family: 'Helvetica';
+  font-size: 25px;
+  margin-left: 30px;
+}
+h3 a{
+  color: rgb(20, 20, 20)
+}
+h3 a:hover{
+  text-decoration: underline;
+}
+
+h4 {
+  font-family: 'Helvetica';
+  font-size: 20px;
+  margin-left: 60px;
+}
+h4 a{
+  color: rgb(20, 20, 20)
+}
+h4 a:hover{
+  text-decoration: underline;
+}
+
+h5 {
+  font-family: 'HelveticaLight';
+  font-size: 15px;
+  margin-left: 90px;
+}
+h5 a{
+  color: rgb(20, 20, 20)
+}
+h5 a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+.header {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+  text-align: center;
+}
+
+.headerpage {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+  text-align: center;
+}
+
+
+.logoimg {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.logoimg img {
+  width: 80%;
+  max-width: 735px;
+  min-width: 100px;
+}
+
+.logoimgsmall {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+}
+
+.logoimgsmall img{
+  width: 30%;
+}
+.logoimgsmall img:hover{
+  cursor: pointer;
+}
+
+
+.menubar {
+  width: 100%;
+  height: 100%;
+}
+
+ul.menu {
+  display: block;
+  padding: 0;
+}
+
+ul.menu li {
+  display: inline-block;
+  padding-left: 1%;
+  padding-right: 1%;
+  list-style: none
+}
+
+ul.menu li a {
+  font-family: 'HelveticaNeueLight';
+  font-size: 150%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+ul.menu li a:hover {
+  text-decoration: underline;
+}
+
+
+.menubarpage {
+  width: 100%;
+  height: 100%;
+}
+
+ul.menupage {
+  display: block;
+  padding: 0;
+}
+
+ul.menupage li {
+  display: inline-block;
+  padding-left: 1%;
+  padding-right: 1%;
+  list-style: none
+}
+
+ul.menupage li a {
+  font-family: 'HelveticaNeueLight';
+  font-size: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+ul.menupage li a:hover {
+  text-decoration: underline;
+}
+
+
+
+.content {
+  padding: 3% 0 3% 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.tbl {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.wrapper {
+  display: block;
+}
+
+.cell {
+  display: inline-table;
+  width: 250px;
+  height: 250px;
+  background-color: rgb(255,255,255);
+  border: solid 1px rgb(225, 225, 225);
+  vertical-align: middle;
+  margin-right: -3px;
+  margin-left: -2px;
+  margin-bottom: -1px;
+  padding: 0;
+}
+.cell:hover {
+  background-color: rgb(20,20,20);
+  animation: cellhover 0.5s;
+  cursor: pointer;
+}
+
+.celltext {
+  display: table-cell;
+  vertical-align: middle;
+  width: 250px;
+  height: 250px;
+  padding: 0;
+}
+
+.celltext a {
+  display: block;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 39.5%;
+  padding-bottom: 39.5%;
+  font-family: 'HelveticaBold';
+  font-size: 50px;
+  color: rgb(20, 20, 20);
+}
+
+.vipbtn a {
+  padding-top: 20%;
+  padding-bottom: 20%;
+}
+
+.cell:hover .celltext a {
+  color: rgb(255, 255, 255);
+  animation: celltexthover 0.5s;
+}
+
+
+.contents {
+  padding: 3% 3% 3% 15%;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+
+
+ul.menufoot {
+  display: block;
+}
+
+ul.menufoot li {
+  display: inline-block;
+  padding-right: 1%;
+}
+
+ul.menufoot li a {
+  font-family: 'HelveticaNeueLight';
+  font-size: 100%;
+  color: rgb(150, 150, 150);
+}
+
+ul.menufoot li a:hover {
+  color: rgb(245, 245, 245);
+}
+
+
+ul.copyright {
+  display: block;
+}
+
+ul.copyright li {
+  display: inline-block;
+  padding-right: 1%;
+}
+
+ul.copyright li a {
+  font-family: 'HelveticaNeueLight';
+  font-size: 100%;
+  color: rgb(150, 150, 150);
+}
+
+ul.copyright li a:hover {
+  color: rgb(245, 245, 245);
+}
+
+
+
+
+@keyframes cellhover {
+  0% {
+    background-color: rgb(255,255,255);
+  }
+  100% {
+    background-color: rgb(20,20,20);
+  }
+}
+
+@keyframes celltexthover {
+  0% {
+    color: rgb(20,20,20);
+  }
+  100% {
+    color: rgb(255,255,255);
+  }
+}
