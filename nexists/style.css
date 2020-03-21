@@ -258,10 +258,10 @@ ul.menupage li a:hover {
 
 .celltext a {
   display: block;
-  padding-left: 10%;
+  /*padding-left: 10%;
   padding-right: 10%;
   padding-top: 39.5%;
-  padding-bottom: 39.5%;
+  padding-bottom: 39.5%;*/
   font-family: 'HelveticaBold';
   font-size: 50px;
   color: rgb(20, 20, 20);
