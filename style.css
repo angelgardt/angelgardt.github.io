@@ -229,74 +229,8 @@ ul.menupage li a:hover {
   padding: 3% 0 3% 0;
   display: block;
   width: 100%;
-  text-align: center;
-}
-
-.tbl {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.wrapper {
-  display: block;
-}
-
-.cell {
-  display: inline-table;
-  width: 250px;
-  height: 250px;
-  background-color: rgb(255,255,255);
-  border: solid 1px rgb(225, 225, 225);
-  vertical-align: middle;
-  margin-right: -3px;
-  margin-left: -2px;
-  margin-bottom: -1px;
-  padding: 0;
-}
-.cell:hover {
-  background-color: rgb(20,20,20);
-  animation: cellhover 0.5s;
-  cursor: pointer;
-}
-
-.celltext {
-  display: table-cell;
-  vertical-align: middle;
-  width: 250px;
-  height: 250px;
-  padding: 0;
-}
-
-.celltext a {
-  display: block;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-top: 39.5%;
-  padding-bottom: 39.5%;
-  font-family: 'HelveticaBold';
-  font-size: 50px;
-  color: rgb(20, 20, 20);
-}
-
-.vipbtn a {
-  padding-top: 20%;
-  padding-bottom: 20%;
-}
-
-.cell:hover .celltext a {
-  color: rgb(255, 255, 255);
-  animation: celltexthover 0.5s;
-}
-
-
-.contents {
-  padding: 3% 3% 3% 15%;
-  display: block;
-  width: 100%;
   text-align: left;
 }
-
 
 
 ul.menufoot {
@@ -336,25 +270,4 @@ ul.copyright li a {
 
 ul.copyright li a:hover {
   color: rgb(245, 245, 245);
-}
-
-
-
-
-@keyframes cellhover {
-  0% {
-    background-color: rgb(255,255,255);
-  }
-  100% {
-    background-color: rgb(20,20,20);
-  }
-}
-
-@keyframes celltexthover {
-  0% {
-    color: rgb(20,20,20);
-  }
-  100% {
-    color: rgb(255,255,255);
-  }
 }
