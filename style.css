@@ -59,6 +59,12 @@ h1 {
   font-size: 50px;
   margin-top: 2%;
 }
+h1 a{
+  color: rgb(20, 20, 20)
+}
+h1 a:hover{
+  text-decoration: underline;
+}
 
 h2 {
   font-family: 'HelveticaBold';
