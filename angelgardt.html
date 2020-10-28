@@ -32,9 +32,16 @@
 
         <ul class="copyright">
           <li><a href="#">Anton Angelgardt</a></li>
-          <li><a>2020</a></li>
+          <li id='years'></li>
         </ul>
       </footer>
 
   </body>
+  
+  <script>
+    var currentDate = new Date();
+    var years = '2020' + '–' + currentDate.getFullYear();
+    var li = document.getElementById('years');
+    li.innerHTML(years);
+  </script>
 </html>
