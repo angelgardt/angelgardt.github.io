@@ -69,6 +69,12 @@ header {
   padding-bottom: 2%;
 }
 
+.logoimg a {
+  font-family: "GothamProBlack";
+  font-size: 70pt;
+  color: #f5f5f5;
+}
+
 .content {
   margin-right: 5%;
   margin-left: 5%;
