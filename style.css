@@ -64,6 +64,23 @@ header {
   text-align: center;
 }
 
+.menu_item {
+  display: inline-block;
+  margin: 1% 3% 1% 3%;
+  padding: 1%;
+}
+
+.menu_item a {
+  font-family: 'HelveticaLight';
+  font-size: 14pt;
+  color: #e6e6e6;
+}
+
+.menu_item:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
+}
+
 .logoimg {
   padding-top: 2%;
   padding-bottom: 2%;
@@ -88,7 +105,7 @@ header {
 h1 {
   font-family: 'HelveticaBold';
   font-size: 30pt;
-  margin-top: 2%;
+  margin-top: 5%;
   background-color: #141414;
   color: #f5f5f5;
   padding: 1%;
@@ -113,6 +130,7 @@ footer {
   width: 98%;
   background-color: #141414;
   padding: 1%;
+  margin-top: 5%;
 }
 
 ul.menufoot {
@@ -155,6 +173,27 @@ ul.copyright li a:hover {
 
 
 /* angelgardt */
+
+.menu2 {
+  text-align: center;
+}
+
+.menu2_item {
+  display: inline-block;
+  margin: 1% 1% 1% 1%;
+  padding: 1%;
+}
+
+.menu2_item a {
+  font-family: 'HelveticaLight';
+  font-size: 14pt;
+  color: #141414;
+}
+
+.menu2_item:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
 
 .top_author {
   margin-top: 2%;
@@ -272,6 +311,7 @@ ul.copyright li a:hover {
   border-radius: 10px;
   background-color: #e6e6e6;
   font-family: "HelveticaLight";
+  font-size: 14pt;
 }
 
 #languages ul li {
