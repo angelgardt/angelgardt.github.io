@@ -34,7 +34,7 @@
 
       <div class="menu2">
 
-        <div class="menu2_item">
+        <div class="menu2_item" id="menu_item_work_experience" onmouseover="menu_item_work_experience_on_fun()" onmouseout="menu_work_experience_out_fun()">
           <a href="#work_experience">опыт работы</a>
         </div>
         <div class="menu2_item">
@@ -59,8 +59,9 @@
           <a href="#languages">владение языками</a>
         </div>
 
-
       </div>
+
+
 
 
 
@@ -173,9 +174,24 @@
         <div class="cv">
 
           <div class="cv_block" id="work_experience"><a name="work_experience"></a>
-            <h1>Опыт работы</h1>
+            <h1 style="margin-bottom: 0">Опыт работы</h1>
 
-            <h2>Академическая деятельность</h2>
+            <div class="menu3" id="menu_work_experience">
+              <div class="menu3_item">
+                <a href="#academic">академическая деятельность</a>
+              </div>
+              <div class="menu3_item">
+                <a href="#teaching">преподавательская деятельность</a>
+              </div>
+              <div class="menu3_item">
+                <a href="#management">административная, менеджерская и организационная деятельность</a>
+              </div>
+              <div class="menu3_item">
+                <a href="#other">другое</a>
+              </div>
+            </div>
+
+            <h2>Академическая деятельность</h2><a name="academic"></a>
               <div class="item">
                 <p class="position">стажёр-исследователь</p>
                 <p class="organization">научно-учебная лаборатория когнитивной психологии пользователя цифровых интерфейсов,
@@ -188,7 +204,7 @@
                   выступление на конференциях</p>
               </div>
 
-            <h2>Преподавательская деятельность</h2>
+            <h2>Преподавательская деятельность</h2><a name="teaching"></a>
 
             <!---
             <div class="item">
@@ -278,7 +294,7 @@
 
 
 
-            <h2>Административная, менеджерская и организационная деятельность</h2>
+            <h2>Административная, менеджерская и организационная деятельность</h2><a name="management"></a>
 
             <div class="item">
               <p class="position">младший менеджер</p>
@@ -439,7 +455,7 @@
                 составление методических рекомендаций по работе отдела</p>
             </div>
 
-            <h2>Другое</h2>
+            <h2>Другое</h2><a name="other"></a>
 
             <div class="item">
               <p class="position">приглашённый лектор, семинарист</p>
@@ -671,7 +687,6 @@
 
       age_span.innerHTML = age + year_declination;
       current_year_span.innerHTML = today.getFullYear();
-
     </script>
 
   </body>
