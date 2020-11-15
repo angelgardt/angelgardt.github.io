@@ -337,3 +337,19 @@ ul.copyright li a:hover {
   font-size: 18pt;
   padding: 0.5%;
 }
+
+
+/* 404 */
+
+.error404 {
+  font-family: "GothamProBlack";
+  font-size: 100px;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+#footer404 {
+  position: fixed;
+  bottom: 0;
+}
