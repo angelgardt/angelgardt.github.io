@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
     <title>A. N. Angelgardt</title>
-    <meta name="description" content="место для тех, кто хочет понять математику">
+    <meta name="description" content="место для тех, кто хочет понять">
     <meta name="keywords" content="математика,программирование,R,статистика,матан,линал,теорвер,тервер,дискра,логика">
     <link rel="stylesheet" href="style.css" type="text/css">
   </head>
-
-
   <body>
-    <div class="header">
 
-      <div class="logoimg"> <a href="https://angelgardt.github.io/"> <img src="images/angelgardt.png" alt=""> </a> </div>
+    <div class="body-wrapper" id="wrapper">
 
+      <header>
+        <div class="logoimg">
+          <a href="http://angelgardt.github.io/"> <img src="images/angelgardt.png" alt="angelgardt.github.io"> </a>
+        </div>
+      </header>
+
+      <div class="content">
+      </div>
+
+      <div class="push"></div>
     </div>
 
+    <footer id="footer">
+      <ul class="menufoot">
+        <li>
+          <a href="http://angelgardt.github.io/">домой</a>
+        </li>
+      </ul>
 
+      <ul class="copyright">
+        <li>
+          <a href="http://angelgardt.github.io/angelgardt">Anton Angelgardt</a>
+        </li>
+        <li>
+          <a>2020–<span id="current_year"></span></a>
+        </li>
+      </ul>
+    </footer>
 
-    <div class="content">
-      <!-- <h1> МК gpplot2 (Курс «Научно-исследовательский семинар: Анализ и визуализация данных в психологии», НИУ ВШЭ, 2020) </h1>
-      <h1> МК gpplot2 (Курс «Анализ данных + R: от t-теста до моделей со смешанными эффектами», HSE UX LAB, 2020) </h1> -->
-    </div>
-
-
-
-      <footer>
-        <ul class='menufoot'>
-          <li><a href="https://angelgardt.github.io/">домой</a></li>
-        </ul>
-
-        <ul class="copyright">
-          <li><a href="#">Anton Angelgardt</a></li>
-          <li><a>2020</a></li>
-        </ul>
-      </footer>
+    <script type="text/javascript">
+      var current_year_span = document.getElementById('current_year');
+      var today = new Date();
+      current_year_span.innerHTML = today.getFullYear();
+    </script>
 
   </body>
 </html>
