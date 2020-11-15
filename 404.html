@@ -1,44 +1,76 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
-    <meta name="description" content="место для тех, кто хочет понять математику">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>A. N. Angelgardt</title>
+    <meta name="description" content="место для тех, кто хочет понять">
     <meta name="keywords" content="математика,программирование,R,статистика,матан,линал,теорвер,тервер,дискра,логика">
     <link rel="stylesheet" href="style.css" type="text/css">
   </head>
-
-
   <body>
-    <div class="header">
 
-      <div class="logoimg"> <a href="https://angelgardt.github.io/"><img src="images/angelgardt.png" alt=""> </div></a>
+    <div class="body-wrapper" id="wrapper">
 
-    </div>
-
-
-
-    <div class="content">
-
-        <div class="div404">
-          <img src="images/404.png" alt="404">
+      <header>
+        <div class="logoimg">
+          <a href="http://angelgardt.github.io/">
+            <!---<img src="images/angelgardt.png" alt="angelgardt.github.io">--->
+            angelgardt.github.io
+          </a>
         </div>
+        <div class="menu_container">
 
+          <div class="menu_item">
+            <a href="#">главная</a>
+          </div>
+
+          <div class="menu_item">
+            <a href="https://angelgardt.github.io/angelgardt/">об авторе</a>
+          </div>
+
+        </div>
+      </header>
+
+
+
+
+
+      <div class="content">
+        <div class="error404">
+          404
+        </div>
+      </div>
+
+
+
+
+
+      <div class="push"></div>
     </div>
 
+    <footer id="footer404">
+      <ul class="menufoot">
+        <li>
+          <a href="http://angelgardt.github.io/">домой</a>
+        </li>
+      </ul>
 
+      <ul class="copyright">
+        <li>
+          <a href="http://angelgardt.github.io/angelgardt">Anton Angelgardt</a>
+        </li>
+        <li>
+          <a>2020–<span id="current_year"></span></a>
+        </li>
+      </ul>
+    </footer>
 
-      <footer style="display: none;">
-        <ul class='menufoot'>
-          <li><a href="https://angelgardt.github.io/">домой</a></li>
-        </ul>
-
-        <ul class="copyright">
-          <li><a href="#">Anton Angelgardt</a></li>
-          <li><a>2020</a></li>
-        </ul>
-      </footer>
+    <script type="text/javascript">
+      var current_year_span = document.getElementById('current_year');
+      var today = new Date();
+      current_year_span.innerHTML = today.getFullYear();
+    </script>
 
   </body>
 </html>
