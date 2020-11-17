@@ -352,10 +352,30 @@ ul.copyright li a:hover {
   font-size: 14pt;
 }
 
+summary {
+  font-family: "HelveticaRegular";
+  font-size: 18pt;
+  color: #141414;
+  padding-left: 2%;
+}
+
+summary:hover {
+  cursor: pointer;
+  color: #828282;
+  text-decoration: underline;
+}
+
 #languages ul li {
   font-family: "HelveticaRegular";
   font-size: 18pt;
   padding: 0.5%;
+}
+
+.pub_item {
+  font-family: "HelveticaRegular";
+  font-size: 18pt;
+  line-height: 1.5;
+  color: #141414;
 }
 
 
