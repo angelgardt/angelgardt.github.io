@@ -140,6 +140,7 @@ footer {
 
 ul.menufoot {
   display: block;
+  list-style: none;
 }
 
 ul.menufoot li {
