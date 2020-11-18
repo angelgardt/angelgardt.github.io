@@ -160,6 +160,7 @@ ul.menufoot li a:hover {
 
 ul.copyright {
   display: block;
+  list-style: none;
 }
 
 ul.copyright li {
