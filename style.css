@@ -86,6 +86,29 @@ header {
   cursor: pointer;
 }
 
+.lang_swich {
+  display: inline-block;
+  float: right;
+  margin: 0% 1% 0% 1%;
+  padding: 1%;
+}
+
+.lang_swich a {
+  font-family: 'HelveticaLight';
+  font-size: 12pt;
+  color: #959595;
+}
+
+.lang_swich:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
+}
+
+.current_lang {
+  font-family: 'HelveticaBold';
+  color: #e6e6e6;
+}
+
 .logoimg {
   padding-top: 2%;
   padding-bottom: 2%;
