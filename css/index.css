@@ -1,34 +1,34 @@
 @font-face {
   font-family: "HelveticaNeueLight";
-  src: url('fonts/HelveticaNeueLight.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueLight.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaBold";
-  src: url('fonts/HelveticaBold.ttf') format('truetype');
+  src: url('/fonts/HelveticaBold.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaRegular";
-  src: url('fonts/HelveticaRegular.ttf') format('truetype');
+  src: url('/fonts/HelveticaRegular.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaLight";
-  src: url('fonts/HelveticaLight.ttf') format('truetype');
+  src: url('/fonts/HelveticaLight.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "GothamProBlack";
-  src: url('fonts/GothamProBlack.ttf') format('truetype');
+  src: url('/fonts/GothamProBlack.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
