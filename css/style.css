@@ -93,25 +93,11 @@ header {
   padding: 1%;
 }
 
-/*.lang_swich a {
+.lang_switch_select {
+  background: transparent;
+  background-color: inherit;
   font-family: 'HelveticaLight';
   font-size: 12pt;
-  color: #959595;
-}*/
-
-.lang_switch:hover {
-  background-color: #1e1e1e;
-  cursor: pointer;
-}
-
-.lang_switch_select option {
-  font-family: 'HelveticaLight';
-  font-size: 12pt;
-  color: #959595;
-}
-
-.current_lang {
-  font-family: 'HelveticaBold';
   color: #e6e6e6;
 }
 
