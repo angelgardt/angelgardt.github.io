@@ -30,8 +30,11 @@
             <a href="#">author</a>
           </div>
 
-          <div class="lang_swich" onclick="location.href='http://angelgardt.github.io/angelgardt'">
-            <a href="http://angelgardt.github.io/angelgardt"><span>RU</span> / <span class="current_lang">EN</span></a>
+          <div class="lang_swich">
+            <select class="lang_switch_select" onchange="location.href=value">
+              <option value="http://angelgardt.github.io/en/angelgardt" selected>EN</option>
+              <option value="http://angelgardt.github.io/ru/angelgardt">RU</option>
+            </select>
           </div>
 
         </div>
@@ -1207,7 +1210,7 @@
     <footer id="footer">
       <ul class="menufoot">
         <li>
-          <a href="http://angelgardt.github.io/">home</a>
+          <a href="http://angelgardt.github.io">home</a>
         </li>
       </ul>
 
