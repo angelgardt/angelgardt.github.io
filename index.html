@@ -30,8 +30,12 @@
             <a href="https://angelgardt.github.io/en/angelgardt">author</a>
           </div>
 
-          <div class="lang_swich" onclick="location.href='http://angelgardt.github.io/'">
-            <a href="http://angelgardt.github.io/"><span>RU</span> / <span class="current_lang">EN</span></a>
+          <div class="lang_switch" onclick="location.href='http://angelgardt.github.io/'">
+            <!---<a href="http://angelgardt.github.io/"><span>RU</span> / <span class="current_lang">EN</span></a>--->
+            <select class="lang_switch_select" onchange="location.href=value">
+              <option value="http://angelgardt.github.io">EN</option>
+              <option value="http://angelgardt.github.io/ru">RU</option>
+            </select>
           </div>
 
         </div>
