@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: url('fonts/HelveticaNeueLight.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url('fonts/HelveticaBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaRegular";
+  src: url('fonts/HelveticaRegular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaLight";
+  src: url('fonts/HelveticaLight.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "GothamProBlack";
+  src: url('fonts/GothamProBlack.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.error404 {
+  font-family: "GothamProBlack";
+  font-size: 100px;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.error404_text {
+  font-family: 'HelveticaBold';
+  font-size: 100px;
+  text-align: center;
+}
+
+#footer404 {
+  position: fixed;
+  bottom: 0;
+}

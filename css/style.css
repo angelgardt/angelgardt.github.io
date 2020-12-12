@@ -1,0 +1,208 @@
+@font-face {
+  font-family: "HelveticaNeueLight";
+  src: url('fonts/HelveticaNeueLight.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url('fonts/HelveticaBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaRegular";
+  src: url('fonts/HelveticaRegular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HelveticaLight";
+  src: url('fonts/HelveticaLight.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "GothamProBlack";
+  src: url('fonts/GothamProBlack.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+/* common style */
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.body_wrapper {
+  min-height: 100%;
+  /*margin-bottom: -120px;*/
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  height: 100%;
+  width: 100%;
+  background-color: #141414;
+  text-align: center;
+}
+
+.menu_item {
+  display: inline-block;
+  margin: 0% 1% 0% 1%;
+  padding: 1%;
+}
+
+.menu_item a {
+  font-family: 'HelveticaLight';
+  font-size: 14pt;
+  color: #e6e6e6;
+}
+
+.menu_item:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
+}
+
+.menu_item_current {
+  background-color: #1e1e1e;
+  cursor: pointer;
+}
+
+.lang_switch {
+  display: inline-block;
+  float: right;
+  margin: 0% 1% 0% 1%;
+  padding: 1%;
+}
+
+/*.lang_swich a {
+  font-family: 'HelveticaLight';
+  font-size: 12pt;
+  color: #959595;
+}*/
+
+.lang_switch:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
+}
+
+.lang_switch_select option {
+  font-family: 'HelveticaLight';
+  font-size: 12pt;
+  color: #959595;
+}
+
+.current_lang {
+  font-family: 'HelveticaBold';
+  color: #e6e6e6;
+}
+
+.logoimg {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.logoimg a {
+  font-family: "GothamProBlack";
+  font-size: 50pt;
+  color: #f5f5f5;
+}
+
+.content {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.title {
+  font-family: 'GothamProBlack';
+  font-size: 50px;
+}
+
+h1 {
+  font-family: 'HelveticaBold';
+  font-size: 30pt;
+  margin-top: 5%;
+  background-color: #141414;
+  color: #f5f5f5;
+  padding: 1%;
+}
+
+h2 {
+  font-family: 'HelveticaBold';
+  font-size: 24pt;
+  margin-top: 3%;
+  padding-left: 2%;
+}
+
+h3 {
+  font-family: 'HelveticaBold';
+  font-size: 20pt;
+  margin-top: 2%;
+  padding-left: 3%;
+}
+
+
+footer {
+  width: 98%;
+  background-color: #141414;
+  padding: 1%;
+  margin-top: 5%;
+}
+
+ul.menufoot {
+  display: block;
+  list-style: none;
+}
+
+ul.menufoot li {
+  display: inline-block;
+  padding-right: 1%;
+}
+
+ul.menufoot li a {
+  font-family: 'HelveticaNeueLight';
+  font-size: 100%;
+  color: #959595;
+}
+
+ul.menufoot li a:hover {
+  color: #f5f5f5;
+}
+
+ul.copyright {
+  display: block;
+  list-style: none;
+}
+
+ul.copyright li {
+  display: inline-block;
+  padding-right: 1%;
+}
+
+ul.copyright li a {
+  font-family: 'HelveticaNeueLight';
+  font-size: 100%;
+  color: #959595;
+}
+
+ul.copyright li a:hover {
+  color: #f5f5f5;
+}
