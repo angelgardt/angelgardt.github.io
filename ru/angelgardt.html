@@ -6,7 +6,8 @@
     <title>A. N. Angelgardt | A. N. Angelgardt</title>
     <meta name="description" content="место для тех, кто хочет понять">
     <meta name="keywords" content="математика,программирование,R,статистика,матан,линал,теорвер,тервер,дискра,логика">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/angelgardt.css" type="text/css">
   </head>
   <body>
 
@@ -29,8 +30,12 @@
             <a href="#">об авторе</a>
           </div>
 
-          <div class="lang_swich" onclick="location.href='http://angelgardt.github.io/en/angelgardt'">
-            <a href="http://angelgardt.github.io/en/angelgardt"><span class="current_lang">RU</span> / <span>EN</span></a>
+          <div class="lang_switch">
+            <!---<a href="http://angelgardt.github.io/en/"><span class="current_lang">RU</span> / <span>EN</span></a>--->
+            <select class="lang_switch_select" name="lang_page" onchange="location.href=value">
+              <option value="https://angelgardt.github.io/en/angelgardt">EN</option>
+              <option value="https://angelgardt.github.io/ru/angelgardt">RU</option>
+            </select>
           </div>
 
         </div>
