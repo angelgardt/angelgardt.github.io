@@ -30,8 +30,12 @@
             <a href="https://angelgardt.github.io/en/angelgardt">author</a>
           </div>
 
-          <div class="lang_swich" onclick="location.href='http://angelgardt.github.io/'">
-            <a href="http://angelgardt.github.io/"><span>RU</span> / <span class="current_lang">EN</span></a>
+          <div class="lang_switch">
+            <!---<a href="http://angelgardt.github.io/en/"><span class="current_lang">RU</span> / <span>EN</span></a>--->
+            <select class="lang_switch_select" name="lang_page" onchange="location.href=value">
+              <option value="https://angelgardt.github.io/en/" selected>EN</option>
+              <option value="https://angelgardt.github.io/ru/">RU</option>
+            </select>
           </div>
 
         </div>
@@ -44,7 +48,7 @@
       <div class="content">
 
         <h1>Research Seminar: Data Analysis and Data Visualization in Psychology (in Russian)</h1>
-        <p class="duration">National Research University Higher Scholl of Economics, spring 2020</p>
+        <p class="duration">National Research University Higher School of Economics, spring 2020</p>
 
         <p class="material">
           <a href="https://angelgardt.github.io/mk_ggplot2/mk_ggplot2.html">Master Class ggplot2</a>
