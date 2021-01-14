@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Собственно, можно вывести иерархию приведения типов:</p>
 <center>
-logical &lt; integer &lt; numeric &lt; complex &lt; character
+<strong> logical &lt; integer &lt; numeric &lt; complex &lt; character </strong>
 </center>
 </div>
 <div id="генерация-числовых-последовательностей" class="section level3">
@@ -360,7 +360,7 @@ logical &lt; integer &lt; numeric &lt; complex &lt; character
 </div>
 <p>Также можно сгенерировать случайную последовательность чисел (например, для того, чтобы использовать её при сабсете случайной подвыборки данных):</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="структуры-данных.html#cb22-1"></a><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">size =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>##  [1]  5 10  1  8 11  2 21 25 15 12 17 30  4 20 29</code></pre>
+<pre><code>##  [1]  5 17  7 28  9  8 23 13 30 10 14  6 21  4 15</code></pre>
 <img class="taskimg" src="img/question.png">
 <div class="task">
 <p>По умолчанию функция <code>sample()</code> генерирует случайную последовательность с учетом того, что выпадение каждого числа равновероятно. Как изменить это условие?</p>
@@ -430,18 +430,165 @@ logical &lt; integer &lt; numeric &lt; complex &lt; character
 <p>Большинство арифметических функций выполняется поэлементно, однако существуют такие, которые поэлементно не могут быть выполнены, например сумма по вектору:</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="структуры-данных.html#cb49-1"></a><span class="kw">sum</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 878</code></pre>
-<p>Или функция, которая вычисляет длину вектора (в смысле колиичества элементов в нём):</p>
+<p>Или функция, которая вычисляет длину вектора (в смысле количества элементов в нём):</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="структуры-данных.html#cb51-1"></a><span class="kw">length</span>(v2)</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 </div>
 <div id="recycling" class="section level3">
 <h3><span class="header-section-number">3.1.4</span> Recycling</h3>
+<p>Доныне мы складывали векторы одинаковой длины. С ними всё ясно — они складываются поэлементно. А что будет, если мы сложим векторы разной длины?</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="структуры-данных.html#cb53-1"></a>v3 &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span>, <span class="dt">times =</span> <span class="dv">10</span>); v3 <span class="co"># создаём векторы</span></span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 1 1 1 1 1 1</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="структуры-данных.html#cb55-1"></a>v4 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">2</span>); v4</span></code></pre></div>
+<pre><code>## [1] 21  2</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="структуры-данных.html#cb57-1"></a>v5 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">3</span>); v5</span></code></pre></div>
+<pre><code>## [1] 58 10 40</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="структуры-данных.html#cb59-1"></a><span class="kw">length</span>(v3) <span class="co"># проверяем длину</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="структуры-данных.html#cb61-1"></a><span class="kw">length</span>(v4)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="структуры-данных.html#cb63-1"></a><span class="kw">length</span>(v5)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>Итак, сумма:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="структуры-данных.html#cb65-1"></a>v3 <span class="op">+</span><span class="st"> </span>v4</span></code></pre></div>
+<pre><code>##  [1] 22  3 22  3 22  3 22  3 22  3</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="структуры-данных.html#cb67-1"></a>v3 <span class="op">+</span><span class="st"> </span>v5</span></code></pre></div>
+<pre><code>## Warning in v3 + v5: longer object length is not a multiple of shorter object
+## length</code></pre>
+<pre><code>##  [1] 59 11 41 59 11 41 59 11 41 59</code></pre>
+<p>Внимательно посмотрим на результат. В первом случае мы складывали вектор из десяти элементов и вектор из двух элементов. Чтобы выполнирь эту операцию R выполняет <em>зацикливание (recycling)</em> более короткого из двух, чтобы каждый элемент большего по длине вектора получил в соответствии элементн меньшего. Так как десять кратно двум, то по сути было выполнена следующая команда:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="структуры-данных.html#cb70-1"></a>v3 <span class="op">+</span><span class="st"> </span><span class="kw">rep</span>(v4, </span>
+<span id="cb70-2"><a href="структуры-данных.html#cb70-2"></a>         <span class="dt">times =</span> <span class="kw">length</span>(v3) <span class="op">/</span><span class="st"> </span><span class="kw">length</span>(v4))</span></code></pre></div>
+<pre><code>##  [1] 22  3 22  3 22  3 22  3 22  3</code></pre>
+<p>Во втором случае длина меньшего вектора не кратна длине большего, поэтому recycling происходит до тех пор, пока не будут покрыты все элемент большего вектора. Вектор из трех элементов укладывается на вектор из десяти элементов три раза — поэтому мы видим в результате три раза последовательность <code>59, 11, 41</code> — и остается ещё один десятый элемент, который суммируется в первым элементом меньшего вектора — поэтому последний элемент в векторе результата <code>59</code>.</p>
 </div>
 <div id="индексация-векторов" class="section level3">
 <h3><span class="header-section-number">3.1.5</span> Индексация векторов</h3>
+<p>В практике мы постоянно сталкиваемся в необходимость анализировать не все данные в векторе, а их часть. Поэтому встаёт вопрос о том, как эту часть извлечь?</p>
+<p>Извлечение части данных из вектора называется <strong>индексацией</strong>. Это делается так:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="структуры-данных.html#cb72-1"></a>v1[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>] <span class="co"># первые десять элементов вектора</span></span></code></pre></div>
+<pre><code>##  [1]  49  65  25  74  18 100  47  24  71  89</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="структуры-данных.html#cb74-1"></a>v1[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>)] <span class="co"># 1-й, 3-й, 5-й и 7-й элементы вектора</span></span></code></pre></div>
+<pre><code>## [1] 49 25 18 47</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="структуры-данных.html#cb76-1"></a>v1[<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dv">5</span>)] <span class="co"># случайная подвыборка пяти элементов</span></span></code></pre></div>
+<pre><code>## [1] 18 49 36 47 74</code></pre>
+<p>Логика проста — чтобы взять часть вектора, нам нужен вектор индексов тех элементов, которые мы хотим вытащить. Его мы поместим в квадратные скобки — и будет нам счастье. Вектор индектов можно получить любыми способами:</p>
+<ul>
+<li>сгенерировать последовательноть (как в первом варианте),</li>
+<li>задать индексы вручную, не забыв при этом обернуть их в фнукцию <code>c()</code>, чтобы указать, что это вектор, (как во втором варианте),</li>
+<li>воспользоваться функцией, которая возвращает вектор.</li>
+</ul>
+<p>Полезно также является индексация через отрицательные индексы:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="структуры-данных.html#cb78-1"></a>v2</span></code></pre></div>
+<pre><code>##  [1]   7  -9 -27  -8  92 100  85 -15  17  58  41 -47  48  63 -45  83  79  65 -48
+## [20]  67</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="структуры-данных.html#cb80-1"></a>v2[<span class="op">-</span><span class="dv">1</span>] <span class="co"># все элементы, кроме первого</span></span></code></pre></div>
+<pre><code>##  [1]  -9 -27  -8  92 100  85 -15  17  58  41 -47  48  63 -45  83  79  65 -48  67</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="структуры-данных.html#cb82-1"></a>v2[<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)] <span class="co"># все элементы, кроме первых пяти</span></span></code></pre></div>
+<pre><code>##  [1] 100  85 -15  17  58  41 -47  48  63 -45  83  79  65 -48  67</code></pre>
+<img class="taskimg" src="img/code.png">
+<div class="task">
+<p>Запишите в вектор результат следующей команды:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="структуры-данных.html#cb84-1"></a><span class="kw">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/book/wlm2021-book/data/indexing_vectors.csv&#39;</span>)[[<span class="st">&#39;x&#39;</span>]]</span></code></pre></div>
+<p>Задайте положение датчик случайный чисел:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="структуры-данных.html#cb85-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span></code></pre></div>
+<p>Выберите из получившего вектора все значения, <em>кроме тех</em>, которые попадут в случайную подвыборку из 50 наблюдений. Вычислите сумму элементов получившегося вектора.</p>
+<p><em>Подсказка. Функции <code>sample()</code> необходимы границы интервала, из которого она генерирует случайную подвыборку. Одна из границ интервала — длина вектора, с которым вы работаете.</em></p>
+<div class="autocheck">
+<input class="taskinput" id="input1" type="text">
+<input class="taskcheck" type="button" value="Проверить" onClick="check1()">
+<div id="taskans1" class="taskans" hidden="">
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var input1 = document.getElementById("input1")
+var taskans1 = document.getElementById("taskans1")
+
+function check1() {
+  if (input1.value == '149885') {
+    taskans1.hidden = false;
+    taskans1.innerHTML = 'Верно!';
+    taskans1.style = "color:  #00aa4a";
+  } else
+  {
+    taskans1.hidden = false;
+    taskans1.innerHTML = 'У меня другой ответ…';
+    taskans1.style = "color:  #b73239";
+  }
+}
+</script>
+<p>Особого внимания заслуживает <strong>индексация логическими векторами</strong>. Например, мы хотим отобрать все элементы вектора, которые больше некоторого числа. Как это сделать?</p>
+<p>Нам нужен вектор, которым мы будем индексировать исходный вектор. Как его получить? Известно, что при сравнении векторов между собой получается логический вектор. Но ведь число — это тоже вектор, просто единичной длины? Значит, если мы будем сравнивать вектор с числом, произойдёт recycling, в результате которого каждый элемент вектора будет сравнен с этим числом. То есть:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="структуры-данных.html#cb86-1"></a>v1 <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span></span></code></pre></div>
+<pre><code>##  [1]  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE
+## [13] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+<p>Отлично! Вектор есть. Можно ли им проидексировать наш исходный вектор <code>v1</code>? Можно! Аналогично тому, как мы это уже делали.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="структуры-данных.html#cb88-1"></a>v1[v1 <span class="op">&gt;</span><span class="st"> </span><span class="dv">40</span>]</span></code></pre></div>
+<pre><code>## [1]  49  65  74 100  47  71  89  41  87</code></pre>
+<p>Конструкция, возможно, выглядит немного странновато — но работает!</p>
+<img class="taskimg" src="img/code.png">
+<div class="task">
+<p>Возмите вектор <code>v1</code>, с которым мы только что работали и с опорой на имеющийся в предыдущем чанке код, вытащите из вектора элементы, который <em>не больше</em> среднего значения по вектору.</p>
+<p>Мы ещё не изучали описательные статистики, но со средним арифметическим вроде все знакомы? Вычисляется оно с помощью функции <code>mean()</code>.</p>
+<pre><code>##  [1] 25 18 24 37 20 26  3 41 27 36  5 34</code></pre>
+</div>
 </div>
 <div id="na-nan-null" class="section level3">
 <h3><span class="header-section-number">3.1.6</span> NA, NaN, NULL</h3>
+<p>Взбунтуемся ещё раз и посмотрим, что получится, если мы будем вытаскивать из вектора элементы, используя индексы, которые выходят за границы длины вектора. Например, у нас есть вектор <code>v2</code>, длина которого</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="структуры-данных.html#cb91-1"></a><span class="kw">length</span>(v2)</span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<p>Попробуем сделать так:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="структуры-данных.html#cb93-1"></a>v2[<span class="dv">15</span><span class="op">:</span><span class="dv">25</span>]</span></code></pre></div>
+<pre><code>##  [1] -45  83  79  65 -48  67  NA  NA  NA  NA  NA</code></pre>
+<p>Мы получили нечто, с чем ранее не сталкивались. <code>NA</code> (от <em>not available</em>) обозначает значение, которое недоступно. Как правило, в реальных данных они появляются при каких-либо ошибках записи данных. Впрочем, не всегда. Можно придумать и такой дизайн исследования, когда пропуски также будут информативны и могут анализировться. В нашем случае мы обратились к элементам, которых нет в нашем векторе, поэтому R ничего более не смог сделать, как вернуть нам свидетельство того, что такие элементы он из вектора достать не смог.</p>
+<img class="taskimg" src="img/question.png">
+<div class="task">
+<p>К какому типу даных относится константа <code>NA</code>?</p>
+</div>
+<p><code>NA</code> ведёт себя весьма специфично. Например, если мы попробуем посчитать сумму по получившемуся вектору, то результат будет следующим:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="структуры-данных.html#cb95-1"></a><span class="kw">sum</span>(v2[<span class="dv">15</span><span class="op">:</span><span class="dv">25</span>])</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Аналогичная ситуация возникнет, если мы будем вычислять среднее:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="структуры-данных.html#cb97-1"></a><span class="kw">mean</span>(v2[<span class="dv">15</span><span class="op">:</span><span class="dv">25</span>])</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Такое поведение функций может поначалу напрягать, однако оказывается очень полезным при работе с реальными данными.</p>
+<img class="taskimg" src="img/question.png">
+<div class="task">
+<p>И всё же функция <code>sum()</code> не так проста, и умеет бороться с <code>NA</code>. Как нужно изменить команду, чтобы сумма была посчитана?</p>
+</div>
+<p>Попробуем вычислить логарифм по вектору <code>v2</code>:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="структуры-данных.html#cb99-1"></a><span class="kw">log</span>(v2)</span></code></pre></div>
+<pre><code>## Warning in log(v2): NaNs produced</code></pre>
+<pre><code>##  [1] 1.945910      NaN      NaN      NaN 4.521789 4.605170 4.442651      NaN
+##  [9] 2.833213 4.060443 3.713572      NaN 3.871201 4.143135      NaN 4.418841
+## [17] 4.369448 4.174387      NaN 4.204693</code></pre>
+<p>Опять всё не слава богу. Теперь у нас <code>NaN</code>. Это почти как <code>NA</code>, но не совсем. <code>NaN</code> обозначает не-число (<em>not a number</em>). То есть, это не пропущенное значение, оно существует, но R его не может вычислить. Если мы сравним два вектора,</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="структуры-данных.html#cb102-1"></a>v2; <span class="kw">log</span>(v2)</span></code></pre></div>
+<pre><code>##  [1]   7  -9 -27  -8  92 100  85 -15  17  58  41 -47  48  63 -45  83  79  65 -48
+## [20]  67</code></pre>
+<pre><code>## Warning in log(v2): NaNs produced</code></pre>
+<pre><code>##  [1] 1.945910      NaN      NaN      NaN 4.521789 4.605170 4.442651      NaN
+##  [9] 2.833213 4.060443 3.713572      NaN 3.871201 4.143135      NaN 4.418841
+## [17] 4.369448 4.174387      NaN 4.204693</code></pre>
+<p>то обнаружим, что <code>NaN</code> появляется там, где мы пытаемся вычислить логарим отрицательного числа. А, как мы помним, функция логарифма определена только на положительно полуоси <span class="math inline">\(x\)</span>. Вот и получается, что логарифм отрицательного аргумента — это какая-то неведомая сущность, то точно не-число.</p>
+<p>В функциях <code>NaN</code> ведёт себя аналогично <code>NA</code>:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="структуры-данных.html#cb106-1"></a><span class="kw">sum</span>(<span class="kw">log</span>(v2))</span></code></pre></div>
+<pre><code>## Warning in log(v2): NaNs produced</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<img class="taskimg" src="img/question.png">
+<div class="task">
+<p>К какому типу даных относится константа <code>NaN</code>?</p>
+</div>
+<p>Мы поговорили о двух важный константах используемых в R. Есть ещё одна, и имя её <code>NULL</code>. Это имя обозначает «ничего», то есть, что объект пуст.</p>
+<p>Например, возьмем вектор <code>v</code>, который мы создавали в самом начале, и положим в него <code>NULL</code>:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="структуры-данных.html#cb109-1"></a>v &lt;-<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb109-2"><a href="структуры-данных.html#cb109-2"></a>v</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p>Теперь в этом векторе ничего не лежит.</p>
+<p><code>NULL</code> может использоваться при задании аргументов функций или как результат работы функций, если возвращается пустой объект.</p>
 </div>
 </div>
 <div id="матрицы" class="section level2">
