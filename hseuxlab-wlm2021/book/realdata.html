@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Работа с реальными данными | HSE UX LAB | Анализ данных + R: мир линейных моделей | Book</title>
+  <meta name="description" content="Книга написана для слушателей курса по анализу данных от HSE UX LAB" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Работа с реальными данными | HSE UX LAB | Анализ данных + R: мир линейных моделей | Book" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Книга написана для слушателей курса по анализу данных от HSE UX LAB" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Работа с реальными данными | HSE UX LAB | Анализ данных + R: мир линейных моделей | Book" />
+  
+  <meta name="twitter:description" content="Книга написана для слушателей курса по анализу данных от HSE UX LAB" />
+  
+
+<meta name="author" content="А. Ангельгардт" />
+
+
+<meta name="date" content="2021-01-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="strings.html"/>
+<link rel="next" href="предобработка-данных-концепция-tidy-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="">HSE UX LAB | WLM 2021</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#благодарности"><i class="fa fa-check"></i>Благодарности</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#условные-обозначения"><i class="fa fa-check"></i>Условные обозначения</a></li>
+</ul></li>
+<li class="part"><span><b>I R programming</b></span></li>
+<li class="chapter" data-level="1" data-path="Rintro.html"><a href="Rintro.html"><i class="fa fa-check"></i><b>1</b> Знакомство с R и RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="Rintro.html"><a href="Rintro.html#что-это-и-откуда"><i class="fa fa-check"></i><b>1.1</b> Что это и откуда?</a></li>
+<li class="chapter" data-level="1.2" data-path="Rintro.html"><a href="Rintro.html#whyr"><i class="fa fa-check"></i><b>1.2</b> Почему R?</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="Rintro.html"><a href="Rintro.html#а-он-лучше-питона"><i class="fa fa-check"></i><b>1.2.1</b> А он лучше Питона?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="Rintro.html"><a href="Rintro.html#установка-r-и-rstudio"><i class="fa fa-check"></i><b>1.3</b> Установка R и RStudio</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="Rintro.html"><a href="Rintro.html#а-зачем-обе-штуки-ставить"><i class="fa fa-check"></i><b>1.3.1</b> А зачем обе штуки ставить?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="Rintro.html"><a href="Rintro.html#где-спросить-вопрос-или-искать-ответ"><i class="fa fa-check"></i><b>1.4</b> Где спросить вопрос или искать ответ?</a></li>
+<li class="chapter" data-level="1.5" data-path="Rintro.html"><a href="Rintro.html#интерфейс-r"><i class="fa fa-check"></i><b>1.5</b> Интерфейс R</a></li>
+<li class="chapter" data-level="1.6" data-path="Rintro.html"><a href="Rintro.html#интерфейс-rstudio"><i class="fa fa-check"></i><b>1.6</b> Интерфейс RStudio</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="Rintro.html"><a href="Rintro.html#console"><i class="fa fa-check"></i><b>1.6.1</b> Console</a></li>
+<li class="chapter" data-level="1.6.2" data-path="Rintro.html"><a href="Rintro.html#code-editor"><i class="fa fa-check"></i><b>1.6.2</b> Code Editor</a></li>
+<li class="chapter" data-level="1.6.3" data-path="Rintro.html"><a href="Rintro.html#environment-workspace-и-history"><i class="fa fa-check"></i><b>1.6.3</b> Environment (Workspace) и History</a></li>
+<li class="chapter" data-level="1.6.4" data-path="Rintro.html"><a href="Rintro.html#plots-files-packages-help-viewer"><i class="fa fa-check"></i><b>1.6.4</b> Plots, Files, Packages, Help, Viewer</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="Rintro.html"><a href="Rintro.html#r-как-калькулятор"><i class="fa fa-check"></i><b>1.7</b> R как калькулятор</a><ul>
+<li class="chapter" data-level="1.7.1" data-path="Rintro.html"><a href="Rintro.html#арифметические-операции"><i class="fa fa-check"></i><b>1.7.1</b> Арифметические операции</a></li>
+<li class="chapter" data-level="1.7.2" data-path="Rintro.html"><a href="Rintro.html#funcs"><i class="fa fa-check"></i><b>1.7.2</b> Функции</a></li>
+<li class="chapter" data-level="1.7.3" data-path="Rintro.html"><a href="Rintro.html#сравнение-и-логические-операции"><i class="fa fa-check"></i><b>1.7.3</b> Сравнение и логические операции</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="Rintro.html"><a href="Rintro.html#assignment-и-переменные"><i class="fa fa-check"></i><b>1.8</b> Assignment и переменные</a></li>
+<li class="chapter" data-level="1.9" data-path="Rintro.html"><a href="Rintro.html#wd"><i class="fa fa-check"></i><b>1.9</b> Рабочая директория. Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>2</b> Типы данных</a><ul>
+<li class="chapter" data-level="2.1" data-path="datatypes.html"><a href="datatypes.html#numeric"><i class="fa fa-check"></i><b>2.1</b> <code>numeric</code></a></li>
+<li class="chapter" data-level="2.2" data-path="datatypes.html"><a href="datatypes.html#logical"><i class="fa fa-check"></i><b>2.2</b> <code>logical</code></a></li>
+<li class="chapter" data-level="2.3" data-path="datatypes.html"><a href="datatypes.html#character"><i class="fa fa-check"></i><b>2.3</b> <code>character</code></a></li>
+<li class="chapter" data-level="2.4" data-path="datatypes.html"><a href="datatypes.html#coercion-part-one"><i class="fa fa-check"></i><b>2.4</b> Coercion [part one]</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="datastructures.html"><a href="datastructures.html"><i class="fa fa-check"></i><b>3</b> Структуры данных</a><ul>
+<li class="chapter" data-level="3.1" data-path="datastructures.html"><a href="datastructures.html#векторы"><i class="fa fa-check"></i><b>3.1</b> Векторы</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="datastructures.html"><a href="datastructures.html#coercion-part-two"><i class="fa fa-check"></i><b>3.1.1</b> Coercion [part two]</a></li>
+<li class="chapter" data-level="3.1.2" data-path="datastructures.html"><a href="datastructures.html#генерация-числовых-последовательностей"><i class="fa fa-check"></i><b>3.1.2</b> Генерация числовых последовательностей</a></li>
+<li class="chapter" data-level="3.1.3" data-path="datastructures.html"><a href="datastructures.html#операции-с-векторами"><i class="fa fa-check"></i><b>3.1.3</b> Операции с векторами</a></li>
+<li class="chapter" data-level="3.1.4" data-path="datastructures.html"><a href="datastructures.html#recycling"><i class="fa fa-check"></i><b>3.1.4</b> Recycling</a></li>
+<li class="chapter" data-level="3.1.5" data-path="datastructures.html"><a href="datastructures.html#индексация-векторов"><i class="fa fa-check"></i><b>3.1.5</b> Индексация векторов</a></li>
+<li class="chapter" data-level="3.1.6" data-path="datastructures.html"><a href="datastructures.html#na-nan-null"><i class="fa fa-check"></i><b>3.1.6</b> NA, NaN, NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="datastructures.html"><a href="datastructures.html#матрицы"><i class="fa fa-check"></i><b>3.2</b> Матрицы</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="datastructures.html"><a href="datastructures.html#индексация-матриц"><i class="fa fa-check"></i><b>3.2.1</b> Индексация матриц</a></li>
+<li class="chapter" data-level="3.2.2" data-path="datastructures.html"><a href="datastructures.html#операции-в-матрицами"><i class="fa fa-check"></i><b>3.2.2</b> Операции в матрицами</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="datastructures.html"><a href="datastructures.html#списки"><i class="fa fa-check"></i><b>3.3</b> Списки</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="datastructures.html"><a href="datastructures.html#индексация-списков"><i class="fa fa-check"></i><b>3.3.1</b> Индексация списков</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="datastructures.html"><a href="datastructures.html#датафреймы"><i class="fa fa-check"></i><b>3.4</b> Датафреймы</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>4</b> Функции</a><ul>
+<li class="chapter" data-level="4.1" data-path="functions.html"><a href="functions.html#открытый-исходный-код"><i class="fa fa-check"></i><b>4.1</b> Открытый исходный код</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="strings.html"><a href="strings.html"><i class="fa fa-check"></i><b>5</b> Строки</a><ul>
+<li class="chapter" data-level="5.1" data-path="strings.html"><a href="strings.html#установка-дополнительных-пакетов"><i class="fa fa-check"></i><b>5.1</b> Установка дополнительных пакетов</a></li>
+<li class="chapter" data-level="5.2" data-path="strings.html"><a href="strings.html#создание-строк"><i class="fa fa-check"></i><b>5.2</b> Создание строк</a></li>
+<li class="chapter" data-level="5.3" data-path="strings.html"><a href="strings.html#конкатенация-строк"><i class="fa fa-check"></i><b>5.3</b> Конкатенация строк</a></li>
+<li class="chapter" data-level="5.4" data-path="strings.html"><a href="strings.html#разделение-строк"><i class="fa fa-check"></i><b>5.4</b> Разделение строк</a></li>
+<li class="chapter" data-level="5.5" data-path="strings.html"><a href="strings.html#сортировка-строк"><i class="fa fa-check"></i><b>5.5</b> Сортировка строк</a></li>
+<li class="chapter" data-level="5.6" data-path="strings.html"><a href="strings.html#изменение-регистра"><i class="fa fa-check"></i><b>5.6</b> Изменение регистра</a></li>
+<li class="chapter" data-level="5.7" data-path="strings.html"><a href="strings.html#поиск-подстроки"><i class="fa fa-check"></i><b>5.7</b> Поиск подстроки</a></li>
+<li class="chapter" data-level="5.8" data-path="strings.html"><a href="strings.html#изменение-строк"><i class="fa fa-check"></i><b>5.8</b> Изменение строк</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="strings.html"><a href="strings.html#выделение-подстроки"><i class="fa fa-check"></i><b>5.8.1</b> Выделение подстроки</a></li>
+<li class="chapter" data-level="5.8.2" data-path="strings.html"><a href="strings.html#замена-подстроки"><i class="fa fa-check"></i><b>5.8.2</b> Замена подстроки</a></li>
+<li class="chapter" data-level="5.8.3" data-path="strings.html"><a href="strings.html#удаление-подстроки"><i class="fa fa-check"></i><b>5.8.3</b> Удаление подстроки</a></li>
+<li class="chapter" data-level="5.8.4" data-path="strings.html"><a href="strings.html#транслитерация-строк"><i class="fa fa-check"></i><b>5.8.4</b> Транслитерация строк</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="strings.html"><a href="strings.html#регулярные-выражения"><i class="fa fa-check"></i><b>5.9</b> Регулярные выражения</a><ul>
+<li class="chapter" data-level="5.9.1" data-path="strings.html"><a href="strings.html#метасимволы"><i class="fa fa-check"></i><b>5.9.1</b> Метасимволы</a></li>
+<li class="chapter" data-level="5.9.2" data-path="strings.html"><a href="strings.html#классы-знаков"><i class="fa fa-check"></i><b>5.9.2</b> Классы знаков</a></li>
+<li class="chapter" data-level="5.9.3" data-path="strings.html"><a href="strings.html#quant"><i class="fa fa-check"></i><b>5.9.3</b> Квантификация</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="realdata.html"><a href="realdata.html"><i class="fa fa-check"></i><b>6</b> Работа с реальными данными</a><ul>
+<li class="chapter" data-level="6.1" data-path="realdata.html"><a href="realdata.html#рабочая-директория"><i class="fa fa-check"></i><b>6.1</b> Рабочая директория</a></li>
+<li class="chapter" data-level="6.2" data-path="realdata.html"><a href="realdata.html#импорт-данных"><i class="fa fa-check"></i><b>6.2</b> Импорт данных</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="realdata.html"><a href="realdata.html#форматы-данных"><i class="fa fa-check"></i><b>6.2.1</b> Форматы данных</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="realdata.html"><a href="realdata.html#исследование-данных"><i class="fa fa-check"></i><b>6.3</b> Исследование данных</a></li>
+<li class="chapter" data-level="6.4" data-path="realdata.html"><a href="realdata.html#rdata"><i class="fa fa-check"></i><b>6.4</b> <code>.RData</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="предобработка-данных-концепция-tidy-data.html"><a href="предобработка-данных-концепция-tidy-data.html"><i class="fa fa-check"></i><b>7</b> Предобработка данных. Концепция tidy data</a></li>
+<li class="chapter" data-level="8" data-path="визуализация-данных.html"><a href="визуализация-данных.html"><i class="fa fa-check"></i><b>8</b> Визуализация данных</a></li>
+<li class="part"><span><b>II Теория вероятностей и математическая статистика</b></span></li>
+<li class="chapter" data-level="9" data-path="математический-ликбез.html"><a href="математический-ликбез.html"><i class="fa fa-check"></i><b>9</b> Математический ликбез</a><ul>
+<li class="chapter" data-level="9.1" data-path="математический-ликбез.html"><a href="математический-ликбез.html#элементы-алгебры-логики"><i class="fa fa-check"></i><b>9.1</b> Элементы алгебры логики</a></li>
+<li class="chapter" data-level="9.2" data-path="математический-ликбез.html"><a href="математический-ликбез.html#элементы-теории-множеств"><i class="fa fa-check"></i><b>9.2</b> Элементы теории множеств</a></li>
+<li class="chapter" data-level="9.3" data-path="математический-ликбез.html"><a href="математический-ликбез.html#элементы-математического-анализа"><i class="fa fa-check"></i><b>9.3</b> Элементы математического анализа</a></li>
+<li class="chapter" data-level="9.4" data-path="математический-ликбез.html"><a href="математический-ликбез.html#matrix"><i class="fa fa-check"></i><b>9.4</b> Элементы линейной алгебры</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="математический-ликбез.html"><a href="математический-ликбез.html#что-такое-матрица"><i class="fa fa-check"></i><b>9.4.1</b> Что такое матрица?</a></li>
+<li class="chapter" data-level="9.4.2" data-path="математический-ликбез.html"><a href="математический-ликбез.html#откуда-берутся-матрицы"><i class="fa fa-check"></i><b>9.4.2</b> Откуда берутся матрицы?</a></li>
+<li class="chapter" data-level="9.4.3" data-path="математический-ликбез.html"><a href="математический-ликбез.html#действия-с-матрицами"><i class="fa fa-check"></i><b>9.4.3</b> Действия с матрицами</a></li>
+<li class="chapter" data-level="9.4.4" data-path="математический-ликбез.html"><a href="математический-ликбез.html#скалярное-произведение-векторов"><i class="fa fa-check"></i><b>9.4.4</b> Скалярное произведение векторов</a></li>
+<li class="chapter" data-level="9.4.5" data-path="математический-ликбез.html"><a href="математический-ликбез.html#векторное-произведение-векторов"><i class="fa fa-check"></i><b>9.4.5</b> Векторное произведение векторов</a></li>
+<li class="chapter" data-level="9.4.6" data-path="математический-ликбез.html"><a href="математический-ликбез.html#произведение-матриц-матричное-умножение"><i class="fa fa-check"></i><b>9.4.6</b> Произведение матриц (матричное умножение)</a></li>
+<li class="chapter" data-level="9.4.7" data-path="математический-ликбез.html"><a href="математический-ликбез.html#транспонирование-матрицы"><i class="fa fa-check"></i><b>9.4.7</b> Транспонирование матрицы</a></li>
+<li class="chapter" data-level="9.4.8" data-path="математический-ликбез.html"><a href="математический-ликбез.html#детерминант-и-обратная-матрица"><i class="fa fa-check"></i><b>9.4.8</b> Детерминант и обратная матрица</a></li>
+<li class="chapter" data-level="9.4.9" data-path="математический-ликбез.html"><a href="математический-ликбез.html#след-матрицы"><i class="fa fa-check"></i><b>9.4.9</b> След матрицы</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="введение-в-статистику.html"><a href="введение-в-статистику.html"><i class="fa fa-check"></i><b>10</b> Введение в статистику</a></li>
+<li class="chapter" data-level="11" data-path="случайный-эксперимент.html"><a href="случайный-эксперимент.html"><i class="fa fa-check"></i><b>11</b> Случайный эксперимент</a></li>
+<li class="chapter" data-level="12" data-path="вероятность-и-случайные-величины.html"><a href="вероятность-и-случайные-величины.html"><i class="fa fa-check"></i><b>12</b> Вероятность и случайные величины</a></li>
+<li class="chapter" data-level="13" data-path="оценивание-параметров-в-практике-статистического-анализа.html"><a href="оценивание-параметров-в-практике-статистического-анализа.html"><i class="fa fa-check"></i><b>13</b> Оценивание параметров в практике статистического анализа</a></li>
+<li class="chapter" data-level="14" data-path="тестирование-статистических-гипотез.html"><a href="тестирование-статистических-гипотез.html"><i class="fa fa-check"></i><b>14</b> Тестирование статистических гипотез</a></li>
+<li class="part"><span><b>III Анализ данных</b></span></li>
+<li class="chapter" data-level="15" data-path="описательные-статистики.html"><a href="описательные-статистики.html"><i class="fa fa-check"></i><b>15</b> Описательные статистики</a><ul>
+<li class="chapter" data-level="15.1" data-path="описательные-статистики.html"><a href="описательные-статистики.html#меры-центральной-тенденции"><i class="fa fa-check"></i><b>15.1</b> Меры центральной тенденции</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="описательные-статистики.html"><a href="описательные-статистики.html#мода"><i class="fa fa-check"></i><b>15.1.1</b> Мода</a></li>
+<li class="chapter" data-level="15.1.2" data-path="описательные-статистики.html"><a href="описательные-статистики.html#медиана"><i class="fa fa-check"></i><b>15.1.2</b> Медиана</a></li>
+<li class="chapter" data-level="15.1.3" data-path="описательные-статистики.html"><a href="описательные-статистики.html#среднее"><i class="fa fa-check"></i><b>15.1.3</b> Среднее</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="описательные-статистики.html"><a href="описательные-статистики.html#меры-разброса"><i class="fa fa-check"></i><b>15.2</b> Меры разброса</a><ul>
+<li class="chapter" data-level="15.2.1" data-path="описательные-статистики.html"><a href="описательные-статистики.html#минимум-и-максимум"><i class="fa fa-check"></i><b>15.2.1</b> Минимум и максимум</a></li>
+<li class="chapter" data-level="15.2.2" data-path="описательные-статистики.html"><a href="описательные-статистики.html#размах"><i class="fa fa-check"></i><b>15.2.2</b> Размах</a></li>
+<li class="chapter" data-level="15.2.3" data-path="описательные-статистики.html"><a href="описательные-статистики.html#дисперсия"><i class="fa fa-check"></i><b>15.2.3</b> Дисперсия</a></li>
+<li class="chapter" data-level="15.2.4" data-path="описательные-статистики.html"><a href="описательные-статистики.html#стандартное-отклонение"><i class="fa fa-check"></i><b>15.2.4</b> Стандартное отклонение</a></li>
+<li class="chapter" data-level="15.2.5" data-path="описательные-статистики.html"><a href="описательные-статистики.html#стандартная-ошибка-среднего"><i class="fa fa-check"></i><b>15.2.5</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="15.2.6" data-path="описательные-статистики.html"><a href="описательные-статистики.html#квантили"><i class="fa fa-check"></i><b>15.2.6</b> Квантили</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="описательные-статистики.html"><a href="описательные-статистики.html#асимметрия"><i class="fa fa-check"></i><b>15.3</b> Асимметрия</a></li>
+<li class="chapter" data-level="15.4" data-path="описательные-статистики.html"><a href="описательные-статистики.html#эксцесс"><i class="fa fa-check"></i><b>15.4</b> Эксцесс</a></li>
+<li class="chapter" data-level="15.5" data-path="описательные-статистики.html"><a href="описательные-статистики.html#описательные-статистики-в-r"><i class="fa fa-check"></i><b>15.5</b> Описательные статистики в R</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="корреляционный-анализ.html"><a href="корреляционный-анализ.html"><i class="fa fa-check"></i><b>16</b> Корреляционный анализ</a><ul>
+<li class="chapter" data-level="16.1" data-path="корреляционный-анализ.html"><a href="корреляционный-анализ.html#ковариация"><i class="fa fa-check"></i><b>16.1</b> Ковариация</a></li>
+<li class="chapter" data-level="16.2" data-path="корреляционный-анализ.html"><a href="корреляционный-анализ.html#корреляция"><i class="fa fa-check"></i><b>16.2</b> Корреляция</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="корреляционный-анализ.html"><a href="корреляционный-анализ.html#тестирование-статистической-значимости-коэффициента-корреляции"><i class="fa fa-check"></i><b>16.2.1</b> Тестирование статистической значимости коэффициента корреляции</a></li>
+<li class="chapter" data-level="16.2.2" data-path="корреляционный-анализ.html"><a href="корреляционный-анализ.html#доверительный-интервал-для-коэффициента-корреляции"><i class="fa fa-check"></i><b>16.2.2</b> Доверительный интервал для коэффициента корреляции</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="общие-линейные-модели-простая-линейная-регрессия.html"><a href="общие-линейные-модели-простая-линейная-регрессия.html"><i class="fa fa-check"></i><b>17</b> Общие линейные модели. Простая линейная регрессия</a></li>
+<li class="chapter" data-level="18" data-path="множественная-линейная-регрессия.html"><a href="множественная-линейная-регрессия.html"><i class="fa fa-check"></i><b>18</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="19" data-path="дисперсионный-анализ.html"><a href="дисперсионный-анализ.html"><i class="fa fa-check"></i><b>19</b> Дисперсионный анализ</a></li>
+<li class="chapter" data-level="20" data-path="ковариационный-анализ.html"><a href="ковариационный-анализ.html"><i class="fa fa-check"></i><b>20</b> Ковариационный анализ</a></li>
+<li class="chapter" data-level="21" data-path="обобщенные-линейные-модели-логистическая-регрессия.html"><a href="обобщенные-линейные-модели-логистическая-регрессия.html"><i class="fa fa-check"></i><b>21</b> Обобщенные линейные модели. Логистическая регрессия</a></li>
+<li class="chapter" data-level="22" data-path="пуассоновская-регрессия.html"><a href="пуассоновская-регрессия.html"><i class="fa fa-check"></i><b>22</b> Пуассоновская регрессия</a></li>
+<li class="chapter" data-level="23" data-path="регуляризация-регрессии.html"><a href="регуляризация-регрессии.html"><i class="fa fa-check"></i><b>23</b> Регуляризация регрессии</a></li>
+<li class="chapter" data-level="24" data-path="смешанные-линейные-модели.html"><a href="смешанные-линейные-модели.html"><i class="fa fa-check"></i><b>24</b> Смешанные линейные модели</a></li>
+<li class="chapter" data-level="25" data-path="кластерный-анализ.html"><a href="кластерный-анализ.html"><i class="fa fa-check"></i><b>25</b> Кластерный анализ</a></li>
+<li class="chapter" data-level="26" data-path="анализ-главных-компонент.html"><a href="анализ-главных-компонент.html"><i class="fa fa-check"></i><b>26</b> Анализ главных компонент</a></li>
+<li class="chapter" data-level="27" data-path="эксплораторный-факторный-анализ.html"><a href="эксплораторный-факторный-анализ.html"><i class="fa fa-check"></i><b>27</b> Эксплораторный факторный анализ</a></li>
+<li class="chapter" data-level="28" data-path="конфирматорный-факторный-анализ.html"><a href="конфирматорный-факторный-анализ.html"><i class="fa fa-check"></i><b>28</b> Конфирматорный факторный анализ</a></li>
+<li class="chapter" data-level="29" data-path="что-дальше.html"><a href="что-дальше.html"><i class="fa fa-check"></i><b>29</b> Что дальше?</a></li>
+<li class="appendix"><span><b>Приложения</b></span></li>
+<li class="chapter" data-level="A" data-path="iron.html"><a href="iron.html"><i class="fa fa-check"></i><b>A</b> Данные и железо</a></li>
+<li class="chapter" data-level="" data-path="литература.html"><a href="литература.html"><i class="fa fa-check"></i>Литература</a><ul>
+<li class="chapter" data-level="" data-path="литература.html"><a href="литература.html#касаемо-математики"><i class="fa fa-check"></i>Касаемо математики</a></li>
+<li class="chapter" data-level="" data-path="литература.html"><a href="литература.html#относительно-статистики"><i class="fa fa-check"></i>Относительно статистики</a></li>
+<li class="chapter" data-level="" data-path="литература.html"><a href="литература.html#about-r"><i class="fa fa-check"></i>About R</a></li>
+<li class="chapter" data-level="" data-path="литература.html"><a href="литература.html#во-славу-андана"><i class="fa fa-check"></i>Во славу андана</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HSE UX LAB | Анализ данных + R: мир линейных моделей | Book</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="realdata" class="section level1">
+<h1><span class="header-section-number">6</span> Работа с реальными данными</h1>
+<p>Итак, мы приступаем к самому интересному и самому важному разделу первого блока! Мы будем тренироваться на данных о фильма и сериалах Netflix.</p>
+<div id="рабочая-директория" class="section level2">
+<h2><span class="header-section-number">6.1</span> Рабочая директория</h2>
+<p>Раз мы хотим работать в данными, надо их откуда-то взять. Скачайте датасет <a href="https://drive.google.com/uc?export=download&amp;id=1P1liIRyPrYnmFmoAFUDJthki_dWhalzF">по этой ссылке</a>.</p>
+<p><strong>Датасетом</strong> мы будем называть любой набор данных, который у нас есть.</p>
+<p>Мы уже говорили о рабочей директории и проектах в самом начале курса. Немного вспомним эту тему. Мы накапливаем много различных файлов (скрипты, файлы сырых данных данных, файлы предобработанны данных, файл объектов из рабочего пространства, графики, результаты анализа…) в процессе анализа данных, и это необходимо каким-то образом систематизировать.</p>
+<p>Есть <strong>рабочая директория</strong> — это папка, в которую смотрит R во время работы. Что это за папка можно узнать через команду:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="realdata.html#cb1-1"></a><span class="kw">getwd</span>() <span class="co"># get working directory</span></span></code></pre></div>
+<pre><code>## [1] &quot;/Users/antonangelgardt/hseuxlab-wlm2021/book/wlm2021-book&quot;</code></pre>
+<p>У меня он смотрел вот в эту папку, у вас, скорее всего, будет что-то типа <code>C://users/имя_пользователя</code> или <code>/Users/имя_пользователя</code>, что указывает на папку пользователя по умолчанию.</p>
+<p>Можно установить другую рабочую директорию с помощью команды <code>setwd()</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="realdata.html#cb3-1"></a><span class="kw">setwd</span>(<span class="st">&quot;/Users/antonangelgardt/R&quot;</span>)</span></code></pre></div>
+<p>Теперь он будет смотреть в папку <code>R</code>, которая лежит в дефолтной папке пользователя. Такой способ достаточно удобен, однако можно сделать ещё лучше — создать проект (<em>Project</em>).</p>
+<blockquote>
+<p>Кто-то любит работать в проектах, кто-то нет — дело вкуса. Мне это нравится, даже если вам не понравится. Простите, если мы вдруг не сойдёмся во вкусах, но, повторюсь, это нравится мне, сугубо, лично… Поэтому я буду про это рассказывать и рекламировать.</p>
+</blockquote>
+<p>Зайдите в <code>File → New Project…</code>. У вас откроется такое окно:</p>
+<p><img src="img/proj1.png" /></p>
+<p>Выберите <code>New Directory</code>, затем еще раз <code>New Project</code>:</p>
+<p><img src="img/proj2.png" /></p>
+<p>Откроется вот это:</p>
+<p><img src="img/proj3.png" /></p>
+<p>В <code>Directory name</code> указываем название нашей папки, во втором поле указываем путь к той папке, в которой будет лежать создаваемая папка. Нажимаем <code>Create Project</code>, после чего R перезапускает сессию, и открывается привычное окно. Однако в верхнем правом углу R теперь указано название проекта, в котором мы работаем.</p>
+<blockquote>
+<p>Если вы уже это сделали в начале курса, то пропустите это задание.</p>
+</blockquote>
+<img class="taskimg" src="img/task.png">
+<div class="task">
+<p>Создайте проект для нашего курса.</p>
+<ol style="list-style-type: decimal">
+<li>Откройте <code>File → New Project…</code></li>
+<li>Выберите <code>New Directory → New Project</code></li>
+<li>Назовите новую директорию <code>hseuxlab-wlm2021</code></li>
+<li>Задайте расположение внутри папки пользователя системы</li>
+<li>Создайте новый скрипт и скопируйте туда следующий код:</li>
+</ol>
+<pre><code>print(&quot;Hello, World of Linear Models!&quot;)</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Сохраните скрипт нажатием <code>Ctrl</code> + <code>S</code> (<code>Cmd</code> + <code>S</code>)</li>
+</ol>
+</div>
+<p>Теперь при работе в рамках курса мы будем запускать проект и работать в нём, чтобы ничего не запуталось.</p>
+<p>Много ли это приносит профита? Ну, не так уж и много… По сути, что открыть проект, что выполнить <code>setwd("пусть_к_папке")</code> — примерно одно и то же. Вот только строку кода можно забыть запустить после открытия скрипта, а если мы запустили проект, мы уверены, что у нас все автоматически настроилось и ошибок не будет.</p>
+<blockquote>
+<p>Если вы уже это сделали в начале курса, то пропустите это задание.</p>
+</blockquote>
+<img class="taskimg" src="img/task.png">
+<div class="task">
+<p>Откройте директорию (папку) проекта курса и создайте в ней несколько папок. Они нам понадобятся для структурирования нашего пространства в процессе курса, потому что файлов будет много. Кроме того, будем постепенно привыкать к тому, чтобы наше рабочее пространство было чистым и опрятным.</p>
+<p>Нам понадобятся следующие папки:</p>
+<ul>
+<li><code>scripts</code> для хранения скриптовых файлов</li>
+<li><code>data</code> для хранения файлов данных</li>
+<li><code>figures</code>, чтобы выгружать графики</li>
+</ul>
+<p>Потом мы сможем дополнить их другими папками, если нам таковые понадобятся, а также создать более мелкие подразделы внутри созданных папок.</p>
+</div>
+<blockquote>
+<p>Дальнейший разговор будет вестись с учетом того, что вы работаете в созданном проекте или задали рабочую директорию через <code>setwd()</code>, а также у вас созданы папки <code>scripts</code>, <code>data</code> и <code>figures</code> внутри папки нашего курса.</p>
+</blockquote>
+</div>
+<div id="импорт-данных" class="section level2">
+<h2><span class="header-section-number">6.2</span> Импорт данных</h2>
+<p>Окей, файл с данными у нас есть. Теперь наша задача его как-то загрузить в R, чтобы мы могли с ним работать. Вариантов существует несколько. Разберём сначала следующий.</p>
+<ul>
+<li>переложите <a href="https://drive.google.com/uc?export=download&amp;id=1P1liIRyPrYnmFmoAFUDJthki_dWhalzF">скачанный файл</a> из «Загрузок» в папку <code>data</code></li>
+<li>обратите внимание на расширение этого файла: <code>netflix_title.csv</code></li>
+</ul>
+<p>Такие файлы можно <em>прочитать</em> с помощью функции <code>read.csv()</code>. В аргументах это функции надо указать файл, который надо прочитать (а также путь к нему, начиная с подпапки рабочей директории). То есть:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="realdata.html#cb5-1"></a>netflix &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/netflix_titles.csv&#39;</span>)</span></code></pre></div>
+<p>Почему так? Так как мы установили рабочую директорию (или запустили проект), то R по умолчанию теперь смотрит в папку нашего курса. А вот далее его надо сориентировать — поэтому мы пишем <code>data/netflix_titles.csv</code>. То есть говорим ему: «иди дальше в папку <code>data</code> и принеси мне файл <code>netflix_titles.csv</code>. Собственно, он нам его и принёс.</p>
+<p>Можно это проверить:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="realdata.html#cb6-1"></a><span class="kw">head</span>(netflix)</span></code></pre></div>
+<pre><code>##   show_id    type title          director
+## 1      s1 TV Show    3%                  
+## 2      s2   Movie  7:19 Jorge Michel Grau
+## 3      s3   Movie 23:59      Gilbert Chan
+## 4      s4   Movie     9       Shane Acker
+## 5      s5   Movie    21    Robert Luketic
+## 6      s6 TV Show    46       Serdar Akar
+##                                                                                                                                                                         cast
+## 1 João Miguel, Bianca Comparato, Michel Gomes, Rodolfo Valente, Vaneza Oliveira, Rafael Lozano, Viviane Porto, Mel Fronckowiak, Sergio Mamberti, Zezé Motta, Celso Frateschi
+## 2                                                                                   Demián Bichir, Héctor Bonilla, Oscar Serrano, Azalia Ortiz, Octavio Michel, Carmen Beato
+## 3                                                               Tedd Chan, Stella Chung, Henley Hii, Lawrence Koh, Tommy Kuan, Josh Lai, Mark Lee, Susan Leong, Benjamin Lim
+## 4                            Elijah Wood, John C. Reilly, Jennifer Connelly, Christopher Plummer, Crispin Glover, Martin Landau, Fred Tatasciore, Alan Oppenheimer, Tom Kane
+## 5            Jim Sturgess, Kevin Spacey, Kate Bosworth, Aaron Yoo, Liza Lapira, Jacob Pitts, Laurence Fishburne, Jack McGee, Josh Gad, Sam Golzari, Helen Carey, Jack Gilpin
+## 6                            Erdal Beşikçioğlu, Yasemin Allen, Melis Birkan, Saygın Soysal, Berkan Şal, Metin Belgin, Ayça Eren, Selin Uludoğan, Özay Fecht, Suna Yıldızoğlu
+##         country        date_added release_year rating  duration
+## 1        Brazil   August 14, 2020         2020  TV-MA 4 Seasons
+## 2        Mexico December 23, 2016         2016  TV-MA    93 min
+## 3     Singapore December 20, 2018         2011      R    78 min
+## 4 United States November 16, 2017         2009  PG-13    80 min
+## 5 United States   January 1, 2020         2008  PG-13   123 min
+## 6        Turkey      July 1, 2017         2016  TV-MA  1 Season
+##                                                  listed_in
+## 1   International TV Shows, TV Dramas, TV Sci-Fi &amp; Fantasy
+## 2                             Dramas, International Movies
+## 3                      Horror Movies, International Movies
+## 4 Action &amp; Adventure, Independent Movies, Sci-Fi &amp; Fantasy
+## 5                                                   Dramas
+## 6          International TV Shows, TV Dramas, TV Mysteries
+##                                                                                                                                             description
+## 1              In a future where the elite inhabit an island paradise far from the crowded slums, you get one chance to join the 3% saved from squalor.
+## 2  After a devastating earthquake hits Mexico City, trapped survivors from all walks of life wait to be rescued while trying desperately to stay alive.
+## 3 When an army recruit is found dead, his fellow soldiers are forced to confront a terrifying secret that&#39;s haunting their jungle island training camp.
+## 4     In a postapocalyptic world, rag-doll robots hide in fear from dangerous machines out to exterminate them, until a brave newcomer joins the group.
+## 5       A brilliant group of students become card-counting experts with the intent of swindling millions out of Las Vegas casinos by playing blackjack.
+## 6 A genetics professor experiments with a treatment for his comatose sister that blends medical and shamanic cures, but unlocks a shocking side effect.</code></pre>
+<p>Что-то загрузилось. Это хорошо. Что именно — выясним чуть позже.</p>
+<p>Можно ли не прописывать <code>data</code>? Можно, но тогда придётся переложить файл данных в рабочую директорию (то есть папку курса). С одним файлом ничего, можно жить. А есть у вас 30 или 50 файлов разных респондентов? Уже тяжеловато и бардак. Поэтому, на мой взгляд, такая организация — хороший компромисс: кода пишем чуть-чуть больше, но зато есть порядок<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Конечно, можно хранить файлы данных где-то совсем отдельно. Но тогда и прописывать придётся путь от конревой папки компа:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="realdata.html#cb8-1"></a><span class="co"># например, можно прочитать файл прямо из папки «Загрузки»</span></span>
+<span id="cb8-2"><a href="realdata.html#cb8-2"></a>netflix &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/Users/antonangelgardt/Downloads/netflix_titles.csv&#39;</span>)</span></code></pre></div>
+<p>Это выглядит не очень удобно.</p>
+<p>На самом деле, в мире <a href="https://ru.wikipedia.org/wiki/Облачное_хранилище_данных">облачных технологий</a> можно и вовсе обойтись без скачивания файлов на десктоп. Функция <code>read.csv()</code> вполне может прочитать файл прямо из интернета:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="realdata.html#cb9-1"></a><span class="co"># это ссылка на мой GitHub, где лежит нужный нам файл</span></span>
+<span id="cb9-2"><a href="realdata.html#cb9-2"></a>netflix &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/data/netflix_titles.csv&#39;</span>)</span></code></pre></div>
+<p>Однако стоит помнить, что наши собранные руками данные в облаках, скорее всего, не лежат. Поэтому надо уметь загрузить файл и из интернета, и с компа.</p>
+<div id="форматы-данных" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Форматы данных</h3>
+<p>Мы тактично соскользнули с момента расширения файла. Напомню, что у нас файл <code>netflix_titles.csv</code>. Пришло время уделить этому внимание.</p>
+<p>Мы говорили о <a href="datatypes.html#datatypes">типах данных</a>, о <a href="datastructures.html#datastructures">структурах данных</a> — а теперь поговорим о <em>форматах данных</em>.</p>
+<p><strong>Формат данных</strong> — это характеристика данных, которая определяет много чего:</p>
+<ul>
+<li>какие программы могут работать с этим файлом</li>
+<li>как структурирован файл внутри</li>
+<li>как структурированный файл разбирается на неструктирированные последовательности байтов (для хранения в памяти компьютера) и преобразуются обратно…</li>
+</ul>
+<p>Ну, короче куча-куча всего. Формат файла (не вдаваясь в детали) задаётся его <em>разширением</em>, то есть тем, что написано после точки в его названии (<code>.R</code>, <code>.doc</code>, <code>.xlsx</code>, <code>.xml</code>, <code>.txt</code>, …).</p>
+<p>Нас, прежде всего, интересуют файлы данных, поэтому об их форматах мы и поговорим.</p>
+<div id="текстовые-форматы" class="section level4">
+<h4><span class="header-section-number">6.2.1.1</span> Текстовые форматы</h4>
+<p>Проще всего хранить данные в тексте. Это удобно, такие файлы мало весят и в них можно поместить большое количество информации. Самый простой текстовый формат — это <code>.txt</code>. Это тот самый «Блокнот», с которым наверняка когда-то все сталкивались. Никакого форматирования, никакой лишней мишуры — только текст. Но нам ведь нужно из этого текста каким-то образом потом вытащить датафрейм. Для этого существуют <em>разделители.</em> Чаще всего в табличных <code>.txt</code> формате столбцы таблицы разделены между собой символами табуляции (<code>'\tab'</code>), а строки — символом переноса строки (<code>'\n'</code>). Файл <code>.txt.</code> можно считать с помощью функции <code>read.table()</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="realdata.html#cb10-1"></a>df &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;data/text_data.txt&#39;</span>) <span class="co"># это данные про качесво красного вина</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="realdata.html#cb11-1"></a><span class="co"># так как у вас нет отдельно скачанного этого датасета, то запустите вот эту команду, чтобы прочитать текстовый файл</span></span>
+<span id="cb11-2"><a href="realdata.html#cb11-2"></a><span class="co"># read.table() тоже умеет читать прямо из интернета</span></span>
+<span id="cb11-3"><a href="realdata.html#cb11-3"></a>df &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&#39;https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/book/wlm2021-book/data/text_data.txt&#39;</span>)</span></code></pre></div>
+<p>Если использовать другие разделители, например, запятую, то получится файл, содержащий <em>значения, разделённые запятыми</em> <em>(<strong>c</strong>omma <strong>s</strong>eparated <strong>v</strong>alues)</em>. Это и есть <code>.csv</code>-файлы, с которыми мы будем чаще всего работать.</p>
+<blockquote>
+<p>Несмотря на то, что по умолчанию операционная система пытается открыть CSV-шки в табличном редакторе (например, Excel), не надо на это вестись! CSV — это текстовый формат данных.</p>
+</blockquote>
+<p>По умолчанию, в CSV-файле столбцы разделяются запятыми, а строки — символом переноса строки, поэтому функция <code>read.csv()</code> имеет соответствующие дефолтные настройки. Однако так бывает не всегда. Например, попробуем прочесть следующий файл:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="realdata.html#cb12-1"></a><span class="co"># снова про качество вина</span></span>
+<span id="cb12-2"><a href="realdata.html#cb12-2"></a>wine &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/book/wlm2021-book/data/winequality-red.csv&#39;</span>)</span></code></pre></div>
+<p>Файл CSV-шный. Посмотрим, что получилось:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="realdata.html#cb13-1"></a><span class="kw">head</span>(wine) <span class="co"># команда выводит часть датасета в консоль</span></span></code></pre></div>
+<pre><code>##   fixed.acidity.volatile.acidity.citric.acid.residual.sugar.chlorides.free.sulfur.dioxide.total.sulfur.dioxide.density.pH.sulphates.alcohol.quality
+## 1                                                                                                  7.4;0.7;0;1.9;0.076;11;34;0.9978;3.51;0.56;9.4;5
+## 2                                                                                                  7.8;0.88;0;2.6;0.098;25;67;0.9968;3.2;0.68;9.8;5
+## 3                                                                                               7.8;0.76;0.04;2.3;0.092;15;54;0.997;3.26;0.65;9.8;5
+## 4                                                                                              11.2;0.28;0.56;1.9;0.075;17;60;0.998;3.16;0.58;9.8;6
+## 5                                                                                                  7.4;0.7;0;1.9;0.076;11;34;0.9978;3.51;0.56;9.4;5
+## 6                                                                                                 7.4;0.66;0;1.8;0.075;13;40;0.9978;3.51;0.56;9.4;5</code></pre>
+<p>Что-то получилось. Но мы хотели увидеть нечто, напоминающее таблицу (вернее, датафрейм), а получилось явно что-то не то… Почему так? Потому что расширение <code>.csv</code> ещё не гарант того, что в файле в качестве разделителя использовалась запятая. Глобально — это может быть вообще любой знак. В данном случае была использована точка с запятой. Если мы немного изменим команду и вручную укажем разделитель (<em>separator</em>), то всё будет ок:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="realdata.html#cb15-1"></a>wine &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/book/wlm2021-book/data/winequality-red.csv&#39;</span>,</span>
+<span id="cb15-2"><a href="realdata.html#cb15-2"></a>                 <span class="dt">sep =</span> <span class="st">&#39;;&#39;</span>)</span>
+<span id="cb15-3"><a href="realdata.html#cb15-3"></a><span class="kw">head</span>(wine)</span></code></pre></div>
+<pre><code>##   fixed.acidity volatile.acidity citric.acid residual.sugar chlorides
+## 1           7.4             0.70        0.00            1.9     0.076
+## 2           7.8             0.88        0.00            2.6     0.098
+## 3           7.8             0.76        0.04            2.3     0.092
+## 4          11.2             0.28        0.56            1.9     0.075
+## 5           7.4             0.70        0.00            1.9     0.076
+## 6           7.4             0.66        0.00            1.8     0.075
+##   free.sulfur.dioxide total.sulfur.dioxide density   pH sulphates alcohol
+## 1                  11                   34  0.9978 3.51      0.56     9.4
+## 2                  25                   67  0.9968 3.20      0.68     9.8
+## 3                  15                   54  0.9970 3.26      0.65     9.8
+## 4                  17                   60  0.9980 3.16      0.58     9.8
+## 5                  11                   34  0.9978 3.51      0.56     9.4
+## 6                  13                   40  0.9978 3.51      0.56     9.4
+##   quality
+## 1       5
+## 2       5
+## 3       5
+## 4       6
+## 5       5
+## 6       5</code></pre>
+<p>Вот теперь хорошо.</p>
+<img class="taskimg" src="img/question.png">
+<div class="task">
+<p>Как мы выяснили, запятая разделяет столбцы между собой в CSV-файлах. Но ведь запятая часто используется также и для отделения целой части от дробной в десятичных дробях. И здесь может произойти путаница.</p>
+<p>Какой аргумент функции <code>read.csv()</code> отвечает за задание десятичного разделителя? И каково его дефолтное значение?</p>
+</div>
+</div>
+<div id="табличные-форматы" class="section level4">
+<h4><span class="header-section-number">6.2.1.2</span> Табличные форматы</h4>
+</div>
+<div id="форматы-данных-с-особой-разметкой" class="section level4">
+<h4><span class="header-section-number">6.2.1.3</span> Форматы данных с особой разметкой</h4>
+</div>
+<div id="файлы-данных-других-статистических-программ" class="section level4">
+<h4><span class="header-section-number">6.2.1.4</span> Файлы данных других статистических программ</h4>
+</div>
+</div>
+</div>
+<div id="исследование-данных" class="section level2">
+<h2><span class="header-section-number">6.3</span> Исследование данных</h2>
+<p>Мы вдоволь наговорились о форматах данных. Теперь попробуем поработать с тем, что у нас есть. Напомню, что мы загрузили данные о фильмах и сериалах Netflix в переменную <code>netflix</code>.</p>
+<p>Когда мы загрузили датасет, нам, прежде всего, хочется посмотреть, как оно выглядит. Это можно сделать несколькими способами. Если мы хотим более привычный для неискущённого пользователя вариант, то можно воспользоваться командой <code>View()</code> (именно с заглавной):</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="realdata.html#cb17-1"></a><span class="kw">View</span>(netflix)</span></code></pre></div>
+<p>В соседней вкладке откроется датасет в привычном табличном виде, и можно будет посмотреть, корректно ли прочитались данные. Вариант удобный, но если у вас датасет в 1000 строк, «отсматривать глазами» косяки чтения данных совершенно бессмысленно.</p>
+<p>Можно вывести первые несколько строк датасета в консоль — это мы уже делали:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="realdata.html#cb18-1"></a><span class="kw">head</span>(netflix)</span></code></pre></div>
+<pre><code>##   show_id    type title          director
+## 1      s1 TV Show    3%                  
+## 2      s2   Movie  7:19 Jorge Michel Grau
+## 3      s3   Movie 23:59      Gilbert Chan
+## 4      s4   Movie     9       Shane Acker
+## 5      s5   Movie    21    Robert Luketic
+## 6      s6 TV Show    46       Serdar Akar
+##                                                                                                                                                                         cast
+## 1 João Miguel, Bianca Comparato, Michel Gomes, Rodolfo Valente, Vaneza Oliveira, Rafael Lozano, Viviane Porto, Mel Fronckowiak, Sergio Mamberti, Zezé Motta, Celso Frateschi
+## 2                                                                                   Demián Bichir, Héctor Bonilla, Oscar Serrano, Azalia Ortiz, Octavio Michel, Carmen Beato
+## 3                                                               Tedd Chan, Stella Chung, Henley Hii, Lawrence Koh, Tommy Kuan, Josh Lai, Mark Lee, Susan Leong, Benjamin Lim
+## 4                            Elijah Wood, John C. Reilly, Jennifer Connelly, Christopher Plummer, Crispin Glover, Martin Landau, Fred Tatasciore, Alan Oppenheimer, Tom Kane
+## 5            Jim Sturgess, Kevin Spacey, Kate Bosworth, Aaron Yoo, Liza Lapira, Jacob Pitts, Laurence Fishburne, Jack McGee, Josh Gad, Sam Golzari, Helen Carey, Jack Gilpin
+## 6                            Erdal Beşikçioğlu, Yasemin Allen, Melis Birkan, Saygın Soysal, Berkan Şal, Metin Belgin, Ayça Eren, Selin Uludoğan, Özay Fecht, Suna Yıldızoğlu
+##         country        date_added release_year rating  duration
+## 1        Brazil   August 14, 2020         2020  TV-MA 4 Seasons
+## 2        Mexico December 23, 2016         2016  TV-MA    93 min
+## 3     Singapore December 20, 2018         2011      R    78 min
+## 4 United States November 16, 2017         2009  PG-13    80 min
+## 5 United States   January 1, 2020         2008  PG-13   123 min
+## 6        Turkey      July 1, 2017         2016  TV-MA  1 Season
+##                                                  listed_in
+## 1   International TV Shows, TV Dramas, TV Sci-Fi &amp; Fantasy
+## 2                             Dramas, International Movies
+## 3                      Horror Movies, International Movies
+## 4 Action &amp; Adventure, Independent Movies, Sci-Fi &amp; Fantasy
+## 5                                                   Dramas
+## 6          International TV Shows, TV Dramas, TV Mysteries
+##                                                                                                                                             description
+## 1              In a future where the elite inhabit an island paradise far from the crowded slums, you get one chance to join the 3% saved from squalor.
+## 2  After a devastating earthquake hits Mexico City, trapped survivors from all walks of life wait to be rescued while trying desperately to stay alive.
+## 3 When an army recruit is found dead, his fellow soldiers are forced to confront a terrifying secret that&#39;s haunting their jungle island training camp.
+## 4     In a postapocalyptic world, rag-doll robots hide in fear from dangerous machines out to exterminate them, until a brave newcomer joins the group.
+## 5       A brilliant group of students become card-counting experts with the intent of swindling millions out of Las Vegas casinos by playing blackjack.
+## 6 A genetics professor experiments with a treatment for his comatose sister that blends medical and shamanic cures, but unlocks a shocking side effect.</code></pre>
+<p>По умолчанию выводится шесть строк, однако этот парамент можно задать вручную:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="realdata.html#cb20-1"></a><span class="kw">head</span>(netflix, <span class="dt">n =</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##   show_id    type title          director
+## 1      s1 TV Show    3%                  
+## 2      s2   Movie  7:19 Jorge Michel Grau
+## 3      s3   Movie 23:59      Gilbert Chan
+## 4      s4   Movie     9       Shane Acker
+##                                                                                                                                                                         cast
+## 1 João Miguel, Bianca Comparato, Michel Gomes, Rodolfo Valente, Vaneza Oliveira, Rafael Lozano, Viviane Porto, Mel Fronckowiak, Sergio Mamberti, Zezé Motta, Celso Frateschi
+## 2                                                                                   Demián Bichir, Héctor Bonilla, Oscar Serrano, Azalia Ortiz, Octavio Michel, Carmen Beato
+## 3                                                               Tedd Chan, Stella Chung, Henley Hii, Lawrence Koh, Tommy Kuan, Josh Lai, Mark Lee, Susan Leong, Benjamin Lim
+## 4                            Elijah Wood, John C. Reilly, Jennifer Connelly, Christopher Plummer, Crispin Glover, Martin Landau, Fred Tatasciore, Alan Oppenheimer, Tom Kane
+##         country        date_added release_year rating  duration
+## 1        Brazil   August 14, 2020         2020  TV-MA 4 Seasons
+## 2        Mexico December 23, 2016         2016  TV-MA    93 min
+## 3     Singapore December 20, 2018         2011      R    78 min
+## 4 United States November 16, 2017         2009  PG-13    80 min
+##                                                  listed_in
+## 1   International TV Shows, TV Dramas, TV Sci-Fi &amp; Fantasy
+## 2                             Dramas, International Movies
+## 3                      Horror Movies, International Movies
+## 4 Action &amp; Adventure, Independent Movies, Sci-Fi &amp; Fantasy
+##                                                                                                                                             description
+## 1              In a future where the elite inhabit an island paradise far from the crowded slums, you get one chance to join the 3% saved from squalor.
+## 2  After a devastating earthquake hits Mexico City, trapped survivors from all walks of life wait to be rescued while trying desperately to stay alive.
+## 3 When an army recruit is found dead, his fellow soldiers are forced to confront a terrifying secret that&#39;s haunting their jungle island training camp.
+## 4     In a postapocalyptic world, rag-doll robots hide in fear from dangerous machines out to exterminate them, until a brave newcomer joins the group.</code></pre>
+<p>Аналогично можно вывести несколько последних строк:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="realdata.html#cb22-1"></a><span class="kw">tail</span>(netflix, <span class="dt">n =</span> <span class="dv">9</span>)</span></code></pre></div>
+<pre><code>##      show_id    type                                   title        director
+## 7779   s7779   Movie                              Zombieland Ruben Fleischer
+## 7780   s7780 TV Show                               Zona Rosa                
+## 7781   s7781   Movie                                     Zoo    Shlok Sharma
+## 7782   s7782   Movie                                    Zoom    Peter Hewitt
+## 7783   s7783   Movie                                    Zozo     Josef Fares
+## 7784   s7784   Movie                                  Zubaan     Mozez Singh
+## 7785   s7785   Movie                       Zulu Man in Japan                
+## 7786   s7786 TV Show                   Zumbo&#39;s Just Desserts                
+## 7787   s7787   Movie ZZ TOP: THAT LITTLE OL&#39; BAND FROM TEXAS        Sam Dunn
+##                                                                                                                                       cast
+## 7779                                   Jesse Eisenberg, Woody Harrelson, Emma Stone, Abigail Breslin, Amber Heard, Bill Murray, Derek Graf
+## 7780                                                                                  Manu NNa, Ana Julia Yeyé, Ray Contreras, Pablo Morán
+## 7781                                             Shashank Arora, Shweta Tripathi, Rahul Kumar, Gopal K. Singh, Yogesh Kurme, Prince Daniel
+## 7782               Tim Allen, Courteney Cox, Chevy Chase, Kate Mara, Ryan Newman, Michael Cassidy, Spencer Breslin, Rip Torn, Kevin Zegers
+## 7783                             Imad Creidi, Antoinette Turk, Elias Gergi, Carmen Lebbos, Viktor Axelsson, Charbel Iskandar, Yasmine Awad
+## 7784 Vicky Kaushal, Sarah-Jane Dias, Raaghav Chanana, Manish Chaudhary, Meghna Malik, Malkeet Rauni, Anita Shabdish, Chittaranjan Tripathy
+## 7785                                                                                                                               Nasty C
+## 7786                                                                                                            Adriano Zumbo, Rachel Khoo
+## 7787                                                                                                                                      
+##                                                           country
+## 7779                                                United States
+## 7780                                                       Mexico
+## 7781                                                        India
+## 7782                                                United States
+## 7783 Sweden, Czech Republic, United Kingdom, Denmark, Netherlands
+## 7784                                                        India
+## 7785                                                             
+## 7786                                                    Australia
+## 7787                        United Kingdom, Canada, United States
+##              date_added release_year rating duration
+## 7779   November 1, 2019         2009      R   88 min
+## 7780  November 26, 2019         2019  TV-MA 1 Season
+## 7781       July 1, 2018         2018  TV-MA   94 min
+## 7782   January 11, 2020         2006     PG   88 min
+## 7783   October 19, 2020         2005  TV-MA   99 min
+## 7784      March 2, 2019         2015  TV-14  111 min
+## 7785 September 25, 2020         2019  TV-MA   44 min
+## 7786   October 31, 2020         2019  TV-PG 1 Season
+## 7787      March 1, 2020         2019  TV-MA   90 min
+##                                                                            listed_in
+## 7779                                                         Comedies, Horror Movies
+## 7780 International TV Shows, Spanish-Language TV Shows, Stand-Up Comedy &amp; Talk Shows
+## 7781                                Dramas, Independent Movies, International Movies
+## 7782                                              Children &amp; Family Movies, Comedies
+## 7783                                                    Dramas, International Movies
+## 7784                                  Dramas, International Movies, Music &amp; Musicals
+## 7785                           Documentaries, International Movies, Music &amp; Musicals
+## 7786                                              International TV Shows, Reality TV
+## 7787                                                 Documentaries, Music &amp; Musicals
+##                                                                                                                                                 description
+## 7779              Looking to survive in a world taken over by zombies, a dorky college student teams with an urban roughneck and a pair of grifter sisters.
+## 7780                            An assortment of talent takes the stage for a night of honest stand-up featuring four of Mexico&#39;s funniest LGBTQ comedians.
+## 7781 A drug dealer starts having doubts about his trade as his brother, his client, and two rappers from the slums each battle their own secret addictions.
+## 7782  Dragged from civilian life, a former superhero must train a new crop of youthful saviors when the military preps for an attack by a familiar villain.
+## 7783     When Lebanon&#39;s Civil War deprives Zozo of his family, he&#39;s left with grief and little means as he escapes to Sweden in search of his grandparents.
+## 7784                A scrappy but poor boy worms his way into a tycoon&#39;s dysfunctional family, while facing his fear of music and the truth about his past.
+## 7785   In this documentary, South African rapper Nasty C hits the stage and streets of Tokyo, introducing himself to the city&#39;s sights, sounds and culture.
+## 7786    Dessert wizard Adriano Zumbo looks for the next “Willy Wonka” in this tense competition that finds skilled amateurs competing for a $100,000 prize.
+## 7787          This documentary delves into the mystique behind the blues-rock trio and explores how the enigmatic band created their iconic look and sound.</code></pre>
+<p>Но мы помним, что датафрейм — это список. А на списках работала функция <code>str()</code>, которая показывала структуру списка. Значит, можно выполнить эту функцию и на датафрейме? Да!</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="realdata.html#cb24-1"></a><span class="kw">str</span>(netflix)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    7787 obs. of  12 variables:
+##  $ show_id     : chr  &quot;s1&quot; &quot;s2&quot; &quot;s3&quot; &quot;s4&quot; ...
+##  $ type        : chr  &quot;TV Show&quot; &quot;Movie&quot; &quot;Movie&quot; &quot;Movie&quot; ...
+##  $ title       : chr  &quot;3%&quot; &quot;7:19&quot; &quot;23:59&quot; &quot;9&quot; ...
+##  $ director    : chr  &quot;&quot; &quot;Jorge Michel Grau&quot; &quot;Gilbert Chan&quot; &quot;Shane Acker&quot; ...
+##  $ cast        : chr  &quot;João Miguel, Bianca Comparato, Michel Gomes, Rodolfo Valente, Vaneza Oliveira, Rafael Lozano, Viviane Porto, Me&quot;| __truncated__ &quot;Demián Bichir, Héctor Bonilla, Oscar Serrano, Azalia Ortiz, Octavio Michel, Carmen Beato&quot; &quot;Tedd Chan, Stella Chung, Henley Hii, Lawrence Koh, Tommy Kuan, Josh Lai, Mark Lee, Susan Leong, Benjamin Lim&quot; &quot;Elijah Wood, John C. Reilly, Jennifer Connelly, Christopher Plummer, Crispin Glover, Martin Landau, Fred Tatasc&quot;| __truncated__ ...
+##  $ country     : chr  &quot;Brazil&quot; &quot;Mexico&quot; &quot;Singapore&quot; &quot;United States&quot; ...
+##  $ date_added  : chr  &quot;August 14, 2020&quot; &quot;December 23, 2016&quot; &quot;December 20, 2018&quot; &quot;November 16, 2017&quot; ...
+##  $ release_year: int  2020 2016 2011 2009 2008 2016 2019 1997 2019 2008 ...
+##  $ rating      : chr  &quot;TV-MA&quot; &quot;TV-MA&quot; &quot;R&quot; &quot;PG-13&quot; ...
+##  $ duration    : chr  &quot;4 Seasons&quot; &quot;93 min&quot; &quot;78 min&quot; &quot;80 min&quot; ...
+##  $ listed_in   : chr  &quot;International TV Shows, TV Dramas, TV Sci-Fi &amp; Fantasy&quot; &quot;Dramas, International Movies&quot; &quot;Horror Movies, International Movies&quot; &quot;Action &amp; Adventure, Independent Movies, Sci-Fi &amp; Fantasy&quot; ...
+##  $ description : chr  &quot;In a future where the elite inhabit an island paradise far from the crowded slums, you get one chance to join t&quot;| __truncated__ &quot;After a devastating earthquake hits Mexico City, trapped survivors from all walks of life wait to be rescued wh&quot;| __truncated__ &quot;When an army recruit is found dead, his fellow soldiers are forced to confront a terrifying secret that&#39;s haunt&quot;| __truncated__ &quot;In a postapocalyptic world, rag-doll robots hide in fear from dangerous machines out to exterminate them, until&quot;| __truncated__ ...</code></pre>
+<p>Тут даже попроще аутпут. Функция выводит структуру датафрейма, в которой отображены количество наблюдений (строк) и количество переменных (столбцов), сами переменные, в нём содержащиеся, их тип, а также первые несколько значений каждой переменной. Это позволяет составить общее представление о том, что есть в наших данных.</p>
+<p>Есть ещё одна полезная функция, чтобы понять, всё ли ок с данными:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="realdata.html#cb26-1"></a><span class="kw">summary</span>(netflix)</span></code></pre></div>
+<pre><code>##    show_id              type              title             director        
+##  Length:7787        Length:7787        Length:7787        Length:7787       
+##  Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                             
+##                                                                             
+##                                                                             
+##      cast             country           date_added         release_year 
+##  Length:7787        Length:7787        Length:7787        Min.   :1925  
+##  Class :character   Class :character   Class :character   1st Qu.:2013  
+##  Mode  :character   Mode  :character   Mode  :character   Median :2017  
+##                                                           Mean   :2014  
+##                                                           3rd Qu.:2018  
+##                                                           Max.   :2021  
+##     rating            duration          listed_in         description       
+##  Length:7787        Length:7787        Length:7787        Length:7787       
+##  Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                             
+##                                                                             
+## </code></pre>
+<p>Эта функция выводит «саммари» (неужели!) по каждой из переменных датасета. Если переменная числовая, то выводятся базовые описательные статистики (например, как в случае <code>release_year</code>). Наш же датасет оказался богат на строковые переменные, для которых <code>summary()</code> может посчитать только количество наблюдений и указать класс (тип) переменной.</p>
+<p>Но не будем отчаиваться! И останавливаться тоже не будем. Для наших переменных будет полезно посмотреть таблицы частот:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="realdata.html#cb28-1"></a><span class="kw">table</span>(netflix<span class="op">$</span>type)</span></code></pre></div>
+<pre><code>## 
+##   Movie TV Show 
+##    5377    2410</code></pre>
+<p>Так, мы видим, что в наших данных есть фильмы и ТВ-шоу, и фильмов больше в два раза.</p>
+<img class="taskimg" src="img/code.png">
+<div class="task">
+<p>В каком году было выпущено больше всего видеопродукции?</p>
+<input type="text" id="task1">
+<input type="button" value="Проверить" onClick="check1()">
+<div id="f1" class="feedback" hidden="">
+
+</div>
+<script>
+var input1 = document.getElementById("task1");
+var f1 = document.getElementById("f1");
+
+function check1() {
+  if (input1.value == "2018") {
+    f1.hidden = false;
+    f1.innerHTML = 'Ответ корректен!';
+    f1.style = "color:  #00aa4a";
+  } else {
+    f1.hidden = false;
+    f1.innerHTML = 'Ответ некорректен…';
+    f1.style = "color:  #b73239";
+  }
+}
+</script>
+</div>
+<p>А ещё мы может построить таблицу частотности сразу по двум переменным:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="realdata.html#cb30-1"></a><span class="kw">table</span>(netflix<span class="op">$</span>type, netflix<span class="op">$</span>release_year)</span></code></pre></div>
+<pre><code>##          
+##           1925 1942 1943 1944 1945 1946 1947 1954 1955 1956 1958 1959 1960 1962
+##   Movie      0    2    3    3    3    1    1    2    3    2    3    1    4    3
+##   TV Show    1    0    0    0    0    1    0    0    0    0    0    0    0    0
+##          
+##           1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 1976
+##   Movie      1    1    2    1    4    4    2    2    5    3   10    6    6    9
+##   TV Show    1    0    0    0    1    1    0    0    0    1    0    1    0    0
+##          
+##           1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990
+##   Movie      6    6   10    9    8   15    9    9    8    8    7   14   12   17
+##   TV Show    1    0    1    0    1    0    0    0    1    2    0    2    1    3
+##          
+##           1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004
+##   Movie     16   16   18   15   17   16   26   27   26   30   32   39   40   50
+##   TV Show    1    2    4    1    2    3    4    4    7    4    4    6    9    9
+##          
+##           2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018
+##   Movie     61   72   72  102  103  136  127  158  202  244  382  642  744  734
+##   TV Show   12   13   13   23   34   37   39   61   65   90  159  240  268  387
+##          
+##           2019 2020 2021
+##   Movie    582  411   12
+##   TV Show  414  457   19</code></pre>
+<p>Такие таблицы могут быть полезны, но конкретно в нашем случае уж слишком обширный период времени представлен в датасете — получаются не слишком удобные таблицы частотности.</p>
+<p>Сузим диапазон нашего поиска, ведь мы умеем индексировать датафреймы! Пусть нас интересует активность Netflix в период с 2010 по 2020 год. Нам нужно вытащить такой кусок датасета. Это значит, что нам нужны такие строки, которые содержат года, большие 2009 и меньшие 2021. Давайте пошагово:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="realdata.html#cb32-1"></a><span class="co"># поработаем с вектором годов</span></span>
+<span id="cb32-2"><a href="realdata.html#cb32-2"></a>netflix<span class="op">$</span>release_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2009</span> <span class="co">## нашли те, что больше 2009</span></span>
+<span id="cb32-3"><a href="realdata.html#cb32-3"></a>netflix<span class="op">$</span>release_year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2021</span> <span class="co">## нашли те, что меньше 2021</span></span>
+<span id="cb32-4"><a href="realdata.html#cb32-4"></a>netflix<span class="op">$</span>release_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2009</span> <span class="op">&amp;</span><span class="st"> </span>netflix<span class="op">$</span>release_year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2021</span> <span class="co"># соединили два логических условия</span></span>
+<span id="cb32-5"><a href="realdata.html#cb32-5"></a></span>
+<span id="cb32-6"><a href="realdata.html#cb32-6"></a><span class="co"># индексируем получившимся вектором наш датасет</span></span>
+<span id="cb32-7"><a href="realdata.html#cb32-7"></a><span class="co"># выбираем нужные строки и все столбцы</span></span>
+<span id="cb32-8"><a href="realdata.html#cb32-8"></a>netflix[netflix<span class="op">$</span>release_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2009</span> <span class="op">&amp;</span><span class="st"> </span>netflix<span class="op">$</span>release_year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2021</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="realdata.html#cb33-1"></a><span class="co"># запишем в новую переменную</span></span>
+<span id="cb33-2"><a href="realdata.html#cb33-2"></a>netflix10 &lt;-<span class="st"> </span>netflix[netflix<span class="op">$</span>release_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2009</span> <span class="op">&amp;</span><span class="st"> </span>netflix<span class="op">$</span>release_year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2021</span>, ]</span></code></pre></div>
+<p>Как проверить, стало ли наблюдений меньше? Посмотреть количество строк:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="realdata.html#cb34-1"></a><span class="kw">nrow</span>(netflix)</span></code></pre></div>
+<pre><code>## [1] 7787</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="realdata.html#cb36-1"></a><span class="kw">nrow</span>(netflix10)</span></code></pre></div>
+<pre><code>## [1] 6579</code></pre>
+<p>Да, строк стало меньше. А столбцов?</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="realdata.html#cb38-1"></a><span class="kw">ncol</span>(netflix)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="realdata.html#cb40-1"></a><span class="kw">ncol</span>(netflix10)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>А столбцов столько же, потому что мы отсабсетили все.</p>
+<p>А правильно ли мы отсабсетили по годам? Это можно проверить, узнав уникальные значения переменной <code>release_year</code>:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="realdata.html#cb42-1"></a><span class="kw">unique</span>(netflix10<span class="op">$</span>release_year)</span></code></pre></div>
+<pre><code>##  [1] 2020 2016 2011 2019 2017 2018 2014 2015 2010 2013 2012</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="realdata.html#cb44-1"></a><span class="kw">sort</span>(<span class="kw">unique</span>(netflix10<span class="op">$</span>release_year)) <span class="co"># отсортируем для удобства</span></span></code></pre></div>
+<pre><code>##  [1] 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020</code></pre>
+<p>Да, сабсетнули верно!</p>
+<img class="taskimg" src="img/code.png">
+<div class="task">
+<p>Какой из 10-х гг. был наиболее богат на фильмы?</p>
+<input type="text" id="task2">
+<input type="button" value="Проверить" onClick="check2()">
+<div id="f2" class="feedback" hidden="">
+
+</div>
+<script>
+var input2 = document.getElementById("task2");
+var f2 = document.getElementById("f2");
+
+function check2() {
+  if (input2.value == "2017") {
+    f2.hidden = false;
+    f2.innerHTML = 'Ответ корректен!';
+    f2.style = "color:  #00aa4a";
+  } else {
+    f2.hidden = false;
+    f2.innerHTML = 'Ответ некорректен…';
+    f2.style = "color:  #b73239";
+  }
+}
+</script>
+</div>
+<p>Ещё одна полезная для разведочного анализа функция — это <code>apply()</code>. Она применяет некоторую функцию по всем колонкам или столбцам нашего датафрейма. Наприме, мы хотим выяснить, если ли среди имеющихся переменных логические. Это можно сделать так:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="realdata.html#cb46-1"></a><span class="kw">apply</span>(netflix, <span class="dv">2</span>, is.logical)</span></code></pre></div>
+<pre><code>##      show_id         type        title     director         cast      country 
+##        FALSE        FALSE        FALSE        FALSE        FALSE        FALSE 
+##   date_added release_year       rating     duration    listed_in  description 
+##        FALSE        FALSE        FALSE        FALSE        FALSE        FALSE</code></pre>
+<p>Первым аргументом мы указываем объект, который нас интересует. Далее указываем, по строкам (1) или по столбцам (2) мы будем выполнять нашу функцию. И третьим аргументом собственно определяем, какую функцию мы будем запускать — в нашем случае <code>is.logical</code>.</p>
+<blockquote>
+<p>Да, мы передаём функцию в функцию — это нормально. :)</p>
+</blockquote>
+<p>Функция <code>is.logical()</code> проходится по столбцам нашего датафрейма, отрабатывает на каждом из них, а затем результаты собираются в именованный вектор. В итоге мы узнаём, что среди наших переменных логических нет.</p>
+<img class="taskimg" src="img/code.png">
+<div class="task">
+<p>Сколько в нашем датасете строк, содержащих пропущенные значения?</p>
+<p><em>Подсказка: помните, что сравнение с <code>NA</code> возвращает <code>NA</code>.</em></p>
+<input type="text" id="task3">
+<input type="button" value="Проверить" onClick="check3()">
+<div id="f3" class="feedback" hidden="">
+
+</div>
+<script>
+var input3 = document.getElementById("task3");
+var f3 = document.getElementById("f3");
+
+function check3() {
+  if (input3.value == "0") {
+    f3.hidden = false;
+    f3.innerHTML = 'Ответ корректен!';
+    f3.style = "color:  #00aa4a";
+  } else {
+    f3.hidden = false;
+    f3.innerHTML = 'Ответ некорректен…';
+    f3.style = "color:  #b73239";
+  }
+}
+</script>
+</div>
+</div>
+<div id="rdata" class="section level2">
+<h2><span class="header-section-number">6.4</span> <code>.RData</code></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>…и, возможно, закон, но это не точно…<a href="realdata.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="strings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="предобработка-данных-концепция-tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["wlm2021-book.pdf", "wlm2021-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

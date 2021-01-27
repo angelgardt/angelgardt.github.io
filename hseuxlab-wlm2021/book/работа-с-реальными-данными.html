@@ -422,6 +422,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 A genetics professor experiments with a treatment for his comatose sister that blends medical and shamanic cures, but unlocks a shocking side effect.</code></pre>
 <p>Что-то загрузилось. Это хорошо. Что именно — выясним чуть позже.</p>
 <p>Можно ли не прописывать <code>data</code>? Можно, но тогда придётся переложить файл данных в рабочую директорию (то есть папку курса). С одним файлом ничего, можно жить. А есть у вас 30 или 50 файлов разных респондентов? Уже тяжеловато и бардак. Поэтому, на мой взгляд, такая организация — хороший компромисс: кода пишем чуть-чуть больше, но зато есть порядок<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Конечно, можно хранить файлы данных где-то совсем отдельно. Но тогда и прописывать придётся путь от конревой папки компа:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="работа-с-реальными-данными.html#cb8-1"></a><span class="co"># например, можно прочитать файл прямо из папки «Загрузки»</span></span>
+<span id="cb8-2"><a href="работа-с-реальными-данными.html#cb8-2"></a>netflix &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;/Users/antonangelgardt/Downloads/netflix_titles.csv&#39;</span>)</span></code></pre></div>
+<p>Это выглядит не очень удобно.</p>
+<p>На самом деле, в мире <a href="https://ru.wikipedia.org/wiki/Облачное_хранилище_данных">облачных технологий</a> можно и вовсе обойтись без скачивания файлов на десктоп. Функция <code>read.csv()</code> вполне может прочитать файл прямо из интернета:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="работа-с-реальными-данными.html#cb9-1"></a><span class="co"># это ссылка на мой GitHub, где лежит нужный нам файл</span></span>
+<span id="cb9-2"><a href="работа-с-реальными-данными.html#cb9-2"></a>netflix &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/angelgardt/hseuxlab-wlm2021/master/data/netflix_titles.csv&#39;</span>)</span></code></pre></div>
+<p>Однако стоит помнить, что наши собранные руками данные в облаках, скорее всего, не лежат. Поэтому надо уметь загрузить файл и из интернета, и с компа.</p>
 <div id="форматы-данных" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Форматы данных</h3>
 </div>
@@ -434,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>и, возможно, закон, но это не точно…<a href="работа-с-реальными-данными.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>…и, возможно, закон, но это не точно…<a href="работа-с-реальными-данными.html#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
