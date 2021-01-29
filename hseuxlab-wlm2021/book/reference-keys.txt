@@ -135,3 +135,4 @@ cfa
 further
 references
 файл-.rdata
+factorsx
