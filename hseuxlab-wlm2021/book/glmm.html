@@ -724,7 +724,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)</a></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="wlm2021-book_files/figure-html/glmm1-1.png" width="672" /></p>
 <p>Что плохо?</p>
 <ol style="list-style-type: decimal">
 <li>Завышен объем выборки (10800 наблюдений вместо 36 испытуемых) → Увеличивается вероятность ошибки I рода.</li>
@@ -798,7 +798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)</a></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="wlm2021-book_files/figure-html/glmm2-1.png" width="672" /></p>
 <p>Что плохо?</p>
 <ol style="list-style-type: decimal">
 <li>37 предикторов (ок, у нас, конечно, 10800 наблюдений, это нас может спасти, но в общем случае нам может не хватить мощности на тестирование такого количества предикторов)</li>
@@ -833,7 +833,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&#39;point&#39;</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_summary</span>(<span class="dt">fun =</span> mean, <span class="dt">geom =</span> <span class="st">&#39;line&#39;</span>, <span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb20-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">65</span><span class="op">:</span><span class="dv">90</span>, <span class="dv">97</span><span class="op">:</span><span class="dv">107</span>))</a></code></pre></div>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="wlm2021-book_files/figure-html/glmm3-1.png" width="672" /></p>
 <p>Для подбора смешанных моделей существует несколько пакетов. Мы будем использовать <code>lmer4</code>.</p>
 <p>Модель со случайным интерсептом:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">library</span>(lme4)</a></code></pre></div>
@@ -1002,14 +1002,14 @@ L(\theta | \mathrm{data}) \rightarrow \max
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">gg_res &lt;-<span class="st"> </span><span class="kw">ggplot</span>(res, <span class="kw">aes</span>(<span class="dt">y =</span> sresid)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb36-3" data-line-number="3">gg_res <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> fitted))</a></code></pre></div>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 На графике ответливо визуализируется воронкообразный паттерн, что свидетельструет о гетерогенности дисперсий — не выполнено условие гомоскедастичности. Кроме того, наблюдаются большие остатки. Во-первых, помним о том, что мы не чистили данные, а во-вторых, все равно для многих наблюдений модель плохо работает.</p>
 <p>Визуализируем зависимость остатков от факторов модели.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">gg_res <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(share<span class="op">$</span>setsize)))</a></code></pre></div>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="wlm2021-book_files/figure-html/glmm4-1.png" width="672" /></p>
 <p>Вновь наблюдается гетерогенность дисперсий и большие остатки.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1">gg_res <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(share<span class="op">$</span>id)))</a></code></pre></div>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="wlm2021-book_files/figure-html/glmm5-1.png" width="672" /></p>
 <p>Опять видим гетерогенность дисперсий и большие остатки.</p>
 </div>
 </div>
