@@ -1002,7 +1002,7 @@ L(\theta | \mathrm{data}) \rightarrow \max
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">gg_res &lt;-<span class="st"> </span><span class="kw">ggplot</span>(res, <span class="kw">aes</span>(<span class="dt">y =</span> sresid)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb36-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb36-3" data-line-number="3">gg_res <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> fitted))</a></code></pre></div>
-<p><img src="wlm2021-book_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<p><img src="wlm2021-book_files/figure-html/glmm6-1.png" width="672" />
 На графике ответливо визуализируется воронкообразный паттерн, что свидетельструет о гетерогенности дисперсий — не выполнено условие гомоскедастичности. Кроме того, наблюдаются большие остатки. Во-первых, помним о том, что мы не чистили данные, а во-вторых, все равно для многих наблюдений модель плохо работает.</p>
 <p>Визуализируем зависимость остатков от факторов модели.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">gg_res <span class="op">+</span><span class="st"> </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(share<span class="op">$</span>setsize)))</a></code></pre></div>
