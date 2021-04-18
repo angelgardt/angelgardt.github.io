@@ -40,6 +40,12 @@
   font-weight: normal;
 }
 
+.go_on_top {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+}
+
 .menu2, .menu3 {
   text-align: center;
 }
