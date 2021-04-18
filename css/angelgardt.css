@@ -20,6 +20,13 @@
 }
 
 @font-face {
+  font-family: "HelveticaOblique";
+  src: url('fonts/HelveticaOblique.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
   font-family: "HelveticaLight";
   src: url('fonts/HelveticaLight.ttf') format('truetype');
   font-style: normal;
@@ -233,6 +240,20 @@ summary:hover {
 
 .pub_item {
   font-family: "HelveticaRegular";
+  font-size: 18pt;
+  line-height: 1.5;
+  color: #141414;
+}
+
+.journal {
+  font-family: "HelveticaOblique";
+  font-size: 18pt;
+  line-height: 1.5;
+  color: #141414;
+}
+
+.on_review {
+  font-family: "HelveticaLight";
   font-size: 18pt;
   line-height: 1.5;
   color: #141414;
