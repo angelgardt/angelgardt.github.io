@@ -22,7 +22,7 @@
 @font-face {
   font-family: "HelveticaOblique";
   src: url('fonts/HelveticaOblique.ttf') format('truetype');
-  font-style: normal;
+  font-style: oblique;
   font-weight: normal;
 }
 
