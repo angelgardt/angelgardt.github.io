@@ -254,6 +254,7 @@ summary:hover {
 .journal {
   font-family: "HelveticaOblique";
   font-size: 18pt;
+  font-style: oblique;
   line-height: 1.5;
   color: #141414;
 }
