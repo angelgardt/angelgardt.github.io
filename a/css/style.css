@@ -1,41 +1,41 @@
 @font-face {
   font-family: "GothamProBlack";
-  src: url("/Users/antonangelgardt/a/fonts/GothamProBlack.ttf");
+  src: url("/a/fonts/GothamProBlack.ttf");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaRegular";
-  src: url("/Users/antonangelgardt/a/fonts/HelveticaRegular.ttf");
+  src: url("/a/fonts/HelveticaRegular.ttf");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaBold";
-  src: url("/Users/antonangelgardt/a/fonts/HelveticaBold.ttf");
+  src: url("/a/fonts/HelveticaBold.ttf");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaOblique";
-  src: url("/Users/antonangelgardt/a/fonts/HelveticaOblique.ttf");
+  src: url("/a/fonts/HelveticaOblique.ttf");
   font-style: oblique;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaLight";
-  src: url("/Users/antonangelgardt/a/fonts/HelveticaLight.ttf");
+  src: url("/a/fonts/HelveticaLight.ttf");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "HelveticaNeueLight";
-  src: url("/Users/antonangelgardt/a/fonts/HelveticaNeueLight.ttf");
+  src: url("/a/fonts/HelveticaNeueLight.ttf");
   font-style: normal;
   font-weight: normal;
 }
