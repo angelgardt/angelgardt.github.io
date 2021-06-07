@@ -103,26 +103,31 @@
         
     </div>
 
-    <footer id="footer">
-      <ul class="menufoot">
-        <li>
-          <a href="http://angelgardt.github.io/a/en">home</a>
-        </li>
-      </ul>
+     <footer>
+      <div class="footer_menu">
+        <div class="footer_menu_item">
+          <a href="https://angelgardt.github.io/a/en/">home</a>
+        </div>
+      </div>
 
-      <ul class="copyright">
-        <li>
-          <a href="http://angelgardt.github.io/a/en/angelgardt">Anton Angelgardt</a>
-        </li>
-        <li>
+      <div class="copyright">
+        <div class="copyright_name">
+          <a href="https://angelgardt.github.io/a/en/angelgardt">Anton Angelgardt</a>
+        </div>
+        <div class="copyright_email">
+          <a href="mailto:anton.angelgardt@gmail.com">anton.angelgardt@gmail.com</a>
+        </div>
+        <div class="copyright_years">
           <a>2020–<span id="current_year"></span></a>
-        </li>
-      </ul>
+        </div>
+      </div>
+
     </footer>
 
     <script type="text/javascript">
-      var current_year_span = document.getElementById('current_year');
       var today = new Date();
+      var current_year_span = document.getElementById('current_year');
+
       current_year_span.innerHTML = today.getFullYear();
     </script>
 
