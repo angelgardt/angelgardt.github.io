@@ -79,6 +79,10 @@ header {
   padding: 1%;
 }
 
+.content {
+  margin: 0 10% 0 10%;
+}
+
 .menu1_item {
   transition: background-color .3s;
 }
