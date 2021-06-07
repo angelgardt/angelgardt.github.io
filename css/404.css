@@ -50,4 +50,5 @@
 #footer404 {
   position: fixed;
   bottom: 0;
+  margin-bottom: 0;
 }
