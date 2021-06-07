@@ -17,11 +17,11 @@
       </div>
 
       <div class="menu1">
-        <div class="menu1_item" onclick="location.href='https://angelgardt.github.io/a/ru'">
-          <a href="https://angelgardt.github.io/a/ru">главная</a>
+        <div class="menu1_item">
+          <a href="#">главная</a>
         </div>
-        <div class="menu1_item menu1_item_current">
-          <a href="#">автор</a>
+        <div class="menu1_item menu1_item_current" onclick="location.href='https://angelgardt.github.io/a/ru/angelgardt'">
+          <a href="https://angelgardt.github.io/a/ru/angelgardt">автор</a>
         </div>
 
         <div class="language_switcher">
@@ -123,7 +123,7 @@
         
         
         
-        <h1>Psy-Вышка: конференция молодых учёных</h1>
+        <h1>Psy-Вышка: международная конференция молодых учёных</h1>
         <p class="duration">HSE UX LAB, май 2021</p>
 
         <p class="material">
@@ -157,13 +157,9 @@
 
     <script type="text/javascript">
       var today = new Date();
-      var birthdate = new Date('1997-04-21');
-      var age = new Date(today - birthdate).getUTCFullYear() - 1970;
 
       var current_year_span = document.getElementById('current_year');
-      var age_span = document.getElementById('info_age');
 
-      age_span.innerHTML = age + " y. o.";
       current_year_span.innerHTML = today.getFullYear();
     </script>
 
