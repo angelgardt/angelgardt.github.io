@@ -118,7 +118,9 @@ header {
   border-radius: 5px;
 }
 
-{}
+.language_selector option {
+  color: #141414;
+}
 
 footer {
   width: 97%;
