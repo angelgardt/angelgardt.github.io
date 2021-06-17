@@ -187,7 +187,7 @@ h3 {
   margin: 1% 5%;
 }
 
-.supervisor_name {
+.supervisor_name, .fqw_name {
   font-family: "HelveticaBold";
 }
 
