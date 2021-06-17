@@ -181,6 +181,16 @@ h3 {
   font-size: 16px;
 }
 
+.gpa, .fqw, .fqw_supervisor, .fqw_score {
+  font-family: "HelveticaRegular";
+  font-size: 16px;
+  margin: 1% 5%;
+}
+
+.supervisor_name {
+  font-family: "HelveticaBold";
+}
+
 .description {
   font-family: "HelveticaLight";
   font-size: 16px;
