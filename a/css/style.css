@@ -253,11 +253,40 @@ div.item .date {
 	line-height: 2;
 }
 
-div.item .description {
+div.item .description,
+.description {
 	font-family: "Montserrat-Regular";
 	font-size: 12px;
 	line-height: 1.5;
 }
+
+div.block_content {
+	margin: 1% 0 0 0;
+}
+
+div.block_content p a {
+	font-family: "Montserrat-SemiBold";
+	font-size: 16px;
+	color: #050505;
+	line-height: 2;
+	text-decoration: underline;
+}
+
+div.block_content p a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div.block_content p a.disabled {
+	pointer-events: none;
+	text-decoration: none;
+	color: #4b4b4b;
+}
+
+div.block_content p a.disabled:hover {
+	cursor: default;
+}
+
 
 div.container {
 	margin: 0 2% 0 2%;
@@ -358,9 +387,11 @@ footer p a:hover {
 	cursor: pointer;
 }
 
-footer p.description {
+footer p.description,
+footer p.description a {
 	margin-top: 1%;
 	margin-bottom: 1%;
+	font-size: 12px;
 }
 
 
