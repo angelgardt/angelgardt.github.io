@@ -411,7 +411,7 @@
 
 		<h3>Искусство и дизайн</h3>
 
-		<div class="container">
+		<div class="container" hidden>
 			<div class="interest">коммуникационный дизайн</div>
 			<div class="interest">графический дизайн</div>
 			<div class="interest">типографика</div>
@@ -484,7 +484,7 @@
 					доктор психологических наук, ординарный профессор департамента психологии НИУ ВШЭ</p>
 					<p class="grade">Оценка научного руководителя: 10 / A+ / «отлично»</p>
 					<p class="grade">Оценка рецензента: 10 / A+ / «отлично»</p>
-					<p class="grade">Оценка государственной аттестационной комиссии: 10 / A+ / «отлично»</p>
+					<p class="grade">Оценка государственной аттестационной комиссии: 10 / A+ / “Excellent”</p>
 				</div>
 			</details>
 
@@ -1013,12 +1013,14 @@
 
       var age_number = new Date(today - birthdate).getUTCFullYear() - 1970;
       var age_string = "";
-      
-      //print(n,'программист'+('ов' if n%10==0 or 4<n%10<10 or 10<n%100<15 else 'а' if 1<n%10<5 else ''))
 
-      if ((age_number % 10 == 0) || (4 < age_number % 10) || (10 < age_number % 100 < 15)) {
+      if (age_number % 10 == 0) {
       	age_string = age_number + " лет";
-      } else if (1 < age_number % 10 < 5) {
+      } else if (4 < age_number % 10) {
+      	age_string = age_number + " лет";
+      } else if (10 < age_number % 100 && age_number % 100 < 15) {
+      	age_string = age_number + " лет";
+      } else if (1 < age_number % 10 && age_number % 10 < 5) {
       	age_string = age_number + " года";
       } else {
       	age_string = age_number + " год";
