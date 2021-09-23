@@ -39,6 +39,10 @@ div.menu_item a {
 	font-family: "Montserrat-Light";
 }
 
+div.main_menu div.menu_item {
+	min-height: 30px;
+}
+
 div.main_menu div.menu_item a {
 	font-size: 18px;
 	color: #f5f5f5;
@@ -73,9 +77,14 @@ div.main_menu div.menu_item:hover {
 .content {
 	max-width: 1400px;
 	margin: 0 auto !important;
+	padding: 0 3%;
 }
 
 
+
+div.menu2 div.menu_item {
+	min-height: 20px;
+}
 
 div.menu2 div.menu_item a {
 	font-size: 16px;
@@ -135,6 +144,7 @@ div.contacts {
 
 a.contact img {
 	width: 5%;
+	min-width: 40px;
 	margin: .1%;
 	box-sizing: border-box;
 }
@@ -157,7 +167,7 @@ h2, h3, h4 {
 
 h2 {
 	background-color: #050505;
-	margin: 3% 0 1% 0;
+	margin: 3% 0 2% 0;
 	padding: 1% 1% 1% 1%;
 	border-radius: 10px;
 	font-size: 36px;
@@ -175,6 +185,10 @@ div.menu3 {
 	margin: 0 0 1% 0;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
+}
+
+div.menu3 div.menu_item {
+	min-height: 30px;
 }
 
 div.menu3 .menu_item a {
@@ -392,32 +406,4 @@ footer p.description a {
 	margin-top: 1%;
 	margin-bottom: 1%;
 	font-size: 12px;
-}
-
-
-/* RESPONSIVE DESIGN */
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-
 }
