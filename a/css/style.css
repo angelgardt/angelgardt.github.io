@@ -150,6 +150,10 @@ a.contact img {
 	box-sizing: border-box;
 }
 
+div.current_job {
+	margin-bottom: 5%;
+}
+
 div.current_job p.position {
 	font-family: "Montserrat-Bold";
 	font-size: 18px;
