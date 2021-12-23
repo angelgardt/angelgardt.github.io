@@ -81,10 +81,11 @@ div.main_menu div.menu_item:hover {
 }
 
 
-
+/*
 div.menu2 div.menu_item {
 	min-height: 20px;
 }
+*/
 
 div.menu2 div.menu_item a {
 	font-size: 16px;
@@ -187,9 +188,11 @@ div.menu3 {
 	border-bottom-right-radius: 10px;
 }
 
+/*
 div.menu3 div.menu_item {
 	min-height: 30px;
 }
+*/
 
 div.menu3 .menu_item a {
 	font-size: 14px;
