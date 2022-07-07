@@ -50,7 +50,7 @@ library(tidyverse)
 
 ### Велосипедик
 
-`tidyverse` настолько крут, что его него есть свой синтаксис, основная особенность которого --- это пайп (pipe): %>%. Вводится через **Ctrl + Shift + M** (**⌘ + Shift + M**). Этот «велосипедик» работает по очень простой схеме: передаёт то, что слева, первым аргументом функции, которая справа. Вот пример:
+`tidyverse` настолько крут, что его него есть свой синтаксис, основная особенность которого --- это пайп (pipe): `%>%`. Вводится через **Ctrl + Shift + M** (**⌘ + Shift + M**). Этот «велосипедик» работает по очень простой схеме: передаёт то, что слева, первым аргументом функции, которая справа. Вот пример:
 
 ```{r}
 round(pi, 2)
@@ -1036,5 +1036,33 @@ taia %>%
 ```
 
 Реально же, все крайне привычно! В `theme()` в данном случае убрана дублируемая информация, так как для наглядности `subscale` отображены также цветом заливки.
+
+А еще можно пилить мемы:
+
+```{r}
+taia %>% 
+  pivot_longer(1:60, names_to = "item", values_to = "score") %>% 
+  mutate(subscale = str_remove_all(item, "[:digit:]{2}") %>% toupper()) %>%
+  group_by(id) %>% 
+  summarise(total_score = sum(score)) %>% 
+  ggplot(aes(id, total_score)) +
+  geom_point() +
+  annotate("rect", xmin = 16, xmax = 22, ymin = 125, ymax = 140,
+           fill = "darkblue", alpha = .5) +
+  annotate("text", x = 28, y = 130,
+           label = "низкий балл", color = "darkblue") +
+  annotate("rect", xmin = 20, xmax = 25, ymin = 110, ymax = 120,
+           fill = "darkgreen", alpha = .5) +
+  annotate("text", x = 35, y = 115,
+           label = "балл по менбше", color = "darkgreen") +
+  annotate("rect", xmin = 35, xmax = 40, ymin = 77, ymax = 87,
+           fill = "darkred", alpha = .5) +
+  annotate("text", x = 40, y = 75,
+           label = "ваще маленький балл жесть…", color = "darkred")
+```
+
+<center>
+![](cats_meme.jpeg)
+</center>
 
 Вот такое можно изображать в ггплоте.
