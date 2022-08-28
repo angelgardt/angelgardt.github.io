@@ -1,0 +1,16 @@
+img.task {
+   width:5%;
+   min-width: 30px
+}
+
+div.task {
+  background-color: #CDEBFA;
+  padding: .5% 3%;
+  color: #3D6ED9;
+  border-radius: 10px;
+}
+
+div.example {
+  background-color: #EEEEEE;
+  padding: 1% 3%;
+}
