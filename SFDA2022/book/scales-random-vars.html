@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Шкалы. Случайные величины. Распределения | Статистика для анализа данных</title>
+  <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Шкалы. Случайные величины. Распределения | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Шкалы. Случайные величины. Распределения | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего растроения</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales-random-vars.html"><a href="scales-random-vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#intro"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales-random-vars.html"><a href="scales-random-vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales-random-vars.html"><a href="scales-random-vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales-random-vars.html"><a href="scales-random-vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales-random-vars.html"><a href="scales-random-vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales-random-vars.html"><a href="scales-random-vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales-random-vars.html"><a href="scales-random-vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales-random-vars.html"><a href="scales-random-vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales-random-vars.html"><a href="scales-random-vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales-random-vars.html"><a href="scales-random-vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales-random-vars.html"><a href="scales-random-vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales-random-vars.html"><a href="scales-random-vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="scales_random_vars" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Шкалы. Случайные величины. Распределения</h1>
+<div id="intro" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Вспомним, что</h2>
+<ul>
+<li>статистика нам помогает делать выводы о <em>генеральной совокупности</em> на основании данных, которые мы собрали на <em>выборке</em></li>
+<li>мы хотим изучать <em>параметры</em> генеральной совокупности, но они неизвестны и никогда не будут известны — поэтому мы используем <em>выборочные характеристики (оценки)</em>, которые мы <strong>измерили</strong> на нашей выборке</li>
+</ul>
+<p>Теперь бы понять, что таоке измерение…</p>
+</div>
+<div id="measuring" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Измерение в социальных науках</h2>
+<p>Под <strong>измерением</strong> мы будем понимать <strong>приписывание признакам объектов изучаемой совокупности определенных значений на определенной шкале.</strong></p>
+<p>Еще раз:</p>
+<ul>
+<li>есть совокупность объектов, которые мы изучаем — выборка</li>
+<li>в ней ней какие-то объекты</li>
+<li>у объектов есть признаки</li>
+<li>если мы припишем признаку какое-то значение на некоторой шкале, значит мы измерим признак.</li>
+</ul>
+<p>Такое определение нам позволяет измерить практически всё, что угодно:</p>
+<ul>
+<li>рост</li>
+<li>возраст</li>
+<li>пол (шкала из двух значений <code>male</code> и <code>female</code>)</li>
+<li>национальность</li>
+<li>количество детей в семье</li>
+<li>рейтинг студентов</li>
+<li>курс / уровень обучения</li>
+<li>географические координаты (долгота и широта)</li>
+<li>температура</li>
+<li>дата</li>
+<li>IQ</li>
+<li>нарциссизм / макиавеллизм / психопатия</li>
+<li>время реакции</li>
+<li>точность ответов испытуемого в эксперименте</li>
+<li>и т.д.</li>
+</ul>
+<p>Сейчас нас не интересует, как именно «внутри себя» происходит процесс измерения, какие предположения стоят за различными измерениями и как сделать измерение качественным. Отметим только, что, конечно же, нам как исследователям надо следить за тем, насколько адекватные измерения мы имеем, насколько приписанные измерения отражают выраженность, например, психологических черт. Об это вы подробно поговорите в курсе психодиагностики и психометрики.</p>
+<p>Итак, у нас есть интересующие нас признаки <del>генеральной совокупности</del> выборки, которые мы измерили, то есть приклеили на них некоторые значения из определенных шкал. Успех!</p>
+<p>Теперь надо задуматься про шкалы. Ведь очевидно, что возраст и пол будут измеряться по-разному, также как и нарциссизм и время реакции.</p>
+</div>
+<div id="feaures_variables" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Признаки и переменные</h2>
+<p>Мы уже упомянули выше, что мы можем измерять различные признаки. Попытаемся как-то эту кучу систематизировать. В терминах данных признаки — это <strong>переменные</strong>, поэтому далее мы будем чаще употребляться именно этот термин — переменная — имея в виду то, что мы намерили, изучая признак. Во многом <em>признак</em> и <em>переменная</em> — это синонимы, только первый термин больше из теории измерений, а второй из статистики и анализа данных. Измерение же от отдельного человека / объекта выборки называется <em>наблюдение</em>.</p>
+<p>Итак, типы переменных:</p>
+<ul>
+<li><strong>Количественные</strong> переменные — те, которые принимают числовые значения
+<ul>
+<li><em>непрерывные</em> — принимают любые значения (рост, возраст, время реакции и др.)</li>
+<li><em>дискретные</em> — могут принимать только определенные значения (количество детей в семье, число отчисленных студентов, количество пачек гречи, которое человек скупил на карантине и др.)</li>
+</ul></li>
+</ul>
+<p>Число, приписываемое количественному признаку (переменной) ведёт себя как привычное нам математическое число в том смысле, что выражает некоторое <em>количество</em> — сантиметров, лет, секунд, детей, студентов, пачек гречи…</p>
+<ul>
+<li><strong>Номинальные (категориальные)</strong> переменные — используются для разделения наших наблюдений на группы (пол, национальность, курс обучения, используемая операционная ситема компьютера и др.) Записаны эти переменные обычно текстом (скажем, как в примерах выше, пол — <code>male</code> и <code>female</code> или операционная система — <code>Win</code>, <code>MacOS</code>, <code>Linux</code>). Однако, например, курс обучения можно записать по-разному: текстом — <code>freshman</code>, <code>sophomore</code>, <code>junior</code>, <code>senior</code> — и числом — <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>. Однако в данном случае цифры не несут никакого математического смысла — это просто <em>лейблы</em>, с помощью которых мы различаем группы наблюдений. Ведь и пол мы можем записать с помощью чисел — пусть <code>male = 0, female = 1</code>. Ведь не будем же мы складывать-вычитать девушек и парней?</li>
+</ul>
+<p>Внимательный читатель мог заметить, что курс обучения это не совсем категориальная переменная, ведь «второкурсник» в каком-то смысле «больше», чем «первокурсник». Но мы не можем сказать «на сколько» или «во сколько» больше! Что же делать?</p>
+<ul>
+<li>Нельзя сказать, что «второкурсник» выражает большую выраженность признака «год обучения», чем «первокурсник».</li>
+<li>Вместе с тем «второкурсник» дольше учился и освоил больше дисциплин, чем «первокурсник». При этом «третькурсник» учился дольше «второкурсника». То есть есть <em>порядок</em> категорий.</li>
+<li>Такая переменная называется <strong>ранговой</strong>.</li>
+</ul>
+<p>Другой пример рагновой переменной — это студенческий рейтинг. Что делает рейтинг? <em>Упорядочивает</em> студентов. Можно ли сказать, что четвертый в рейтинге студент в два раза менее успешен, чем второй? Нет — тот же GPA может отличаться на десятые или сотые доли.</p>
+<p><strong>Итого, переменные:</strong></p>
+<ul>
+<li>количественные
+<ul>
+<li>непрерывные</li>
+<li>дискретные</li>
+</ul></li>
+<li>ранговые</li>
+<li>номинальные</li>
+</ul>
+</div>
+<div id="scales" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Шкалы</h2>
+<div id="why_we_need_scales" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Зачем нам знать виды шкал?</h3>
+<p>От того, в какой шкале измерена переменная, которую мы исследуем, будет зависеть:</p>
+<ul>
+<li>какие графики мы сможем нарисовать</li>
+<li>какие статистики на ней имеют смысл</li>
+<li>какие статистические модели дадут адекватный результат</li>
+</ul>
+<p>Ну, крч, почти весь анализ определяется тем, с какой шкалой мы работаем.</p>
+</div>
+<div id="types_of_scales" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Типы шкал</h3>
+<p>Их всего четыре.</p>
+<table>
+<colgroup>
+<col width="24%" />
+<col width="10%" />
+<col width="27%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Шкала</th>
+<th>Тип шкалы</th>
+<th>Тип данных</th>
+<th>Допустимые операции</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Номинальная (шкала наименований)</td>
+<td>Неметрическая</td>
+<td><del>качественные</del> категориальные</td>
+<td><span class="math inline">\(=\)</span>, <span class="math inline">\(\neq\)</span></td>
+</tr>
+<tr class="even">
+<td>Порядковая (ранговая)</td>
+<td>Неметрическая</td>
+<td><del>качественные</del> категориальные (?) ранговые</td>
+<td><span class="math inline">\(=\)</span>, <span class="math inline">\(\neq\)</span>, <span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span></td>
+</tr>
+<tr class="odd">
+<td>Интервальная (шкала разностей)</td>
+<td>Метрическая</td>
+<td>Количественные</td>
+<td><span class="math inline">\(=\)</span>, <span class="math inline">\(\neq\)</span>, <span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span>, <span class="math inline">\(+\)</span>, <span class="math inline">\(-\)</span></td>
+</tr>
+<tr class="even">
+<td>Абсолютная (шкала отношений)</td>
+<td>Метрическая</td>
+<td>Количественные</td>
+<td><span class="math inline">\(=\)</span>, <span class="math inline">\(\neq\)</span>, <span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span>, <span class="math inline">\(+\)</span>, <span class="math inline">\(-\)</span>, <span class="math inline">\(\times\)</span>, <span class="math inline">\(\div\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Шкала</th>
+<th>Ноль</th>
+<th>Допустимые преобразования</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Номинальная (шкала наименований)</td>
+<td>Отсутствует</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Порядковая (ранговая)</td>
+<td>Отсутствует</td>
+<td>Монотонное преобразование</td>
+</tr>
+<tr class="odd">
+<td>Интервальная (шкала разностей)</td>
+<td>Относительный</td>
+<td>Линейное преобразование</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Абсолютная (шкала отношений)</td>
+<td>Абсолютный</td>
+<td>Преобразование подобия</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Пройдёмся по колонкам.</p>
+<ul>
+<li><strong>Тип шкалы</strong> — <em>метрическая</em> или <em>неметрическая</em> — определяется тем, одинаковое ли расстояние между делениями шкалы. То есть есть ли на шкале цена деления.
+<ul>
+<li>Так, понятно, что на шкале времени реакции все секунды одинакового размера — метрическая шкала.</li>
+<li>А на шкале «использумая операционная система» вообще нет делений, не то что расстояний.</li>
+<li>Обратите внимание, что на ранговой шкале хотя и есть деления (например, шкала Лайкерта), их размер неодинаковый: нельзя сказать, что 6 на шкале Лайкерта в два раза или на 3 больше, чем 3. Поэтому <em>ранговая шкала — неметрическая</em>.</li>
+</ul></li>
+<li><strong>Тип данных</strong> — <em>количественные</em> или <em>«качественные»</em> — определеяется тем, какие свойства чисел работают на этой шкале.
+<ul>
+<li>Чтобы не утонуть в математической части этого всего, соотнесём это с колонкой <strong>допустимые операции</strong>.
+<ul>
+<li>На <em>количественных шкалах</em> допустимы операции сложения, вычитания, умножения и деления.</li>
+<li>На <em>«качественных» шкалах</em> допустимы только операции сравнения.</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>О термине «качественные данные»</strong>. Почему-то номинальную и ранговую шкалы в литературе часто называют «качественными». Видимо, потому что качественные данные обычно рассматриваются как оппозиция количественным.</p>
+<p>Это в некоторой мере справедливо, поскольку есть два типа исследований — качественные и количественные. Они различаются <em>методологией</em> и используемыми методиками и, как следствие, собираемыми данными.</p>
+<p>В рамках качественных исследований чаще всего собираются <em>тексты</em>, поэтому во многом качественные данные по факту обычно текстовые. Количественные данные — это, как правило, таблицы с <em>цифрами из любой</em> из четырёх шкал. Безусловно, анализ качественных и количественных данных тажке существенно различается.</p>
+<p><strong>Итого</strong>, кажется, называть «качественными» номинальную и ранговые шкалы — странно, потому что качественные данные — это неструктурированный текст. Лучше их именовать <em>категориальными</em>. Правда, например, рейтинг студентов (ранговая шкала) тоже не совсем категориальные данные… ай, ладно — будут ранговые!</p>
+<hr />
+<ul>
+<li><strong>Ноль</strong>
+<ul>
+<li><em>На номинальной и порядковой шкалах</em> нуля в математическом смысле нет вовсе. Для номинальной шкалы это очевидно, потому что там вообще нет «чисел» — там только лейблы. Для порядковой шкалы, в определенной мере, тоже, потому что <span class="math inline">\(0\)</span> на ней будет обозначать только то, что <em>ранг</em> у этого наблюдения ниже, чем ранг у наблюдения с <span class="math inline">\(1\)</span>. Ничего другого этот ноль не обозначает. <em>На интервальной и абсолютной шкалах</em> нуль есть.</li>
+<li>Классический пример <em>интервальной шкалы</em> — это температура в градусах Цельсия. Ноль на этой шкале — температуре замерзания воды — выбран произвольно. Ну, потому что это было достаточно удобно. Больше этот ноль ничем не обоснован. Поскольку <em>ноль относительный</em>, на такой шкале могут быть отрицательные значения — с температурой по Цельсию нас это совершенно не удивляет.</li>
+<li>Классический пример <em>абсолютной шкалы</em> — это температура по Кельвину. Известно, что на этой шкале не бывает отрицательных значений, так как минимум этой шкалы — это минимально возможная температура во Вселенной. Ниже не бывает. Поэтому это <em>абсолютный ноль</em>.</li>
+</ul></li>
+<li><strong>Допустимые операции</strong>
+<ul>
+<li>Наличие <em>относительного нуля</em> даёт возможность <em>складывать и вычитать</em>.</li>
+<li>Наличие <em>абсолютного нуля</em> даёт возможность <em>складывать, вычитать, делить и умножать</em>.</li>
+<li>На номинальной и порядковой шкалах нуля нет — поэтому арифметические действия на них не возможны.
+<ul>
+<li>На <em>номинальной шкале</em> допустимо только <em>сравнение на [не]равенство</em> — мы можем только проверить, одинаковы ли наблюдения [по этой переменной] или не одинаковые.</li>
+<li>На <em>порядковой шкале</em>, помимо <em>сравнения на [не]равенство</em>, допустимо также <em>сравнение на больше-меньше</em>, так как задан <em>порядок</em>.</li>
+</ul></li>
+</ul></li>
+<li><strong>Допустимые преобразования</strong>
+<ul>
+<li>Отсюда нам нужно попытаться понять, что такое <em>монотонное преобразование</em>. Это любое преобразование, сохраняющее порядок элементов.
+<ul>
+<li>Например, у нас есть шкала Лайкера от 1 до 5 — <code>[1, 2, 3, 4, 5]</code>. Пусть мы психометрик и собирается вычислять психометрические штуки на таких данных. Для удобства нам надо сделать так, чтобы шкала начиналась с нуля. Кажется, надо просто вычесть единицу из всех наблюдений — но законно ли это? На сломаются ли закономерности наших данных? Да, законно, потому что вычетание единицы — это монотонное преобразование, и порядок элементов сохраниться — <code>[0, 1, 2, 3, 4]</code>.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="arrange_scales" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Порядок шкал по мощности</h3>
+<p>Если взять на основу допустимые операции, можно упорядочить шкалы по мощности — более мощной является та шкала, на которой допустимо больше операций.</p>
+<p><span class="math display">\[
+\text{номинальная} &lt; \text{порядковая} &lt; \text{интервальная} &lt; \text{абсолютная}
+\]</span></p>
+<p>Наименее мощая — номинальная, наиболее мощная — абсолютная. Что нам надо вынести из это иерархии? То, что мы можем по ней двигаться <em>только влево</em>.</p>
+<p>Например,</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="31%" />
+<col width="34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Объем выборки [абсолютная]</th>
+<th>Объем выборки [ранговая]</th>
+<th>Объем выборки [номинальная]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20684</td>
+<td>жесть какая большая</td>
+<td>большая</td>
+</tr>
+<tr class="even">
+<td>1635</td>
+<td>очень большая</td>
+<td>большая</td>
+</tr>
+<tr class="odd">
+<td>1200</td>
+<td>большая</td>
+<td>большая</td>
+</tr>
+<tr class="even">
+<td>610</td>
+<td>норм</td>
+<td>большая</td>
+</tr>
+<tr class="odd">
+<td>311</td>
+<td>норм</td>
+<td>большая</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>маленькая</td>
+<td>маленькая</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>жесть какая маленькая</td>
+<td>маленькая</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="random_valiables" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Случайные величины</h2>
+<p>Ещё раз:</p>
+<p><strong>Измерение</strong> — это <strong>приписывание признакам объектов изучаемой совокупности определенных значений на определенной шкале.</strong></p>
+<p>Со шкалой разобрались. Теперь надо разобраться с приписыванием [<em>с точки зрения статистики</em> — теорию измерений не трогаем].</p>
+<div id="rand_exp" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Случайный эксперимент. Исходы случайного эксперимента</h3>
+<p>Отвлечемся на любимый объект статистиков — игральный кубик.</p>
+<center>
+<img src="kubik.jpg" width="30%">
+</center>
+<ul>
+<li>Бросание игрального кубика — это <strong>случайный эксперимент</strong>.</li>
+<li>Выпавшее число — это <strong>случайная величина</strong>.</li>
+</ul>
+<p>Теперь более строго.</p>
+<ul>
+<li><p><strong>Случайный эксперимент</strong> — это математическая модель некоторого реального эксперимента. Это не совсем один-в-один соотносится с экспериментом как методом исследования, который вы изучаете на эксперименталке. Важно, что <em>результат случайного эксперимента невозможно точно предсказать</em> — то есть какой стороной упадёт кубик заранее неизвестно.</p></li>
+<li><p><strong>Случайная величина</strong> — это некоторая переменная, значения которой представляют собой численные исходы некоторого случайного эксперимента. Исход бросания кубика — выпавшее число.</p></li>
+</ul>
+<p>Из психологического поля:</p>
+<ul>
+<li>ответ респондента на айтем опросника — это <em>случайный эксперимент</em>, выбранный им балл на шкале Лайкерта — это <em>случайная величина</em> — неизвестно, какой балл выберет респондент</li>
+<li>клик на стимул на экране в эксперименте зрительного поиска — это <em>случайный эксперимент</em>, время реакции, которое фиксирует PsychoPy — <em>случайная величина</em> — неизвестно, когда точно испытуемый кликнет по стимулу</li>
+<li>запись ЭЭГ-активности в конкретный момент времени — <em>случайный эксперимент</em>, амплитуда колебаний ЭЭГ — <em>случайная ведичина</em> — неизвестно, что мы зафиксируем в конкретный момент (потому что шум, там еще что-то на экране экспериментального монитора происходит)</li>
+<li>ну, и т.д.</li>
+</ul>
+<p>Итого, мы постоянно имеем дело со случайными экспериментами, но что более важно, что по результам этих случайных экспериментов [в рамках нашего эксперимента или заполнения опросника] мы <em>собираем значения случайных величин</em>.</p>
+<p>Вся статистика работает со случайными величинами.</p>
+</div>
+<div id="rand_var" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Случайная величина</h3>
+<p>Попробуем ещё такой заход. Вот мы тут говорим об измерениях признаков/переменных. Эти переменные и есть случайные величины, которые мы измеряем. Случайные — потому что мы никогда не знаем, что же мы получим в конкретном измерении. Почему не знаем? Если у нас «хардовое» измерение (типа ЭЭГ или PsychoPy) — всегда есть погрешность измерения и «шум» в данных. Мы не можем предусмотреть всё, чтобы нашего испытуемого ничего не отвлекало, он занимался только экспериментальной задачей, не думал о коте, который остался дома или испытывал блаженство от ЭЭГшной шапочки на себе. Если это опросник — всё, вроде бы, ещё понятнее. Что нам именно сейчас отметит именно этот респондент — известно только одному никому. В каком состоянии он пришёл, какие у него личностные черты и свойства, насколько от нам доверяет, насколько он готов отвечать честно и т.д.</p>
+<p>К вопросу, зачем нам статистика и анализ данных — чтобы среди всех этих факторов выделить то, что нас интересует как исследователей, и получить ответы на исследовательские вопросы.</p>
+<p>Случайные величины бывают <em>дискретные</em> и <em>непрерывные</em>.</p>
+<ul>
+<li><strong>непрерывные</strong> — принимают любые значения (рост, возраст, время реакции и др.)</li>
+<li><strong>дискретные</strong> — могут принимать только определенные значения</li>
+</ul>
+<p>Прямо как количественные переменные. Но они ещё себя несколько по-разному ведут.</p>
+</div>
+<div id="дискретные-случайные-величины" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Дискретные случайные величины</h3>
+<p>Частотные таблицы
+Распределение частот + PMF
+Столбчатая диаграмма</p>
+</div>
+<div id="непрерывные-случайные-величины" class="section level3" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Непрерывные случайные величины</h3>
+<p>Почему как раньше не работает
+Гистограмма
+График плотности вероятности</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
