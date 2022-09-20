@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Введение в статистику | Статистика для анализа данных</title>
+  <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Введение в статистику | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Введение в статистику | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="scales_random_vars.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего растроения</a></li>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Описательная статистика</b></span></li>
+<li class="chapter" data-level="3" data-path="central_tendency.html"><a href="central_tendency.html"><i class="fa fa-check"></i><b>3</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="central_tendency.html"><a href="central_tendency.html#types_of_statistics"><i class="fa fa-check"></i><b>3.1</b> Виды статистики</a></li>
+<li class="chapter" data-level="3.2" data-path="central_tendency.html"><a href="central_tendency.html#central_tendency_measures"><i class="fa fa-check"></i><b>3.2</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="central_tendency.html"><a href="central_tendency.html#mode"><i class="fa fa-check"></i><b>3.2.1</b> Мода</a></li>
+<li class="chapter" data-level="3.2.2" data-path="central_tendency.html"><a href="central_tendency.html#медиана"><i class="fa fa-check"></i><b>3.2.2</b> Медиана</a></li>
+<li class="chapter" data-level="3.2.3" data-path="central_tendency.html"><a href="central_tendency.html#среднее-арифметическое"><i class="fa fa-check"></i><b>3.2.3</b> Среднее арифметическое</a></li>
+<li class="chapter" data-level="3.2.4" data-path="central_tendency.html"><a href="central_tendency.html#другие-средние"><i class="fa fa-check"></i><b>3.2.4</b> Другие средние</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="central_tendency.html"><a href="central_tendency.html#сравнение-мер-центральной-тенденции"><i class="fa fa-check"></i><b>3.3</b> Сравнение мер центральной тенденции</a></li>
+<li class="chapter" data-level="3.4" data-path="central_tendency.html"><a href="central_tendency.html#свойства-среднего-арифметического"><i class="fa fa-check"></i><b>3.4</b> Свойства среднего арифметического</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro_stats" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Введение в статистику<a href="intro_stats.html#intro_stats" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="stat_terms" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Исходные понятия статистики<a href="intro_stats.html#stat_terms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Статистика</strong> — это междисциплинарная область знаний, а также практической деятельности, изучающая массовые явления, а также прицнипи и методы работы с данными, характеризующими эти явления.</p>
+<p>Звучит красиво. Осталось понять, что это значит.</p>
+<p>Массовые явления затрагивают огромные массы людей. Огромность масс, конечно, различна. Скажем, базовые перцептивные закономерности, связанные с тем, как устроена зрительная система, охватывают <em>всех людей</em>. Уровень удовлетворенности жизнью россиян охватывает только <em>население России</em>. Городские блага москвичей — только для <em>жителей Москвы</em>. Учебная мотивация студентов департамента психологии НИУ ВШЭ — это только про <em>людей с психологических бакалариата и магистратур НИУ ВШЭ</em>.</p>
+<p><strong>Генеральная совокупность</strong> — множество всех [существующих] исследуемых объектов, а также сведения о них.</p>
+<p><strong>Объем совокупности</strong> (<span class="math inline">\(N\)</span>) — число единиц, образующих совокупность.</p>
+<p>Короче, надо исследовать много людей, а времени и денег нет. Приходится из генеральной совокупности извлекать <strong>выборку</strong> — некоторую часть нашей генеральной совокупности (объемом <span class="math inline">\(n\)</span>). При этом <span class="math inline">\(n \ll N\)</span> (много меньше).</p>
+<p>Нас, конечно же, интересуют какие-то <strong>признаки</strong>, которыми обладают объект нашей генеральной совокупности. Эти признаки могут быть выражены <em>количественно</em> в определенных <strong>показателях</strong>.</p>
+<p>Например,</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Признак</th>
+<th>Показатель</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Рабочая память</td>
+<td>Объем рабочей памяти</td>
+</tr>
+<tr class="even">
+<td>Нейротизм</td>
+<td>Уровень нейротизма по BFI</td>
+</tr>
+<tr class="odd">
+<td>Заработная плата</td>
+<td>Средняя заработная плата</td>
+</tr>
+<tr class="even">
+<td>Когнитивная нагрузка</td>
+<td>Уровень когнитивной нагрузки по ЭЭГ-коррелятам</td>
+</tr>
+<tr class="odd">
+<td>Доверие к ИИ</td>
+<td>Уровень доверия к ИИ по опроснику TAIA</td>
+</tr>
+<tr class="even">
+<td>Индивидуализм/коллективизм</td>
+<td>Индекс индивидуализма/коллективизма по модели Хофстеде</td>
+</tr>
+</tbody>
+</table>
+<p>Признаки могут быть очень разными, как и показатели, которыми мы их пытаемся измерить. Не будем сильно в это углубляться, ибо этим занимается теория измерений, а мы тут статистикой пришли заниматься.</p>
+<p>Что нам важно сейчас: генеральная совокупность характеризуется параметром.</p>
+<p><strong>Параметр</strong> — относительно постоянная [от одной совокупности к другой] величина, характеризующая генеральную совокупность по некоторому показателю.</p>
+<p>Ну, то есть в принципе существует <em>средний уровень нейротизма по BFI студента-психолога</em> или <em>индекс индивидуализма/коллетивизма для конкретной культуры</em>. Проблема в том, что <strong>величина параметра, который мы изучаем, неизвестна</strong>. И никогда не будет известна.</p>
+<p>Но почему?</p>
+<ul>
+<li>Мы не можем изучать всю генеральную совокупность — слишком много объектов</li>
+<li>Наши измерения всегда содержат ошибку — мы даже длину линейкой точно не можем измерить, что уж о психологических измерениях говорить</li>
+</ul>
+<p>Поэтому величину параметра мы можем только предсказать с определённой статистической точностью. Измеряя что-либо на выборке, мы получаем <strong>выборочная характеристика (оценку)</strong> — эмпирический (измеримый) аналог параметра.</p>
+</div>
+<div id="why_we_need_statistics" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Зачем нужна статистика?<a href="intro_stats.html#why_we_need_statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы в какой-то малоприятной ситуации… Мы пытаемся измерить то, что в определенном смысле невозможно измерить, при этом достаточно точно, чтобы потом это можно было сравнивать или строить какие-то модели. Задача выглядит заведомо провальной…</p>
+<p>Однако именно в этот момент на помощь нам приходит статистика. Не в гордом одиночестве, конечно. Она проводит с собой теорию измерений, психометрику, теорию обнаружения сигнала и др. Всё это работает в нашей психологической науке в комлексе. Мы же в данном курсе сосредотачиваемся на статистической части этого салата.</p>
+<p>Статистика даёт на теоретический и математический инструментарий, чтобы мы могли делать какие-либо выводы по нашим собранным данным. К сожалению, как бы нам не хотелось, <em>мы не можем делать выводы по сырым данным</em>, потому что измерения по выборке не отражают вот прям ровно то, что есть в генеральной совокупности. Нам их надо определенным образом обсчитать, чтобы наши выводы были корректными. Этим и занимается статистика.</p>
+<p>Возможно, это звучит достаточно абстрактно, но <em>я хочу, чтобы на данном моменте вы поймали некоторое интуитивное понимание того, зачем нужна статистика</em>. Далее это обрастёт содержанием и уложится, я надеюсь, в достаточно стройную систему.</p>
+<p><strong>Итог, статистика помогает нам делать выводы о нашей генеральной совокупности по выборке.</strong></p>
+</div>
+<div id="representative_sample" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Выборка должна быть репрезентативна<a href="intro_stats.html#representative_sample" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Статистика даёт нам теоретический и математический аппарат, который позволяет делать выводы о генеральной совокупности по выборке. Однако если мы криво собрали данные, то никакая математика нас не спасет от некорректных выводов.</p>
+<blockquote>
+<p>Garbage in, garbage out.</p>
+</blockquote>
+<p><strong>Репрезентативность</strong> — степень соответствия характеристик выборки характеристикам генеральной совокупности.</p>
+<p>Например, мы хотим исследовать связь учебной мотивации и академической успеваемости бакалавров психологии. Если мы соберем данные только со своих однокурсников, будет нехорошо, так как в нашу выборку не попали (1) другие курсы психологического бакалавриата нашего вуза, (2) бакалавры-психологи других вузов Москвы и (3) бакалавры-психологи вузов других городов России.</p>
+<p><em>И так работает всегда.</em></p>
+<p>Ну, почти. Есть соблазн проводить исследования на студентах-психологах, потому что их они достаточно близко и их можно загнать на эксприменты за баллы. Более-менее сносно это может работать на каких-то базовых когнитивных феноменах из восприятия и памяти. Обычно у нас нет оснований предполагать, что восприятие и память работают по-разному у людей разного возраста и разных социальных страт. Но вот уже с мышлением возникают проблемы.</p>
+<p><strong>Почему выборка должна быть репрезентативной?</strong></p>
+<p>Потому что если мы делаем нормально, то хотим обобщать результаты нашего исследования, полученные на выборке, на генеральную совокупность. Если выборка нерепрезентативна, то мы не можем этого сделать. Зачем в таком случае проводить исследование — решительно неясно.</p>
+<div id="how_to_recruit_sample" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Как набрать репрезентативную выборку<a href="intro_stats.html#how_to_recruit_sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="0" style="list-style-type: decimal">
+<li>Осознать, <strong>кто наша генеральная совокупность</strong>. В самом начале этой страницы приводились примеры разных генеральных совокупностей, и для каждой генеральной совокупности репрезентативная выборка будет своя.</li>
+<li><strong>Понять, есть ли какая-то группировка, <em>важная для нашего исследования</em>, в нашей генеральной совокупности</strong> — социальная страта, специальность образования, сфера работы, пол / гендер, возрастные группы, регион проживания, семейное положение, что-либо ещё.</li>
+<li><strong>Рассчитать <em>достаточный объём выборки</em>.</strong>
+<ul>
+<li>это не самая простая задача и о ней мы будем говорить отдельно</li>
+<li>пока отметим в назывном порядке, что на объем выборки будут влиять <em>дизайн исследования</em>, <em>изменчивость признака</em>, <em>уровень значимости</em> и <em>размер эффекта</em> [что бы это ни значило]</li>
+</ul></li>
+<li><strong>Обеспечить <em>случайное</em> попадание респондентов в выборку.</strong></li>
+</ol>
+<p>Здесь надо остановиться подробнее. Если у нас есть ресурсы набрать много человеков в выборку (скажем, раза в 2–3 больше, чем достаточный объем выборки), то можно просто случайным образом откуда-то доставать людей — и всё будет хорошо. Закон больших чисел и центральная предельная теорема говорят, что наша выборка будет репрезентативной. Пока примем это как данность, позже поговорим об это подробнее.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Для интересующихся</em>
+</summary>
+<p><strong>Закон больших чисел</strong></p>
+<p>С увеличением числа случайных величин их среднее арифметическое стремится к среднему арифметическому математических ожиданий и перестает быть случайным. Общий смысл закона больших чисел — совместное действие большого числа случайных факторов приводит к результату, почти не зависящему от случая.</p>
+<p>Таким образом, закон больших чисел гарантирует устойчивость для средних значений некоторых случайных событий при достаточно длинной серии экспериментов.</p>
+<p><strong>Центральная предельная теорема</strong></p>
+<p>Распределение случайной величины, которая получена в результате сложения большого числа независимых случайных величин (ни одно из которых не доминирует, не вносит в сумму определяющего вклада и имеет дисперсию значительно меньше по сравнению с дисперсией суммы) имеет распределение, близкое к нормальному.</p>
+Из ЦПТ следует, что ошибки выборки также подчиняются нормальному распределению.
+</details>
+</div>
+<p>Если мы всё же не можем набрать много человеков, то надо набрать выборку достаточного объема и проверить репрезентативна ли она — отражает ли выборка те группировки объектов, которые есть в генеральной совокупности.</p>
+<p>Идеальная выборка — это когда каждый человек имеет равную вероятность попасть в число респонтентов / испытуемых. Полностью случайный отбор трудно достижим — это очень дорого — но к нему нужно стремиться. Сам метод сбора данных может деформировать выборку (например, онлайн опросы отсекают пенсионеров), поэтому думать о сборе данных необходимо уже на этапе планирования исследования.</p>
+<hr />
+<p>Пока что остановимся на этом — для начала достаточно. Мы еще не раз будем возвращаться к этим вопросам и на других курсах вы тоже будете говорить о репрезентативности выборки.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scales_random_vars.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

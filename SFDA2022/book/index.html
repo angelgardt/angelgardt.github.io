@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Статистика для анализа данных</title>
   <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Статистика для анализа данных" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
@@ -31,9 +30,9 @@
   
   
 
-<link rel="next" href="intro.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="intro_stats.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,9 +48,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 
@@ -73,32 +72,33 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего растроения</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="scales-random-vars.html"><a href="scales-random-vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#intro"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
-<li class="chapter" data-level="2.2" data-path="scales-random-vars.html"><a href="scales-random-vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
-<li class="chapter" data-level="2.3" data-path="scales-random-vars.html"><a href="scales-random-vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
-<li class="chapter" data-level="2.4" data-path="scales-random-vars.html"><a href="scales-random-vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="scales-random-vars.html"><a href="scales-random-vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="scales-random-vars.html"><a href="scales-random-vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
-<li class="chapter" data-level="2.4.3" data-path="scales-random-vars.html"><a href="scales-random-vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="scales-random-vars.html"><a href="scales-random-vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="scales-random-vars.html"><a href="scales-random-vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
-<li class="chapter" data-level="2.5.2" data-path="scales-random-vars.html"><a href="scales-random-vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
-<li class="chapter" data-level="2.5.3" data-path="scales-random-vars.html"><a href="scales-random-vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
-<li class="chapter" data-level="2.5.4" data-path="scales-random-vars.html"><a href="scales-random-vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -124,10 +124,10 @@
 <div id="header">
 <h1 class="title">Статистика для анализа данных</h1>
 <p class="author"><em>Антон Ангельгардт</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>Осень 2022</em></p>
+<p class="date"><em>Осень 2022</em></p>
 </div>
-<div id="врубаем-тэхно-для-рабочего-растроения" class="section level1 unnumbered">
-<h1>Врубаем тэхно для рабочего растроения</h1>
+<div id="врубаем-тэхно-для-рабочего-растроения" class="section level1 unnumbered hasAnchor">
+<h1>Врубаем тэхно для рабочего растроения<a href="index.html#врубаем-тэхно-для-рабочего-растроения" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>Прежде всего, разумно будет попытаться разобраться в том, заради чего мы тут собрались. Ну, попробуем…</p>
 </blockquote>
@@ -150,17 +150,19 @@
 <p>Конечно, мы не можем обсудить всё. Мы находимся в рамках суровых институциональных ограничений. Но мы постараемся заложить достаточно прочный фундамент, который при правильном применении и должном уходе поможет вам преуспеть и в жизни, и в работе и вообще.</p>
 
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro_stats.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -200,6 +202,10 @@ gitbook.start({
 "text": null
 },
 "download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
