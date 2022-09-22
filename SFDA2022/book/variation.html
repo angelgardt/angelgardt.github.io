@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Меры разброса | Статистика для анализа данных</title>
+  <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Меры разброса | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Меры разброса | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="central_tendency.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего растроения</a></li>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro_stats.html"><a href="intro_stats.html#способы-формирования-репрезентативной-выборки"><i class="fa fa-check"></i><b>1.3.2</b> Способы формирования репрезентативной выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Описательная статистика</b></span></li>
+<li class="chapter" data-level="3" data-path="central_tendency.html"><a href="central_tendency.html"><i class="fa fa-check"></i><b>3</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="central_tendency.html"><a href="central_tendency.html#types_of_statistics"><i class="fa fa-check"></i><b>3.1</b> Виды статистики</a></li>
+<li class="chapter" data-level="3.2" data-path="central_tendency.html"><a href="central_tendency.html#central_tendency_measures"><i class="fa fa-check"></i><b>3.2</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="central_tendency.html"><a href="central_tendency.html#mode"><i class="fa fa-check"></i><b>3.2.1</b> Мода</a></li>
+<li class="chapter" data-level="3.2.2" data-path="central_tendency.html"><a href="central_tendency.html#медиана"><i class="fa fa-check"></i><b>3.2.2</b> Медиана</a></li>
+<li class="chapter" data-level="3.2.3" data-path="central_tendency.html"><a href="central_tendency.html#среднее-арифметическое"><i class="fa fa-check"></i><b>3.2.3</b> Среднее арифметическое</a></li>
+<li class="chapter" data-level="3.2.4" data-path="central_tendency.html"><a href="central_tendency.html#другие-средние"><i class="fa fa-check"></i><b>3.2.4</b> Другие средние</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="central_tendency.html"><a href="central_tendency.html#сравнение-мер-центральной-тенденции"><i class="fa fa-check"></i><b>3.3</b> Сравнение мер центральной тенденции</a></li>
+<li class="chapter" data-level="3.4" data-path="central_tendency.html"><a href="central_tendency.html#mean_features"><i class="fa fa-check"></i><b>3.4</b> Свойства среднего арифметического</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variation.html"><a href="variation.html"><i class="fa fa-check"></i><b>4</b> Меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variation.html"><a href="variation.html#why_we_need_variation"><i class="fa fa-check"></i><b>4.1</b> Зачем нужны меры разброса</a></li>
+<li class="chapter" data-level="4.2" data-path="variation.html"><a href="variation.html#range"><i class="fa fa-check"></i><b>4.2</b> Минимум, максимум, размах</a></li>
+<li class="chapter" data-level="4.3" data-path="variation.html"><a href="variation.html#quantiles"><i class="fa fa-check"></i><b>4.3</b> Квантили</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variation.html"><a href="variation.html#quartiles"><i class="fa fa-check"></i><b>4.3.1</b> Квартили</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variation.html"><a href="variation.html#deciles"><i class="fa fa-check"></i><b>4.3.2</b> Децили</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variation.html"><a href="variation.html#percentiles"><i class="fa fa-check"></i><b>4.3.3</b> Перцентили</a></li>
+<li class="chapter" data-level="4.3.4" data-path="variation.html"><a href="variation.html#iqr"><i class="fa fa-check"></i><b>4.3.4</b> Интерквартильный размах</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variation.html"><a href="variation.html#boxplot"><i class="fa fa-check"></i><b>4.3.5</b> Визуализация квартилей. Боксплот</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="variation.html"><a href="variation.html#var"><i class="fa fa-check"></i><b>4.4</b> Дисперсия</a></li>
+<li class="chapter" data-level="4.5" data-path="variation.html"><a href="variation.html#sd"><i class="fa fa-check"></i><b>4.5</b> Стандартное отклонение</a></li>
+<li class="chapter" data-level="4.6" data-path="variation.html"><a href="variation.html#variation_comparison"><i class="fa fa-check"></i><b>4.6</b> Сравнение мер разброса</a></li>
+<li class="chapter" data-level="4.7" data-path="variation.html"><a href="variation.html#var_features"><i class="fa fa-check"></i><b>4.7</b> Свойства дисперсии и стандартного отклонения</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="variation" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Меры разброса<a href="variation.html#variation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Итак, мы разобрались с мерами центральной тенденции. Однако для описания распределения их оказвается недостаточно. Почему?</p>
+<div id="why_we_need_variation" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Зачем нужны меры разброса<a href="variation.html#why_we_need_variation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="range" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Минимум, максимум, размах<a href="variation.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="quantiles" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Квантили<a href="variation.html#quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quartiles" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Квартили<a href="variation.html#quartiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="deciles" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Децили<a href="variation.html#deciles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="percentiles" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> Перцентили<a href="variation.html#percentiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="iqr" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Интерквартильный размах<a href="variation.html#iqr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="boxplot" class="section level3 hasAnchor" number="4.3.5">
+<h3><span class="header-section-number">4.3.5</span> Визуализация квартилей. Боксплот<a href="variation.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="var" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Дисперсия<a href="variation.html#var" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="sd" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Стандартное отклонение<a href="variation.html#sd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="variation_comparison" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Сравнение мер разброса<a href="variation.html#variation_comparison" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="var_features" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Свойства дисперсии и стандартного отклонения<a href="variation.html#var_features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+D_{x+c} = D_{x}
+\]</span></p>
+<p><span class="math display">\[
+s_{x+c} = s_x
+\]</span></p>
+<p><span class="math display">\[
+D_{x \times c} = D_{x} \times c^2
+\]</span></p>
+<p><span class="math display">\[
+s_{x \times c} = s_x \times c
+\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="central_tendency.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
