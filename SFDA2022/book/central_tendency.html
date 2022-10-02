@@ -299,20 +299,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Очевидно, что <span class="math inline">\(4\)</span> встречается чаще других значений — это и есть мода.</p>
 <p>Понятно, что если на нашей шкале нет чисел, а есть текстовые лейблы, это ничего не меняет:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="central_tendency.html#cb5-1" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
-<pre><code>##  [1] &quot;Санкт-Петербург&quot;          &quot;Барнаул (Алтайский край)&quot;
-##  [3] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
-##  [5] &quot;Санкт-Петербург&quot;          &quot;Кёнигсберг&quot;              
-##  [7] &quot;Санкт-Петербург&quot;          &quot;Москва&quot;                  
-##  [9] &quot;Казань&quot;                   &quot;Казань&quot;                  
-## [11] &quot;Санкт-Петербург&quot;          &quot;Казань&quot;                  
-## [13] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
-## [15] &quot;Казань&quot;                   &quot;Москва&quot;                  
-## [17] &quot;Санкт-Петербург&quot;          &quot;Санкт-Петербург&quot;         
-## [19] &quot;Санкт-Петербург&quot;          &quot;Казань&quot;                  
-## [21] &quot;Москва&quot;                   &quot;Кёнигсберг&quot;              
-## [23] &quot;Санкт-Петербург&quot;          &quot;Москва&quot;                  
-## [25] &quot;Кёнигсберг&quot;               &quot;Санкт-Петербург&quot;         
-## [27] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+<pre><code>##  [1] &quot;Казань&quot;                   &quot;Санкт-Петербург&quot;         
+##  [3] &quot;Санкт-Петербург&quot;          &quot;Санкт-Петербург&quot;         
+##  [5] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+##  [7] &quot;Казань&quot;                   &quot;Москва&quot;                  
+##  [9] &quot;Москва&quot;                   &quot;Казань&quot;                  
+## [11] &quot;Кёнигсберг&quot;               &quot;Москва&quot;                  
+## [13] &quot;Казань&quot;                   &quot;Москва&quot;                  
+## [15] &quot;Санкт-Петербург&quot;          &quot;Санкт-Петербург&quot;         
+## [17] &quot;Кёнигсберг&quot;               &quot;Санкт-Петербург&quot;         
+## [19] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+## [21] &quot;Санкт-Петербург&quot;          &quot;Санкт-Петербург&quot;         
+## [23] &quot;Москва&quot;                   &quot;Барнаул (Алтайский край)&quot;
+## [25] &quot;Санкт-Петербург&quot;          &quot;Казань&quot;                  
+## [27] &quot;Кёнигсберг&quot;               &quot;Санкт-Петербург&quot;         
 ## [29] &quot;Москва&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="central_tendency.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(y)</span></code></pre></div>
 <pre><code>## y
@@ -333,18 +333,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Медиана (median)</strong> — это значение, которые располагается на середине отсортированного ряда значений переменной. То есть, она делит все наблюдения переменной ровно пополам и половина наблюдений оказывается по одну сторону от медианы, а половина — по другую.</p>
 <p>Если у нас нечетное число наблюдений, то всё ясно:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="central_tendency.html#cb9-1" aria-hidden="true" tabindex="-1"></a>v1</span></code></pre></div>
-<pre><code>##  [1] 26 21  5 11 20  7 24 16 13 25 14</code></pre>
+<pre><code>##  [1] 22 10 12  4 30  2 29 11 23 15 24</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="central_tendency.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(v1)</span></code></pre></div>
-<pre><code>##  [1]  5  7 11 13 14 16 20 21 24 25 26</code></pre>
+<pre><code>##  [1]  2  4 10 11 12 15 22 23 24 29 30</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="central_tendency.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v1)</span></code></pre></div>
-<pre><code>## [1] 16</code></pre>
+<pre><code>## [1] 15</code></pre>
 <p>А что делать, если число наблюдений чётное? Ведь тогда середина ряда будет между двух чисел. Ну, возьмем их среднее арифметическое — это и будет медиана.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="central_tendency.html#cb15-1" aria-hidden="true" tabindex="-1"></a>v2</span></code></pre></div>
-<pre><code>##  [1] 22  6  5  7  2 20  1 15  3 19</code></pre>
+<pre><code>##  [1] 16 25 22 15  8 28  7 26  5 19</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="central_tendency.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(v2)</span></code></pre></div>
-<pre><code>##  [1]  1  2  3  5  6  7 15 19 20 22</code></pre>
+<pre><code>##  [1]  5  7  8 15 16 19 22 25 26 28</code></pre>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="central_tendency.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v2)</span></code></pre></div>
-<pre><code>## [1] 6.5</code></pre>
+<pre><code>## [1] 17.5</code></pre>
 <p>Формально это можно написать так:</p>
 <p><span class="math display">\[
 \mathrm{median} = \begin{cases}
@@ -366,7 +366,7 @@ M_{X} = \bar x = \dfrac{\sum_{i=1}^{n}x_i}{n},
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="central_tendency.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v1)</span></code></pre></div>
 <pre><code>## [1] 16.54545</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="central_tendency.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v2)</span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 17.1</code></pre>
 </div>
 <div id="другие-средние" class="section level3 hasAnchor" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Другие средние<a href="central_tendency.html#другие-средние" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -530,6 +530,10 @@ w_i&#39; = \frac{w_i}{\sum_{i=1}^n w_i}
 <p><span class="math display">\[
 M_{x+c} = M_x + c
 \]</span></p>
+<p>Вот почему:</p>
+<p><span class="math display">\[
+M_{x+c} = \frac{\sum_{i=1}^n (x_i + c)}{n} = \frac{\sum_{i=1}^n x_i + nc}{n} = \frac{\sum_{i=1}^n x_i}{n} + c = M_x + c
+\]</span></p>
 <p>Иначе говоря, распределение просто сдвинется. Например, если к каждому значению синего распределения прибавить <span class="math inline">\(2\)</span>, получится красное:</p>
 <p><img src="SFDA_files/figure-html/mean_feature_1-1.png" width="672" /></p>
 <ul>
@@ -537,8 +541,12 @@ M_{x+c} = M_x + c
 </ul>
 <p><span class="math display">\[
 M_{x \times c} = M_x \times c
-\]</span>
-Например, здесь каждое значение распределения умножили на <span class="math inline">\(3\)</span> и получили красное:</p>
+\]</span></p>
+<p>Вот почему:</p>
+<p><span class="math display">\[
+M_{x \times c} = \frac{\sum_{i=1}^n (x_i \times c)}{n} = \frac{c \times \sum_{i=1}^n x_i}{n} = \frac{\sum_{i=1}^n x_i}{n} \times c = M_x \times c
+\]</span></p>
+<p>Например, здесь каждое значение синего распределения умножили на <span class="math inline">\(3\)</span> и получили красное:</p>
 <p><img src="SFDA_files/figure-html/mean_feature_2-1.png" width="672" /></p>
 <p>Тут, правда, явно <a href="variation.html#var_features">что-то ещё</a> произошло, но мы пока этого не знаем. Однако, отметит этот факт.</p>
 <ul>
@@ -547,6 +555,12 @@ M_{x \times c} = M_x \times c
 <p><span class="math display">\[
 \sum_{i=1}^n(x_i - M_x) = 0
 \]</span></p>
+<p>Элегантное доказательство:</p>
+<p><span class="math display">\[
+\sum_{i=1}^n(x_i - M_x) = \sum_{i=1}^n x_i - \sum_{i=1}^n M_x = \sum_{i=1}^n x_i - nM_x = \\
+= \sum_{i=1}^n x_i - n \times \frac{1}{n} \sum_{i=1}^n x_i = \sum_{i=1}^n x_i - \sum_{i=1}^n x_i = 0
+\]</span></p>
+<p>Но можно это осмыслить и более просто графически.</p>
 <p><strong>Отклонение</strong> — это разность между средним и конкретным значением переменной. И, действительно, так как среднее находится в центре распределения, то часть значений лежит справа, а часть слева. Значит, будут как положительные, так и отрицательные отклонения — и их сумма в итоге будет равна нулю.</p>
 <p><img src="SFDA_files/figure-html/zero_deviation_sum-1.png" width="672" /></p>
 

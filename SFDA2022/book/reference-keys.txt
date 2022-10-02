@@ -3,10 +3,6 @@ stat_terms
 why_we_need_statistics
 representative_sample
 how_to_recruit_sample
-способы-формирования-репрезентативной-выборки
-простая-случайная-выборка-simple-random-sample
-стратифицированная-выборка-stratified-sample
-групповая-выборка-cluster-sample
 scales_random_vars
 intro_scales
 measuring
@@ -35,7 +31,6 @@ quadratic_mean
 mean_features
 variation
 why_we_need_variation
-key_features_of_data
 range
 quantiles
 quartiles
@@ -43,9 +38,14 @@ deciles
 percentiles
 iqr
 boxplot
-iqr_outliers
 var
-degrees_of_freedom
 sd
 variation_comparison
 var_features
+способы-формирования-репрезентативной-выборки
+простая-случайная-выборка-simple-random-sample
+стратифицированная-выборка-stratified-sample
+групповая-выборка-cluster-sample
+key_features_of_data
+iqr_outliers
+degrees_of_freedom
