@@ -49,3 +49,15 @@ var_features
 key_features_of_data
 iqr_outliers
 degrees_of_freedom
+normal_distribution
+standardization
+confidence_intervals
+distributions
+norm_dist
+norm_params
+in_love_with_norm_dist
+norm_shapes
+стандартные-отклонения-и-вероятности
+стандартное-нормальное-распределение
+стандартизация
+интерпретация-z-значений

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Статистика для анализа данных</title>
+  <title>5 Нормальное распределение | Статистика для анализа данных</title>
   <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Статистика для анализа данных" />
+  <meta property="og:title" content="5 Нормальное распределение | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Статистика для анализа данных" />
+  <meta name="twitter:title" content="5 Нормальное распределение | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="variation.html"/>
+<link rel="next" href="standardization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -154,7 +154,6 @@
 <ul>
 <li class="chapter" data-level="6.1" data-path="standardization.html"><a href="standardization.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>6.1</b> Стандартное нормальное распределение</a></li>
 <li class="chapter" data-level="6.2" data-path="standardization.html"><a href="standardization.html#стандартизация"><i class="fa fa-check"></i><b>6.2</b> Стандартизация</a></li>
-<li class="chapter" data-level="6.3" data-path="standardization.html"><a href="standardization.html#интерпретация-z-значений"><i class="fa fa-check"></i><b>6.3</b> Интерпретация z-значений</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="confidence_intervals.html"><a href="confidence_intervals.html"><i class="fa fa-check"></i><b>7</b> Доверительные интервалы</a></li>
 <li class="divider"></li>
@@ -177,19 +176,81 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="normal_distribution" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Нормальное распределение<a href="normal_distribution.html#normal_distribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Мы научились описывать эмпирическое распределение переменных — то есть распределение, которое получено на выборке. Но ведь в генеральной совокупности наши переменные тоже каким-то образом распределены! Уделим внимание и этому вопросу.</p>
+<div id="distributions" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Распределение признаков в генеральной совокупности<a href="normal_distribution.html#distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Можем ли мы знать наверняка, как распределен признак в генеральной совокупности? Нет. Однако мы можем предполагать некоторое теоретическое распределение признака. На основе чего мы можем сделать такое предположение? Конечно же, на основе собранных данных, то есть на основании выборки. Большой выборки. Очень большой выборки. Большого количества очень больших выборок.</p>
+<p>Теоретических распределений существует много — и они разные по форме, по параметрам, которыми они описываются, по величинам, которые ими можно описывать и т.д. Однако есть одно распределение, которое стало невероятно популярным и крайне широко используемым — <strong>нормальное распределение</strong>. Его мы и будем рассматривать.</p>
+</div>
+<div id="norm_dist" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Нормальное распределение<a href="normal_distribution.html#norm_dist" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Тот факт, что некоторая величина распределена согласно закону нормального распределения, записывается следующим образом:</p>
+<p><span class="math display">\[
+X \sim \mathcal{N}(\mu, \, \sigma^2)
+\]</span></p>
+<p>Здесь <span class="math inline">\(X\)</span> — некоторая случайная величина, <span class="math inline">\(\mathcal{N}\)</span> — обозначение нормального распределения, <span class="math inline">\(\mu\)</span> и <span class="math inline">\(\sigma^2\)</span> — параметры нормального распределения.</p>
+<div id="norm_params" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Параметры нормального распределения<a href="normal_distribution.html#norm_params" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Итак, в скобках указаны параметры распределения — как можно видеть, их всего два. На самом деле, мы их уже хорошо знаем: <span class="math inline">\(\mu\)</span> — это не что иное, как <em>среднее</em>, а <span class="math inline">\(\sigma^2\)</span> — <em>дисперсия</em>. Эти два параметра входят в формулу, описывающую график функции плотности вероятности нормального распределения:</p>
+<p><span class="math display">\[
+\frac{1}{\sigma \sqrt{2 \pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2}} \\ x \in \mathbb{R}, \quad \mu \in \mathbb{R}, \quad \sigma \in \mathbb{R}_{&gt;0}
+\]</span></p>
+<p>А сам график выглядит вот так:</p>
+<p><img src="SFDA_files/figure-html/norm_vis_1-1.png" width="672" /></p>
+<p>И мы его уже тоже много раз видели.</p>
+</div>
+<div id="in_love_with_norm_dist" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Почему все так любят нормальное распределение?<a href="normal_distribution.html#in_love_with_norm_dist" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Его очень давно знают. Карл Фридрих Гаусс (1777–1855) исчерпывающе его исследовал, и теперь про это распределение известно всё. И ещё чуть более.</li>
+<li>Ряд статистических методов, называемых параметрическими, требуют, чтобы распределение изучаемых переменных подчинялось нормальному закону.
+<ul>
+<li>Сейчас, строго говоря, это уже не совсем так. Появляются новые исследования и симуляции, показывающие, что это не ключевое требование, однако актуальность нормального распределения от этого не гаснет.</li>
+</ul></li>
+<li>С помощью нормального распределения определяют статистические нормы. Например, в образовательном тестировании, психодиагностике или иногда клинической практике.</li>
+<li>На основании нормального распределения рассчитывается стандартная ошибка среднего — важная оценка в статистике.</li>
+<li>На основании нормального распределения, а точнее — стандартной ошибки — рассчитываются доверительные интервалы среднего — одна из ключевых оценок в статистике.</li>
+</ul>
+</div>
+</div>
+<div id="norm_shapes" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Форма нормального распределения и параметры<a href="normal_distribution.html#norm_shapes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Очевидно, что раз у распределения есть какие-то параметры, значит они каким-то образом на него влияют. Не менее очевидно, что среднее <span class="math inline">\(\mu\)</span> будет задавать положение центра колокола на оси <span class="math inline">\(x\)</span>, а дисперсия <span class="math inline">\(\sigma^2\)</span> — ширину колокола. Ниже представлены несколько нормальных распределений в различными параметрами:</p>
+<p><img src="SFDA_files/figure-html/different_norm_vis-1.png" width="672" /></p>
+</div>
+<div id="стандартные-отклонения-и-вероятности" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Стандартные отклонения и вероятности<a href="normal_distribution.html#стандартные-отклонения-и-вероятности" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Какиуже упоминалось выше, нормальное распределение изучено вдоль и поперек. В том числе, посчитаны вероятности попадания значений в определенные и интервалы. Вот они:</p>
+<p><img src="SFDA_files/figure-html/norm_vis_2-1.png" width="672" /></p>
+<p>Конкретно с этими вероятностями мы работаем реже — полезнее оказывается знать следующие:</p>
+<ul>
+<li><span class="math inline">\(\mathrm{P} \big( X \in (\mu - \sigma, \, \mu + \sigma) \big) = 68.2\%\)</span></li>
+<li><span class="math inline">\(\mathrm{P} \big( X \in (\mu - 2\sigma, \, \mu + 2\sigma) \big) = 95.6\%\)</span></li>
+<li><span class="math inline">\(\mathrm{P} \big( X \in (\mu - 3\sigma, \, \mu + 3\sigma) \big) = 99.8\%\)</span></li>
+</ul>
+<p>То есть</p>
+<ul>
+<li>в пределах <em>одного стандартного отклонения</em> от среднего значения лежит почти <em>70% значений</em> — это очень частотные значения;</li>
+<li>в пределах <em>двух стандартных отклонений</em> от среднего значения лежит 95% значений — бо́льшая часть выборки;</li>
+<li>в пределах <em>трех стандартных отклонений</em> от среднего значения лежит практически 100% выборки — то есть вся выборка.</li>
+</ul>
+<p><strong>Что нам это дает?</strong></p>
+<p>Во-первых, <em>еще один способ определения выбросов</em> (нехарактерных значений). Например, так как за границы двух стандартных отклонений попадает всего 5% значений, мы можем считать, что эти значения — нехарактерные и назвать и выбросами. Либо же можем быть более либеральными и сказать, что выбросы для нас — значения, которые выходят за пределы трех стандартных отклонений. Главное обосновать, почему мы так считаем.</p>
+<p>Во-вторых, так мы можем определять <em>статистические нормы</em>. Например, мы разрабатываем клинический опросник (типа MMPI какого-нибудь), и нам надо выяснить, какие значения на шкалах итогового балла будут являться «нормой», а какие «патологией». Мы собираем огромную выборку (скажем, по России или по странам СНГ), строим распределение итогового балла по каждой из шкал опросника, и определяем границы нормы — пусть это будет <span class="math inline">\(\mu \pm 3\sigma\)</span>. Теперь, когда новый респондент пройдет наш опросник, мы сможем сказать относительно его тестового балла, соответствует ли он нормативным границам или не соответствует.</p>
+<p><strong>Отмечу еще раз:</strong> здесь мы говорим только о <em>статистической норме</em> — о таких значениях / показателях, которые чаще всего встречаются в выборке. Это только один из возможных вариантов определения нормы.</p>
+<p>В целом, это всё, что нам надо знать про нормальное распределение.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="variation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="standardization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -243,6 +304,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
