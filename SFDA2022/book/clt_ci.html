@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Центральная предельная теорема и доверительные интервалы | Статистика для анализа данных</title>
+  <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Центральная предельная теорема и доверительные интервалы | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Центральная предельная теорема и доверительные интервалы | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="standardization.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего настроения</a></li>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro_stats.html"><a href="intro_stats.html#способы-формирования-репрезентативной-выборки"><i class="fa fa-check"></i><b>1.3.2</b> Способы формирования репрезентативной выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Описательная статистика</b></span></li>
+<li class="chapter" data-level="3" data-path="central_tendency.html"><a href="central_tendency.html"><i class="fa fa-check"></i><b>3</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="central_tendency.html"><a href="central_tendency.html#types_of_statistics"><i class="fa fa-check"></i><b>3.1</b> Виды статистики</a></li>
+<li class="chapter" data-level="3.2" data-path="central_tendency.html"><a href="central_tendency.html#central_tendency_measures"><i class="fa fa-check"></i><b>3.2</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="central_tendency.html"><a href="central_tendency.html#mode"><i class="fa fa-check"></i><b>3.2.1</b> Мода</a></li>
+<li class="chapter" data-level="3.2.2" data-path="central_tendency.html"><a href="central_tendency.html#медиана"><i class="fa fa-check"></i><b>3.2.2</b> Медиана</a></li>
+<li class="chapter" data-level="3.2.3" data-path="central_tendency.html"><a href="central_tendency.html#среднее-арифметическое"><i class="fa fa-check"></i><b>3.2.3</b> Среднее арифметическое</a></li>
+<li class="chapter" data-level="3.2.4" data-path="central_tendency.html"><a href="central_tendency.html#другие-средние"><i class="fa fa-check"></i><b>3.2.4</b> Другие средние</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="central_tendency.html"><a href="central_tendency.html#сравнение-мер-центральной-тенденции"><i class="fa fa-check"></i><b>3.3</b> Сравнение мер центральной тенденции</a></li>
+<li class="chapter" data-level="3.4" data-path="central_tendency.html"><a href="central_tendency.html#mean_features"><i class="fa fa-check"></i><b>3.4</b> Свойства среднего арифметического</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variation.html"><a href="variation.html"><i class="fa fa-check"></i><b>4</b> Меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variation.html"><a href="variation.html#why_we_need_variation"><i class="fa fa-check"></i><b>4.1</b> Зачем нужны меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variation.html"><a href="variation.html#key_features_of_data"><i class="fa fa-check"></i><b>4.1.1</b> Основные характеристики статистических данных</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variation.html"><a href="variation.html#range"><i class="fa fa-check"></i><b>4.2</b> Минимум, максимум, размах</a></li>
+<li class="chapter" data-level="4.3" data-path="variation.html"><a href="variation.html#quantiles"><i class="fa fa-check"></i><b>4.3</b> Квантили</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variation.html"><a href="variation.html#quartiles"><i class="fa fa-check"></i><b>4.3.1</b> Квартили</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variation.html"><a href="variation.html#deciles"><i class="fa fa-check"></i><b>4.3.2</b> Децили</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variation.html"><a href="variation.html#percentiles"><i class="fa fa-check"></i><b>4.3.3</b> Перцентили</a></li>
+<li class="chapter" data-level="4.3.4" data-path="variation.html"><a href="variation.html#iqr"><i class="fa fa-check"></i><b>4.3.4</b> Интерквартильный размах</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variation.html"><a href="variation.html#boxplot"><i class="fa fa-check"></i><b>4.3.5</b> Визуализация квартилей. Боксплот</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="variation.html"><a href="variation.html#var"><i class="fa fa-check"></i><b>4.4</b> Дисперсия</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="variation.html"><a href="variation.html#degrees_of_freedom"><i class="fa fa-check"></i><b>4.4.1</b> Степени свободы</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="variation.html"><a href="variation.html#sd"><i class="fa fa-check"></i><b>4.5</b> Стандартное отклонение</a></li>
+<li class="chapter" data-level="4.6" data-path="variation.html"><a href="variation.html#variation_comparison"><i class="fa fa-check"></i><b>4.6</b> Сравнение мер разброса</a></li>
+<li class="chapter" data-level="4.7" data-path="variation.html"><a href="variation.html#var_features"><i class="fa fa-check"></i><b>4.7</b> Свойства дисперсии и стандартного отклонения</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>5</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="normal_distribution.html"><a href="normal_distribution.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Распределение признаков в генеральной совокупности</a></li>
+<li class="chapter" data-level="5.2" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_dist"><i class="fa fa-check"></i><b>5.2</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_params"><i class="fa fa-check"></i><b>5.2.1</b> Параметры нормального распределения</a></li>
+<li class="chapter" data-level="5.2.2" data-path="normal_distribution.html"><a href="normal_distribution.html#in_love_with_norm_dist"><i class="fa fa-check"></i><b>5.2.2</b> Почему все так любят нормальное распределение?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_shapes"><i class="fa fa-check"></i><b>5.3</b> Форма нормального распределения и параметры</a></li>
+<li class="chapter" data-level="5.4" data-path="normal_distribution.html"><a href="normal_distribution.html#стандартные-отклонения-и-вероятности"><i class="fa fa-check"></i><b>5.4</b> Стандартные отклонения и вероятности</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="standardization.html"><a href="standardization.html"><i class="fa fa-check"></i><b>6</b> Стандартизация</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="standardization.html"><a href="standardization.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>6.1</b> Стандартное нормальное распределение</a></li>
+<li class="chapter" data-level="6.2" data-path="standardization.html"><a href="standardization.html#стандартизация"><i class="fa fa-check"></i><b>6.2</b> Стандартизация</a></li>
+<li class="chapter" data-level="6.3" data-path="standardization.html"><a href="standardization.html#интерпретация-z-значений"><i class="fa fa-check"></i><b>6.3</b> Интерпретация z-значений</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="clt_ci.html"><a href="clt_ci.html"><i class="fa fa-check"></i><b>7</b> Центральная предельная теорема и доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="clt_ci.html"><a href="clt_ci.html#interval_estim"><i class="fa fa-check"></i><b>7.1</b> Точечные и интервальные оценки</a></li>
+<li class="chapter" data-level="7.2" data-path="clt_ci.html"><a href="clt_ci.html#clt"><i class="fa fa-check"></i><b>7.2</b> Центральная предельная теорема</a></li>
+<li class="chapter" data-level="7.3" data-path="clt_ci.html"><a href="clt_ci.html#mean_se"><i class="fa fa-check"></i><b>7.3</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.4" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci"><i class="fa fa-check"></i><b>7.4</b> Доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="clt_ci.html"><a href="clt_ci.html#ci_interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Интерпретация границ доверительного интервала</a></li>
+<li class="chapter" data-level="7.4.2" data-path="clt_ci.html"><a href="clt_ci.html#ci_se_sample_size"><i class="fa fa-check"></i><b>7.4.2</b> Связь доверительного интервала с разбросом и объемом выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="clt_ci" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Центральная предельная теорема и доверительные интервалы<a href="clt_ci.html#clt_ci" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="interval_estim" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Точечные и интервальные оценки<a href="clt_ci.html#interval_estim" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>До этого момента мы работали только с <strong>точечными оценками</strong>. Это такие оценки, которые представляю собой <em>одно число</em>. Например, таковы меры центральной тенденции — медиана, среднее арифметическое — или меры разброса — межквартильный размах, дисперсия, стандартное отклонение. Когда мы рассчитываем каждый из этих показателей мы получаем только одно число. И всё.</p>
+<p>Однако поскольку мы имеет дело со статистическими данными, основные свойства которых это <em>неопределенность</em> и <em>вариативность</em>, нам необходимы, помимо точечных оценок, ещё и <strong>интервальные оценки</strong>.</p>
+<p><em>Неопределенность</em> статистических данных означает, что мы никогда не знаем, что мы получим в результате данного конкретного измерения. Во-первых, потому что мы работаем со случайными величинами, а во-вторых, потому что наши измерительные инструменты не идеальны и всегда содержат ошибку измерения.</p>
+<p><em>Вариативность</em> статистических данных говорит нам о том, что наши измерения всегда обладают некоторым разбросом. Во-первых, потому что объекты нашего изучения — люди — разные, а во-вторых, потому наши измерительные инструменты всё ещё не идеальны и всегда содержат ошибку измерения.</p>
+<p>Таким образом, мы не можем быть до конца уверены, что мы получили суперточную оценку изучаемых нами параметров. Даже если мы пользуемся достаточно точными измерительными инструментами, собираем большие выборки и вообще делаем всё, чтобы быть максимально точными и объективными. Возникает необходимость найти какие-то способы выражения нашей неуверенности в точечной оценки параметра генеральной совокупности. Это и есть <strong>интервальные оценки</strong> — по сути, меры нашей неуверенности.</p>
+<p>Чтобы к ним подойти, нам придется познакомиться с одной важной статистической теоремой.</p>
+</div>
+<div id="clt" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Центральная предельная теорема<a href="clt_ci.html#clt" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Пожалуй, сразу бахнем формулировку, а потом будем разбираться, что она означает.</p>
+<blockquote>
+<p>Cумма достаточно большого количества слабо зависимых случайных величин, имеющих примерно одинаковые масштабы (ни одно из слагаемых не доминирует, не вносит в сумму определяющего вклада), имеет распределение, близкое к нормальному.</p>
+</blockquote>
+<p>Итак, пусть есть некоторый параметр в генеральной совокупности, который асимметрично распределён. Возьмем случай именно асимметричого распределения, чтобы более наглядно увидеть эффект. Допустим, выглядит это как-то так:</p>
+<p><img src="SFDA_files/figure-html/graph_population-1.png" width="672" /></p>
+<p>Вот такая красивая штука у нас есть в генеральной совокупности. На всякий случай отмечу, то это некоторое <em>теоретическое распределение</em> — вообще-то мы не знаем наверняка, что там в генеральной совокупности творится. Но вот будем думать, что там что-то такое.</p>
+<p>Понятно, что наш параметр, наш параметр, наша случайная величина имеет некоторое среднее и некоторый разброс в генеральной совокупности:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mean</td>
+<td align="right">0.4</td>
+</tr>
+<tr class="even">
+<td align="left">sd</td>
+<td align="right">0.2</td>
+</tr>
+</tbody>
+</table>
+<p>Ну, вот какие-то такие.</p>
+<p>Чтобы максимально точно приблизиться к оценке нашего параметра — будем оценивать среднее генеральной совокупности — нам надо извлечь много больших выборок из нашей генеральной совокупности. Ну, допустим мы извлекаем 1000 выборок по 50 наблюдений. Можно и больше, но давайте посмотрим пока, что будет на таких значениях.</p>
+<p>Посмотрим на распределения нашей переменной в нескольких из выборок:</p>
+<p><img src="SFDA_files/figure-html/graph_samples-1.png" width="672" /></p>
+<p>Вот распределения в первых шестнадцати выборках. На что здесь стоит обратить внимание?</p>
+<ul>
+<li>От выборки к выборки распределения отличаются. Причем достаточно сильно — где-то распределение больше похоже на нормальное, где-то оно более асимметричное, где-то менее, где-то вообще напоминает равномерное. Это мы в живую увидели вариативность и неопределенность.</li>
+<li>Каждая из выборок характеризуется каким-то своим средним и каким-то своим разбросом. Вот таблица:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Sample</th>
+<th align="right">Mean</th>
+<th align="right">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0.4202292</td>
+<td align="right">0.2044323</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">0.3892443</td>
+<td align="right">0.2037850</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">0.3861993</td>
+<td align="right">0.2224778</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">0.3774064</td>
+<td align="right">0.1952898</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">0.4172960</td>
+<td align="right">0.2081190</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">0.3616459</td>
+<td align="right">0.2052460</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">0.4703232</td>
+<td align="right">0.2111924</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">0.4075789</td>
+<td align="right">0.2011449</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">0.4141822</td>
+<td align="right">0.2018535</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">0.4245290</td>
+<td align="right">0.2087136</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">0.3893637</td>
+<td align="right">0.1911761</td>
+</tr>
+<tr class="even">
+<td align="right">12</td>
+<td align="right">0.3778744</td>
+<td align="right">0.1983516</td>
+</tr>
+<tr class="odd">
+<td align="right">13</td>
+<td align="right">0.4130055</td>
+<td align="right">0.2144898</td>
+</tr>
+<tr class="even">
+<td align="right">14</td>
+<td align="right">0.3661605</td>
+<td align="right">0.1807597</td>
+</tr>
+<tr class="odd">
+<td align="right">15</td>
+<td align="right">0.3956731</td>
+<td align="right">0.1963239</td>
+</tr>
+<tr class="even">
+<td align="right">16</td>
+<td align="right">0.3860937</td>
+<td align="right">0.2003544</td>
+</tr>
+</tbody>
+</table>
+<p>Видимо, что есть некоторая <em>вариативность выборочных средних</em>. Но раз у нас есть 1000 выборок — а значит и 1000 средних — мы можем построить <strong>распределение выборочных средних</strong>.</p>
+<p><img src="SFDA_files/figure-html/sample_mean_dist-1.png" width="672" /></p>
+<p>Мы получили распределение выборочных средних значений, которое хотя и не очень похоже на нормальное в данном конкретном случае, но как минимум стало почти симметричным! Вот об этом и говорит центральная предельная теорема.</p>
+<p>Более того, если мы посчитаем среднее и стандартное отклонение данного распределения, мы получим следующее:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mean</td>
+<td align="right">0.3995205</td>
+</tr>
+<tr class="even">
+<td align="left">sd</td>
+<td align="right">0.0285545</td>
+</tr>
+</tbody>
+</table>
+<p>Обратите внимание, на сколько точную оценку генерального среднего мы получили! Да еще и такой ничтожный разброс! Ну, красота!</p>
+<p>Также нужно обратить внимание еще на две важные детали:</p>
+<ul>
+<li>чем большее количество выборок мы наберем, тем ближе распределение будет к нормальном и тем более точную оценку среднего мы получим</li>
+<li>чем большее количество наблюдений будет в отдельной выборке, тем ближе распределение будет к нормальном и тем более точную оценку среднего мы получим</li>
+</ul>
+<p>Увидеть, как это работает, можно <a href="https://gallery.shinyapps.io/CLT_mean/">здесь</a>.</p>
+<p>Итак, независимо от того, какое распределение переменной есть в генеральной совокупности, при извлечении достаточно большого количества выборок достаточно большого объема мы можем получить очень точную оценку среднего генеральной совокупности, а распределение выборочных средних будет стремиться к нормальному.</p>
+<p>С другими параметрами это также работает. Такие вот статистические приколы.</p>
+</div>
+<div id="mean_se" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Стандартная ошибка среднего<a href="clt_ci.html#mean_se" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Посмотрим на стандартное отклонение выборочных средних (пунктирная линия на графике — среднее выборочных средних, точечные линии — ± одно стандартное отклонение).</p>
+<p><img src="SFDA_files/figure-html/mean_se-1.png" width="672" /></p>
+<p>Это стандартное отклонение имеет собственное название — <strong>стандартная ошибка среднего (standard error of mean)</strong>.</p>
+<p>Это одна из интервальных оценок для среднего — в пределах <span class="math inline">\([\overline{\bar x} - \mathrm{se}(\bar x), \, \overline{\bar x} + \mathrm{se}(\bar x)]\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> лежит 68.2% выборочных средних.</p>
+<p>Задумаемся. Это что же, чтобы рассчитать стандартную ошибку среднего нам каждый раз придется собирать 100500 выборок??7? Нет. Рассчитать стандартную ошибку среднего можно и по одной выборке вот так:</p>
+<p><span class="math display">\[
+\mathrm{se}(x) = \frac{\mathrm{sd}(x)}{\sqrt{n}},
+\]</span></p>
+<p>где <span class="math inline">\(\mathrm{sd}(x)\)</span> — это выборочное стандартное отклонение, а <span class="math inline">\(n\)</span> — количество наблюдений в данной выборке.</p>
+<p>Формула, прямо скажем, не то чтобы очень интуитивна, однако вам придется мне поверить, что она верна.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Я недоверчив(а)</em>
+</summary>
+<p>Для того, чтобы доказать формулу, нам понадобятся два утверждения. С одним мы хорошо знакомы (<span class="math inline">\(\mathrm{var}(X)\)</span> — дисперсия (вариация) случайной величины <span class="math inline">\(X\)</span>):</p>
+<p><span class="math display">\[
+\mathrm{var}(c \times X) = c^2 \times \mathrm{var}(X)
+\]</span></p>
+<p>Второе утверждение говорит нам, чему равна дисперсия суммы случайных величин — тут вам точно придется мне просто поверить, иначе эта глава никогда не закончится:</p>
+<p><span class="math display">\[
+\mathrm{var}(X+Y) = \mathrm{var}(X) + \mathrm{var}(Y) + 2\mathrm{cov}(X, Y)
+\]</span></p>
+<p><span class="math inline">\(\mathrm{cov}(X,Y)\)</span> — это ковариация двух случайных величин, мера из взаимной изменчивости. Мы будем обсуждать её в курсе позже, сейчас она нам нужна только по касательной.</p>
+<p>Так как мы предполагает, что выборки мы набирали независимо и из одной и той же генеральной совокупности, то в величины в каждой из выборок <em>независимы и [теоретически] одинаково распределены (independent identically distributed, i.i.d.)</em> (для упрощения жизни здесь рассмотрено нормальное распределение):</p>
+<p><span class="math display">\[
+X \overset{\text{i.i.d.}}{\sim} \mathcal{N}(\mu, \sigma^2)
+\]</span></p>
+<p>Поэтому дисперсия распределения выборочных средних — то есть суммы наших случайных величин — будет определяться так:</p>
+<p><span class="math display">\[
+\mathrm{var}\Big(\sum_{i=1}^n \frac{1}{n} X_i\Big) = \mathrm{var}\Big(\frac{1}{n} \sum_{i=1}^n X_i\Big) = \frac{1}{n^2} \sum_{i=1}^n \mathrm{var} (X_i) = \\
+= \frac{1}{n^2} \sum_{i=1}^n \sigma^2 = \frac{n}{n^2} \sigma^2 = \frac{\sigma^2}{n}
+\]</span></p>
+<p>А значит, стандартное отклонение — оно же стандартная ошибка — будет таким:</p>
+<p><span class="math display">\[
+\mathrm{se} = \sqrt{\frac{\sigma^2}{n}} = \frac{\sigma}{\sqrt{n}}
+\]</span></p>
+<p>Магия статистических допущений.</p>
+</details>
+</div>
+<p>Стандартная ошибка используется и сама по себе как одна из описательных статистик. Однако также на её основе рассчитывается другая интервальная оценка.</p>
+</div>
+<div id="mean_ci" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Доверительные интервалы<a href="clt_ci.html#mean_ci" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Еще раз вспомним о том, что стандартная ошибка — это не что иное как стандартное отклонение [выборочных средних]. Также вспомним, что главой ранее мы определяли, с какой вероятностью лежит значение нашей случайной величины в пределах скольких-либо стандартных отклонений. Это вот эта картинка (здесь z-распределение):</p>
+<p>Можем ли мы через стандартное отклонение выразить такой интервал, в котором будет лежать, скажем, 95% значений величины? Да.</p>
+<p><img src="SFDA_files/figure-html/ci95-1.png" width="672" /></p>
+<p>На стандартном нормальной распределении это будет интервал <span class="math inline">\([-1.96, 1.96]\)</span>. А чтобы перейти к размерности интересующей нас переменной, надо выполнить преобразование, обратное стандартизации — умножить на стандартное отклонение и прибавить/вычесть среднее. То есть, интервал, в котором с вероятностью 0.95 будут лежать значения распределения выборочных средних будет таков — <span class="math inline">\([\bar x - 1.96 \times \mathrm{se}, \, \bar x + 1.96 \times \mathrm{se}]\)</span>.</p>
+<p>Этот интервал называется <strong>95%-ный доверительный интервал (95% confidence interval, 95% CI)</strong>. Он является второй интервальной оценкой среднего и мерой нашей неуверенности относительно точности оценки среднего генеральной совокупности.</p>
+<p>Вообще можно рассчитать любой доверительный интервал, который вам захочется, однако самые популярные варианты — это 90%, 95% и 99%. Выражаются через стандартную ошибку они так:</p>
+<p><span class="math display">\[
+90\%: \bar x \pm 1.645 \times \mathrm{se} \\
+95\%: \bar x \pm 1.96 \times \mathrm{se} \\
+99\%: \bar x \pm 2.576 \times \mathrm{se}
+\]</span></p>
+<p>Наиболее широко в социальных науках используется 95%-ный. Им и будем пользоваться.</p>
+<div id="ci_interpretation" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Интерпретация границ доверительного интервала<a href="clt_ci.html#ci_interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Теперь еще одна непростая задача — понять, что значит этот интервал.</p>
+<p>Глядя на график распределения выборочных средних, хочется сказать, что генеральное среднее лежит в граница 95%-ного доверительного интервала (вертикальные линии) с вероятностью 0.95.</p>
+<p><img src="SFDA_files/figure-html/95ci_means_dist-1.png" width="672" /></p>
+<p><strong>Но это не верно!!!</strong></p>
+<p>Здесь мы вплотную подошли к тестированию статистических гипотез. Неприятность в том, что мы живем во <strong>фреквентистском подходе</strong>. Подробнее мы будем говорить об этом в следующей главе, а пока же попытаемся смириться с тем, что в даннм подходе расчеты, полученные на конкретных данных, позволяют нам говорить только о том, что будет происходит далее, если мы будем извлекать новые выборки и пользоваться теми же расчетами.</p>
+<p>Давайте на примере самого доверительного интервала. <strong>Корректная статистическая интерпретация звучит так:</strong></p>
+<blockquote>
+<p>Если мы будет бесконечно извлекать новые выборки из генеральной совокупности, рассчитывать на них средние и 95% доверительные интервалы к ним, то генеральное среднее попадёт в границы 95% таких доверительных интервалов.</p>
+</blockquote>
+<p>То есть, если мы извлечем 100 выборок, посчитаем на каждой из них среднее и построим 95% доверительный интервал к каждому из 100 средних, то 95 доверительных интервалов из 100 будут содержать генеральное среднее — а 5 интервалов содержать его не будут.</p>
+<p>Визуализацию этого можно наблюдать <a href="https://rpsychologist.com/d3/ci/">здесь</a>.</p>
+<p>Корректная статистическая интерпретация, конечно, корректная, однако трудноусваемая и сложноприменяемая в жизни. Попробуем сделать её более осязаемой. Есть два путя.</p>
+<ul>
+<li><strong>Самый простой, но крайне некорректный.</strong> Если, ну, прям ваще никак не получается уложить статистическую интерпретацию, то можно думать о доверительном интервале так: «генеральное среднее, скорее всего, лежит где-то в этих пределах». Однако в приличных местах об этом говорить никому не стоит. И даже когда соберетесь прибегнуть к такой интерпретации, <em>обязательно сначала вспомните, что она некорректная!</em></li>
+<li><strong>Более корректный вариант.</strong> К подобной интерпретации также есть некоторые вопросы, однако по крайней мере она обоснована симуляциями. Дело в том, что статистики задались вопросом — а какова все же вероятность, что генеральное среднее попадет вот в этот конкретный рассчитанный нами здесь и сейчас доверительный интервал. Насимулировали там всякого и пришли к выводу, что эта вероятность равна 84.3%. Эту величину назвали capture percentage — то есть отдельный 95% доверительный интервал «ловит» генеральной среднее 843 раза из 1000.</li>
+</ul>
+<p>Конечно, я всячески рекомендую помедитировать над статистически корректной интерпретаций доверительного интервала и попробовать её осознать, позалипав на <a href="https://rpsychologist.com/d3/ci/">визуализацию</a>. Если же это пока trudnovato, постарайтесь осмыслить второй вариант с capture percentage.</p>
+</div>
+<div id="ci_se_sample_size" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Связь доверительного интервала с разбросом и объемом выборки<a href="clt_ci.html#ci_se_sample_size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Так как доверительный интервал рассчитывается на основе стандартной ошибки, которая в свою очередь рассчитывается на основе стандартного отклонения и числа наблюдений, нетрудно заметить, что:</p>
+<ul>
+<li>Чем <em>выше разброс</em> в данных, тем будет <em>шире доверительный интервал</em> [так как больше стандартная ошибка]</li>
+<li>Чем <em>больше наблюдений</em> в нашей выборке, тем будет <em>уже доверительный интервал</em> [так как меньше стандартная ошибка]</li>
+</ul>
+<hr />
+<p>На этом — ура! — мы заканчиваем изучение описательной статистики! Впереди нас ждёт знакомство со статистическим выводом!</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p><span class="math inline">\(\overline{\bar x}\)</span> здесь — среднее выборочных средних.<a href="clt_ci.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="standardization.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
