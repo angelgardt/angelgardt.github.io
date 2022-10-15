@@ -71,7 +71,7 @@
 <li><a href="./">СДАД 2022</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего растроения</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего настроения</a></li>
 <li class="part"><span><b>I Введение в статистику</b></span></li>
 <li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
 <ul>
@@ -156,7 +156,17 @@
 <li class="chapter" data-level="6.2" data-path="standardization.html"><a href="standardization.html#стандартизация"><i class="fa fa-check"></i><b>6.2</b> Стандартизация</a></li>
 <li class="chapter" data-level="6.3" data-path="standardization.html"><a href="standardization.html#интерпретация-z-значений"><i class="fa fa-check"></i><b>6.3</b> Интерпретация z-значений</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="confidence_intervals.html"><a href="confidence_intervals.html"><i class="fa fa-check"></i><b>7</b> Доверительные интервалы</a></li>
+<li class="chapter" data-level="7" data-path="clt_ci.html"><a href="clt_ci.html"><i class="fa fa-check"></i><b>7</b> Центральная предельная теорема и доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="clt_ci.html"><a href="clt_ci.html#interval_estim"><i class="fa fa-check"></i><b>7.1</b> Точечные и интервальные оценки</a></li>
+<li class="chapter" data-level="7.2" data-path="clt_ci.html"><a href="clt_ci.html#clt"><i class="fa fa-check"></i><b>7.2</b> Центральная предельная теорема</a></li>
+<li class="chapter" data-level="7.3" data-path="clt_ci.html"><a href="clt_ci.html#mean_se"><i class="fa fa-check"></i><b>7.3</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.4" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci"><i class="fa fa-check"></i><b>7.4</b> Доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="clt_ci.html"><a href="clt_ci.html#ci_interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Интерпретация границ доверительного интервала</a></li>
+<li class="chapter" data-level="7.4.2" data-path="clt_ci.html"><a href="clt_ci.html#ci_se_sample_size"><i class="fa fa-check"></i><b>7.4.2</b> Связь доверительного интервала с разбросом и объемом выборки</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -243,6 +253,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

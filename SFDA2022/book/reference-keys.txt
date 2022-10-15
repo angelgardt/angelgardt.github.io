@@ -61,3 +61,11 @@ norm_shapes
 стандартное-нормальное-распределение
 стандартизация
 интерпретация-z-значений
+clt_ci
+clt
+mean_se
+mean_ci
+interval_estim
+errorbar
+ci_interpretation
+ci_se_sample_size
