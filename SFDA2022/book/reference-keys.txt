@@ -67,3 +67,11 @@ mean_se
 mean_ci
 ci_interpretation
 ci_se_sample_size
+mean_ci_comp
+stat_testing
+базовые-понятия
+errors
+β
+stat_test_asymm
+stat_test_algorithm
+nhst
