@@ -71,6 +71,7 @@ mean_ci_comp
 stat_testing
 базовые-понятия
 errors
+β
 stat_test_asymm
 stat_test_algorithm
 nhst
