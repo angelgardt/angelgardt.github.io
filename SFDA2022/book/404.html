@@ -176,6 +176,22 @@
 <li class="chapter" data-level="8.3" data-path="nhst.html"><a href="nhst.html#stat_test_asymm"><i class="fa fa-check"></i><b>8.3</b> Асимметрия статистического вывода</a></li>
 <li class="chapter" data-level="8.4" data-path="nhst.html"><a href="nhst.html#stat_test_algorithm"><i class="fa fa-check"></i><b>8.4</b> Алгоритм тестирования статистических гипотез</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="chisq.html"><a href="chisq.html"><i class="fa fa-check"></i><b>9</b> Анализ категориальных данных</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chisq.html"><a href="chisq.html#crosstab"><i class="fa fa-check"></i><b>9.1</b> Таблица сопряженности</a></li>
+<li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
+<li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#критерий-независимости-пирсона"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#chisq2"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Корреляционный анализ</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#параметрические-и-непараметрические-критерии"><i class="fa fa-check"></i><b>10.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#статистическая-значимость"><i class="fa fa-check"></i><b>10.2</b> Статистическая значимость</a></li>
+<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#размер-эффекта"><i class="fa fa-check"></i><b>10.3</b> Размер эффекта</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -262,6 +278,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

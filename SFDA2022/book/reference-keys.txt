@@ -75,3 +75,13 @@ errors
 stat_test_asymm
 stat_test_algorithm
 nhst
+chisq
+crosstab
+theor_freq
+критерий-независимости-пирсона
+распределение-chi2
+correlations
+параметрические-и-непараметрические-критерии
+статистическая-значимость
+размер-эффекта
+chisq2

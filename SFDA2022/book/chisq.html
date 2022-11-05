@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Анализ категориальных данных | Статистика для анализа данных</title>
+  <meta name="description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Анализ категориальных данных | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Анализ категориальных данных | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжька для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nhst.html"/>
+<link rel="next" href="correlations.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего настроения</a></li>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro_stats.html"><a href="intro_stats.html#способы-формирования-репрезентативной-выборки"><i class="fa fa-check"></i><b>1.3.2</b> Способы формирования репрезентативной выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Описательная статистика</b></span></li>
+<li class="chapter" data-level="3" data-path="central_tendency.html"><a href="central_tendency.html"><i class="fa fa-check"></i><b>3</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="central_tendency.html"><a href="central_tendency.html#types_of_statistics"><i class="fa fa-check"></i><b>3.1</b> Виды статистики</a></li>
+<li class="chapter" data-level="3.2" data-path="central_tendency.html"><a href="central_tendency.html#central_tendency_measures"><i class="fa fa-check"></i><b>3.2</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="central_tendency.html"><a href="central_tendency.html#mode"><i class="fa fa-check"></i><b>3.2.1</b> Мода</a></li>
+<li class="chapter" data-level="3.2.2" data-path="central_tendency.html"><a href="central_tendency.html#медиана"><i class="fa fa-check"></i><b>3.2.2</b> Медиана</a></li>
+<li class="chapter" data-level="3.2.3" data-path="central_tendency.html"><a href="central_tendency.html#среднее-арифметическое"><i class="fa fa-check"></i><b>3.2.3</b> Среднее арифметическое</a></li>
+<li class="chapter" data-level="3.2.4" data-path="central_tendency.html"><a href="central_tendency.html#другие-средние"><i class="fa fa-check"></i><b>3.2.4</b> Другие средние</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="central_tendency.html"><a href="central_tendency.html#сравнение-мер-центральной-тенденции"><i class="fa fa-check"></i><b>3.3</b> Сравнение мер центральной тенденции</a></li>
+<li class="chapter" data-level="3.4" data-path="central_tendency.html"><a href="central_tendency.html#mean_features"><i class="fa fa-check"></i><b>3.4</b> Свойства среднего арифметического</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variation.html"><a href="variation.html"><i class="fa fa-check"></i><b>4</b> Меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variation.html"><a href="variation.html#why_we_need_variation"><i class="fa fa-check"></i><b>4.1</b> Зачем нужны меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variation.html"><a href="variation.html#key_features_of_data"><i class="fa fa-check"></i><b>4.1.1</b> Основные характеристики статистических данных</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variation.html"><a href="variation.html#range"><i class="fa fa-check"></i><b>4.2</b> Минимум, максимум, размах</a></li>
+<li class="chapter" data-level="4.3" data-path="variation.html"><a href="variation.html#quantiles"><i class="fa fa-check"></i><b>4.3</b> Квантили</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variation.html"><a href="variation.html#quartiles"><i class="fa fa-check"></i><b>4.3.1</b> Квартили</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variation.html"><a href="variation.html#deciles"><i class="fa fa-check"></i><b>4.3.2</b> Децили</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variation.html"><a href="variation.html#percentiles"><i class="fa fa-check"></i><b>4.3.3</b> Перцентили</a></li>
+<li class="chapter" data-level="4.3.4" data-path="variation.html"><a href="variation.html#iqr"><i class="fa fa-check"></i><b>4.3.4</b> Интерквартильный размах</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variation.html"><a href="variation.html#boxplot"><i class="fa fa-check"></i><b>4.3.5</b> Визуализация квартилей. Боксплот</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="variation.html"><a href="variation.html#var"><i class="fa fa-check"></i><b>4.4</b> Дисперсия</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="variation.html"><a href="variation.html#degrees_of_freedom"><i class="fa fa-check"></i><b>4.4.1</b> Степени свободы</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="variation.html"><a href="variation.html#sd"><i class="fa fa-check"></i><b>4.5</b> Стандартное отклонение</a></li>
+<li class="chapter" data-level="4.6" data-path="variation.html"><a href="variation.html#variation_comparison"><i class="fa fa-check"></i><b>4.6</b> Сравнение мер разброса</a></li>
+<li class="chapter" data-level="4.7" data-path="variation.html"><a href="variation.html#var_features"><i class="fa fa-check"></i><b>4.7</b> Свойства дисперсии и стандартного отклонения</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>5</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="normal_distribution.html"><a href="normal_distribution.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Распределение признаков в генеральной совокупности</a></li>
+<li class="chapter" data-level="5.2" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_dist"><i class="fa fa-check"></i><b>5.2</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_params"><i class="fa fa-check"></i><b>5.2.1</b> Параметры нормального распределения</a></li>
+<li class="chapter" data-level="5.2.2" data-path="normal_distribution.html"><a href="normal_distribution.html#in_love_with_norm_dist"><i class="fa fa-check"></i><b>5.2.2</b> Почему все так любят нормальное распределение?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_shapes"><i class="fa fa-check"></i><b>5.3</b> Форма нормального распределения и параметры</a></li>
+<li class="chapter" data-level="5.4" data-path="normal_distribution.html"><a href="normal_distribution.html#стандартные-отклонения-и-вероятности"><i class="fa fa-check"></i><b>5.4</b> Стандартные отклонения и вероятности</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="standardization.html"><a href="standardization.html"><i class="fa fa-check"></i><b>6</b> Стандартизация</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="standardization.html"><a href="standardization.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>6.1</b> Стандартное нормальное распределение</a></li>
+<li class="chapter" data-level="6.2" data-path="standardization.html"><a href="standardization.html#стандартизация"><i class="fa fa-check"></i><b>6.2</b> Стандартизация</a></li>
+<li class="chapter" data-level="6.3" data-path="standardization.html"><a href="standardization.html#интерпретация-z-значений"><i class="fa fa-check"></i><b>6.3</b> Интерпретация z-значений</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="clt_ci.html"><a href="clt_ci.html"><i class="fa fa-check"></i><b>7</b> Центральная предельная теорема и доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="clt_ci.html"><a href="clt_ci.html#interval_estim"><i class="fa fa-check"></i><b>7.1</b> Точечные и интервальные оценки</a></li>
+<li class="chapter" data-level="7.2" data-path="clt_ci.html"><a href="clt_ci.html#clt"><i class="fa fa-check"></i><b>7.2</b> Центральная предельная теорема</a></li>
+<li class="chapter" data-level="7.3" data-path="clt_ci.html"><a href="clt_ci.html#mean_se"><i class="fa fa-check"></i><b>7.3</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.4" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci"><i class="fa fa-check"></i><b>7.4</b> Доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="clt_ci.html"><a href="clt_ci.html#ci_interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Интерпретация границ доверительного интервала</a></li>
+<li class="chapter" data-level="7.4.2" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci_comp"><i class="fa fa-check"></i><b>7.4.2</b> Доверительный интервал и сравнение средних</a></li>
+<li class="chapter" data-level="7.4.3" data-path="clt_ci.html"><a href="clt_ci.html#ci_se_sample_size"><i class="fa fa-check"></i><b>7.4.3</b> Связь доверительного интервала с разбросом и объемом выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Статистика вывода и статистические методы</b></span></li>
+<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотех</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="nhst.html"><a href="nhst.html#базовые-понятия"><i class="fa fa-check"></i><b>8.1</b> Базовые понятия</a></li>
+<li class="chapter" data-level="8.2" data-path="nhst.html"><a href="nhst.html#errors"><i class="fa fa-check"></i><b>8.2</b> Возможные результаты проверки гипотез</a></li>
+<li class="chapter" data-level="8.3" data-path="nhst.html"><a href="nhst.html#stat_test_asymm"><i class="fa fa-check"></i><b>8.3</b> Асимметрия статистического вывода</a></li>
+<li class="chapter" data-level="8.4" data-path="nhst.html"><a href="nhst.html#stat_test_algorithm"><i class="fa fa-check"></i><b>8.4</b> Алгоритм тестирования статистических гипотез</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chisq.html"><a href="chisq.html"><i class="fa fa-check"></i><b>9</b> Анализ категориальных данных</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chisq.html"><a href="chisq.html#crosstab"><i class="fa fa-check"></i><b>9.1</b> Таблица сопряженности</a></li>
+<li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
+<li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#критерий-независимости-пирсона"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#chisq2"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Корреляционный анализ</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#параметрические-и-непараметрические-критерии"><i class="fa fa-check"></i><b>10.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#статистическая-значимость"><i class="fa fa-check"></i><b>10.2</b> Статистическая значимость</a></li>
+<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#размер-эффекта"><i class="fa fa-check"></i><b>10.3</b> Размер эффекта</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chisq" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Анализ категориальных данных<a href="chisq.html#chisq" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Сегодня мы изучим первый статистический метод, которые применяется при анализе категориальных данных. Напомню, что это категориальные данные — это те, которые измерены в <em>номинальной</em> (реже — <em>порядковой</em>) шкале. А раз они измерены в номинальной шкале, значит наши данные разбиваются на некоторые категории. А раз есть категории, значит можно посчитать их частоты. А раз можно посчитать частоты, значит можно построить таблицу частот.</p>
+<div id="crosstab" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Таблица сопряженности<a href="chisq.html#crosstab" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Таблицы частот для одной переменной мы с вами строили — это доволльно простая задача. Однако теперь нас интересует не одна переменная, а две — мы будем искать связь между двумя категориальными переменными.</p>
+<p>Давайте на примере. Пусть у нас есть данные о том, как студенты некоторого курса сдали экзамен по анализу данных. Экзамен проходил во вторник. При этом известно, что одна часть студентов усиленно готовилась к экзамену, а другая часть — отмечала понедельник в барах на Китай-городе.</p>
+<p>В цифрах:</p>
+<ul>
+<li>всего студентов на курсе 120 человек</li>
+<li>успешно сдали экзамен 94 студента</li>
+<li>готовились к экзамену 86 студентов</li>
+<li>готовились и не сдали экзамен 3 студента</li>
+</ul>
+<p>По этим данным мы можем построить <strong>таблицу сопряженности (contingency table, cross tabulation, crosstab)</strong>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Сдали экзамен</th>
+<th align="center">Не сдали экзамен</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Готовились</td>
+<td align="center"><span class="math inline">\(83\)</span></td>
+<td align="center"><span class="math inline">\(3\)</span></td>
+<td align="center"><span class="math inline">\(86\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Отмечали понедельник</td>
+<td align="center"><span class="math inline">\(11\)</span></td>
+<td align="center"><span class="math inline">\(23\)</span></td>
+<td align="center"><span class="math inline">\(34\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(94\)</span></td>
+<td align="center"><span class="math inline">\(26\)</span></td>
+<td align="center"><span class="math inline">\(120\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Таблица сопряженности отражает <em>совместное распределение</em> двух категориальных (в данном случае — бинарных) переменных. На основе такой таблицы проверяеются гипотезы о связях между двумя категориальными переменными. В общем случае таблица сопряженности будет выглядеть так:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(X_1\)</span></th>
+<th align="center"><span class="math inline">\(X_2\)</span></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Y_1\)</span></td>
+<td align="center"><span class="math inline">\(a\)</span></td>
+<td align="center"><span class="math inline">\(b\)</span></td>
+<td align="center"><span class="math inline">\(a+b\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(Y_2\)</span></td>
+<td align="center"><span class="math inline">\(c\)</span></td>
+<td align="center"><span class="math inline">\(d\)</span></td>
+<td align="center"><span class="math inline">\(c+d\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(a+c\)</span></td>
+<td align="center"><span class="math inline">\(b+d\)</span></td>
+<td align="center"><span class="math inline">\(N\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Эта таблица отражает <strong>эмпирические частоты</strong> — то есть те, которые получились из собранных нами данных. Здесь <span class="math inline">\(X\)</span> и <span class="math inline">\(Y\)</span> — наши переменные, индексы <span class="math inline">\(_1\)</span> и <span class="math inline">\(_2\)</span> показывают категорию, к которой относится то или иное наблюдение. На пересечении столбца и строки — частота совместного появления признаков <span class="math inline">\(X_i\)</span> и <span class="math inline">\(Y_j\)</span>. Суммы частот по строкам и столбцам — <em>маргинальные частоты</em> [строк и столбцов соответственно].</p>
+<p>Итак, эмпирические частоты у нас в наличии. Теперь вспомним алгоритм тестирования статистических гипотез:</p>
+<ol style="list-style-type: decimal">
+<li>Формулировка гипотезы</li>
+<li>Выбор статистического критерия</li>
+<li>Выбор уровня значимости <span class="math inline">\(\alpha\)</span></li>
+<li>Построение закона распределения статистики критерия при условии, что нулевая гипотеза верна</li>
+<li>Расчёт выборочной статистики</li>
+<li>Расчёт достигнутого уровня значимости <em>p-value</em></li>
+<li>Сопоставление <span class="math inline">\(\alpha\)</span> и <em>p-value</em> и вынесение решения</li>
+</ol>
+<p>Нам нужно сформулировать <em>нулевую гипотезу</em>. Как мы помним, нулевая гипотеза всегда об отсутствии каких-либо различий. В нашем случае если нет никакой связи между переменными <span class="math inline">\(X\)</span> и <span class="math inline">\(Y\)</span> — подготовка к экзамену и успешность сдачи — то все частоты в таблице должны быть равны. То есть</p>
+<p><span class="math display">\[
+H_0: a = b = c = d
+\]</span></p>
+<p>Альтернативная гипотеза в этом случае будет гласить, что <strong>хотя бы между двумя какими-либо ячейчас отсутствует статистическое равенство</strong>. Это сложно записать математически — можно, но будет длинно. Воспользуется логическим отрицанием — <em>неверно, что все частоты равны между собой</em>:</p>
+<p><span class="math display">\[
+H_1: \neg(a = b = c = d)
+\]</span></p>
+<p>Окей, формулировка гипотезы — ✓ done!</p>
+<p>Теперь надо понять, как нам эту гипотезу протестировать. Мы бы, конечно, могли просто взять и сравнить наши частоты, но мы так делать не можем, <em>ибо всё ещё вариативность и неопределенность статистических данных</em>. Надо придумать другой ход.</p>
+<p>Мы можем взять теоретическую ситуацию, когда между нашими переменными нет связи — а значит нет различия между частотами — и сравнить с тем, что у нас есть в таблице. Так и поступают. Поэтому сначала нам нужно рассчитать теоретические частоты.</p>
+</div>
+<div id="theor_freq" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Расчёт теоретических частот<a href="chisq.html#theor_freq" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Чтобы построить таблицу теоретического распределения частот, нам нужно понять, как были бы распределены наши данные в случае, если между нашими переменными не было бы связи. Это делается так:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="12%" />
+<col width="43%" />
+<col width="43%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(X_1^*\)</span></th>
+<th align="center"><span class="math inline">\(X_2^*\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(Y_1^*\)</span></td>
+<td align="center"><span class="math inline">\(\dfrac{(a+b) \cdot (a+c)}{N}\)</span></td>
+<td align="center"><span class="math inline">\(\dfrac{(a+b) \cdot (b+d)}{N}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(Y_2^*\)</span></td>
+<td align="center"><span class="math inline">\(\dfrac{(c+d) \cdot (a+c)}{N}\)</span></td>
+<td align="center"><span class="math inline">\(\dfrac{(c+d) \cdot (a+c)}{N}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>То есть для расчета теоретической частоты в конкретной ячейке мы перемножаем соответствующие маргинальные вероятности и делим на число наблюдений. Рассчитаем теоретические частоты для нашего примера:</p>
+<table>
+<colgroup>
+<col width="40%" />
+<col width="27%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Сдали экзамен</th>
+<th align="center">Не сдали экзамен</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Готовились</td>
+<td align="center"><span class="math inline">\(\dfrac{86 \cdot 94}{120} = 67.37\)</span></td>
+<td align="center"><span class="math inline">\(\dfrac{86 \cdot 26}{120} = 18.63\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Отмечали понедельник</td>
+<td align="center"><span class="math inline">\(\dfrac{34 \cdot 94}{120} = 26.63\)</span></td>
+<td align="center"><span class="math inline">\(\dfrac{34 \cdot 26}{120} = 7.37\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Чтобы понять, какое содержание стоит за расчетом теоретических частот, надо разложить расчет на два действия. Первое — вычисление долей сдавших и не сдавших экзамен:</p>
+<p><span class="math display">\[
+p_{\text{готовились}} = \frac{86}{120} \approx 0.72 \\
+p_{\text{отмечали}} = \frac{34}{120} \approx 0.28
+\]</span></p>
+<p>Второе — находим части, равные рассчитанным долям, от количества сдавших и не сдавших экзамен:</p>
+<p><span class="math display">\[
+n_{\text{готовились и сдали}} = 0.72 \cdot 94 = 67.68 \\
+n_{\text{готовились и не сдали}} = 0.72 \cdot 26 = 18.72 \\
+n_{\text{отмечали и сдали}} = 0.28 \cdot 94 = 26.32 \\
+n_{\text{отмечали и не сдали}} = 0.28 \cdot 26 = 7.28
+\]</span></p>
+<p>Ну, вот мы то же самое и получили [с точностью до промежуточного округления].</p>
+<p>Итак, у нас есть всё, что нужно, чтобы перейти к тестированию гипотезы.</p>
+</div>
+<div id="критерий-независимости-пирсона" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Критерий независимости Пирсона<a href="chisq.html#критерий-независимости-пирсона" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Переходим ко второму пункту алгоритма — выбор статистического критерия. Для поиска взаимосвязей между категориальными переменными разработан критерий независимости Пирсона (<span class="math inline">\(\chi^2\)</span> Пирсона). Это первый статистический критерий, с которым мы с вами знакомимся. У каждого статистического критерия есть <em>статистика критерия</em>, которая рассчитывается определенным образом. Для критерия <span class="math inline">\(\chi^2\)</span> она рассчитывается так:</p>
+<p><span class="math display">\[
+\chi^2 = \sum_i \frac{(O_i - E_i)^2}{E_i},
+\]</span></p>
+<p>где <span class="math inline">\(O_i\)</span> — эмпирические (наблюдаемые, observed) частоты, а <span class="math inline">\(E_i\)</span> — теоретические (ожидаемые, expected) частоты.</p>
+<p>Внимательно присмотревшись в формуле, можно увидеть, что чем больше отклонения эмпирических частот от теоретических, тем больше числитель дроби, тем больше статистистика критерия. Несложно рассчитать значения статистического критерия для нашего примера:</p>
+<p><span class="math display">\[
+\chi^2 = \frac{(83 - 67.37)^2}{67.37} + \frac{(3 - 18.63)^2}{18.63} + \frac{(11 - 26.63)^2}{26.63} + \frac{(23 - 7.37)^2}{7.37} \approx 59.06
+\]</span></p>
+<p>Дальше мы можем рассчитать критическое значения критерия <span class="math inline">\(\chi^2\)</span> — договоримся, что если не оговорено иное, мы берем в качестве уровня значимости конвенциональный 0.05 — и сравнить его с полученным, но в прошлой главе мы договорились, что так делать не будем. Мы будем рассчитывать <em>p-value</em>, или достигнутый уровень значимости. Руками это делать трудно — надо в интегралы уметь и формулы для распределенрий знать — поэтому мы доверим это специально обученному программному обеспечению:</p>
+<pre><code>##       passed failed
+## study     83      3
+## bar       11     23</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  d
+## X-squared = 55.378, df = 1, p-value = 9.946e-14</code></pre>
+<p>Получилось другое значение <span class="math inline">\(\chi^2\)</span>, что связано со сделанными нами округлениями в ходе расчета теоретических частот. Но принципиально это ничего не меняет — мы видим <em>p-value</em> много меньше <span class="math inline">\(0.05\)</span>.</p>
+<p>Как мы говорили в прошлой главе, если <em>p-value</em> меньше выбранного уровня значимости, у нас есть отнования отклонить нулевую гипотезу об отсутствии различий, и принять альтернативную гипотезу. Итого, связь между подготовкой к экзамену и успешностью его сдачи есть. Ну, ничего себе какой полезный вывод — а мы то и не в курсе были…</p>
+<p>Ладно, это всё хорошо — и даже достаточно для эвристического понимания того, как работает хи-вадрат, однако давайте все же посмотрим чуть глубже в то, что осталось под капотом.</p>
+<div id="распределение-chi2" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Распределение <span class="math inline">\(\chi^2\)</span><a href="chisq.html#распределение-chi2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Почему вообще критерий называется хи-квадрат? Откуда берется <em>p-value</em>? И куда делось «построение закона распределения статистики критерия при условии, что нулевая гипотеза верна»?</p>
+<p>Обо всём по порядку. Еще раз вернемся к алгоритму:</p>
+<ol style="list-style-type: decimal">
+<li><del>Формулировка гипотезы</del></li>
+<li><del>Выбор статистического критерия</del></li>
+<li><del>Выбор уровня значимости <span class="math inline">\(\alpha\)</span></del></li>
+<li>Построение закона распределения статистики критерия при условии, что нулевая гипотеза верна</li>
+<li>Расчёт выборочной статистики</li>
+<li>Расчёт достигнутого уровня значимости <em>p-value</em></li>
+<li>Сопоставление <span class="math inline">\(\alpha\)</span> и <em>p-value</em> и вынесение решения</li>
+</ol>
+<p>Первые три пункта вычеркнуты — их мы обсудили. Гипотезу сформулировали, статистический критерий выбрали, уровень значимости оставили конвенциональным. Что дальше?</p>
+<p>Статистика критерия — любого, не только <span class="math inline">\(\chi^2\)</span> — это <em>непрерывная случайная величина</em>. И она подчинается некоторому распределению. В частности, статистика рассматриваемого нами критерия подчинается распределению <span class="math inline">\(\chi^2\)</span>, которое выглядит вот так:</p>
+<p><img src="SFDA_files/figure-html/chisq_graph-1.png" width="672" /></p>
+<p><strong>Важно</strong>: так выглядит распределение статистики <span class="math inline">\(\chi^2\)</span> при условии, что <strong>нулевая гипотеза верна</strong>! Именно его мы и строим. Ну, как строим: оно уже построено за нас. Нам надо только понять, какое из возможных использовать. Мы видим, что форма распределения зависит от количества степеней свободы. Значит нам надо научиться рассчитывать количество степеней свободы для конкретного случая. Это делается так:</p>
+<p><span class="math display">\[
+\text{df} = (c-1)(r-1),
+\]</span></p>
+<p>где <span class="math inline">\(c\)</span> — количество столбцов в таблице сопряженности, <span class="math inline">\(r\)</span> — количество строк в таблице сопряженности. В случае двух бинарных (дихотомических) переменных в таблице сопряженности два столбца и две строки — значит количество степеней свободы равно <span class="math inline">\(1\)</span>.</p>
+<p>Итак, интересующее нас распределение — вот это:</p>
+<p><img src="SFDA_files/figure-html/chisq_1-1.png" width="672" /></p>
+<p>Как мы помним из темы про случайные величины, чем выше график плотности вероятности, тем чаще встречаются значения переменной. В данном случае мы видим, что <em>при справедливости нулевой гипотезы</em> <em>малые значения</em> <span class="math inline">\(\chi^2\)</span> встречаются очень часто — то есть <em>являются типичными</em>. Большие же значения встречаются редко.</p>
+<p>Отобразим выбранный уровень значимости (красная область в хвосте графика):</p>
+<p><img src="SFDA_files/figure-html/chisq_1_alpha-1.png" width="672" /></p>
+<p>Мы немного ограничили ось <span class="math inline">\(y\)</span> в пределах от 0 до 0.3, чтобы лучше видеть, что происходит — это связано с сильно асимметричной формой распределения. Красная область под графиком — это то, что называется <em>критическая область</em>, или <em>область отклонения нулевой гипотезы</em>.</p>
+<p>Принципиально возможны две ситуации:</p>
+<ul>
+<li>рассчитанное значения <span class="math inline">\(\chi^2\)</span> <em>попало</em> в критическую область</li>
+<li>рассчитанное значение <span class="math inline">\(\chi^2\)</span> <em>не попало</em> в критическую область</li>
+</ul>
+<p>Если случился первый вариант, то это выглядит так:</p>
+<p><img src="SFDA_files/figure-html/chisq_1_p1-1.png" width="672" /></p>
+<p>Геометрически <em>p-value</em> — это площадь под графиком распределения статистики при справедливости нулевой гипотезы <em>правее</em> от рассчитанного значения статистики. В терминах вероятности — это веротяность получить <em>такие или более сильные отклонения</em> при справедливости нулевой гипотезы. То есть, если <em>p-value</em> меньше <span class="math inline">\(\alpha\)</span>, то <em>рассчитанное значение статистики попало в критическую область</em>.</p>
+<p>Если случился второй вариант, то это выглядит так:</p>
+<p><img src="SFDA_files/figure-html/chisq_1_p2-1.png" width="672" /></p>
+<p>То есть, если <em>p-value</em> больше <span class="math inline">\(\alpha\)</span>, то <em>рассчитанное значение статистики не попало в критическую область</em>.</p>
+<p>В этом смысле второй и первый сценарии тестирования статистической гипотезы, описанные в предыдущей главе, на самом деле две стороны одного и тогоже положения дел.</p>
+<p><strong>Итак,</strong></p>
+<ul>
+<li>если мы получили <em>p-value</em> <span class="math inline">\(&lt; \alpha\)</span>, то мы говорим, что
+<ul>
+<li>мы получили значение статистики, <em>не характерное</em> для ситуации справедливости нулевой гипотезы,</li>
+<li>значит у нас <em>есть основания отклонить нулевую гипотезу</em> и принять альтернативную</li>
+<li>с надежностью вывода <span class="math inline">\(\alpha\)</span>, а точнее <em>p-value</em>.</li>
+</ul></li>
+<li>если мы получили <em>p-value</em> <span class="math inline">\(&gt; \alpha\)</span>, то мы говорим, что
+<ul>
+<li>мы получили значение статистики, <em>характерное</em> для ситуации справедливости нулевой гипотезы,</li>
+<li>значит у нас <em>нет оснований отклонить нулевую гипотезу</em>,</li>
+<li>надежность вывода в этом случае неизвестна.</li>
+</ul></li>
+</ul>
+<p>Таким образом, в нашем случае <em>p-value</em> = <span class="math inline">\(9.946 \cdot 10^{-14}\)</span>, что много меньше <span class="math inline">\(0.05\)</span>, что дает нам весовые основания отклонить нулевую гипотезу об отсутствии связи между подготовкой к экзамену и успешностью его сдачи и принять альтернативную гипотезу о том, что такая связь есть.</p>
+<p>Вот мы и сделали статистический вывод. На практике. И даже на содержательный вопрос ответили. Ну, как же мы хороши!</p>
+</div>
+</div>
+<div id="chisq2" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Критерий согласия Пирсона<a href="chisq.html#chisq2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Кроме критерия независимости Пирсона, существует еще критерий согласия Пирсона. По сути, это некоторая вариации того, что мы изучили выше — и он даже проще, так как мы сравниваем эмпирические частоты с некоторыми заранее известными теоретическими. Собственно, поэтому он называется критерием согласия — согласовано ли наше эмпирическое распределение с некоторым заранее известным теоретическим.</p>
+<p>Откуда мы знаем теоретические частоты? Ну, в общем случае — ниоткуда. Ведь это частоты генеральной совокупности, а о ней, как известно, ничего достоверно неизвестно. По этой причине любые критерии согласия в целом используются в исследовательской практике весьма редко. Обычно они являются частью какого-либо другого статистического метода — это мы увидим в следующей главе.</p>
+<p>И все же исследовательскую задач для критерия согласия Пирсона придумать можно. Скажем, вы аппробируете психометрический опросник, и вам надо показать, что ваша выборка аппробации репрезентативна относительно генеральной совокупности в отношении распределения респондентов по полу. Генеральная совокупность — Российскаф Федерация. Где взять теоретические частоты — ведь мы не можем исходить из предположения, что доли мужчин и женщин в России одинаковы? Хвала небесам, у нас есть Росстат — он же Федеральная служба государственной статистики — который нам рассказал, что мужчин в РФ 46%, а женщин по несложным подсчетам — 54%.</p>
+<p>Пусть мы собрали выборку в 495 человек, из которых 262 — мужчины, а 233 — женщины. Наша таблица эмпирических частот будет такой:</p>
+<pre><code>##   f   m 
+## 233 262</code></pre>
+<p>Теоретические частоты будут таковы — рассчитываются по формуле <span class="math inline">\(p \cdot N\)</span>, где <span class="math inline">\(p\)</span> — теоретическая доля, <span class="math inline">\(N\)</span> — количество наблюдений:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">female</th>
+<th align="center">male</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(0.54 \cdot 495 = 267.3\)</span></td>
+<td align="center"><span class="math inline">\(0.46 \cdot 495 = 227.7\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Формула для расчета статистики критерия вот:</p>
+<p><span class="math display">\[
+\chi^2 = \sum_i \frac{(O_i - E_i)^2}{E_i},
+\]</span></p>
+<p>где <span class="math inline">\(O_i\)</span> — эмпирические (наблюдаемые, observed) частоты, а <span class="math inline">\(E_i\)</span> — теоретические (ожидаемые, expected) частоты.</p>
+<p>На что-то очень похоже, да?</p>
+<p>Степени свободы, так как строчка в таблице только одна, рассчитываются следующим образом:</p>
+<p><span class="math display">\[
+\text{df} = c-1,
+\]</span></p>
+<p>где <span class="math inline">\(c\)</span> — число колонок в таблице.</p>
+<ul>
+<li><em>Нулевая гипотеза</em> тут будет такая: эмпирические частоты равны теоретическим.</li>
+<li><em>Альтернативная гипотеза</em> — эмпирические частоты отличаются от теоретических.</li>
+</ul>
+<p>Статистический вывод абсолютно идентичен критерию независимости Пирсона.</p>
+<p>Итого,</p>
+<pre><code>## 
+##  Chi-squared test for given probabilities
+## 
+## data:  v
+## X-squared = 9.5682, df = 1, p-value = 0.00198</code></pre>
+<p>Снова видим <em>p-value</em> <span class="math inline">\(&lt; \alpha\)</span>, значит мы получили значение статистики, <em>не характерное</em> для ситуации справедливости нулевой гипотезы, и у нас <em>есть основания отклонить нулевую гипотезу</em> и принять альтернативную о том, что эмпирические частоты отличаются от теоретических.</p>
+<p>Получается, что наша выборка не особо репрезентативна. Грустно… :(</p>
+<hr />
+<p>Напоследок отметим, что если мы используем специально обученное ПО, мы вообще-то мало что делаем руками — только строчку кода пишем. Остальное же — формулирование гипотезы, построение распределения, подсчет статистики и <em>p-value</em> — за нас делает машина. Нам остается включить мозг, когда мы делаем статистический вывод.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nhst.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="correlations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
