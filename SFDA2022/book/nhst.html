@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Тестирование статистических гипотех | Статистика для анализа данных</title>
+  <meta name="description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Тестирование статистических гипотех | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Тестирование статистических гипотех | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="clt_ci.html"/>
+<link rel="next" href="chisq.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего настроения</a></li>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro_stats.html"><a href="intro_stats.html#способы-формирования-репрезентативной-выборки"><i class="fa fa-check"></i><b>1.3.2</b> Способы формирования репрезентативной выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Описательная статистика</b></span></li>
+<li class="chapter" data-level="3" data-path="central_tendency.html"><a href="central_tendency.html"><i class="fa fa-check"></i><b>3</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="central_tendency.html"><a href="central_tendency.html#types_of_statistics"><i class="fa fa-check"></i><b>3.1</b> Виды статистики</a></li>
+<li class="chapter" data-level="3.2" data-path="central_tendency.html"><a href="central_tendency.html#central_tendency_measures"><i class="fa fa-check"></i><b>3.2</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="central_tendency.html"><a href="central_tendency.html#mode"><i class="fa fa-check"></i><b>3.2.1</b> Мода</a></li>
+<li class="chapter" data-level="3.2.2" data-path="central_tendency.html"><a href="central_tendency.html#медиана"><i class="fa fa-check"></i><b>3.2.2</b> Медиана</a></li>
+<li class="chapter" data-level="3.2.3" data-path="central_tendency.html"><a href="central_tendency.html#среднее-арифметическое"><i class="fa fa-check"></i><b>3.2.3</b> Среднее арифметическое</a></li>
+<li class="chapter" data-level="3.2.4" data-path="central_tendency.html"><a href="central_tendency.html#другие-средние"><i class="fa fa-check"></i><b>3.2.4</b> Другие средние</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="central_tendency.html"><a href="central_tendency.html#сравнение-мер-центральной-тенденции"><i class="fa fa-check"></i><b>3.3</b> Сравнение мер центральной тенденции</a></li>
+<li class="chapter" data-level="3.4" data-path="central_tendency.html"><a href="central_tendency.html#mean_features"><i class="fa fa-check"></i><b>3.4</b> Свойства среднего арифметического</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variation.html"><a href="variation.html"><i class="fa fa-check"></i><b>4</b> Меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variation.html"><a href="variation.html#why_we_need_variation"><i class="fa fa-check"></i><b>4.1</b> Зачем нужны меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variation.html"><a href="variation.html#key_features_of_data"><i class="fa fa-check"></i><b>4.1.1</b> Основные характеристики статистических данных</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variation.html"><a href="variation.html#range"><i class="fa fa-check"></i><b>4.2</b> Минимум, максимум, размах</a></li>
+<li class="chapter" data-level="4.3" data-path="variation.html"><a href="variation.html#quantiles"><i class="fa fa-check"></i><b>4.3</b> Квантили</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variation.html"><a href="variation.html#quartiles"><i class="fa fa-check"></i><b>4.3.1</b> Квартили</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variation.html"><a href="variation.html#deciles"><i class="fa fa-check"></i><b>4.3.2</b> Децили</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variation.html"><a href="variation.html#percentiles"><i class="fa fa-check"></i><b>4.3.3</b> Перцентили</a></li>
+<li class="chapter" data-level="4.3.4" data-path="variation.html"><a href="variation.html#iqr"><i class="fa fa-check"></i><b>4.3.4</b> Интерквартильный размах</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variation.html"><a href="variation.html#boxplot"><i class="fa fa-check"></i><b>4.3.5</b> Визуализация квартилей. Боксплот</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="variation.html"><a href="variation.html#var"><i class="fa fa-check"></i><b>4.4</b> Дисперсия</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="variation.html"><a href="variation.html#degrees_of_freedom"><i class="fa fa-check"></i><b>4.4.1</b> Степени свободы</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="variation.html"><a href="variation.html#sd"><i class="fa fa-check"></i><b>4.5</b> Стандартное отклонение</a></li>
+<li class="chapter" data-level="4.6" data-path="variation.html"><a href="variation.html#variation_comparison"><i class="fa fa-check"></i><b>4.6</b> Сравнение мер разброса</a></li>
+<li class="chapter" data-level="4.7" data-path="variation.html"><a href="variation.html#var_features"><i class="fa fa-check"></i><b>4.7</b> Свойства дисперсии и стандартного отклонения</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>5</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="normal_distribution.html"><a href="normal_distribution.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Распределение признаков в генеральной совокупности</a></li>
+<li class="chapter" data-level="5.2" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_dist"><i class="fa fa-check"></i><b>5.2</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_params"><i class="fa fa-check"></i><b>5.2.1</b> Параметры нормального распределения</a></li>
+<li class="chapter" data-level="5.2.2" data-path="normal_distribution.html"><a href="normal_distribution.html#in_love_with_norm_dist"><i class="fa fa-check"></i><b>5.2.2</b> Почему все так любят нормальное распределение?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_shapes"><i class="fa fa-check"></i><b>5.3</b> Форма нормального распределения и параметры</a></li>
+<li class="chapter" data-level="5.4" data-path="normal_distribution.html"><a href="normal_distribution.html#стандартные-отклонения-и-вероятности"><i class="fa fa-check"></i><b>5.4</b> Стандартные отклонения и вероятности</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="standardization.html"><a href="standardization.html"><i class="fa fa-check"></i><b>6</b> Стандартизация</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="standardization.html"><a href="standardization.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>6.1</b> Стандартное нормальное распределение</a></li>
+<li class="chapter" data-level="6.2" data-path="standardization.html"><a href="standardization.html#стандартизация"><i class="fa fa-check"></i><b>6.2</b> Стандартизация</a></li>
+<li class="chapter" data-level="6.3" data-path="standardization.html"><a href="standardization.html#интерпретация-z-значений"><i class="fa fa-check"></i><b>6.3</b> Интерпретация z-значений</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="clt_ci.html"><a href="clt_ci.html"><i class="fa fa-check"></i><b>7</b> Центральная предельная теорема и доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="clt_ci.html"><a href="clt_ci.html#interval_estim"><i class="fa fa-check"></i><b>7.1</b> Точечные и интервальные оценки</a></li>
+<li class="chapter" data-level="7.2" data-path="clt_ci.html"><a href="clt_ci.html#clt"><i class="fa fa-check"></i><b>7.2</b> Центральная предельная теорема</a></li>
+<li class="chapter" data-level="7.3" data-path="clt_ci.html"><a href="clt_ci.html#mean_se"><i class="fa fa-check"></i><b>7.3</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.4" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci"><i class="fa fa-check"></i><b>7.4</b> Доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="clt_ci.html"><a href="clt_ci.html#ci_interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Интерпретация границ доверительного интервала</a></li>
+<li class="chapter" data-level="7.4.2" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci_comp"><i class="fa fa-check"></i><b>7.4.2</b> Доверительный интервал и сравнение средних</a></li>
+<li class="chapter" data-level="7.4.3" data-path="clt_ci.html"><a href="clt_ci.html#ci_se_sample_size"><i class="fa fa-check"></i><b>7.4.3</b> Связь доверительного интервала с разбросом и объемом выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Статистика вывода и статметоды</b></span></li>
+<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотех</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="nhst.html"><a href="nhst.html#базовые-понятия"><i class="fa fa-check"></i><b>8.1</b> Базовые понятия</a></li>
+<li class="chapter" data-level="8.2" data-path="nhst.html"><a href="nhst.html#errors"><i class="fa fa-check"></i><b>8.2</b> Возможные результаты проверки гипотез</a></li>
+<li class="chapter" data-level="8.3" data-path="nhst.html"><a href="nhst.html#stat_test_asymm"><i class="fa fa-check"></i><b>8.3</b> Асимметрия статистического вывода</a></li>
+<li class="chapter" data-level="8.4" data-path="nhst.html"><a href="nhst.html#stat_test_algorithm"><i class="fa fa-check"></i><b>8.4</b> Алгоритм тестирования статистических гипотез</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chisq.html"><a href="chisq.html"><i class="fa fa-check"></i><b>9</b> Анализ категориальных данных</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chisq.html"><a href="chisq.html#crosstab"><i class="fa fa-check"></i><b>9.1</b> Таблица сопряженности</a></li>
+<li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
+<li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Корреляционный анализ</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#covariance"><i class="fa fa-check"></i><b>10.1</b> Ковариация</a></li>
+<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#correlation"><i class="fa fa-check"></i><b>10.2</b> Корреляция</a></li>
+<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#pearson_corr"><i class="fa fa-check"></i><b>10.3</b> Корреляция Пирсона</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="correlations.html"><a href="correlations.html#corr_test"><i class="fa fa-check"></i><b>10.3.1</b> Тестирование статистической значимости коэффициента корреляции</a></li>
+<li class="chapter" data-level="10.3.2" data-path="correlations.html"><a href="correlations.html#cor_ci"><i class="fa fa-check"></i><b>10.3.2</b> Доверительный интервал для коэффициента корреляции</a></li>
+<li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#effect_size_cor"><i class="fa fa-check"></i><b>10.3.3</b> Размер эффекта для коэффициента корреляции</a></li>
+<li class="chapter" data-level="10.3.4" data-path="correlations.html"><a href="correlations.html#power_corr"><i class="fa fa-check"></i><b>10.3.4</b> Расчет объема выборки для корреляционного анализа</a></li>
+<li class="chapter" data-level="10.3.5" data-path="correlations.html"><a href="correlations.html#cor_vis"><i class="fa fa-check"></i><b>10.3.5</b> Визуализация корреляции</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="correlations.html"><a href="correlations.html#corr_coefs"><i class="fa fa-check"></i><b>10.4</b> Коэффициенты корреляции для разных шкал</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="correlations.html"><a href="correlations.html#param_vs_nonparam"><i class="fa fa-check"></i><b>10.4.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="10.4.2" data-path="correlations.html"><a href="correlations.html#nonparam_corr"><i class="fa fa-check"></i><b>10.4.2</b> Непараметрические коэффициенты корреляции</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#other_cor"><i class="fa fa-check"></i><b>10.5</b> Другие корреляции</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="correlations.html"><a href="correlations.html#phi_coef"><i class="fa fa-check"></i><b>10.5.1</b> <span class="math inline">\(\phi\)</span>-коэффициент</a></li>
+<li class="chapter" data-level="10.5.2" data-path="correlations.html"><a href="correlations.html#biserial_cor"><i class="fa fa-check"></i><b>10.5.2</b> Бисериальный коэффициент корреляции</a></li>
+<li class="chapter" data-level="10.5.3" data-path="correlations.html"><a href="correlations.html#rank_biserial_cor"><i class="fa fa-check"></i><b>10.5.3</b> Рангово-бисериальный коэффициент корреляции</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="oneway-anova.html"><a href="oneway-anova.html"><i class="fa fa-check"></i><b>11</b> Общие линейные модели. Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="oneway-anova.html"><a href="oneway-anova.html#experiment"><i class="fa fa-check"></i><b>11.1</b> Э-э-эксперимент</a></li>
+<li class="chapter" data-level="11.2" data-path="oneway-anova.html"><a href="oneway-anova.html#var_struct"><i class="fa fa-check"></i><b>11.2</b> Структура изменчивости данных</a></li>
+<li class="chapter" data-level="11.3" data-path="oneway-anova.html"><a href="oneway-anova.html#why_anova"><i class="fa fa-check"></i><b>11.3</b> Зачем нужен дисперсионный анализ?</a></li>
+<li class="chapter" data-level="11.4" data-path="oneway-anova.html"><a href="oneway-anova.html#f_test"><i class="fa fa-check"></i><b>11.4</b> Тестирование значимости фактора</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="oneway-anova.html"><a href="oneway-anova.html#распределение-фишера"><i class="fa fa-check"></i><b>11.4.1</b> Распределение Фишера</a></li>
+<li class="chapter" data-level="11.4.2" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_results"><i class="fa fa-check"></i><b>11.4.2</b> Представление результатов дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="oneway-anova.html"><a href="oneway-anova.html#eta_sq"><i class="fa fa-check"></i><b>11.5</b> Размер эффекта в дисперсионном анализе</a></li>
+<li class="chapter" data-level="11.6" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_vis"><i class="fa fa-check"></i><b>11.6</b> Визуализация результатов дисперсионного анализа</a></li>
+<li class="chapter" data-level="11.7" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_require"><i class="fa fa-check"></i><b>11.7</b> Условия применения дисперсионного анализа</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="oneway-anova.html"><a href="oneway-anova.html#homogenity"><i class="fa fa-check"></i><b>11.7.1</b> Гомогенность дисперсий</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_effects"><i class="fa fa-check"></i><b>11.8</b> Виды эффектов в дисперсионном анализе</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="twoway-anova.html"><a href="twoway-anova.html"><i class="fa fa-check"></i><b>12</b> Многофакторный дисперионный анализ</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="twoway-anova.html"><a href="twoway-anova.html#experiment2"><i class="fa fa-check"></i><b>12.1</b> Усложняем э-э-эксперимент</a></li>
+<li class="chapter" data-level="12.2" data-path="twoway-anova.html"><a href="twoway-anova.html#factor_interaction"><i class="fa fa-check"></i><b>12.2</b> Взаимодействие факторов</a></li>
+<li class="chapter" data-level="12.3" data-path="twoway-anova.html"><a href="twoway-anova.html#twoway_results"><i class="fa fa-check"></i><b>12.3</b> Результаты многофакторного дисперсионного анализа и тестирование значимости факторов и взаимодействий</a></li>
+<li class="chapter" data-level="12.4" data-path="twoway-anova.html"><a href="twoway-anova.html#rmanova_require"><i class="fa fa-check"></i><b>12.4</b> Условия применения дисперсионного анализа с повторными измерениям</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="twoway-anova.html"><a href="twoway-anova.html#sphericity"><i class="fa fa-check"></i><b>12.4.1</b> Сферичность</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="twoway-anova.html"><a href="twoway-anova.html#type_of_sums"><i class="fa fa-check"></i><b>12.5</b> Типы сумм квадратов</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a></li>
+<li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="nhst" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Тестирование статистических гипотех<a href="nhst.html#nhst" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>В ходе статистического анализа мы, главным образом, заняты тем, что тестируем статистические гипотезы. Ведь на какого рода вопросы мы отвечаем с помощью анализа?</p>
+<ul>
+<li>Различаются ли группы между собой?</li>
+<li>Значимо ли влияние какого-либо фактора? → Различаются ли группы между собой?</li>
+<li>Хороша ли та модель, которую мы построили? → Отличается ли она от нулевой модели?</li>
+</ul>
+<p>И так далее. Так или иначе, всё сводится в тому, что мы ищем какие-то различия. Но силу того, что у нас неопределённость и вариация в данных, мы просто так «в лоб» сказать о различиях по оценкам параметров не можем. Приходится тестировать статистические гипотезы.</p>
+<div id="базовые-понятия" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Базовые понятия<a href="nhst.html#базовые-понятия" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Гипотеза</strong> (<span class="math inline">\(H\)</span>) — это предположение, которое подлежит проверке на основе результатов наблюдений.</p>
+<p>Гипотезы бывают трех видов:</p>
+<ul>
+<li><strong>Теоретическая</strong> — про конструкты.</li>
+<li><strong>Эмпирическая</strong> — про переменные (зависимые и независимые).</li>
+<li><strong>Статистическая</strong> — про данные (что мы получили в данный конкретный момент, собрав вот эти конкретные данные).</li>
+</ul>
+<p>Статистические гипотезы бывают <em>простыми</em> и <em>сложными</em>.</p>
+<ul>
+<li><p><strong>Простая гипотеза</strong> — это такое предположение, которое включает в себя какое-либо однозначно определеяемое утверждение. Например, истинная величина параметра соответствует некоторому строго заданному значению: <span class="math inline">\(H:\theta = \theta_0\)</span>. Другой вариант — две генеральные совокупности имеют одно и то же значение одной и той же характеристики: <span class="math inline">\(H:\theta_1 = \theta_2\)</span>.</p></li>
+<li><p><strong>Сложная гипотеза</strong> предполагает множественность вариантов для параметра, которые укладываются в рамки проверяемого предположения. Например, <span class="math inline">\(H:\theta &gt; \theta_0\)</span> или <span class="math inline">\(H:\theta_1 \neq \theta_2\)</span>.</p></li>
+</ul>
+<p>В рамках самого хода тестирования гипотез существует <strong>проверяемая (нулевая) гипотеза</strong> (<span class="math inline">\(H_0\)</span>). Её обычно стараются предельно упростить, поэтому она формулируется как простая гипотеза. В противовес ей выдвигается альтернативная гипотеза (<span class="math inline">\(H_1\)</span>), которая будет иметь вид сложной гипотезы.</p>
+<p>Для проверки гипотезы нужны две вещи:</p>
+<ul>
+<li>результаты наблюдений и</li>
+<li>критерий.</li>
+</ul>
+<p>Результаты наблюдений, полученные на выборке, сами по себе, как правило, не используются. Однако на их основе рассчитываются выборочные статистики (показатели), которые непосредственно участвуют в проверке гипотезы.</p>
+<p>В результате проверки статистических гипотез могут возникнуть четыре ситуации.</p>
+</div>
+<div id="errors" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Возможные результаты проверки гипотез<a href="nhst.html#errors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Мы изучаем в исследовании какую-либо закономерность, которая в реальном мире <em>может существовать</em>, а <em>может и не существовать</em>. В силу неопределённости и вариативности наших данных мы <em>может либо обнаружить</em> интересующую нас закономерность, <em>либо не обнаружить</em>.</p>
+<p>В качестве нулевой гипотезы мы выдвигаем предположение о том, что закономерность отсутствует — так мы упрощаем нашу нулевую гипотезу. Пусть <span class="math inline">\(H_0\)</span> обозначает, что предположение, которое мы проверяем справедливо, а <span class="math inline">\(H_1\)</span> — не справедливо. На основании данных мы можем либо не отклонить наше предположение (<span class="math inline">\(\hat H_0\)</span>), либо отклонить (<span class="math inline">\(\hat H_1\)</span>).</p>
+<p>Тогда имеем следующую ситуацию:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(H_0\)</span></th>
+<th align="center"><span class="math inline">\(H_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\hat H_0\)</span></td>
+<td align="center">✓</td>
+<td align="center">Ошибка II рода</td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\hat H_1\)</span></td>
+<td align="center">Ошибка I рода</td>
+<td align="center">✓</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Ошибка I рода</strong> возникает, когда в генеральной совокупности <em>искомой закономерности нет, но мы</em> в силу случайных флуктуаций в данных <em>её нашли</em>.</li>
+<li><strong>Ошибка II рода</strong> возникает, когда в генеральной совокупности <em>искомая закономерность есть, но мы</em> в силу каких-либо причин <em>её не нашли</em>.</li>
+</ul>
+<p>Ошибки — это нехорошо, они нас не устраивают. Надо каким-то образом их контролировать.</p>
+<ul>
+<li><p>Ошибка I рода контролируется достаточно просто. Так как мы <em>нашли</em> закономерность, которую искали, мы можем посчитать вероятность, с которой потенциально ошиблись. А собственно контролировать ошибку мы будем с помощью <strong>уровня значимости</strong> <span class="math inline">\(\alpha\)</span>, который <em>выбирается до начала процедуры тестирования гипотезы</em>. Он и задает вероятность, с который мы позволяем себе ошибиться — отклонить нулевую гипотезу, при условии, что она верна.</p></li>
+<li><p>Ошибку II рода контролировать сложнее, так как мы <em>не нашли</em> закономерность, которую искали. Нам нужна какая-то метрика, которая позволит сказать, что мы сделали всё возможное для того, чтобы обнаружить искомую закономерность. Вероятность ошибки II рода обозначается <span class="math inline">\(\beta\)</span> — тогда вероятность того, что мы не совершили ошибку II рода будет <span class="math inline">\(1 - \beta\)</span>. Эта величина называется <strong>статистической мощностью</strong>, и она связана с размером эффекта и объемом выборки. Статистическую мощность <em>можно рассчитать как до проведения статистического анализа</em> — для расчета требуемого объема выборки — <em>так и после</em> — для определения достигнутой статистической мощности.</p></li>
+</ul>
+<p>Соберем все обозначения в единую табличку<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<table>
+<colgroup>
+<col width="17%" />
+<col width="42%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center"><span class="math inline">\(H_0\)</span></th>
+<th align="center"><span class="math inline">\(H_1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><span class="math inline">\(\hat H_0\)</span></td>
+<td align="center"><span class="math inline">\(\mathrm P (\hat H_0 | H_0)\)</span></td>
+<td align="center"><span class="math inline">\(\mathrm P (\hat H_0 | H_1) = \beta\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><span class="math inline">\(\hat H_1\)</span></td>
+<td align="center"><span class="math inline">\(\mathrm P (\hat H_1 | H_0) = \alpha\)</span></td>
+<td align="center"><span class="math inline">\(\mathrm P (\hat H_1 | H_1) = 1 - \beta\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Уровень значимости <span class="math inline">\(\alpha\)</span> <strong>выбирается близким к нулю</strong> — всем знакомо конвенциональное значение <span class="math inline">\(0.05\)</span>. Вообще <span class="math inline">\(\alpha\)</span> можно выбрать сколь угодно малым, однако при выборе уровня значимости руководствуются принципом разумной достаточности, так как если устремить <span class="math inline">\(\alpha\)</span> к нулю, то устремиться к нулю и вероятность отклонения нулевой гипотезы</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Математические руны</em>
+</summary>
+<span class="math display">\[
+\mathrm P (\hat H_1) = \mathrm P (\hat H_1 | H_0) \cdot \mathrm P (H_0) = \alpha \cdot \mathrm P(H_0)
+\]</span>
+</details>
+</div>
+<p>Достаточной статистической мощностью считается <span class="math inline">\(0.8\)</span>. Аналогично, устремляя мощность к единице (<span class="math inline">\((1 - \beta) \rightarrow 1 \Rightarrow \beta \rightarrow 0\)</span>), мы устремляем вероятность не отклонения нулевой гипотезы к нулю:</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Ещё математические руны</em>
+</summary>
+<span class="math display">\[
+\mathrm P (\hat H_0) = \mathrm P (\hat H_0 | H_1) \cdot \mathrm P (H_1) = \beta \cdot \mathrm P (H_1)
+\]</span>
+</details>
+</div>
+<p>Необходимо также помнить, что ошибки первого и второго рода связаны между собой так, что</p>
+<p><span class="math display">\[
+\alpha \rightarrow 0 \Rightarrow \beta \rightarrow 1
+\]</span></p>
+<div class="advanced">
+<details>
+<summary>
+<em>Опять математические руны</em>
+</summary>
+<span class="math display">\[
+\beta \cdot \mathrm P (H_1) = \mathrm P (\hat H_0) = \mathrm P (\hat H_0 | H_0) \cdot \mathrm P (H_0) \Rightarrow \beta = \frac{1}{\mathrm P (H_1)} \cdot \mathrm P (H_0) \cdot \mathrm P(\hat H_0 | H_0) \\
+\beta = \frac{1}{\mathrm P (H_1)} \cdot \big (1 - \mathrm P (H_1 | H_0)\big) = \frac{1}{\mathrm P (H_1)} \cdot \mathrm P (H_0) \cdot (1 - \alpha)
+\]</span>
+</details>
+</div>
+</div>
+<div id="stat_test_asymm" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Асимметрия статистического вывода<a href="nhst.html#stat_test_asymm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Выше мы сказали, что для проверки гипотезы нужны две вещи:</p>
+<ul>
+<li>результаты наблюдений и</li>
+<li>критерий.</li>
+</ul>
+<p>С результатами наблюдений более-менее очевидно.</p>
+<p><strong>Критерий</strong> — это правило, согласно которому гипотезу либо принимают, либо отклоняют. Однако перед тем как проверять гипотезу, её так-то нужно сформулировать, и сделать это правильно, поскольку от формулировки гипотезы зависит интерпретация результатов проверки и дальнейшее использование полученной информации.</p>
+<p>Используемая статистика сама по себе является [непрерывной] случайной величиной, а значит может быть построено её распределение. Критерий будет разделять это распределение на непересекающиеся области. В результате чего возникает <strong>критическая область</strong> — область отклонения гипотезы. Дополнением к ней является область неотклонения гипотезы.</p>
+<p>Критическая область может быть односторонней (при <span class="math inline">\(H_1:\theta &gt; \theta_0\)</span> или <span class="math inline">\(H_1: \theta &lt; \theta_0\)</span>) и двусторонней (при <span class="math inline">\(H_1:\theta \neq \theta_0\)</span>). «Размер» критической области определяется <strong>уровнем значимости</strong>.</p>
+<p>Статистический вывод — заключение о том, получили ли мы подтверждение альтернативной гипотезы — по структуре представляет собой <em>импликацию</em>. Если вам не знаком этот термин из логики, то вот:</p>
+<ul>
+<li>Если значение нашей статистики, которое мы рассчитали на выборке, <em>попало в критическую область</em>, то мы говорим о том, что <em>нулевая гипотеза отклоняется</em>.</li>
+<li>Если значение нашей статистики, которое мы рассчитали на выборке, <em>не попало в критическую область</em>, то мы <em>не получаем оснований для того, чтобы отклонить нулевую гипотезу</em>. Однако <em>мы также не получаем оснований, чтобы её «принять»</em>. Мы остаёмся в некотором неведении: мы не нашли различий, а есть они там или нет — хто ж их знает… Итого, мы не можем сделать никакого вывода.</li>
+</ul>
+<p>В этом и заключается асимметрия статистического вывода. Как раз для того, чтобы с ней как-то жить, мы работаем со статистической мощностью.</p>
+<hr />
+<p>Посмотреть, как все эти штуки друг с другом соотносятся можно <a href="https://rpsychologist.com/d3/nhst/">тут</a>.</p>
+<hr />
+</div>
+<div id="stat_test_algorithm" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Алгоритм тестирования статистических гипотез<a href="nhst.html#stat_test_algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Для тестирования гипотез есть два сценария: <em>первый</em> и <em>тот, которым мы будем пользоваться</em>. Первый вариант чуть более классический, второй — более гибкий.</p>
+<p><strong>Сценарий номер раз</strong></p>
+<ol style="list-style-type: decimal">
+<li>Формулировка гипотезы</li>
+<li>Выбор статистического критерия</li>
+<li>Выбор уровня значимости <span class="math inline">\(\alpha\)</span></li>
+<li>Построение закона распредления статистики критерия при условии, что нулевая гипотеза верна</li>
+<li>Определение границ критической области</li>
+<li>Расчёт выборочной статистики</li>
+<li>Определение, попадает ли наблюдемое значение статистики в критическую область и вынесение решения</li>
+</ol>
+<p><strong>Сценарий номер два</strong></p>
+<ol style="list-style-type: decimal">
+<li>Формулировка гипотезы</li>
+<li>Выбор статистического критерия</li>
+<li>Выбор уровня значимости <span class="math inline">\(\alpha\)</span></li>
+<li>Построение закона распредлеения статистики критерия при условии, что нулевая гипотеза верна</li>
+<li>Расчёт выборочной статистики</li>
+<li>Расчёт достигнутого уровня значимости <em>p-value</em></li>
+<li>Сопоставление <span class="math inline">\(\alpha\)</span> и <em>p-value</em> и вынесение решения</li>
+</ol>
+<p>Почему второй вариант более гибкий? Представим, что мы захотели понизить уровень значимости с <span class="math inline">\(0.05\)</span> до <span class="math inline">\(0.01\)</span> — такие уровни значимости всречаются, например, в медицине. Если мы идем по первому сценарию, то нам надо заново пересчитать критические значения и вновь проанализировать, попадает ли наблюдаемое значение в критическую область. Если мы адепты второго сценария, то нам надо только выполнить одно новое сравнение нашего <em>p-value</em> с новым уровнем значимости.</p>
+<hr />
+<p>Вероятно, пока мало что понятно. Поэтому в следующей главе разберем все это безобразие на примере.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Здесь использовано обозначение условной вероятности <span class="math inline">\(\mathrm P(A|B)\)</span>, то есть это вероятность того, что случилось событие <span class="math inline">\(A\)</span> при условии, что случилось событие <span class="math inline">\(B\)</span>.<a href="nhst.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="clt_ci.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chisq.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Меры центральной тенденции | Статистика для анализа данных</title>
+  <meta name="description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Меры центральной тенденции | Статистика для анализа данных" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Меры центральной тенденции | Статистика для анализа данных" />
+  
+  <meta name="twitter:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
+  
+
+<meta name="author" content="Антон Ангельгардт" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="scales_random_vars.html"/>
+<link rel="next" href="variation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">СДАД 2022</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Врубаем тэхно для рабочего настроения</a></li>
+<li class="part"><span><b>I Введение в статистику</b></span></li>
+<li class="chapter" data-level="1" data-path="intro_stats.html"><a href="intro_stats.html"><i class="fa fa-check"></i><b>1</b> Введение в статистику</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro_stats.html"><a href="intro_stats.html#stat_terms"><i class="fa fa-check"></i><b>1.1</b> Исходные понятия статистики</a></li>
+<li class="chapter" data-level="1.2" data-path="intro_stats.html"><a href="intro_stats.html#why_we_need_statistics"><i class="fa fa-check"></i><b>1.2</b> Зачем нужна статистика?</a></li>
+<li class="chapter" data-level="1.3" data-path="intro_stats.html"><a href="intro_stats.html#representative_sample"><i class="fa fa-check"></i><b>1.3</b> Выборка должна быть репрезентативна</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro_stats.html"><a href="intro_stats.html#how_to_recruit_sample"><i class="fa fa-check"></i><b>1.3.1</b> Как набрать репрезентативную выборку</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro_stats.html"><a href="intro_stats.html#способы-формирования-репрезентативной-выборки"><i class="fa fa-check"></i><b>1.3.2</b> Способы формирования репрезентативной выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scales_random_vars.html"><a href="scales_random_vars.html"><i class="fa fa-check"></i><b>2</b> Шкалы. Случайные величины. Распределения</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#intro_scales"><i class="fa fa-check"></i><b>2.1</b> Вспомним, что</a></li>
+<li class="chapter" data-level="2.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#measuring"><i class="fa fa-check"></i><b>2.2</b> Измерение в социальных науках</a></li>
+<li class="chapter" data-level="2.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#feaures_variables"><i class="fa fa-check"></i><b>2.3</b> Признаки и переменные</a></li>
+<li class="chapter" data-level="2.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#scales"><i class="fa fa-check"></i><b>2.4</b> Шкалы</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#why_we_need_scales"><i class="fa fa-check"></i><b>2.4.1</b> Зачем нам знать виды шкал?</a></li>
+<li class="chapter" data-level="2.4.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#types_of_scales"><i class="fa fa-check"></i><b>2.4.2</b> Типы шкал</a></li>
+<li class="chapter" data-level="2.4.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#arrange_scales"><i class="fa fa-check"></i><b>2.4.3</b> Порядок шкал по мощности</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="scales_random_vars.html"><a href="scales_random_vars.html#random_valiables"><i class="fa fa-check"></i><b>2.5</b> Случайные величины</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_exp"><i class="fa fa-check"></i><b>2.5.1</b> Случайный эксперимент. Исходы случайного эксперимента</a></li>
+<li class="chapter" data-level="2.5.2" data-path="scales_random_vars.html"><a href="scales_random_vars.html#rand_var"><i class="fa fa-check"></i><b>2.5.2</b> Случайная величина</a></li>
+<li class="chapter" data-level="2.5.3" data-path="scales_random_vars.html"><a href="scales_random_vars.html#дискретные-случайные-величины"><i class="fa fa-check"></i><b>2.5.3</b> Дискретные случайные величины</a></li>
+<li class="chapter" data-level="2.5.4" data-path="scales_random_vars.html"><a href="scales_random_vars.html#непрерывные-случайные-величины"><i class="fa fa-check"></i><b>2.5.4</b> Непрерывные случайные величины</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Описательная статистика</b></span></li>
+<li class="chapter" data-level="3" data-path="central_tendency.html"><a href="central_tendency.html"><i class="fa fa-check"></i><b>3</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="central_tendency.html"><a href="central_tendency.html#types_of_statistics"><i class="fa fa-check"></i><b>3.1</b> Виды статистики</a></li>
+<li class="chapter" data-level="3.2" data-path="central_tendency.html"><a href="central_tendency.html#central_tendency_measures"><i class="fa fa-check"></i><b>3.2</b> Меры центральной тенденции</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="central_tendency.html"><a href="central_tendency.html#mode"><i class="fa fa-check"></i><b>3.2.1</b> Мода</a></li>
+<li class="chapter" data-level="3.2.2" data-path="central_tendency.html"><a href="central_tendency.html#медиана"><i class="fa fa-check"></i><b>3.2.2</b> Медиана</a></li>
+<li class="chapter" data-level="3.2.3" data-path="central_tendency.html"><a href="central_tendency.html#среднее-арифметическое"><i class="fa fa-check"></i><b>3.2.3</b> Среднее арифметическое</a></li>
+<li class="chapter" data-level="3.2.4" data-path="central_tendency.html"><a href="central_tendency.html#другие-средние"><i class="fa fa-check"></i><b>3.2.4</b> Другие средние</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="central_tendency.html"><a href="central_tendency.html#сравнение-мер-центральной-тенденции"><i class="fa fa-check"></i><b>3.3</b> Сравнение мер центральной тенденции</a></li>
+<li class="chapter" data-level="3.4" data-path="central_tendency.html"><a href="central_tendency.html#mean_features"><i class="fa fa-check"></i><b>3.4</b> Свойства среднего арифметического</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variation.html"><a href="variation.html"><i class="fa fa-check"></i><b>4</b> Меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="variation.html"><a href="variation.html#why_we_need_variation"><i class="fa fa-check"></i><b>4.1</b> Зачем нужны меры разброса</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="variation.html"><a href="variation.html#key_features_of_data"><i class="fa fa-check"></i><b>4.1.1</b> Основные характеристики статистических данных</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="variation.html"><a href="variation.html#range"><i class="fa fa-check"></i><b>4.2</b> Минимум, максимум, размах</a></li>
+<li class="chapter" data-level="4.3" data-path="variation.html"><a href="variation.html#quantiles"><i class="fa fa-check"></i><b>4.3</b> Квантили</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="variation.html"><a href="variation.html#quartiles"><i class="fa fa-check"></i><b>4.3.1</b> Квартили</a></li>
+<li class="chapter" data-level="4.3.2" data-path="variation.html"><a href="variation.html#deciles"><i class="fa fa-check"></i><b>4.3.2</b> Децили</a></li>
+<li class="chapter" data-level="4.3.3" data-path="variation.html"><a href="variation.html#percentiles"><i class="fa fa-check"></i><b>4.3.3</b> Перцентили</a></li>
+<li class="chapter" data-level="4.3.4" data-path="variation.html"><a href="variation.html#iqr"><i class="fa fa-check"></i><b>4.3.4</b> Интерквартильный размах</a></li>
+<li class="chapter" data-level="4.3.5" data-path="variation.html"><a href="variation.html#boxplot"><i class="fa fa-check"></i><b>4.3.5</b> Визуализация квартилей. Боксплот</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="variation.html"><a href="variation.html#var"><i class="fa fa-check"></i><b>4.4</b> Дисперсия</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="variation.html"><a href="variation.html#degrees_of_freedom"><i class="fa fa-check"></i><b>4.4.1</b> Степени свободы</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="variation.html"><a href="variation.html#sd"><i class="fa fa-check"></i><b>4.5</b> Стандартное отклонение</a></li>
+<li class="chapter" data-level="4.6" data-path="variation.html"><a href="variation.html#variation_comparison"><i class="fa fa-check"></i><b>4.6</b> Сравнение мер разброса</a></li>
+<li class="chapter" data-level="4.7" data-path="variation.html"><a href="variation.html#var_features"><i class="fa fa-check"></i><b>4.7</b> Свойства дисперсии и стандартного отклонения</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="normal_distribution.html"><a href="normal_distribution.html"><i class="fa fa-check"></i><b>5</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="normal_distribution.html"><a href="normal_distribution.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Распределение признаков в генеральной совокупности</a></li>
+<li class="chapter" data-level="5.2" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_dist"><i class="fa fa-check"></i><b>5.2</b> Нормальное распределение</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_params"><i class="fa fa-check"></i><b>5.2.1</b> Параметры нормального распределения</a></li>
+<li class="chapter" data-level="5.2.2" data-path="normal_distribution.html"><a href="normal_distribution.html#in_love_with_norm_dist"><i class="fa fa-check"></i><b>5.2.2</b> Почему все так любят нормальное распределение?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="normal_distribution.html"><a href="normal_distribution.html#norm_shapes"><i class="fa fa-check"></i><b>5.3</b> Форма нормального распределения и параметры</a></li>
+<li class="chapter" data-level="5.4" data-path="normal_distribution.html"><a href="normal_distribution.html#стандартные-отклонения-и-вероятности"><i class="fa fa-check"></i><b>5.4</b> Стандартные отклонения и вероятности</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="standardization.html"><a href="standardization.html"><i class="fa fa-check"></i><b>6</b> Стандартизация</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="standardization.html"><a href="standardization.html#стандартное-нормальное-распределение"><i class="fa fa-check"></i><b>6.1</b> Стандартное нормальное распределение</a></li>
+<li class="chapter" data-level="6.2" data-path="standardization.html"><a href="standardization.html#стандартизация"><i class="fa fa-check"></i><b>6.2</b> Стандартизация</a></li>
+<li class="chapter" data-level="6.3" data-path="standardization.html"><a href="standardization.html#интерпретация-z-значений"><i class="fa fa-check"></i><b>6.3</b> Интерпретация z-значений</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="clt_ci.html"><a href="clt_ci.html"><i class="fa fa-check"></i><b>7</b> Центральная предельная теорема и доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="clt_ci.html"><a href="clt_ci.html#interval_estim"><i class="fa fa-check"></i><b>7.1</b> Точечные и интервальные оценки</a></li>
+<li class="chapter" data-level="7.2" data-path="clt_ci.html"><a href="clt_ci.html#clt"><i class="fa fa-check"></i><b>7.2</b> Центральная предельная теорема</a></li>
+<li class="chapter" data-level="7.3" data-path="clt_ci.html"><a href="clt_ci.html#mean_se"><i class="fa fa-check"></i><b>7.3</b> Стандартная ошибка среднего</a></li>
+<li class="chapter" data-level="7.4" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci"><i class="fa fa-check"></i><b>7.4</b> Доверительные интервалы</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="clt_ci.html"><a href="clt_ci.html#ci_interpretation"><i class="fa fa-check"></i><b>7.4.1</b> Интерпретация границ доверительного интервала</a></li>
+<li class="chapter" data-level="7.4.2" data-path="clt_ci.html"><a href="clt_ci.html#mean_ci_comp"><i class="fa fa-check"></i><b>7.4.2</b> Доверительный интервал и сравнение средних</a></li>
+<li class="chapter" data-level="7.4.3" data-path="clt_ci.html"><a href="clt_ci.html#ci_se_sample_size"><i class="fa fa-check"></i><b>7.4.3</b> Связь доверительного интервала с разбросом и объемом выборки</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Статистика вывода и статметоды</b></span></li>
+<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотех</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="nhst.html"><a href="nhst.html#базовые-понятия"><i class="fa fa-check"></i><b>8.1</b> Базовые понятия</a></li>
+<li class="chapter" data-level="8.2" data-path="nhst.html"><a href="nhst.html#errors"><i class="fa fa-check"></i><b>8.2</b> Возможные результаты проверки гипотез</a></li>
+<li class="chapter" data-level="8.3" data-path="nhst.html"><a href="nhst.html#stat_test_asymm"><i class="fa fa-check"></i><b>8.3</b> Асимметрия статистического вывода</a></li>
+<li class="chapter" data-level="8.4" data-path="nhst.html"><a href="nhst.html#stat_test_algorithm"><i class="fa fa-check"></i><b>8.4</b> Алгоритм тестирования статистических гипотез</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chisq.html"><a href="chisq.html"><i class="fa fa-check"></i><b>9</b> Анализ категориальных данных</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chisq.html"><a href="chisq.html#crosstab"><i class="fa fa-check"></i><b>9.1</b> Таблица сопряженности</a></li>
+<li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
+<li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlations.html"><a href="correlations.html"><i class="fa fa-check"></i><b>10</b> Корреляционный анализ</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="correlations.html"><a href="correlations.html#covariance"><i class="fa fa-check"></i><b>10.1</b> Ковариация</a></li>
+<li class="chapter" data-level="10.2" data-path="correlations.html"><a href="correlations.html#correlation"><i class="fa fa-check"></i><b>10.2</b> Корреляция</a></li>
+<li class="chapter" data-level="10.3" data-path="correlations.html"><a href="correlations.html#pearson_corr"><i class="fa fa-check"></i><b>10.3</b> Корреляция Пирсона</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="correlations.html"><a href="correlations.html#corr_test"><i class="fa fa-check"></i><b>10.3.1</b> Тестирование статистической значимости коэффициента корреляции</a></li>
+<li class="chapter" data-level="10.3.2" data-path="correlations.html"><a href="correlations.html#cor_ci"><i class="fa fa-check"></i><b>10.3.2</b> Доверительный интервал для коэффициента корреляции</a></li>
+<li class="chapter" data-level="10.3.3" data-path="correlations.html"><a href="correlations.html#effect_size_cor"><i class="fa fa-check"></i><b>10.3.3</b> Размер эффекта для коэффициента корреляции</a></li>
+<li class="chapter" data-level="10.3.4" data-path="correlations.html"><a href="correlations.html#power_corr"><i class="fa fa-check"></i><b>10.3.4</b> Расчет объема выборки для корреляционного анализа</a></li>
+<li class="chapter" data-level="10.3.5" data-path="correlations.html"><a href="correlations.html#cor_vis"><i class="fa fa-check"></i><b>10.3.5</b> Визуализация корреляции</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="correlations.html"><a href="correlations.html#corr_coefs"><i class="fa fa-check"></i><b>10.4</b> Коэффициенты корреляции для разных шкал</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="correlations.html"><a href="correlations.html#param_vs_nonparam"><i class="fa fa-check"></i><b>10.4.1</b> Параметрические и непараметрические критерии</a></li>
+<li class="chapter" data-level="10.4.2" data-path="correlations.html"><a href="correlations.html#nonparam_corr"><i class="fa fa-check"></i><b>10.4.2</b> Непараметрические коэффициенты корреляции</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="correlations.html"><a href="correlations.html#other_cor"><i class="fa fa-check"></i><b>10.5</b> Другие корреляции</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="correlations.html"><a href="correlations.html#phi_coef"><i class="fa fa-check"></i><b>10.5.1</b> <span class="math inline">\(\phi\)</span>-коэффициент</a></li>
+<li class="chapter" data-level="10.5.2" data-path="correlations.html"><a href="correlations.html#biserial_cor"><i class="fa fa-check"></i><b>10.5.2</b> Бисериальный коэффициент корреляции</a></li>
+<li class="chapter" data-level="10.5.3" data-path="correlations.html"><a href="correlations.html#rank_biserial_cor"><i class="fa fa-check"></i><b>10.5.3</b> Рангово-бисериальный коэффициент корреляции</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="oneway-anova.html"><a href="oneway-anova.html"><i class="fa fa-check"></i><b>11</b> Общие линейные модели. Однофакторный дисперсионный анализ</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="oneway-anova.html"><a href="oneway-anova.html#experiment"><i class="fa fa-check"></i><b>11.1</b> Э-э-эксперимент</a></li>
+<li class="chapter" data-level="11.2" data-path="oneway-anova.html"><a href="oneway-anova.html#var_struct"><i class="fa fa-check"></i><b>11.2</b> Структура изменчивости данных</a></li>
+<li class="chapter" data-level="11.3" data-path="oneway-anova.html"><a href="oneway-anova.html#why_anova"><i class="fa fa-check"></i><b>11.3</b> Зачем нужен дисперсионный анализ?</a></li>
+<li class="chapter" data-level="11.4" data-path="oneway-anova.html"><a href="oneway-anova.html#f_test"><i class="fa fa-check"></i><b>11.4</b> Тестирование значимости фактора</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="oneway-anova.html"><a href="oneway-anova.html#распределение-фишера"><i class="fa fa-check"></i><b>11.4.1</b> Распределение Фишера</a></li>
+<li class="chapter" data-level="11.4.2" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_results"><i class="fa fa-check"></i><b>11.4.2</b> Представление результатов дисперсионного анализа</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="oneway-anova.html"><a href="oneway-anova.html#eta_sq"><i class="fa fa-check"></i><b>11.5</b> Размер эффекта в дисперсионном анализе</a></li>
+<li class="chapter" data-level="11.6" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_vis"><i class="fa fa-check"></i><b>11.6</b> Визуализация результатов дисперсионного анализа</a></li>
+<li class="chapter" data-level="11.7" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_require"><i class="fa fa-check"></i><b>11.7</b> Условия применения дисперсионного анализа</a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="oneway-anova.html"><a href="oneway-anova.html#homogenity"><i class="fa fa-check"></i><b>11.7.1</b> Гомогенность дисперсий</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="oneway-anova.html"><a href="oneway-anova.html#anova_effects"><i class="fa fa-check"></i><b>11.8</b> Виды эффектов в дисперсионном анализе</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="twoway-anova.html"><a href="twoway-anova.html"><i class="fa fa-check"></i><b>12</b> Многофакторный дисперионный анализ</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="twoway-anova.html"><a href="twoway-anova.html#experiment2"><i class="fa fa-check"></i><b>12.1</b> Усложняем э-э-эксперимент</a></li>
+<li class="chapter" data-level="12.2" data-path="twoway-anova.html"><a href="twoway-anova.html#factor_interaction"><i class="fa fa-check"></i><b>12.2</b> Взаимодействие факторов</a></li>
+<li class="chapter" data-level="12.3" data-path="twoway-anova.html"><a href="twoway-anova.html#twoway_results"><i class="fa fa-check"></i><b>12.3</b> Результаты многофакторного дисперсионного анализа и тестирование значимости факторов и взаимодействий</a></li>
+<li class="chapter" data-level="12.4" data-path="twoway-anova.html"><a href="twoway-anova.html#rmanova_require"><i class="fa fa-check"></i><b>12.4</b> Условия применения дисперсионного анализа с повторными измерениям</a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="twoway-anova.html"><a href="twoway-anova.html#sphericity"><i class="fa fa-check"></i><b>12.4.1</b> Сферичность</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="twoway-anova.html"><a href="twoway-anova.html#type_of_sums"><i class="fa fa-check"></i><b>12.5</b> Типы сумм квадратов</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a></li>
+<li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Статистика для анализа данных</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="central_tendency" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Меры центральной тенденции<a href="central_tendency.html#central_tendency" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Мы знаем, что наши переменные-признаки могут быть <em>некоторым образом распределены</em> — как в генеральной совокупности, так и в выборке. Как именно они распределены, описывается <strong>распределением</strong> случайной величины.</p>
+<p>Вот мы собрали некоторые данные и получили какое-то эмпирическое распределение наших переменных. Нам бы, конечно, хотелось понять, что там такое за распределение. И первым шагом к пониманию этого будет описание распределения.</p>
+<div id="types_of_statistics" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Виды статистики<a href="central_tendency.html#types_of_statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Вообще статистика [как набор методов и инструментов] делится на два вида:</p>
+<ul>
+<li><strong>Описательная статистика (descriptive statistics<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>)</strong> занимается обработкой статистических данных, их наглядным представлением, и собственно описанием через некоторые характеристики.
+<ul>
+<li>Эти характеристики, количественно описывающие особенности имеющихся данных, называются <strong>описательными статистиками (descriptive statistics<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>)</strong>.</li>
+<li><em>Задача описательной статистики</em> — ёмко описать имеющиеся данные и составить на основе этих описаний общее представление о них, а также обнаружить особенности, которые могут повлиять на дальнейший анализ.</li>
+</ul></li>
+<li><strong>Статистика вывода (inferential statistics)</strong> занимается поиском ответов на содержательные вопросы, которые мы задаем данным в ходе их анализа в рамках научных и практических исследований.
+<ul>
+<li>Состоит из двух компонентов — <em>тестирования статистических гипотез</em> и <em>статистических методов</em>.</li>
+</ul></li>
+</ul>
+<hr />
+<p><strong>Замечание о машинном обучении</strong></p>
+<p>Вы наверняка не раз слышали словосочетание «машинное обучение». Это что-то, что время от времени становится то менее, то более хайпово. На самом деле, статистические методы лежат где-то между статистикой вывода и машинным обучением.</p>
+<p>Почему?</p>
+<p>Дело в том, что на статистические методы можно смотреть по-разному.</p>
+<ul>
+<li>Если нашей задачей является поиск ответов на <strong>исследовательские</strong> вопросы о закономерностях, о связи каких-либо факторов или влиянии переменных друг на друга, то мы будем смотреть на статистические модели с точки зрения статистики вывода. Это позволит нас находить ответы на интересующие нас вопросы — причем не важно, говорим мы о научных исследованиях или об исследованиях в индустрии.</li>
+<li>Если перед нами стоит задача хорошо <strong>предсказывать</strong> одни переменные на основании значений других — например, выдавать рекомендации на Яндекс.Музыке или в Яндекс.Лавке — то мы будем смотреть на <em>те же</em> статистические модели с точки зрения машинного обучения.</li>
+</ul>
+<p>То есть, модели абсолютно одни и те же, но то, какую модель мы назовем хорошей и как мы эту «хорошесть» определим, будет отличаться в зависимости от задачи — <em>исследовательская</em> или <em>предиктивная</em> — которая перед нами стоит.</p>
+<hr />
+<p>Мы начнем знакомиться со статистикой с описательной статистики, а именно с мер центральной тенденции.</p>
+</div>
+<div id="central_tendency_measures" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Меры центральной тенденции<a href="central_tendency.html#central_tendency_measures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Итак, мы хотим описать наши данные. Точнее, распределения переменных, которые у нас в данных есть. Хотим сделать это просто и ёмко. Насколько просто и ёмко? Ну, допустим максимально — одним числом. Кажется, значение переменной, которое лежит <em>в центре</em> распределения, неплохо для этого подойдет.</p>
+<p>Как мы будем искать, что там в центре распределения? Зависит от <a href="scales_random_vars.html#types_of_scales">шкалы</a>, в которой измерена конкретная переменная.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>Шкала</strong></th>
+<th align="center"><strong>Мера центральная тенденции</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><em>Номинальная</em></td>
+<td align="center">Мода</td>
+</tr>
+<tr class="even">
+<td align="center"><em>Порядковая</em></td>
+<td align="center">Медиана</td>
+</tr>
+<tr class="odd">
+<td align="center"><em>Интервальная</em></td>
+<td align="center">Среднее арифметическое</td>
+</tr>
+<tr class="even">
+<td align="center"><em>Абсолютная</em></td>
+<td align="center">Среднее арифметическое, геометрическое и др.</td>
+</tr>
+</tbody>
+</table>
+<p>Однако есть неоторые нюансы.</p>
+<div id="mode" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Мода<a href="central_tendency.html#mode" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Мода (mode)</strong> — наиболее часто встречающееся значение данной переменной.</p>
+<p>Тут все достаточно просто и интуитивно понятно. Пусть у нас есть следующий ряд наблюдений:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="central_tendency.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##  [1] 1 3 4 6 4 2 4 3 2 4 1</code></pre>
+<p>Если мы составим таблицу частот, то получим следующее:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="central_tendency.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(x)</span></code></pre></div>
+<pre><code>## x
+## 1 2 3 4 6 
+## 2 2 2 4 1</code></pre>
+<p>Очевидно, что <span class="math inline">\(4\)</span> встречается чаще других значений — это и есть мода.</p>
+<p>Понятно, что если на нашей шкале нет чисел, а есть текстовые лейблы, это ничего не меняет:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="central_tendency.html#cb5-1" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>##  [1] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+##  [3] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+##  [5] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+##  [7] &quot;Санкт-Петербург&quot;          &quot;Кёнигсберг&quot;              
+##  [9] &quot;Санкт-Петербург&quot;          &quot;Санкт-Петербург&quot;         
+## [11] &quot;Москва&quot;                   &quot;Санкт-Петербург&quot;         
+## [13] &quot;Кёнигсберг&quot;               &quot;Москва&quot;                  
+## [15] &quot;Москва&quot;                   &quot;Казань&quot;                  
+## [17] &quot;Санкт-Петербург&quot;          &quot;Казань&quot;                  
+## [19] &quot;Казань&quot;                   &quot;Кёнигсберг&quot;              
+## [21] &quot;Санкт-Петербург&quot;          &quot;Санкт-Петербург&quot;         
+## [23] &quot;Санкт-Петербург&quot;          &quot;Москва&quot;                  
+## [25] &quot;Барнаул (Алтайский край)&quot; &quot;Казань&quot;                  
+## [27] &quot;Москва&quot;                   &quot;Казань&quot;                  
+## [29] &quot;Санкт-Петербург&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="central_tendency.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(y)</span></code></pre></div>
+<pre><code>## y
+## Барнаул (Алтайский край)                   Казань               Кёнигсберг 
+##                        1                        5                        3 
+##                   Москва          Санкт-Петербург 
+##                        8                       12</code></pre>
+<p>Мода, получается, <code>Санкт-Петербург</code>.</p>
+<p>Так мы поступаем с эмпирическим распределением. Если мы имеем дело с генеральной совокупностью, то можем формально определить моду через фунцию вероятности (probability mass function, PMF). Это будет её максимальное значение:</p>
+<p><span class="math display">\[
+\mathrm{mode}(X) = \max(\mathrm{PMF}(X))
+\]</span></p>
+<p><img src="SFDA_files/figure-html/central_tendency_pmf-1.png" width="672" /></p>
+<p>Мода — <code>7</code>.</p>
+</div>
+<div id="медиана" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Медиана<a href="central_tendency.html#медиана" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Медиана (median)</strong> — это значение, которые располагается на середине отсортированного ряда значений переменной. То есть, она делит все наблюдения переменной ровно пополам и половина наблюдений оказывается по одну сторону от медианы, а половина — по другую.</p>
+<p>Если у нас нечетное число наблюдений, то всё ясно:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="central_tendency.html#cb9-1" aria-hidden="true" tabindex="-1"></a>v1</span></code></pre></div>
+<pre><code>##  [1]  6 14 26 20 19 12  9 23  1  3  2</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="central_tendency.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(v1)</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  6  9 12 14 19 20 23 26</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="central_tendency.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v1)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>А что делать, если число наблюдений чётное? Ведь тогда середина ряда будет между двух чисел. Ну, возьмем их среднее арифметическое — это и будет медиана.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="central_tendency.html#cb15-1" aria-hidden="true" tabindex="-1"></a>v2</span></code></pre></div>
+<pre><code>##  [1] 27 20 11 10 25  5  9 17 29 26</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="central_tendency.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(v2)</span></code></pre></div>
+<pre><code>##  [1]  5  9 10 11 17 20 25 26 27 29</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="central_tendency.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(v2)</span></code></pre></div>
+<pre><code>## [1] 18.5</code></pre>
+<p>Формально это можно написать так:</p>
+<p><span class="math display">\[
+\mathrm{median} = \begin{cases}
+X(\frac{n+1}{2}), &amp; \text{ if } n \text{ is odd},\\
+\dfrac{X(\frac{n}{2}) + X(\frac{n}{2}+1)}{2}, &amp; \text{ otherwise},
+\end{cases}
+\]</span></p>
+<p>где <span class="math inline">\(X\)</span> — ряд наблюдений данной переменной, <span class="math inline">\(n\)</span> — число наблюдений, <span class="math inline">\(X(a)\)</span> — наблюдение с индексом <span class="math inline">\(a\)</span> в сортированном векторе <span class="math inline">\(X\)</span>.</p>
+</div>
+<div id="среднее-арифметическое" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Среднее арифметическое<a href="central_tendency.html#среднее-арифметическое" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>С этим существом все знакомы еще со школы. <strong>Арифметическое среднее (arithmetic mean, mean, average)</strong> считается так:</p>
+<p><span class="math display">\[
+M_{X} = \bar x = \dfrac{\sum_{i=1}^{n}x_i}{n},
+\]</span></p>
+<p>где <span class="math inline">\(\bar X\)</span> — среднее арифметическое, <span class="math inline">\(x_i\)</span> — наблюдение в векторе <span class="math inline">\(X\)</span>, <span class="math inline">\(n\)</span> — количество наблюдений.</p>
+<p>Ну, то есть всё сложить и поделить на количество того, чего сложили. Изи.</p>
+<p>Вот, скажем, средние по <code>v1</code> и <code>v2</code>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="central_tendency.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v1)</span></code></pre></div>
+<pre><code>## [1] 12.27273</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="central_tendency.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(v2)</span></code></pre></div>
+<pre><code>## [1] 17.9</code></pre>
+</div>
+<div id="другие-средние" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Другие средние<a href="central_tendency.html#другие-средние" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Среднее арифметическое не одиноко — есть и другие. Встретяться они вам примерно нигде — то есть о-о-о-очень редко и, скорее всего, в каком-то изощрённом виде. Но упомянуть их, пожалуй, стоит.</p>
+<div id="геометрическое-среднее" class="section level4 hasAnchor" number="3.2.4.1">
+<h4><span class="header-section-number">3.2.4.1</span> Геометрическое среднее<a href="central_tendency.html#геометрическое-среднее" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<blockquote>
+<p>Редко встречается в научных работах, но заради общего представления пусть будет.</p>
+</blockquote>
+<p><span class="math display">\[
+G_{X} = \sqrt[n]{\prod_{i=1}^n x_i} = \Big(\prod_{i=1}^n x_i\Big)^{\tfrac{1}{n}}
+\]</span></p>
+</div>
+<div id="harmonic_mean" class="section level4 hasAnchor" number="3.2.4.2">
+<h4><span class="header-section-number">3.2.4.2</span> Гармоническое<a href="central_tendency.html#harmonic_mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<blockquote>
+<p>Суперэкзотичный покемон.</p>
+</blockquote>
+<p><span class="math display">\[
+H_X = \frac{n \prod_{i=1}^n x_i}{\sum_{i=1}^n (\tfrac{1}{x} \prod_{j=1}^n x_j)} = \frac{n}{\sum_{i=1}^n \tfrac{1}{x_i}}
+\]</span></p>
+</div>
+<div id="quadratic_mean" class="section level4 hasAnchor" number="3.2.4.3">
+<h4><span class="header-section-number">3.2.4.3</span> Квадратичное<a href="central_tendency.html#quadratic_mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<blockquote>
+<p>А вот это уже более полезная история. Мы с ним столкнёмся далее, правда под разными масками.</p>
+</blockquote>
+<p><strong>Квадратичное среднее (quadratic mean, root mean square, RMS)</strong> — это квадратный корень из среднего квадрата наблюдений. Ничего не понятно, поэтому по порядку.</p>
+<ul>
+<li>есть наблюдение <span class="math inline">\(x_i\)</span></li>
+<li>значит есть и его квадрат <span class="math inline">\(x_i^2\)</span></li>
+<li>мы умеем считать обычно среднее арифметическое, но ведь <span class="math inline">\(x_i^2\)</span> — это тоже наблюдение, просто в квадрате, так?</li>
+<li>значит можем посчитать среднее арифметическое квадратов наблюдений — <em>средний квадрат</em></li>
+</ul>
+<p><span class="math display">\[
+\frac{\sum_{i=1}^n x_i^2}{n}
+\]</span></p>
+<ul>
+<li>норм, а теперь извлечём из этого дела корень — получим то, что там надо</li>
+</ul>
+<p><span class="math display">\[
+X_{\mathrm{RMS}} = \sqrt{\frac{\sum_{i=1}^n x_i^2}{n}}
+\]</span></p>
+<p><a href="https://ru.wiktionary.org/wiki/per_se">Per se</a> мы его вряд ли ещё когда-то увидим, но пару раз оно внезапно всплывет.</p>
+</div>
+<div id="взвешенное" class="section level4 hasAnchor" number="3.2.4.4">
+<h4><span class="header-section-number">3.2.4.4</span> Взвешенное<a href="central_tendency.html#взвешенное" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<blockquote>
+<p>Полезная вещь.</p>
+</blockquote>
+<p>Часто бывает такая ситуация, что нас нужно посчитать среднее по каким-либо имеющимся параметрам, но одни параметры для нас важнее, чем другие. Например, мы хотим вычислить суммарный балл обучающегося за курс на основе ряда работ, выполненных в течение курса, однако мы понимаем, что тест из десяти вопросов с множественном выбором явно менее показателен, чем, например, аналитическое эссе или экзаменационная оценка. Что делать? Взвесить параметры!</p>
+<p>Что значит взвесить? Умножить на некоторое число. На самом деле, любое. Пусть мы посчитали, что написать эссе в три абстрактных раза тяжелее, чем написать тест, а сдать экзамен в два раза тяжелее, чем написать эссе. Тогда мы можем присвоить баллу за тест вес <span class="math inline">\(1\)</span>, баллу за аналитическое эссе вес <span class="math inline">\(3\)</span>, а экзамену — вес <span class="math inline">\(6\)</span>. Тогда итоговая оценка за курс будет рассчитываться следующим образом:</p>
+<p><span class="math display">\[
+\text{final score } = 1 \cdot \text{test} + 3 \cdot \text{essay} + 6 \cdot \text{exam}
+\]</span></p>
+<p>Суперкласс. Однако! Весьма вероятно, что в учебном заведении принята единая система оценки для всех видов работ (ну, скажем, некая абстрактная десятибалльная система в сферическом вакууме). Получается, если и за тест, и за эссе, и за экзамен у студента по 10 баллов, то суммарный балл 100, что, кажется, больше, чем 10. Чтобы вернуться к изначальным границам баллов, нужно моделить суммарный балл на сумму весов параметров:</p>
+<p><span class="math display">\[
+\text{final score } = \frac{1 \cdot \text{test} + 3 \cdot \text{essay} + 6 \cdot \text{exam}}{1 + 3 + 6}
+\]</span></p>
+<p>Кайф! Собственно, это и есть взвешенное среднее. Коэффициенты, на которые мы умножаем значение парамернов, называются <em>весами параметров</em>. И в общем виде формула принимает следующий вид.</p>
+<p><span class="math display">\[
+\bar x = \frac{\sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} = \sum_{i=1}^n w_i&#39; x_i,
+\]</span></p>
+<p>где <span class="math inline">\(x_i\)</span> — значения конкретных параметров, <span class="math inline">\(w_i\)</span> — веса конкретных параметров, <span class="math inline">\(w_i&#39;\)</span> — нормированные веса параметров.</p>
+<p>Вторая часть формулы показывается нам, что можно облегчить себе вычислительную жизнь, если заранее нормировать веса, то есть разделить каждый коэффициент на сумму коэффициентов:</p>
+<p><span class="math display">\[
+w_i&#39; = \frac{w_i}{\sum_{i=1}^n w_i}
+\]</span></p>
+<p>Тогда сумма коэффициентов будет равна единице. Так чаще всего и поступают, так как тогда коэффициент будет представлять долю, которую весит данный параметр в суммарной оценке. Удобно, практично, красиво.</p>
+<p>Взвещенное среднее часто применяется именно во всякого рода ассессментах, и не только образовательных. Например, вы HR-аналитик и оцениваете персонал. Вы аналитически вычисляете веса коэффициентов (допустим, с помощью линейной регрессии), а далее на их основе высчитаете интегральный балл, по которому будете оценивать сотрудников. Это как один из индустриальных примеров.</p>
+</div>
+</div>
+</div>
+<div id="сравнение-мер-центральной-тенденции" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Сравнение мер центральной тенденции<a href="central_tendency.html#сравнение-мер-центральной-тенденции" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Сравнивать будем моду, медиану и среднее [арифметическое].</p>
+</blockquote>
+<p>Итак, все три статистики — мода, медиана и среднее — описывают центральную тенденцию — некоторое значение изучаемой нами переменной, вокруг которого собираются другие значения. Но если их три и все они используются, значит между ними должны быть какие-то различия. Посмотрим, какие.</p>
+<p>Во-первых, очевидно, что <em>моду невозможно посчитать для непрерывной переменной</em>.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Нет, не очевидно</em>
+</summary>
+Так как вероятность того, что непрерывная случайная величина принимает своё конкретное значение, равна нулю, каждое наблюдение в нашей выборке будет уникально — встретится ровно <em>один раз</em>. Вспомните [посмотрите] пример из предыдущей главы, где мы набирали числа из отрезка. Получается, что мода теряет свой смысл.
+</details>
+</div>
+<p>Во-вторых, <em>медиану нельзя посчитать на номинальной шкале</em>. Кстати, почему?</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Потому что</em>
+</summary>
+на номинальной шкале нет отношения порядка между элементами. Помните, на ней нельзя сравнивать на больше-меньше. Поэтому невозможно отсортировать наблюдения, а значит, и найти медиану.
+</details>
+</div>
+<p>В-третьих, <em>среднее тоже нельзя посчитать на номинальной шкале</em>.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Можно, но осторожно</em>
+</summary>
+<p>Вообще, конечно, да — нельзя, потому что на номинальной шкале не определена операция сложения, входящая в вычисление среднего. Однако если на номинальной шкале есть только <em>две категории</em>, которые закодированы <code>0</code> и <code>1</code>, то посчитать среднее можно. Но что оно будет значить?</p>
+<p>Исходный математический смысл среднего явно утерян. Посмотрим на это по-другому: посчитать сумму единиц это всё равно, что посчитать <em>количество</em> единиц. То есть, если мы сложим все нули и единицы, то получим количество единиц среди всех наших наблюдений. А разделив количество единиц на количество наблюдений, мы получим <em>долю единиц</em> — то есть долю наблюдений с лейблом <code>1</code>.</p>
+Вот так вот.
+</details>
+</div>
+<p>В-четвертых, <em>для дискретной переменной значение среднего арифметического будет не особо осмысленно.</em> Ну, скажем, странно сказать, что в аудитории в среднем стоят 15.86 столов или в российских семьях в среднем 1.5 ребенка. Конечно, в ряде случаев можно это как-то более-менее содержательно интерпретировать, но это требует усилий, а мы ленивые, поэтому лучше использовать медиану.</p>
+<p><strong>Итого, делаем следующие выводы</strong>:</p>
+<ul>
+<li>для номинальной шкалы пригодна только мода</li>
+<li>для дискретных переменных подходят мода и медиана
+<ul>
+<li>мода иногда лучше, так как точно всегда будет целым числом</li>
+</ul></li>
+<li>для непрерывных переменных подходят медиана и среднее</li>
+</ul>
+<p>Теперь нам надо разобраться, как будут себя вести меры центральной тенденции в зависимости от <em>формы распределения</em>.</p>
+<p><strong>На симметричном распределении мода, медиана и среднее совпадают</strong> [или, по крайней мере, находятся очень близко друг к другу]. Здесь и далее: красная линия — среднее, синяя — медиана, зелёная — мода.</p>
+<p><img src="SFDA_files/figure-html/central_tendency_symm-1.png" width="672" /></p>
+<p><strong>На асимметричном распределении мода [практически] в пике.</strong> Практически, потому что функция плотности вероятности [черная линия на графике] на всегда точно аппроксимирует (в данном случае то же, что и сглаживает) эмпирическое распределение. На картинке ниже мы видим, что на гистограмме мода — самый высокий столбик, что и показывает нам зелёная линия, которой обозначена мода. Однако при сглаживании гистограммы пик немного съехал, и мода оказалась не совсем в вершине графика функции плотности вероятности.</p>
+<p>Вообще-то это нормально, потому что мода для непрерывной величины, которую мы и визуализируем с помощью графика плотности, либо не может быть посчитана вовсе, либо — если так получилось, и у нас все же есть повторяющиеся значения — не слишком хорошая мера центральной тенденции. В целом, и на симметричном распределении мода тоже может находиться немного в стороне от пика.</p>
+<p><strong>На асимметричном распределении медиана и среднее смещены в сторону хвоста. Среднее смещено сильнее медианы.</strong> Это связано с тем, что медиана зависит только от количества наблюдений, а среднее ещё и от самих значений. На картинке ниже пример для распределения с <em>правосторонней</em> асимметрии (потому что хвост справа) — среднее (красная линия) <em>правее</em> медианы (синяя линия).</p>
+<p><img src="SFDA_files/figure-html/central_tendency_asymm_right-1.png" width="672" /></p>
+<p>А это пример для распределения с <em>левосторонней</em> асимметрией (так как хвост слева) — среднее (красная линия) <em>левее</em> медианы (синяя линия).</p>
+<p><img src="SFDA_files/figure-html/central_tendency_asymm_left-1.png" width="672" /></p>
+<p>Для того, чтобы лучше разобраться с тем, как большие и малые значения влияют на моду и медиану посмотрим такой пример. Пусть у нас есть оценки за выпускную квалификационную работу. Например, такие:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="central_tendency.html#cb25-1" aria-hidden="true" tabindex="-1"></a>marks</span></code></pre></div>
+<pre><code>## [1] 6 7 7 8 8</code></pre>
+<p>Посчитаем медиану и среднее:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="central_tendency.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(marks)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="central_tendency.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(marks)</span></code></pre></div>
+<pre><code>## [1] 7.2</code></pre>
+<p>Среднее <span class="math inline">\(7.2\)</span> округлиться до <span class="math inline">\(7\)</span>, то есть можно считать, что среднее и медиана совпали. Ну, ок.</p>
+<p>Но в комиссии сидят два требовательных доктора наук, которые поставили оценки, сильно отличающиеся от остальных:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="central_tendency.html#cb31-1" aria-hidden="true" tabindex="-1"></a>marks</span></code></pre></div>
+<pre><code>## [1] 6 7 7 8 8 3 4</code></pre>
+<p>Посчитаем медиану и среднее теперь:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="central_tendency.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(marks)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="central_tendency.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(marks)</span></code></pre></div>
+<pre><code>## [1] 6.142857</code></pre>
+<p>Медиана осталась на месте — всё ещё <span class="math inline">\(7\)</span>. А вот среднее <span class="math inline">\(6.1\)</span> округлится до <span class="math inline">\(6\)</span>. Казалось бы, это немного, но в смысле оценок — это прилично, и может сильно повлиять на GPA.</p>
+<p>Итого, среднее более чувствительно к нетипичным значениям (очень большим или очень малым).</p>
+<p>Есть ещё один интересный вариант распределений — <strong>бимодальные</strong>. Значит ли, что у этого распределения две моды? Не всегда. Посмотрим пример ниже:</p>
+<p><img src="SFDA_files/figure-html/central_tendency_bimodal-1.png" width="672" /></p>
+<p>Мы видим, что на графике есть два пика, однако строго математически мода одна (зеленая линия) — и она в более высоком пике. Это логично, ибо там самые часто встречающиеся значения.</p>
+<div class="advanced">
+<p>И все жё содержательно мы не можем пренебречь вторым пиком. Почему нам он важен? Обычно бимодальное распределение — это повод задуматься о том, что наша выборка неоднородна. <em>Бимодальное распределение как бы сложено из двух с центрами в двух пиках.</em> То есть в нашей выборке как будто бы <em>две подвыборки</em>, которые обладают разными распределениями интересующего нам признака.</p>
+<p>Что с этим делать? Хорошо всегда иметь в данным какие-либо дополнительные переменные — как минимум соцдем — чтобы мы могли по данным попытаться предположить, какую группировку мы могли забыть учесть при планировании исследования.</p>
+</div>
+<p>Со средним и медианой происходит примерно то же, что и в случае асимметричного распределения. Второй пик смещает к себе обе меры центральной тенденции, причем среднее вновь сильнее, чем медиану.</p>
+</div>
+<div id="mean_features" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Свойства среднего арифметического<a href="central_tendency.html#mean_features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>Если к каждому значению распределения прибавить некоторое число (константу), то среднее увеличится на это же константу.</strong></li>
+</ul>
+<p><span class="math display">\[
+M_{x+c} = M_x + c
+\]</span></p>
+<p>Вот почему:</p>
+<p><span class="math display">\[
+M_{x+c} = \frac{\sum_{i=1}^n (x_i + c)}{n} = \frac{\sum_{i=1}^n x_i + nc}{n} = \frac{\sum_{i=1}^n x_i}{n} + c = M_x + c
+\]</span></p>
+<p>Иначе говоря, распределение просто сдвинется. Например, если к каждому значению синего распределения прибавить <span class="math inline">\(2\)</span>, получится красное:</p>
+<p><img src="SFDA_files/figure-html/mean_feature_1-1.png" width="672" /></p>
+<ul>
+<li><strong>Если каждое значение распределение умножить на некоторое число (константу), то среднее увеличится во столько же раз.</strong></li>
+</ul>
+<p><span class="math display">\[
+M_{x \times c} = M_x \times c
+\]</span></p>
+<p>Вот почему:</p>
+<p><span class="math display">\[
+M_{x \times c} = \frac{\sum_{i=1}^n (x_i \times c)}{n} = \frac{c \times \sum_{i=1}^n x_i}{n} = \frac{\sum_{i=1}^n x_i}{n} \times c = M_x \times c
+\]</span></p>
+<p>Например, здесь каждое значение синего распределения умножили на <span class="math inline">\(3\)</span> и получили красное:</p>
+<p><img src="SFDA_files/figure-html/mean_feature_2-1.png" width="672" /></p>
+<p>Тут, правда, явно <a href="variation.html#var_features">что-то ещё</a> произошло, но мы пока этого не знаем. Однако, отметит этот факт.</p>
+<ul>
+<li><strong>Сумма отклонений от среднего значения равна нулю.</strong></li>
+</ul>
+<p><span class="math display">\[
+\sum_{i=1}^n(x_i - M_x) = 0
+\]</span></p>
+<p>Элегантное доказательство:</p>
+<p><span class="math display">\[
+\sum_{i=1}^n(x_i - M_x) = \sum_{i=1}^n x_i - \sum_{i=1}^n M_x = \sum_{i=1}^n x_i - nM_x = \\
+= \sum_{i=1}^n x_i - n \times \frac{1}{n} \sum_{i=1}^n x_i = \sum_{i=1}^n x_i - \sum_{i=1}^n x_i = 0
+\]</span></p>
+<p>Но можно это осмыслить и более просто графически.</p>
+<p><strong>Отклонение</strong> — это разность между средним и конкретным значением переменной. И, действительно, так как среднее находится в центре распределения, то часть значений лежит справа, а часть слева. Значит, будут как положительные, так и отрицательные отклонения — и их сумма в итоге будет равна нулю.</p>
+<p><img src="SFDA_files/figure-html/zero_deviation_sum-1.png" width="672" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Mass (uncountable) noun<a href="central_tendency.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Count noun, plural in this case<a href="central_tendency.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="scales_random_vars.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="variation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["SFDA.pdf", "SFDA.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
