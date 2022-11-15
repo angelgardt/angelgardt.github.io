@@ -347,7 +347,7 @@
 <p>Ну, первое все узнали — это literally дисперсия, второе и третье тоже на неё похожи, но их принято называть средними квадратами. Ну, ок.</p>
 <p><span class="math inline">\(\text{MS}_\text{e}\)</span> и <span class="math inline">\(\text{MS}_\text{r}\)</span> помогают протестировать значимость фактора.</p>
 <ul>
-<li>Если зависимости между фактором и целевой переменной нет, то <span class="math inline">\(\text{MS}_\text{e} &gt; \text{MS}_\text{r}\)</span>.</li>
+<li>Если зависимость между фактором и целевой переменной есть, то <span class="math inline">\(\text{MS}_\text{e} &gt; \text{MS}_\text{r}\)</span>.</li>
 <li>Если искомой зависимости нет, то <span class="math inline">\(\text{MS}_\text{e} \approx \text{MS}_\text{r}\)</span> или даже <span class="math inline">\(\text{MS}_\text{e} &lt; \text{MS}_\text{r}\)</span>.</li>
 </ul>
 <p>В терминах статистических гипотез это будет выглядеть так:</p>
@@ -425,7 +425,7 @@ F = \frac{\text{MS}_\text{e}}{\text{MS}_\text{r}} \overset{H_0}{\sim} F(\text{df
 <div id="eta_sq" class="section level2 hasAnchor" number="11.5">
 <h2><span class="header-section-number">11.5</span> Размер эффекта в дисперсионном анализе<a href="oneway-anova.html#eta_sq" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Итак, с ошибкой первого рода мы, как обычно, быстро и легко поборолись. Теперь боремся с ошибкой второго рода. Принципиально ничего не меняется — нам нужно понять, как считается размер эффекта, и рассчитать требуемую выборку.</p>
-<p>С случае дисперсионного анализа <strong>размер эффекта — это доля объясненной фактором дисперсии от всей дисперсии данных</strong>. Обозначается эта метрика <span class="math inline">\(\eta^2\)</span>:</p>
+<p>В случае дисперсионного анализа <strong>размер эффекта — это доля объясненной фактором дисперсии от всей дисперсии данных</strong>. Обозначается эта метрика <span class="math inline">\(\eta^2\)</span>:</p>
 <p><span class="math display">\[
 \eta^2 = \frac{\text{ESS}}{\text{TSS}}
 \]</span></p>
