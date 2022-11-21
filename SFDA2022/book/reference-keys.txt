@@ -128,3 +128,17 @@ t-test
 paired-t-test
 post_hoc_test
 t-test-per-se
+simple_reg_formalization
+simple_reg_indentification
+метод-наименьших-квадратов
+матричное-вычисление-коэффициентов
+тестирование-качества-модели
+коэффициент-детерминации
+статистическая-значимость-модели
+статистическая-значимость-отдельных-предикторов
+least-squares
+simple_reg_quality
+r-squared
+simple_reg_significance
+simple_reg_t_test
+simple_reg_diagnostics

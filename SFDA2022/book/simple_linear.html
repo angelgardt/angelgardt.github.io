@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>13 Простая линейная регрессия | Статистика для анализа данных</title>
+  <title>14 Простая линейная регрессия | Статистика для анализа данных</title>
   <meta name="description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="13 Простая линейная регрессия | Статистика для анализа данных" />
+  <meta property="og:title" content="14 Простая линейная регрессия | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="13 Простая линейная регрессия | Статистика для анализа данных" />
+  <meta name="twitter:title" content="14 Простая линейная регрессия | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="twoway-anova.html"/>
+<link rel="prev" href="post_hoc.html"/>
 <link rel="next" href="multiple_linear.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -182,7 +182,7 @@
 <li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
 <li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
 </ul></li>
@@ -239,8 +239,37 @@
 </ul></li>
 <li class="chapter" data-level="12.5" data-path="twoway-anova.html"><a href="twoway-anova.html#type_of_sums"><i class="fa fa-check"></i><b>12.5</b> Типы сумм квадратов</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>13</b> Простая линейная регрессия</a></li>
-<li class="chapter" data-level="14" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>14</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="post_hoc.html"><a href="post_hoc.html#pairwise_comp"><i class="fa fa-check"></i><b>13.1</b> Попарные сравнения</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="post_hoc.html"><a href="post_hoc.html#multiple_comp"><i class="fa fa-check"></i><b>13.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="13.1.2" data-path="post_hoc.html"><a href="post_hoc.html#p-adj"><i class="fa fa-check"></i><b>13.1.2</b> Корректировка уровня значимости</a></li>
+<li class="chapter" data-level="13.1.3" data-path="post_hoc.html"><a href="post_hoc.html#anova_vs_mult_comp"><i class="fa fa-check"></i><b>13.1.3</b> Дисперсионный анализ и проблема множественных сравнений</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="post_hoc.html"><a href="post_hoc.html#t-test"><i class="fa fa-check"></i><b>13.2</b> Двухвыборочный t-тест</a></li>
+<li class="chapter" data-level="13.3" data-path="post_hoc.html"><a href="post_hoc.html#paired-t-test"><i class="fa fa-check"></i><b>13.3</b> Парный t-тест</a></li>
+<li class="chapter" data-level="13.4" data-path="post_hoc.html"><a href="post_hoc.html#post_hoc_test"><i class="fa fa-check"></i><b>13.4</b> Че за post hoc?</a></li>
+<li class="chapter" data-level="13.5" data-path="post_hoc.html"><a href="post_hoc.html#t-test-per-se"><i class="fa fa-check"></i><b>13.5</b> t-тест — сильный и независимый</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_formalization"><i class="fa fa-check"></i><b>14.1</b> Формализация модели</a></li>
+<li class="chapter" data-level="14.2" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_indentification"><i class="fa fa-check"></i><b>14.2</b> Идентификация модели</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="simple_linear.html"><a href="simple_linear.html#least-squares"><i class="fa fa-check"></i><b>14.2.1</b> Метод наименьших квадратов</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_quality"><i class="fa fa-check"></i><b>14.3</b> Тестирование качества модели</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="simple_linear.html"><a href="simple_linear.html#r-squared"><i class="fa fa-check"></i><b>14.3.1</b> Коэффициент детерминации</a></li>
+<li class="chapter" data-level="14.3.2" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_significance"><i class="fa fa-check"></i><b>14.3.2</b> Статистическая значимость модели</a></li>
+<li class="chapter" data-level="14.3.3" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_t_test"><i class="fa fa-check"></i><b>14.3.3</b> Статистическая значимость отдельных предикторов</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_diagnostics"><i class="fa fa-check"></i><b>14.4</b> Диагностика модели</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="16" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>16</b> Ковариационный анализ</a></li>
+<li class="chapter" data-level="17" data-path="binomial_regression.html"><a href="binomial_regression.html"><i class="fa fa-check"></i><b>17</b> Логистическая регрессия</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -261,16 +290,313 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="simple_linear" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">13</span> Простая линейная регрессия<a href="simple_linear.html#simple_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="simple_linear" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Простая линейная регрессия<a href="simple_linear.html#simple_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Ненадолко откатимся обратно к корреляции. Она позволяет тестировать гипотезы о связях между количественными переменными. Однако кроме проверки наличия или отсутствия связей между переменными, нас ещё интересует, как бы мы могли управлять одними переменными с помощью других. Для этого необходимо построение некоторой модели.</p>
+<p>Когда мы строили диаграммы рассеяния, мы добавляли на них <em>линию тренда</em>, которая отражала линейную составляющую связи между визуализируемыми переменными.</p>
+<center>
+<img src="pics/cov4.jpeg">
+</center>
+<p>Эта линия и есть интересующая нас модель. Визуально мы такую линию проведём очень легко, а вот как мы нам получить её математическое выражение?</p>
+<div id="simple_reg_formalization" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Формализация модели<a href="simple_linear.html#simple_reg_formalization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Первое, что нужно вспомнить — это общее уравнение прямой. Оно выглядит так:</p>
+<p><span class="math display">\[
+y = kx + b,
+\]</span></p>
+<p>где <span class="math inline">\(k\)</span> — угловой коэффициент (slope), задающий угол наклона прямой к оси <span class="math inline">\(x\)</span>, а <span class="math inline">\(b\)</span> — свободный член (intercept), который обозначает ординату точки пересечения прямой с осью <span class="math inline">\(y\)</span>.</p>
+<p>Итого, чтобы получить уравнение прямой, нам надо знать два этих числа. Что у нас есть, для этого есть? У нас есть наши наблюдения — то есть <span class="math inline">\(x\)</span> и <span class="math inline">\(y\)</span>.</p>
+<p>Мы привыкли к тому, что <span class="math inline">\(x\)</span> и <span class="math inline">\(y\)</span> являются неизвестными, но теперь, когда мы ищем уравнение прямой на основе имеющихся измерений, ситуация изменяется.</p>
+<p>Запишем уравнение, используя общепринятие обозначения.</p>
+<p><span class="math display">\[
+y = b_0 + b_1 x
+\]</span></p>
+<p>Уравнение отражает зависимость между переменными <span class="math inline">\(x\)</span> и <span class="math inline">\(y\)</span>, значения которых нам известны, так как у нас есть результаты измерений, а вот неизвестными теперь являются <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span>.</p>
+<p>В терминах статистической модели:</p>
+<ul>
+<li>переменная <span class="math inline">\(y\)</span> называется <em>зависимая</em>, <em>предсказываемая</em>, <em>целевая переменная</em> или <em>регрессант</em></li>
+<li>переменная <span class="math inline">\(x\)</span> носит названия <em>независимая переменная</em>, <em>предиктор</em> или <em>регрессор</em></li>
+<li><span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> называются <em>коэффициентами</em> или <em>параметрами</em> модели.</li>
+</ul>
+<p><strong>Важно!</strong> Несмотря на использование терминов <em>зависимая</em> и <em>независимая</em> переменные, необходимо чётко понимать, что сам регрессионный анализ, как и корреляционный, ничего нам не говорит о причинности. Мы выражаем <span class="math inline">\(y\)</span> через <span class="math inline">\(x\)</span>, но точно так же можем выразить и <span class="math inline">\(x\)</span> через <span class="math inline">\(y\)</span> — и модель будет подобрана, так как нет никаких математических ограничений. Поэтому если мы хотим сделать по результатам регрессионного анализа вывод о причинно-следственной связи между явлениями, нам необходимо либо серьёзное теоретическое обоснование нашего вывода — почему мы выбрали в качестве зависимой и независимой переменных именно эти? — либо использование экспериментельного дизайна исследования, где мы обосновываем причинно-следственный характер связи именно через дизайн эксперимента.</p>
+</div>
+<div id="simple_reg_indentification" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> Идентификация модели<a href="simple_linear.html#simple_reg_indentification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Идентификация модели сводится к нахождению коэффициентов <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span>. Мы хотим провести такую прямую, которая наилучшим образом будет описывать имеющуюся в данных закономерность, поэтому необходимо найти критерий, по которому мы будем определять «хорошесть» нашей прямой.</p>
+<p>Графически мы делаем вот что: проводим прямую через облако точек. Очевидно, что красная прямая описывает закономерность совсем плохо, зелёная — чуть получше, а синяя — то, что нам нужно.</p>
+<center>
+<img src="pics/trend_lines.jpeg">
+</center>
+<p>Из картинки также очевидно, что даже синяя прамая не описывает наши данные максимально точно — не все точки попали на прямую. Ясно, что такой прямой мы провести и не сможем — точек же целое облако. Поэтому любая построенная нами модель будет содержать ошибку — вновь по причине вариативности и неопределенности данных. Таким образом, модель, «хорошесть» которой мы пытаемся определить выглядит так:</p>
+<p><span class="math display">\[
+y_i = b_0 + b_1 x_i + e_i
+\]</span></p>
+<p>А графически ошибки будут тут:</p>
+<center>
+<img src="pics/errors_lm.jpeg">
+</center>
+<p>Уравнение же нашей модели вот такое:</p>
+<p><span class="math display">\[
+\hat y = b_0 + b_1 x
+\]</span></p>
+<p>Игрек в шляпке показывает, что это <em>моделируемое</em> значение нашей целевой переменной, и оно отличается от того, которое есть в данных.</p>
+<p>Собственно, задача идентификации модели — <em>минимизировать ошибку модели</em>, подбирая её параметры.</p>
+<p><span class="math display">\[
+Q_{res} = \sum_{i=1}^n e_i^2 = \sum_{i=1}^n \big(y_i - (b_0 + b_1x_i) \big)^2 = \sum_{i=1}^n (y_i - \hat y_i)^2 \rightarrow \underset{b_0, b_1}{\min}
+\]</span></p>
+<p>Ошибки модели <span class="math inline">\(e_i\)</span> также называются <strong>остатки (residuals)</strong>, то есть то, что модель не смогла объяснить. Обозначенное выше условие минимизации ошибки лежит в основе <strong>метода наименьших квадратов</strong>.</p>
+<div id="least-squares" class="section level3 hasAnchor" number="14.2.1">
+<h3><span class="header-section-number">14.2.1</span> Метод наименьших квадратов<a href="simple_linear.html#least-squares" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="advanced">
+<details>
+<summary>
+<em>Осторожно! Очень математично!</em>
+</summary>
+<p>Если внимательно посмотреть на условие минимизации ошибки модели, то можно увидеть, что оно представляет собой функцию двух аргументов:</p>
+<p><span class="math display">\[
+f(b_0, b_1) = \sum_{i=1}^n (y_i - b_0 - b_1 x_i)^2
+\]</span></p>
+<p>Это квадратичная функция, и чтобы нам дальше удобнее было с ней работать, раскроем скобки:</p>
+<p><span class="math display">\[
+f(b_0, b_1) = \sum_{i=1}^n (y_i - b_0 - b_1 x_i)(y_i - b_0 - b_1 x_i) \\
+f(b_0, b_1) = \sum_{i=1}^n (y_i^2 - 2 x_i y_i b_1 - 2 y_i b_0 + x_i^2 b_1^2 + b_0^2 + 2 x_i b_1 b_0)
+\]</span></p>
+<p>Чтобы определить, при каких значения <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> функция будет принимать минимальное значение, нужно взять две <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B0%D1%81%D1%82%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F">частные производные</a> по <span class="math inline">\(b_0\)</span> и <span class="math inline">\(b_1\)</span> и приравнять их в нулю.</p>
+<p>Берём частные производные:</p>
+<p><span class="math display">\[
+\frac{f(b_0, b_1)}{\partial b_0} = \sum_{i=1}^n (-2 y_i + 2 b_0 + 2 x_i b_1) = -2 \sum_{i=1}^n \big(y_i - (b_0 + b_1 x_i) \big) \\
+\frac{f(b_0, b_1)}{\partial b_1} = \sum_{i=1}^n (-2 x_i y_i + 2 x_i^2 b_1 + 2 x_i b_0) = -2 \sum_{i=1}^n \big(y_i - (b_0+ b_1 x_i) \big) x_i
+\]</span></p>
+<p>Приравниваем производные к нулю и решаем систему уравнений:</p>
+<p><span class="math display">\[
+\cases {
+-2 \sum_{i=1}^n \big(y_i - (b_0 + b_1 x_i) \big) = 0, \\
+-2 \sum_{i=1}^n \big(y_i - (b_0+ b_1 x_i) \big) x_i = 0;
+}
+\]</span>
+<span class="math display">\[
+\cases {
+b_1 \sum_{i=1}^n x_i + \sum_{i=1}^n b_0 = \sum_{i=1}^n y_i, \\
+b_1 \sum_{i=1}^n x_i^2 + b_0 \sum_{i=1}^n x_i = \sum_{i=1}^n x_i y_i;
+}
+\]</span>
+<span class="math display">\[
+\cases {
+b_1 \sum_{i=1}^n x_i + n b_0 = \sum_{i=1}^n y_i, \\
+b_1 \sum_{i=1}^n x_i^2 + b_0 \sum_{i=1}^n x_i = \sum_{i=1}^n x_i y_i;
+}
+\]</span></p>
+<p><span class="math display">\[
+\cases {
+b_0 = \dfrac{\sum_{i=1}^n y_i}{n} - b_1 \dfrac{\sum_{i=1}^n x_i}{n} = \bar y - b_1 \bar x \\
+b_1 = \dfrac{n \sum_{i=1}^n x_i y_i - \sum_{i=1}^n x_i \sum_{i=1}^n y_i}{n \sum_{i=1}^n x_i^2 - \big( \sum_{i=1}^n x_i \big)^2} = \dfrac{\overline {xy} - \bar x \cdot \bar y}{\sigma^2_x}
+}
+\]</span></p>
+</details>
+</div>
+<p>В сухом остатке из метода наименьших квадратов на надо вынести вот что:</p>
+<ul>
+<li><em>задача индентификации модели линейной регрессии имеет аналитическое решение</em> — то есть мы можем подобрать коэффициенты модели, опираясь только на имеющиеся данные</li>
+<li>и оно вот такое</li>
+</ul>
+<p><span class="math display">\[
+\cases {
+b_0 = \bar y - b_1 \bar x \\
+b_1 = \dfrac{\overline {xy} - \bar x \cdot \bar y}{\sigma^2_x} = \dfrac{\sum (x_i - \bar x) (y_i - \bar y)}{\sum (x_i - \bar x)^2}
+}
+\]</span></p>
+<p>Это, безусловно, радостно и приятно.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>А если вы умеете в матрицы, то всё ещё проще</em>
+</summary>
+<p>Аналитическое вычисление коэффициентов выглядит громоздко и трудоёмко — хотелось бы как-то попроще. Нам на помощь приходят матрицы!</p>
+<p>Вспомним, что имеющуюся у нас модель мы можем переписать в следующем виде:</p>
+<p><span class="math display">\[
+\boldsymbol{y}= \boldsymbol{X}\boldsymbol{b}+ \boldsymbol{e},
+\]</span>
+где <span class="math inline">\(\boldsymbol{y}\)</span> — вектор нашей зависимой переменной, <span class="math inline">\(\boldsymbol{X}\)</span> — матрица независимых переменных, <span class="math inline">\(\boldsymbol{b}\)</span> — вектор коэффициентов модели, <span class="math inline">\(\boldsymbol{e}\)</span> — вектор ошибок (остатков) модели.</p>
+<p>Может возникнуть резонный вопрос: «почему <span class="math inline">\(\boldsymbol{X}\)</span> матрица, ведь у нас только одна независимая переменная?». Так как вектор коэффициентов модели <span class="math inline">\(\boldsymbol{b}\)</span> содержит два элемента <span class="math inline">\((b_0, b_1)^\mathrm{T}\)</span>, то для удобства вычислений к вектору значений предиктора <span class="math inline">\(x\)</span> дообавляют вектор, состоящий из единиц, который будет отвечать за интерсепт нашей модел — в результате получается матрица <span class="math inline">\(\boldsymbol{X}\)</span>, которая имеет следующий вид:</p>
+<p><span class="math display">\[
+\boldsymbol{X}=
+\begin{pmatrix}
+1 &amp; x_{11} \\
+1 &amp; x_{21} \\
+1 &amp; x_{31} \\
+\vdots &amp; \vdots \\
+1 &amp; x_{n1}
+\end{pmatrix}
+\]</span></p>
+<p>При умножении вектора <span class="math inline">\(\boldsymbol{b}= (b_0, b_1)^\mathrm{T}\)</span> на матрицу <span class="math inline">\(\boldsymbol{X}\)</span> как раз будут получатся выражения типа <span class="math inline">\(b_0 \cdot 1 + b_1 x_{i1}\)</span>, а это то, что нам надо.</p>
+<p>Опуская детали, сразу укажем матричное решение для коэффициентов модели:</p>
+<p><span class="math display">\[
+\boldsymbol{b}= (\boldsymbol{X}^\mathrm{T}\boldsymbol{X})^{-1}\boldsymbol{X}^\mathrm{T}\boldsymbol{y}
+\]</span></p>
+<p>Выглядит проще, не так ли?</p>
+<blockquote>
+<p>Нужно заметить ещё один важный момент: в ходе вычисления коэффициентов мы берём обратную матрицу от матрицы <span class="math inline">\(X^\mathrm{T}X\)</span>. Этот факт нам будет полезен в следующем разделе.</p>
+</blockquote>
+</details>
+</div>
+</div>
+</div>
+<div id="simple_reg_quality" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Тестирование качества модели<a href="simple_linear.html#simple_reg_quality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Супер! Мы построили модель! Теперь надо понять, насколько она хороша для наших данных. Но перед этим нам надо сделать шаг назад и прояснить ряд моментов, на которые мы имплицитно опираемся, но пока ещё не проговорили.</p>
+<p>Мы помним, что работая с выборкой, мы хотим получить информацию о генеральной совокупности. Строя модель, мы предполагаем, что в генеральной совокупности есть связь, которая описывается следующим уравнением:</p>
+<p><span class="math display">\[
+y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
+\]</span></p>
+<p>Таким образом, построив модель, мы получили оценки генеральных параметров:</p>
+<p><span class="math display">\[
+b_0 = \hat \beta_0, \quad b_1 = \hat \beta_1, \quad e_i = \hat \varepsilon_i
+\]</span></p>
+<p>Кроме того, при построении модели мы также исходили из нескольких предположений.</p>
+<ul>
+<li>Во-первых, мы считали, что связь между предикторами и зависимой переменной <strong>линейная</strong>.</li>
+<li>Во-вторых, мы предположили, что наша модель полностью улавливает тренд закономерности, то остатки (ошибки) модели случайны. Их <strong>среднее равно нулю</strong>: <span class="math inline">\(\bar \varepsilon = 0\)</span>,</li>
+<li>а также <strong>остатки модели не коррелируют между собой</strong>: <span class="math inline">\(\text{cor} (\underset{i \neq j}{\varepsilon_i \varepsilon_j}) = 0\)</span>.</li>
+<li>Ну, а раз остатки заключают в себе случайный компонент модели, то они должны быть <strong>распределены нормально</strong> <span class="math inline">\(\varepsilon \thicksim \mathcal{N}(0, \sigma^2)\)</span>,</li>
+<li>причём их <strong>дисперсия должна быть одинакова при любых значениях предиктора</strong> <span class="math inline">\(\sigma_i^2 = \sigma^2 = \mathrm{const}\)</span>.</li>
+</ul>
+<p>Так-с, ну, теперь можно приступать с анализу модели.</p>
+<div id="r-squared" class="section level3 hasAnchor" number="14.3.1">
+<h3><span class="header-section-number">14.3.1</span> Коэффициент детерминации<a href="simple_linear.html#r-squared" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Первое, что хочется понять — насколько наша модель информативна. Иначе говоря, сколько дисперсии наших данных она смогла объяснить. На практике работают не с дисперсией, а с <em>суммой квадратов</em>, что почти то же самое — это мы уже видели в дисперсионном анализе.</p>
+<p>Вся изменчивость наших данных <strong>(total sum of squares, TSS)</strong> определяется так:</p>
+<p><span class="math display">\[
+\text{TSS} = \sum_{i=1}^n (\bar y - y_i)^2
+\]</span></p>
+<p>На одной из картинок нам уже встречалась «красная модель» — это и было среднее по выборке. То есть графически TSS выглядит так:</p>
+<center>
+<img src="pics/tss.jpeg">
+</center>
+<p>Одну часть этой изменчивости объясняет модель <strong>(explained sum of squares, ESS)</strong>:</p>
+<p><span class="math display">\[
+\text{ESS} = \sum_{i=1}^n (\bar y - \hat y_i)^2
+\]</span></p>
+<center>
+<img src="pics/ess.jpeg">
+</center>
+<p>Другую часть этой изменчивости модель не улавливает, и она остаётся необъяснённой (остаточной) <strong>(residual sum of squares, RSS)</strong>:</p>
+<p><span class="math display">\[
+\text{RSS} = \sum_{i=1}^n (y_i - \hat y_i)^2
+\]</span></p>
+<center>
+<img src="pics/rss.jpeg">
+</center>
+<p>Очевидно (особенно по графику), что</p>
+<p><span class="math display">\[
+\text{TSS} = \text{ESS} + \text{RSS}
+\]</span></p>
+<div class="advanced">
+<details>
+<summary>
+<em>Не очевидно! Ты ещё в прошлый раз обещал пояснить!</em>
+</summary>
+<p>Поясняю.</p>
+<p>Пойдем в лоб по формуле.</p>
+<p><span class="math display">\[
+\text{TSS} = \sum (y_i - \bar y)^2 = \\
+\sum (y_i - \hat y_i + \hat y_i - \bar y)^2 = \\
+\sum \big( (y_i - \hat y_i) + (\hat y_i - \bar y_i) \big)^2 = \\
+\sum (y_i - \hat y_i)^2 + \sum (\hat y_i - \bar y)^2 + 2 \sum (y_i - \hat y_i) (\hat y_i - \bar y) = \\
+\text{RSS} + \text{ESS} + 2 \sum (y_i - \hat y_i) (\hat y_i - \bar y)
+\]</span></p>
+<p>Ну, норм. Теперь надо доказать, что <span class="math inline">\(\sum (y_i - \hat y_i) (\hat y_i - \bar y)\)</span> всегда равно нулю. Вспомним, что <span class="math inline">\(\hat y_i = b_0 + b_1 x_i\)</span>:</p>
+<p><span class="math display">\[
+\sum (y_i - \hat y_i) (\hat y_i - \bar y) = \\
+\sum (y_i - b_0 - b_1x_i)(b_0 + b_1x_i - \bar y) =
+\]</span></p>
+<p>Воспользуемся формулой для вычисления <span class="math inline">\(b_0\)</span></p>
+<p><span class="math display">\[
+b_0 = \bar y - b_1 \bar x
+\]</span>
+и подставим её в выражение:</p>
+<p><span class="math display">\[
+= \sum (y_i - \bar y + b_1 \bar x - b_1 x_i) (\bar y - b_1 \bar x + b_1 x_i - \bar y) = \\
+\sum \big( (y_i - \bar y) - b_1 (x_i - \bar x) \big) \cdot b_1 (x_i - \bar x) = \\
+\sum \big( b_1 (x_i - \bar x) (y_i - \bar y) - b_1^2 (x_i - \bar x)^2 \big) = \\
+b_1 \sum (x_i - \bar x) (y_i - \bar y) - b_1^2 \sum (x_i - \bar x)^2 =
+\]</span></p>
+<p>Теперь вспомним, что</p>
+<p><span class="math display">\[
+b_1 = \frac{\sum (x_i - \bar x) (y_i - \bar y)}{\sum (x_i - \bar x)^2}
+\]</span></p>
+<p>Подставим:</p>
+<p><span class="math display">\[
+= \frac{\Big( \sum (x_i - \bar x) (y_i - \bar y) \Big)^2}{\sum (x_i - \bar x)^2} - \frac{\Big ( \sum (x_i - \bar x) (y_i - \bar y) \Big)^2 \cdot \sum (x_i - \bar x)^2}{\Big( \sum (x_i - \bar x)^2 \Big)^2} = \\
+\frac{\Big( \sum (x_i - \bar x) (y_i - \bar y) \Big)^2}{\sum (x_i - \bar x)^2} - \frac{\Big ( \sum (x_i - \bar x) (y_i - \bar y) \Big)^2}{\sum (x_i - \bar x)^2} = 0
+\]</span></p>
+</details>
+</div>
+<p>В качестве метрики информативности модели используется <strong>коэффициент детерминации</strong> <span class="math inline">\(R^2\)</span>, который вычисляется по формуле:</p>
+<p><span class="math display">\[
+R^2 = \frac{\text{ESS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}},
+\]</span></p>
+<p>из чего следует, что <span class="math inline">\(0 \leq R^2 \leq 1\)</span>, а значит коэффициент детерминации может быть интерпретирован как <em>доля дисперсии данных, которую смогла объяснить модель</em>.</p>
+<p>Считается, что если модель объясняется 0.8 и более дисперсии данных, то она хороша, хотя этот порог о-о-очень сильно зависит от конкретной задачи и исследовательской области.</p>
+<p>Кстати, вопрос на подумать: может ли коэффициент детерминации быть отрицательным?</p>
+</div>
+<div id="simple_reg_significance" class="section level3 hasAnchor" number="14.3.2">
+<h3><span class="header-section-number">14.3.2</span> Статистическая значимость модели<a href="simple_linear.html#simple_reg_significance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>На основе всё тех же сумм квадратов мы можем сделать вывод о том, насколько в целом наша модель статистически значима. Для этого нам надо заняться тестированием некоторой статистической гипотезы. Она формулируется так:</p>
+<p><span class="math display">\[
+H_0: \beta_0 = \beta_1 = 0 \\
+H_1: \beta_0 \neq 0 \vee \beta_1 \neq 0
+\]</span></p>
+<p>Для тестирования данной гипотезы используется следующая статистика:</p>
+<p><span class="math display">\[
+F = \frac{MS_e}{MS_r} = \frac{\text{ESS} / \mathrm{df_e}}{\text{RSS} / \mathrm{df_r}} \overset{H_0}{\thicksim} F(\mathrm{df_e, df_r}),
+\]</span></p>
+<p>где <span class="math inline">\(\mathrm{df_e} = p - 1\)</span>, <span class="math inline">\(\mathrm{df_r} = n-p-1\)</span>, <span class="math inline">\(p\)</span> — число предикторов в модели, <span class="math inline">\(n\)</span> — число наблюдений.</p>
+<p>Как и всегда, для <span class="math inline">\(F\)</span>-статистики рассчитывается <em>p-value</em>, на основе значения которого мы делаем статистический вывод о статистическом равенстве коэффициента детерминации нулю, а следовательно, о статистической значимости модели в целом.</p>
+</div>
+<div id="simple_reg_t_test" class="section level3 hasAnchor" number="14.3.3">
+<h3><span class="header-section-number">14.3.3</span> Статистическая значимость отдельных предикторов<a href="simple_linear.html#simple_reg_t_test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Если модель значима в целом, значит среди её коэффициентов есть те, которые статистически отличны от нуля. Иначе говоря, есть такие предикторы, которые значимо связаны с нашей целевой переменной. В случае простой линейной регрессии предиктора всего два — intercept и slope. Intercept не всегда интерпретабелен, поэтому основное внимание уделяют угловому коэффициенту.</p>
+<p>Статистическая значимость коэффициента тестируется так:</p>
+<p><span class="math display">\[
+H_0: \beta_1 = 0 \\
+H_1: \beta_1 \neq 0 \\
+t = \frac{b_1 - \beta_1}{\text{SE}_{b_1}} = \frac{b_1}{\text{SE}_{b_1}} \overset{H_0}{\thicksim} t(\text{df} = n-p-1),
+\]</span></p>
+<p>где <span class="math inline">\(\text{SE}_{b_1} = \frac{s_r}{\sum_{i=1}^n (x_i - \bar x)^2}\)</span>, <span class="math inline">\(s_r^2 = \frac{\sum_{i=1}^n (y_i - \hat y)^2}{n-2}\)</span></p>
+<p>Хвала небесам, оно все считается само.</p>
+<p>БАХНУТЬ КАКОЙ-НИБУДЬ ПРИМЕР</p>
+<p>Таблица невероятно похожа на результаты дисперсионного анализа, не так ли? Падазритильна…</p>
+</div>
+</div>
+<div id="simple_reg_diagnostics" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> Диагностика модели<a href="simple_linear.html#simple_reg_diagnostics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Окей, наша модель значима в целом, а значит значимы и её предикторы, она объясняет приемлемую долю дисперсии данных. Неужели этого недостаточно?</p>
+<p>Недостаточно. При построении модели мы исходили из ряда предпосылок. Напомним их:</p>
+<ul>
+<li>линейность связи</li>
+<li>нормальность распределения остатков и нулевое математическое ожидание</li>
+<li>равенствво дисперсии остатков при различных значениях предикторов (гомоскедастичность)</li>
+<li>независимость остатков от предикторов модели</li>
+</ul>
+<p>Линейность связи можно проверить визуализацией корреляции между переменными.</p>
+<p>Другие предпосылки мы можем проверить с помощью диагностических графиков.</p>
+<p>КАРТИНКА</p>
+<p>Данные графики позволяют провести диагностику модели.</p>
+<p>Нормальность распределения остатков отображена на правом верхнем графике. Если все наблюдения находятся на или близко к пунктирной линии, то распределение остатков не отличается от нормального.</p>
+<p>Два левых графика позволяют проверить независимость остатков от предикторов модели и требование гомоскедастичности. На графике не должно определяться никаких явных паттернов. В данном случае мы видим, что красная линия тренда демонстрирует нам явный паттерн стремления вниз (верхний график) и явный паттерн линейной связи (нижний график), что говорит о том, что требование независимости остатков модели от предикторов не выполнено, и модель не до конца ухватывает имеющиеся закономерности.</p>
+<p>Кроме того, мы видим разный разброс остатков, что говорит о невыполнении требования гомоскедастичности — остатки гетероскедастичны.</p>
+<p>Последний график позволяет определить влиятельные наблюдения. Это такие наблюдения, удаление/добавление которых сильно повлияет на положение регрессионной прямой. В данном случае все наблюдения располагаются в пределах критических значений расстояния Кука (метрика влиятельности наблюдений), так как на график даже не попала красная пунктирная линия.</p>
+<p>ТУТ ПЕРЕЧИТАТЬ И ПОПРАВИТЬ</p>
+<p>Что можно заключить по результатам диагностики модели? Модель необходимо дорабатывать. Она ловит часть закономерности, присутствующей в данных, но необходимо вводить дополнительные предикторы, чтобы регрессия ухватывала имеющуюся закономерность более полно.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="twoway-anova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="post_hoc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="multiple_linear.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
