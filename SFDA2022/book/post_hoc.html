@@ -182,7 +182,7 @@
 <li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
 <li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
 </ul></li>
@@ -239,9 +239,23 @@
 </ul></li>
 <li class="chapter" data-level="12.5" data-path="twoway-anova.html"><a href="twoway-anova.html#type_of_sums"><i class="fa fa-check"></i><b>12.5</b> Типы сумм квадратов</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="post_hoc.html"><a href="post_hoc.html#pairwise_comp"><i class="fa fa-check"></i><b>13.1</b> Попарные сравнения</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="post_hoc.html"><a href="post_hoc.html#multiple_comp"><i class="fa fa-check"></i><b>13.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="13.1.2" data-path="post_hoc.html"><a href="post_hoc.html#p-adj"><i class="fa fa-check"></i><b>13.1.2</b> Корректировка уровня значимости</a></li>
+<li class="chapter" data-level="13.1.3" data-path="post_hoc.html"><a href="post_hoc.html#anova_vs_mult_comp"><i class="fa fa-check"></i><b>13.1.3</b> Дисперсионный анализ и проблема множественных сравнений</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="post_hoc.html"><a href="post_hoc.html#t-test"><i class="fa fa-check"></i><b>13.2</b> Двухвыборочный t-тест</a></li>
+<li class="chapter" data-level="13.3" data-path="post_hoc.html"><a href="post_hoc.html#paired-t-test"><i class="fa fa-check"></i><b>13.3</b> Парный t-тест</a></li>
+<li class="chapter" data-level="13.4" data-path="post_hoc.html"><a href="post_hoc.html#post_hoc_test"><i class="fa fa-check"></i><b>13.4</b> Че за post hoc?</a></li>
+<li class="chapter" data-level="13.5" data-path="post_hoc.html"><a href="post_hoc.html#t-test-per-se"><i class="fa fa-check"></i><b>13.5</b> t-тест — сильный и независимый</a></li>
+</ul></li>
 <li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a></li>
 <li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="16" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>16</b> Ковариационный анализ</a></li>
+<li class="chapter" data-level="17" data-path="binomial_regression.html"><a href="binomial_regression.html"><i class="fa fa-check"></i><b>17</b> Логистическая регрессия</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -264,7 +278,133 @@
             <section class="normal" id="section-">
 <div id="post_hoc" class="section level1 hasAnchor" number="13">
 <h1><span class="header-section-number">13</span> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений<a href="post_hoc.html#post_hoc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Что ж, мы попытались разобраться в одном из самых часто используемых и полезных методов статистического анализа — дисперсионном анализе — и сделаем вид, что что-то поняли. Однако задумаемся вот над чем:</p>
+<ul>
+<li>дисперсионный анализ позволяет протестировать статистическую значимость связи между фактором и зависимой переменной</li>
+<li>технически это выражается в поиске различий между группами, на которые делится категориальной переменной наша выборка [наблюдений]</li>
+<li>статистическая значимость фактора говорит нам о том, что <em>между какими-то группами есть различия</em></li>
+<li>но <em>между какими именно</em>???</li>
+</ul>
+<p>Этот вопрос остается открытым и на него надо как-то ответить.</p>
+<div id="pairwise_comp" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Попарные сравнения<a href="post_hoc.html#pairwise_comp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Для того, чтобы ответить на этот вопрос, нам придется сравнивать все группы [наблюдений] друг с другом. Этот процесс называется <strong>попарные сравнения (pairwise comparison)</strong>. Выполняются они довольно просто — с обычно помощью <em>t</em>-теста. Однако здесь есть одна важная деталь, о которой нам необходимо поговорить.</p>
+<p>Стоп, а если мы все равно сравниваем все группы друг с другом, зачем нам вообще дисперсионный анализ? Вопрос справелив. Однако обо всем по порядку. Начнем с нашей любимой <em>ошибки первого рода</em>.</p>
+<div id="multiple_comp" class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Проблема множественных сравнений<a href="post_hoc.html#multiple_comp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Итак, мы сравниваем попарно все группы наблюдений между собой. В каждом сравнении мы фиксируем вероятность ошибки первого рода с помощью уровня значимости на уровне <span class="math inline">\(0.05\)</span>. А какова будет вероятность ошибки, если мы проводим несколько сравнений?</p>
+<p>Считаем, что наши сравнения независимы, поэтому вероятности будут перемножаться<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Если верояность ошибиться в одном сравнении равна <span class="math inline">\(\alpha\)</span>, то вероятность сделать правильный вывод — <span class="math inline">\(1-\alpha\)</span>. Тогда вероятность сделать правильный вывод в <span class="math inline">\(m\)</span> сравнения — <span class="math inline">\((1-\alpha)^m\)</span>. Отсюда мы можем вывести вероятность ошибиться хотя бы в одном сравнении:</p>
+<p><span class="math display">\[
+\mathrm{P}&#39; = 1 - (1 - \alpha)^m
+\]</span></p>
+<p>Пусть у нас есть <em>три группы</em>, которые нам надо сравнить друг с другом — получается необходимо провести три сравнения. Итого вероятность ошибиться получается:</p>
+<p><span class="math display">\[
+\mathrm{P}&#39; = 1 - (1 - 0.05)^3 \approx 0.143
+\]</span></p>
+<p>Значительно больше, чем <span class="math inline">\(0.05\)</span>, что нехорошо. И дальше только хуже. Поэтому нам надо либо корректировать уровень значимости, либо использовать мощные методы типа дисперсионного анализа.</p>
+</div>
+<div id="p-adj" class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Корректировка уровня значимости<a href="post_hoc.html#p-adj" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Корректировать уровень значимости можно по-разному. Например, можно разделить <span class="math inline">\(\alpha\)</span> на количество попарных сравнений — такой способ называется <strong>поправкой Бонферрони (Bonferroni)</strong>:</p>
+<p><span class="math display">\[
+\alpha&#39; = \frac{\alpha}{n},
+\]</span></p>
+<p>где <span class="math inline">\(n\)</span> — число попарных сравнений.</p>
+<p>Поправка Бонферрони считается самой консервативной поправкой — она достаточно сильно уменьшает уровень значимости, и мы можем не поймать искомую закономерность, то есть совершить ошибку второго рода<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Поэтому придумали более либеральные поправки, например, <a href="https://en.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method"><strong>поправку Холма (Холма–Бонферрони, Holm)</strong></a> или <a href="https://en.wikipedia.org/wiki/Tukey%27s_range_test"><strong>поправку Тьюки (Tukey’s HSD test)</strong></a>. Можно посмотреть на их формулы, но в целом, не обяз, потому что их все равно никто не знает, а в статистических пакетах мы либо допишем аргумент в функцию, либо нужную галку поставим.</p>
+<p>На практике в силу того, что в статистических пакетах мы работаем с <em>p-value</em>, корректируется именно его значение.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>По достаточно незамысловатой логике</em>
+</summary>
+<p>Здесь: вариант для поправки Бонферрони.</p>
+<span class="math display">\[
+p &lt; \frac{\alpha}{n} \Rightarrow np &lt; \alpha
+\]</span>
+</details>
+</div>
+<p>Таким образом, мы просто сравниваем <em>уже скорретированное</em> <em>p-value</em>, которое нам считает комплюхтер, с тем же самым <span class="math inline">\(\alpha = 0.05\)</span>. Жизнь становится значительно проще и приятнее.</p>
+</div>
+<div id="anova_vs_mult_comp" class="section level3 hasAnchor" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> Дисперсионный анализ и проблема множественных сравнений<a href="post_hoc.html#anova_vs_mult_comp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Использование методов типа дисперсионного анализа, которые позволяют проверить наличие <em>статистическую значимость фактора в целом</em> помогает следующим образом:</p>
+<ul>
+<li>если фактор <em>статистически НЕ значим</em>, мы <em>НЕ проводим попарные сравнения</em> по группам, на которые он делит нашу выборку — различий между группами все равно не будет</li>
+<li>если фактор <em>статистически значим</em>, мы <em>проводим попарные сравнения</em> по группам, на которые он делит нашу выборку, чтобы узнать, между какими группами есть различия</li>
+</ul>
+<p>Особенно сильно это помогает в случае взаимодействия факторов, так как там может быть невероятное количество попарных сравнений<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+</div>
+</div>
+<div id="t-test" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Двухвыборочный t-тест<a href="post_hoc.html#t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>С уровне значимости разобрались — теперь к самому статистическому тесту. Задача такова: протестировать гипотезу о том, что между двумя группами наблюдений нет различий, то есть:</p>
+<p><span class="math display">\[
+H_0: \mu_1 = \mu_2 \\
+H_1: \mu_1 \neq \mu_2
+\]</span></p>
+<p>Гипотезы сформулировали. Выбираем статистический критерий. Он таков:</p>
+<p><span class="math display">\[
+t = \frac{\bar x_1 - \bar x_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_1^2}{n_2}}}
+\]</span></p>
+<p>Эта статистистика при справедливости нулевой гипотезы подчиняется <em>t-распределению (распределению Стьюдента)</em> с числом степеней свободы, рассчитывающимся по очень страшной формуле.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Вот такой</em>
+</summary>
+<span class="math display">\[
+df = \frac{\big(\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}\big)^2}{\frac{\big(\tfrac{s_1^2}{n_1}\big)^2}{(n_1-1)} + \frac{\big(\tfrac{s_2^2}{n_2}\big)^2}{(n_2-1)}}
+\]</span>
+</details>
+</div>
+<p>Напоминаю, что t-распределение выглядит так:</p>
+<center>
+<img src="pics/t_graph.png">
+</center>
+<p>Далее мы рассчитываем статистику критерия — значение <em>t</em>, потом рассчитываем для него <em>p-value</em>, корректируем сообразно выбранному способу корректировки, и сравниваем с уровнем значимости <span class="math inline">\(\alpha\)</span>.</p>
+<p>И, как обычно, по неизменному ни при каких обстоятельствах алгоритму, делаем вывод:</p>
+<ul>
+<li>Если <em>p-value</em> <span class="math inline">\(&lt; \alpha\)</span>, то мы получаем значение t-статистики, не характерное для случая, когда нулевая гипотеза верна, что даёт нам основания отклонить нулевую гипотезу об отсутствии различий между группами и принять альтернативную, о том, что хотя бы между двумя какими-либо группами есть различия.</li>
+<li>Если <em>p-value</em> <span class="math inline">\(&gt; \alpha\)</span>, то мы получаем значение t-статистики, характерное для случая, когда нулевая гипотеза верна, что не даёт нам оснований отклонить нулевую гипотезу об отсутствии различий между группами.</li>
+</ul>
+<p>Двухвыборочный t-тест пригоден, если наши выборки <em>независимы</em>. Если же у нас <em>связанные, или зависимые, выборки</em>, то нам необходим t-тест для зависимых выборок.</p>
+</div>
+<div id="paired-t-test" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Парный t-тест<a href="post_hoc.html#paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Он даже попроще. Или нет.</p>
+<p>Гипотеза та же:</p>
+<p><span class="math display">\[
+H_0: \mu_1 = \mu_2 \\
+H_1: \mu_1 \neq \mu_2
+\]</span></p>
+<p>Статистика другая:</p>
+<p><span class="math display">\[
+t = \frac{M_d}{\frac{s_d}{\sqrt{n}}},
+\]</span></p>
+<p>где <span class="math inline">\(M_d = \frac{1}{n} \sum_{i=1}^n (x_{i1} - x_{i2})\)</span>, <span class="math inline">\(s_d = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (M_d - (x_{i1} - x_{i2}))^2}\)</span>.</p>
+<p>Эта статистистика при справедливости нулевой гипотезы подчиняется <em>t-распределению (распределению Стьюдента)</em> с числом степеней свободы <span class="math inline">\(n-1\)</span>.</p>
+<p>Статистический вывод идентичен предыдущем случаю.</p>
+</div>
+<div id="post_hoc_test" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> Че за post hoc?<a href="post_hoc.html#post_hoc_test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Итак, с помощью t-теста мы попарно сравниваем группы по фактору, который в дисперсионном анализе оказался статистически значимым, чтобы узнать, между какими группами есть различия.</p>
+<p>Зачем это нужно? Статистическая значимость фактора не обязывает все группы различаться между собой — может случиться так, что разница есть только между двумя из трех, или двумя из четырех групп. Это надо узнать, чтобы мы могли корректно интерпретировать результаты с точки зрения теории, которая стоит за нашим исследованием.</p>
+<p>Если в дисперсионном анализе участвуют <em>только две группы</em> — то есть фактор содержит два уровня — <em>ничего дополнительно тестировать не нужно</em>!</p>
+<p>Данный анализ незывается <em>post hoc analysis</em> или <em>post hoc tests</em> (от лат. post hoc — ‘after this’, ‘after this event’), так как мы проводим его <em>после</em> того, как провели основной анализ другим методом. Такие дела.</p>
+</div>
+<div id="t-test-per-se" class="section level2 hasAnchor" number="13.5">
+<h2><span class="header-section-number">13.5</span> t-тест — сильный и независимый<a href="post_hoc.html#t-test-per-se" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Вообще t-тест может быть и самостоятельным методом статистического анализа, если у вас в исследовании только две группы наблюдений. Или вы выборочно сравниваете какие-то условия, которые вас интересуют, при сложном дизайне. Или вы проверяете какие-то группы на эквивалетность по каким либо параметрам. В общем, t-тест молодец-красавчик — и сам по себе тоже существует, но и другим статистическим методам помогает.</p>
 
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Об этом нам рассказала теорема умножения вероятностей, которая гласит, что <em>вероятность пересечения независимых событий равна произведению вероятностей этих событий</em>.<a href="post_hoc.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Помним, что при стремлении вероятности ошибки первого рода к нулю, вероятность ошибки второго рода стремиться к единице.<a href="post_hoc.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Допустим для двух факторов с тремя уровнями количество групп будет <span class="math inline">\(3 \times 3 = 9\)</span>, а количество попарных сравнений — <span class="math inline">\(\frac{n(n-1)}{2} = \frac{9 \cdot 8}{2} = 36\)</span>!<a href="post_hoc.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

@@ -118,3 +118,13 @@ sphericity
 type_of_sums
 multiple_linear
 post_hoc
+binomial_regression
+ancova
+pairwise_comp
+multiple_comp
+p-adj
+anova_vs_mult_comp
+t-test
+paired-t-test
+post_hoc_test
+t-test-per-se

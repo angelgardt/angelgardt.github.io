@@ -182,7 +182,7 @@
 <li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
 <li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
 </ul></li>
@@ -242,6 +242,8 @@
 <li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a></li>
 <li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a></li>
 <li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="16" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>16</b> Ковариационный анализ</a></li>
+<li class="chapter" data-level="17" data-path="binomial_regression.html"><a href="binomial_regression.html"><i class="fa fa-check"></i><b>17</b> Логистическая регрессия</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -453,7 +455,7 @@ n_{\text{отмечали и не сдали}} = 0.28 \cdot 26 = 7.28
 <p>Как мы говорили в прошлой главе, если <em>p-value</em> меньше выбранного уровня значимости, у нас есть оcнования отклонить нулевую гипотезу об отсутствии различий, и принять альтернативную гипотезу. Итого, связь между подготовкой к экзамену и успешностью его сдачи есть. Ну, ничего себе какой полезный вывод — а мы то и не в курсе были…</p>
 <p>Ладно, это всё хорошо — и даже достаточно для эвристического понимания того, как работает хи-вадрат, однако давайте все же посмотрим чуть глубже в то, что осталось под капотом.</p>
 <div id="распределение-chi2" class="section level3 hasAnchor" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Распределение <span class="math inline">\(chi^2\)</span><a href="chisq.html#распределение-chi2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.1</span> Распределение <span class="math inline">\(\chi^2\)</span><a href="chisq.html#распределение-chi2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Почему вообще критерий называется хи-квадрат? Откуда берется <em>p-value</em>? И куда делось «построение закона распределения статистики критерия при условии, что нулевая гипотеза верна»?</p>
 <p>Обо всём по порядку. Еще раз вернемся к алгоритму:</p>
 <ol style="list-style-type: decimal">
@@ -509,14 +511,14 @@ n_{\text{отмечали и не сдали}} = 0.28 \cdot 26 = 7.28
 <li>значит у нас есть основания <em>отклонить нулевую гипотезу</em> и принять альтернативную</li>
 <li>с надежностью вывода <span class="math inline">\(\alpha\)</span>, а точнее <em>p-value</em>.</li>
 </ul></li>
-<li>если мы получили <em>p-value</em> $ &gt; $, то мы говорим, что
+<li>если мы получили <em>p-value</em> <span class="math inline">\(&gt;\alpha\)</span>, то мы говорим, что
 <ul>
 <li>мы получили значение статистики, <em>характерное</em> для ситуации справедливости нулевой гипотезы,</li>
 <li>значит у нас нет оснований отклонить нулевую гипотезу,</li>
 <li>надежность вывода в этом случае неизвестна.</li>
 </ul></li>
 </ul>
-<p>Таким образом, в нашем случае <em>p-value</em> $ = 9.946 ^{-14}$, что много меньше <span class="math inline">\(0.05\)</span>, что дает нам весовые основания отклонить нулевую гипотезу об отсутствии связи между подготовкой к экзамену и успешностью его сдачи и принять альтернативную гипотезу о том, что такая связь есть.</p>
+<p>Таким образом, в нашем случае <em>p-value</em> <span class="math inline">\(= 9.946 \cdot 10^{-14}\)</span>, что много меньше <span class="math inline">\(0.05\)</span>, что дает нам весовые основания отклонить нулевую гипотезу об отсутствии связи между подготовкой к экзамену и успешностью его сдачи и принять альтернативную гипотезу о том, что такая связь есть.</p>
 <p>Вот мы и сделали статистический вывод. На практике. И даже на содержательный вопрос ответили. Ну, как же мы хороши!</p>
 </div>
 </div>

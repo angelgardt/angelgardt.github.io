@@ -182,7 +182,7 @@
 <li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
 <li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
 </ul></li>
@@ -242,6 +242,8 @@
 <li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a></li>
 <li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a></li>
 <li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="16" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>16</b> Ковариационный анализ</a></li>
+<li class="chapter" data-level="17" data-path="binomial_regression.html"><a href="binomial_regression.html"><i class="fa fa-check"></i><b>17</b> Логистическая регрессия</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -489,10 +491,10 @@ t = \frac{r_{x_1x_2}}{\sqrt{\frac{1-r_{x_1x_2}}{n-2}}} \overset{H_0}{\sim} t(
 <p>Как можно отображать взаимосвязи между переменными? Один пример графика мы уже видели в самом начале — это была <strong>диаграмма рассеяния (scatterplot)</strong>. Это достаточно простой и понятный график: по осям идут две количественные переменные, точки отображают наблюдения. В итоге получается облако точек. Чем более они вытянуты в линию, тем больше значение корреляции, чем более облако точек «круглое», тем значение кореляции меньше. Дополнительно обычно на таком графике отображают ещё <strong>линию тренда</strong>, чтобы более наглядно визуализировать линейный компонент взаимосвязи переменных. Построение такой линии отдельная довольно интересная задача — мы вскоре ею займемся и назовем это регрессионный анализ.</p>
 <p>Ниже примеры диаграмм рассения. Это визуализация результатов валидизации психометрической методики: на первом графике корреляция между итоговыми баллами двух опросников, а на втором — баллов по отдельным шкалам валидизируемого опросника и общим баллом другого опросника.</p>
 <center>
-<img src="src/scatterplot.png">
+<img src="pics/scatterplot.png">
 </center>
 <center>
-<img src="src/scatterplots.png">
+<img src="pics/scatterplots.png">
 </center>
 <p><a href="http://guessthecorrelation.com/">Можно потренироваться</a> визуально определять корреляцию по скаттерплотам.</p>
 <p>Бывает, что нас интересует связь не между двумя какими-либо отдельными переменными, а много попарных корреляций между несколькими переменными. Для этого есть визуализация, называемая <strong>корреляционная матрица (corrplot)</strong>. По «осям» идут переменные, а на пересечении цветом отображается корреляция между переменными. Обычно холодные оттенки используются для положительных значений, а теплые — для отрицательных. Чем интенсивнее оттенок, тем больше значение корреляции. В данном случае на графике отображены корреляции между пунктами отдельной шкалы опросника.</p>
