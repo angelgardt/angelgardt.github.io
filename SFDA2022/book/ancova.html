@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Общие линейные модели. Однофакторный дисперсионный анализ | Статистика для анализа данных</title>
+  <title>16 Ковариационный анализ | Статистика для анализа данных</title>
   <meta name="description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Общие линейные модели. Однофакторный дисперсионный анализ | Статистика для анализа данных" />
+  <meta property="og:title" content="16 Ковариационный анализ | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Общие линейные модели. Однофакторный дисперсионный анализ | Статистика для анализа данных" />
+  <meta name="twitter:title" content="16 Ковариационный анализ | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="correlations.html"/>
-<link rel="next" href="twoway-anova.html"/>
+<link rel="prev" href="multiple_linear.html"/>
+<link rel="next" href="binomial_regression.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,247 +349,157 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="oneway-anova" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">11</span> Общие линейные модели. Однофакторный дисперсионный анализ<a href="oneway-anova.html#oneway-anova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Со связями между категориальными переменными мы познакомились. Со связями между количественными мы тоже — хотя и не до конца — но познакомились. А что делать, если у нас одна количественная переменная, а другая категориальная?</p>
-<div id="experiment" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Э-э-эксперимент<a href="oneway-anova.html#experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Допустим мы изучаем что-то про эмоции. Нам интересно сравнить скорость распознавания нейтральных и эмоционально окрашенных слов. Мы решили предложить испытуемому задачу лексического решения — предъявляем ему слова и не-слова, а испытуемому необходимо ответить, является ли представленный набор символов словом. Пусть ответ даётся нажатием на клавиши «←», если набор символов является словом, и «→», если таковым не является.</p>
-<p>Сколько нам нужно экспериментальных условий? Кажется, что три — нейтральные стимулы, стимулы с положительной валентностью, стимулы с отрицательной валентностью. И пусть у нас три группы испытуемых — каждая группа проходит одно экспериментальное условие. Не-слова будем считать филлерами и не будем анализировать пробы с ними.</p>
-<p>Итого,</p>
-<ul>
-<li>ЗП — время реакции</li>
-<li>НП — тип стимула (валентность): три уровня — нейтральные, негативные, позитивные.</li>
-</ul>
-<p>Ну, вот быстренько в 2,5 словах описали дизаин. Предположим, что мы все это безобразие корректно провели и собрали некоторые данные. Посмотрим, что в них будет происходить.</p>
-</div>
-<div id="var_struct" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> Структура изменчивости данных<a href="oneway-anova.html#var_struct" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Мы говорили, что основные характеристики статистических данных — неопределённость и вариативность. И эта вариативность (изменчивость) имеет определенную структуру.</p>
-<p>Мы также говорили, что основная мера вариативности — это дисперсия. Это верно, однако сейчас чуть замедлимся, и сначала поговорим о <strong>суммах квадратов</strong>. Ну, то же самое, что дисперсия, только на степени пока не делим.</p>
-<p>Итак, наши данные выглядят как-то так:</p>
-<center>
-<img src="pics/anova1.jpg">
-</center>
-<p>По оси <span class="math inline">\(x\)</span> наша независимая экспериментальная переменная — категориальная, как можно наблюдать. Видно, что у нас три экспериментальные группы. По оси <span class="math inline">\(y\)</span> наша зависимая экспериментальная переменная — количественная, как можно наблюдать. Видно, что в каждой группе наблюдений есть какой-то разброс.</p>
-<p>Прежде всего, есть <strong>общая изменчивость</strong>, или <strong>общая сумма квадратов (total sum of squares, TSS)</strong> которая складывается из [сумм квадратов] отклонений от общего среднего:</p>
-<p><span class="math display">\[
-\text{TSS} = \sum_{i=1}^n (\bar y - y_i)^2, \, \text{df}_\text{t} = n - 1
-\]</span></p>
-<center>
-<img src="pics/anova2.jpg">
-</center>
-<p>Есть <strong>факторная (объясненная) изменчивость (explained sum of squares, ESS)</strong> — это отклонения внутригрупповых средних от общего среднего:</p>
-<p><span class="math display">\[
-\text{ESS} = \sum_{j=1}^p (\bar y - \bar y_j)^2, \, \text{df}_\text{e} = p - 1
-\]</span></p>
-<center>
-<img src="pics/anova3.jpg">
-</center>
-<p><em>Факторная она, потому что то, что мы называем в эксперименте независимой переменной, в дисперсионном анализе называется фактором.</em> Объясненная, потому что она объясняется действием фактора (независимой переменной).</p>
-<p>И есть какая-то изменчивость, которая остается необъясненной — <strong>случайная (остаточная) изменчивость (residual sum of squares, RSS)</strong>:</p>
-<p><span class="math display">\[
-\text{RSS} = \sum_{j=1}^p \sum_{i=1}^n (\bar y_j - \bar y_{ij})^2, \, \text{df}_\text{r} = n - p -1
-\]</span></p>
-<center>
-<img src="pics/anova4.jpg">
-</center>
-<p>Очевидно, что</p>
-<p><span class="math display">\[
-\text{TSS} = \text{ESS} + \text{RSS}
-\]</span></p>
-<div class="advanced">
-<details>
-<summary>
-<em>Не совсем очевидно</em>
-</summary>
-Это правда, но нам пока не хватает некоторого сакрального знания, чтобы разобраться во всех деталях полностью. Чуть позже к этом вернемся.
-</details>
-</div>
-</div>
-<div id="why_anova" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Зачем нужен дисперсионный анализ?<a href="oneway-anova.html#why_anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>А че мы выяснить-то хотим, собсна? Вернемся к задумке эксперимента — мы хотим узнать, связана<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> скорость опознания слова с его эмоциональной окраской. Как эта связь будет выглядеть в данных?</p>
-<p>Если связь существует, то это будет выглядеть как-то так:</p>
-<center>
-<img src="pics/anova5.jpg">
-</center>
-<p>Обратите внимание, что основной вклад в вариативность данных вносит факторная изменчивость — средние по группам сильно отстают от общего среднего, в то время как наблюдения от своих групповых средних лежат в целом достаточно близко.</p>
-<p>Если связи нет, то это будет выглядеть как-то так:</p>
-<center>
-<img src="pics/anova6.jpg">
-</center>
-<p>Обратите внимание, что вклад факторной изменчивости в вариативность данных крайне мал — средние по группам очень близки к общему среднего, в то время как отклонения наблюдений от своих групповых средних составляют бо́льшую часть вариативности данных.</p>
-<p>То есть, для того, чтобы сделать вывод о том, есть ли связь между фактором и зависимой переменной, нам нужно сопоставить факторную изменчивость и остаточную изменчивость.</p>
-<p>Теперь у нас есть все, чтобы поговорить о тестирования статистической значимости фактора. Именно этим и занимается <strong>дисперсионный анализ (analysis of variance, ANOVA).</strong></p>
-</div>
-<div id="f_test" class="section level2 hasAnchor" number="11.4">
-<h2><span class="header-section-number">11.4</span> Тестирование значимости фактора<a href="oneway-anova.html#f_test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Поскольку у нас может быть разное количество наблюдений в группах и различное количество групп, лучше сравнивать не саму изменчивость — суммы квадратов — а среднюю изменчивость — <em>средние квадраты</em>. Они вычисляются так:</p>
-<p><span class="math display">\[
-\text{MS}_\text{t} = \frac{\text{TSS}}{\text{df}_\text{t}} \\
-\text{MS}_\text{e} = \frac{\text{ESS}}{\text{df}_\text{e}} \\
-\text{MS}_\text{r} = \frac{\text{RSS}}{\text{df}_\text{r}}
-\]</span></p>
-<p>Ну, первое все узнали — это literally дисперсия, второе и третье тоже на неё похожи, но их принято называть средними квадратами. Ну, ок.</p>
-<p><span class="math inline">\(\text{MS}_\text{e}\)</span> и <span class="math inline">\(\text{MS}_\text{r}\)</span> помогают протестировать значимость фактора.</p>
-<ul>
-<li>Если зависимость между фактором и целевой переменной есть, то <span class="math inline">\(\text{MS}_\text{e} &gt; \text{MS}_\text{r}\)</span>.</li>
-<li>Если искомой зависимости нет, то <span class="math inline">\(\text{MS}_\text{e} \approx \text{MS}_\text{r}\)</span> или даже <span class="math inline">\(\text{MS}_\text{e} &lt; \text{MS}_\text{r}\)</span>.</li>
-</ul>
-<p>В терминах статистических гипотез это будет выглядеть так:</p>
-<p><span class="math display">\[
-H_0: \mu_1 = \mu_2 = \dots = \mu_p \\
-H_1: \exists i, j : \mu_i \neq \mu_j
-\]</span></p>
-<p>Для тестирования этой гипотезы придумали вот такую статистику:</p>
-<p><span class="math display">\[
-F = \frac{\text{MS}_\text{e}}{\text{MS}_\text{r}} \overset{H_0}{\sim} F(\text{df}_\text{e},\text{df}_\text{r})
-\]</span></p>
-<div id="распределение-фишера" class="section level3 hasAnchor" number="11.4.1">
-<h3><span class="header-section-number">11.4.1</span> Распределение Фишера<a href="oneway-anova.html#распределение-фишера" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Значение F-статистики подчинается <em>F-распределению (распределению Фишера)</em>. Его форма зависит от двух значений степеней свободы — <span class="math inline">\(\text{df}_\text{e},\text{df}_\text{r}\)</span>.</p>
-<p><img src="SFDA_files/figure-html/fisher_pic-1.png" width="672" /></p>
-<p>Как можно заметить, форма достаточно сильно меняется при увелчении первого числа степеней свободы, и не очень сильно, но все же меняется, с увеличением второго числа степеней свободы.</p>
-<p>Не трудно предположить, что для значения F-статистики будет вычисляться <em>p-value</em>, на основании которого будет осуществляться статистический вывод:</p>
-<ul>
-<li>Если <em>p-value</em> <span class="math inline">\(&lt; \alpha\)</span>, то мы получаем значение F-статистики, не характерное для случая, когда нулевая гипотеза верна, что даёт нам основания отклонить нулевую гипотезу об отсутствии различий между группами и принять альтернативную, о том, что хотя бы между двумя какими-либо группами есть различия.</li>
-<li>Если <em>p-value</em> <span class="math inline">\(&gt; \alpha\)</span>, то мы получаем значение F-статистики, характерное для случая, когда нулевая гипотеза верна, что не даёт нам оснований отклонить нулевую гипотезу об отсутствии различий между группами.</li>
-</ul>
-</div>
-<div id="anova_results" class="section level3 hasAnchor" number="11.4.2">
-<h3><span class="header-section-number">11.4.2</span> Представление результатов дисперсионного анализа<a href="oneway-anova.html#anova_results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Результаты дисперсионного анализа обычно представляются в виде таблицы:</p>
-<table>
-<colgroup>
-<col width="17%" />
-<col width="10%" />
-<col width="16%" />
-<col width="16%" />
-<col width="32%" />
-<col width="8%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Источник изменчивости</th>
-<th align="center">SS</th>
-<th align="center">df</th>
-<th align="center">MS</th>
-<th align="center"><span class="math inline">\(F\)</span></th>
-<th align="center"><span class="math inline">\(p\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">Фактор (объяснённая)</td>
-<td align="center"><span class="math inline">\(\text{ESS}\)</span></td>
-<td align="center"><span class="math inline">\(\text{df}_\text{e}\)</span></td>
-<td align="center"><span class="math inline">\(\text{MS}_\text{e}\)</span></td>
-<td align="center"><span class="math inline">\(F(\text{df}_\text{e},\text{df}_\text{r})\)</span></td>
-<td align="center"><em>p-value</em></td>
-</tr>
-<tr class="even">
-<td align="center">Случайная (остаточная)</td>
-<td align="center"><span class="math inline">\(\text{RSS}\)</span></td>
-<td align="center"><span class="math inline">\(\text{df}_\text{r}\)</span></td>
-<td align="center"><span class="math inline">\(\text{MS}_\text{r}\)</span></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<p>В реальной жизни оно как-то так работает:</p>
-<pre><code>## $ANOVA
-##   Effect DFn DFd        F            p p&lt;.05      ges
-## 1   name   2 177 15.63676 5.578527e-07     * 0.150156
+<div id="ancova" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">16</span> Ковариационный анализ<a href="ancova.html#ancova" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Вообще-то мы это уже сделали, просто не заметили.</p>
+</blockquote>
+<p>Начнём в этот раз с данных<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<pre><code>## # A tibble: 654 × 6
+##       ID   Age   FEV Height Sex    Smoker
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; 
+##  1   301     9  1.71   57   Female Non   
+##  2   451     8  1.72   67.5 Female Non   
+##  3   501     7  1.72   54.5 Female Non   
+##  4   642     9  1.56   53   Male   Non   
+##  5   901     9  1.90   57   Male   Non   
+##  6  1701     8  2.34   61   Female Non   
+##  7  1752     6  1.92   58   Female Non   
+##  8  1753     6  1.42   56   Female Non   
+##  9  1901     8  1.99   58.5 Female Non   
+## 10  1951     9  1.94   60   Female Non   
+## # … with 644 more rows</code></pre>
+<p>У нас есть данные об объёме форсированного выдоха (ОФВ) (forced expiratory volume, FEV)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> у курящих и некурящих детей (6–22 лет) и о поле, возрасте, росте и ID пациента.</p>
+<p><strong>Поставим задачу</strong>: мы хотим выяснить, влияет ли статус курения на объем формированного выдоха у детей. Ожидаем, что влияет. Однако мы также понимаем, что рост ребенка будет связан с объёмом его лёгких, а значит, и с нашей целевой переменной.</p>
+<p>Построим соответствующую модель. В качестве целевой переменной возьмем ОФВ (<code>FEV</code>), а в качестве предикторов статус курения (<code>Smoker</code>) и рост (<code>Height</code>), а также их взаимодействие, так как оно может быть потенциально значимо:</p>
+<pre><code>## 
+## Call:
+## lm(formula = FEV ~ Smoker * Height, data = ofv)
 ## 
-## $`Levene&#39;s Test for Homogeneity of Variance`
-##   DFn DFd      SSn      SSd        F         p p&lt;.05
-## 1   2 177 1647.479 76502.58 1.905843 0.1517362</code></pre>
-<p>Тут еще нам автоматом выдали результаты теста Levene на равномерность (гомогенность) дисперсий. Это одно из <a href="oneway-anova.html#anova_require">условий</a> применения дисперсионного анализа.</p>
-</div>
-</div>
-<div id="eta_sq" class="section level2 hasAnchor" number="11.5">
-<h2><span class="header-section-number">11.5</span> Размер эффекта в дисперсионном анализе<a href="oneway-anova.html#eta_sq" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Итак, с ошибкой первого рода мы, как обычно, быстро и легко поборолись. Теперь боремся с ошибкой второго рода. Принципиально ничего не меняется — нам нужно понять, как считается размер эффекта, и рассчитать требуемую выборку.</p>
-<p>В случае дисперсионного анализа <strong>размер эффекта — это доля объясненной фактором дисперсии от всей дисперсии данных</strong>. Обозначается эта метрика <span class="math inline">\(\eta^2\)</span>:</p>
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.74332 -0.26960 -0.00462  0.23909  2.12941 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      -7.40165    1.11228  -6.654 6.04e-11 ***
+## SmokerNon         2.03678    1.12846   1.805   0.0716 .  
+## Height            0.16191    0.01685   9.612  &lt; 2e-16 ***
+## SmokerNon:Height -0.03106    0.01713  -1.813   0.0703 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.4302 on 650 degrees of freedom
+## Multiple R-squared:  0.7549, Adjusted R-squared:  0.7538 
+## F-statistic: 667.3 on 3 and 650 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Модель статистически значима, объясняет 75% дисперсии данных. Это очень хорошо.</p>
+<p>Вообще-то с точки зрения интерпретации результатов, чем проще модель, тем лучше. Мы видим, что взаимодействие предикторов оказалось статистически незначимым. Посмотрим, влияет ли его удаление на информативность модели:</p>
+<pre><code>## Single term deletions
+## 
+## Model:
+## FEV ~ Smoker * Height
+##               Df Sum of Sq    RSS     AIC F value Pr(&gt;F)  
+## &lt;none&gt;                     120.32 -1099.2                 
+## Smoker:Height  1   0.60843 120.93 -1097.9  3.2868 0.0703 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Частный F-критерий показывает, что две модели — со взаимодействием и без него — статистически не отличаются друг от друга. Следовательно, взаимодействие можно удалить из модели.</p>
+<pre><code>## 
+## Call:
+## lm(formula = FEV ~ Smoker + Height, data = ofv)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.7505 -0.2660 -0.0041  0.2447  2.1207 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -5.421300   0.210104 -25.803   &lt;2e-16 ***
+## SmokerNon   -0.006319   0.058686  -0.108    0.914    
+## Height       0.131883   0.003081  42.808   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.431 on 651 degrees of freedom
+## Multiple R-squared:  0.7537, Adjusted R-squared:  0.7529 
+## F-statistic: 995.9 on 2 and 651 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Внимательно на неё посмотрим. И познакомимся. Ведь мы только что построили модель <strong>ковариационного анализа (analysis of covariance, ANCOVA)</strong>.</p>
+<div id="ancova_model" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Модель ковариационного анализа<a href="ancova.html#ancova_model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Модель ковариационного анализа — это модель множественной линейной регрессии, в которой <em>отсутствуют взаимодействия дискретных и непрерывных предикторов</em>. Мы можем пойти с другой стороны и сказать, что модель ковариационного анализа — это модель дисперсионного анализа, в которую <em>включён (включены) один или несколько непрерывных предикторов</em>. Непрерывный предиктор называется <strong>ковариатой</strong>.</p>
+<p><strong>Ковариата</strong> — это переменная, которая [потенциально] связана с нашей целевой переменной, но её влияние не является целью нашего анализа. Например, в случае, рассмотренном выше, рост — это переменная, которая, несомненно, связана с ОФВ (наша целевая переменная), но эта связь — не наша основная цель, так как мы исследуем влияние статуса курения.</p>
+<p>Математическая модель ровным счётом та же самая, что мы видели в случае множественной линейной регрессии:</p>
 <p><span class="math display">\[
-\eta^2 = \frac{\text{ESS}}{\text{TSS}}
+\hat y_i = b_0 + b_1 I_1 + b_2 x_2
 \]</span></p>
-<p>Значения для интерпретации размера эффекта предлагаются такие:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Значение <span class="math inline">\(\eta^2\)</span></th>
-<th align="center">Размер эффекта</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0.01</td>
-<td align="center">Малый (small)</td>
-</tr>
-<tr class="even">
-<td align="center">0.06</td>
-<td align="center">Средний (medium)</td>
-</tr>
-<tr class="odd">
-<td align="center">0.14</td>
-<td align="center">Большой (large)</td>
-</tr>
-</tbody>
-</table>
-<p>Собственно, эти значения вбиваем в специально обученное ПО — и кайфуем!</p>
+<p>Это самый простой вариант. Здесь <span class="math inline">\(I_1\)</span> — переменная-индикатор, кодирующая категориальный предиктор (принимает значения <span class="math inline">\(0\)</span> и <span class="math inline">\(1\)</span>), а <span class="math inline">\(x_2\)</span> — ковариата, или непрерывный предиктор. Как можно заметить, взаимодействие в модель не включено.</p>
 </div>
-<div id="anova_vis" class="section level2 hasAnchor" number="11.6">
-<h2><span class="header-section-number">11.6</span> Визуализация результатов дисперсионного анализа<a href="oneway-anova.html#anova_vis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Визуализация результатов в дисперсионном анализе, с одной стороны, достаточно проста. Нам нужно отобразить точечные и интервальные оценки средних в группах, то есть нарисовать errorbar. В качестве интервальной оценки обычно отображается 95% доверительный интервал.</p>
-<p>График будет выглядеть примерно так:</p>
-<p><img src="SFDA_files/figure-html/anova_errorbar-1.png" width="672" /></p>
-<p>Интерпретировать подобные картинки мы уже с вами умеем — если забыли, <a href="clt_ci.html#mean_ci_comp">напоминаю</a>.</p>
-<p>Другим вариантом визуализации для дисперсионного анализа, который очень любят за рубежом, являются боксплоты. Вот как-то так:</p>
-<p><img src="SFDA_files/figure-html/anova_boxplot-1.png" width="672" /></p>
-<p>Я искренне не понимаю, почему они их там так любят, ведь они не отображают ровно ничего, связанного с дисперсионным анализом — вспомните основные элеметы боксплота. Но их любят, их рисуют — ну, ладно. Кто мы такие, чтобы это запрещать.</p>
-<p>Конечно, этот график хорош тем, что можно сделать что-то такое — иногда это может быть полезно:</p>
-<p><img src="SFDA_files/figure-html/anova_boxplot2-1.png" width="672" /></p>
-<p>Но можно изобразить комбо! Оно называется <strong>violin plot</strong>:</p>
-<p><img src="SFDA_files/figure-html/violinplot-1.png" width="672" /></p>
-<p>С одной стороны, он нам отобразит распределения зависимой переменной по группам, с другой стороны, мы можем дополнительно отобразить средние с доверительными интервалами, как сделано на графике выше. Ну, просто невероятно!</p>
+<div id="covariate_role" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Влияние ковариаты<a href="ancova.html#covariate_role" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Зачем вообще учитывать ковариаты? Рассмотрим такую модель:</p>
+<pre><code>## 
+## Call:
+## lm(formula = FEV ~ Smoker, data = ofv)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.7751 -0.6339 -0.1021  0.4804  3.2269 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   3.2769     0.1043  31.407  &lt; 2e-16 ***
+## SmokerNon    -0.7107     0.1099  -6.464 1.99e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.8412 on 652 degrees of freedom
+## Multiple R-squared:  0.06023,    Adjusted R-squared:  0.05879 
+## F-statistic: 41.79 on 1 and 652 DF,  p-value: 1.993e-10</code></pre>
+<p>Видим, что предиктор <code>Smoker</code> (статус курения) оказывается статистически значимым. Если мы на этом завершим наш анализ, то мы сделаем <strong>некорректный вывод</strong>: <em>статус курения детей значимо влияет на ОФВ, при этом у группы некурящих ОФВ на 0.7 л меньше</em>. Здесь нас наталкивает на мысль об ошибке направление влияния нашего предиктора — согласно здравому смыслу, а также биологии и медицине, ОФВ должен быть ниже у курящей группы. Но мы можем получить результаты, адекватные текущей реальности и ничего не заподозрить.</p>
+<p>Проблема здесь кроется в том, что, как мы уже сказали, ОФВ связан не только со статусом курения. Ковариата, как и любой предиктор, будет объяснять часть дисперсии данных, поэтому значимость других предикторов модели при её введении может изменяться.</p>
+<p>Взглянем ещё раз на модель ANCOVA:</p>
+<pre><code>## 
+## Call:
+## lm(formula = FEV ~ Smoker + Height, data = ofv)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.7505 -0.2660 -0.0041  0.2447  2.1207 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -5.421300   0.210104 -25.803   &lt;2e-16 ***
+## SmokerNon   -0.006319   0.058686  -0.108    0.914    
+## Height       0.131883   0.003081  42.808   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.431 on 651 degrees of freedom
+## Multiple R-squared:  0.7537, Adjusted R-squared:  0.7529 
+## F-statistic: 995.9 on 2 and 651 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Ковариата значима, а вот наш основной предиктор свою значимость утратил — причем практически абсолютно (<em>p</em> = 0.9). Что мы можем сказать, увидев такие результаты? Мы можем заключить, что разница в ОФВ между группами курящих и некурящих, которую мы видели в предыдущей модели, объясняется не статусом курения, а возрастом респондентов, вошедших в эту группу. Теперь и вывод о направлении связи не кажется таким безумным — в группу курящих, вероятно, просто в среднем старше, а соответственно, и объем легких — и ОФВ — у них больше.</p>
+<p>Таким образом, введя ковариату в анализ, мы обнаружили, что связи между статусом курения и одним из объективных показателей здоровья дыхательной системы нет. Как это интерпретировать? Ну, это зависит. Одним из возможных вариантов может быть как раз таки возраст респондентов — «запас прочности» организма ещё не исчерпан.</p>
+<p>Самое главное про ковариационный анализ:</p>
+<blockquote>
+<p><strong>Ковариационный анализ можно проводить только в том случае, если отсутствует значимое взаиможействие между факторами и ковариатами!</strong></p>
+</blockquote>
+<p>Если взаимодействие значимо, мы не можем исключить его из модели — придется интерпретировать результаты со взаимодействием.</p>
 </div>
-<div id="anova_require" class="section level2 hasAnchor" number="11.7">
-<h2><span class="header-section-number">11.7</span> Условия применения дисперсионного анализа<a href="oneway-anova.html#anova_require" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Как вы уже могли догадаться, дисперсионный анализ относиться к группе параметрических статистических методов, поэтому выдвигается ряд требований к данным, на которых проводится такой анализ.</p>
-<ul>
-<li>Количественная непрерывная зависимая переменная</li>
-<li>Независимые между собой выборки
-<ul>
-<li>А если зависимые, то надо это учесть в модели ановы</li>
-</ul></li>
-<li>Нормальное распределение признака в генеральных совокупностях, из которых извлечены выборки</li>
-<li>Равенство (гомогенность) дисперсий изучаемого признака в генеральных совокупностях из которых извлечены выборки
-<ul>
-<li>Проверяется с помощью теста Левина</li>
-</ul></li>
-<li>Независимые наблюдения в каждой из выборок</li>
-</ul>
-<div id="homogenity" class="section level3 hasAnchor" number="11.7.1">
-<h3><span class="header-section-number">11.7.1</span> Гомогенность дисперсий<a href="oneway-anova.html#homogenity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Гомогенность дисперсии — важно допущение. Поясним за него.</p>
-<p>Как уже отмечено выше, модель дисперсионного анализа предполагает, что в генеральный совокупностях, из которых мы извлекли наши выборки, дисперсии изучаемого признака равны. Однако в силу неопределенности и вариативности это может быть и не так, поэтому нужно протестировать гипотезу о равенстве дисперсий в группах. Алгоритм статистического вывода нам изместен, а в детали этого попутного теста мы, пожалуй, погружаться не будем. Гипотеза о равенстве дисперсия проверяется с помощью теста Левина (Левена / Левиня / и др., Leven’s test, см. <a href="oneway-anova.html#anova_results">выше</a>.</p>
-<p>Соответственно, мы хотим, чтобы его результаты <em>не были статистически значимы</em>, так как в этом случае мы не можем отклонить гипотезу о том, что дисперсии гомогенны. Если же результаты теста статистически значимы, то использование дисперсионного анализа не то чтобы хорошо на имеющихся данных.</p>
-</div>
-</div>
-<div id="anova_effects" class="section level2 hasAnchor" number="11.8">
-<h2><span class="header-section-number">11.8</span> Виды эффектов в дисперсионном анализе<a href="oneway-anova.html#anova_effects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Тот вид дисперсионного анализа, который мы рассмотрели — это такой стандартный базовый дисперсионный анализ. Однако давайте пристально посмотрим на один момент: <em>«пусть у нас три группы испытуемых — каждая группа проходит одно экспериментальное условие»</em>. То есть каждой из экспериментальных групп у нас уникальные испытуемые. Такой эффект фактора в дисперсионном анализе называется <strong>between-subject effect</strong>, а в терминах эксперименталки это будут <strong>независимые выборки</strong>.</p>
-<p>Но в жизни, как мы знаем, такой экспериментальный дизайн вряд ли адекватен. Скорее, мы бы сделали так, что один испытуемый проходит все три условия — и нейтральное, и негативной, и позитивное. Да еще и в случайном порядке. У нас получится, что от каждого испытуемого мы получаем три измерения — с нейтрального, негативного и позитивного условия. Такой эффект фактора в дисперсионном анализе называется <strong>within-subject effect</strong>, сама ANOVA будет <strong>дисперсионным анализом с повторными измерениями</strong>, а выборки наблюдений буду <strong>зависимыми</strong>.</p>
+<div id="ancova_tests" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> Тестирование значимости предикторов и диагностика модели<a href="ancova.html#ancova_tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Так как ANCOVA — это всё ещё линейная регрессия, то и всё, что можно делать с регрессией, можно делать и с ней. Тестирование значимости предикторов происходит точно так же, как и в предыдущих главах. Диагностика модели также аналогична.</p>
+<hr />
+<blockquote>
+<p>Как видите, несмотря на то, что мы уже освоили достаточно много методов анализа данных, все они базируются на одной и той же модели — модели линейной регрессии — которая время от времени несколько модифицируется под те или иные типы данных. Спойлер, далее тоже ничего не измениться — мы будем в рамках всё той же линейной регрессии, только ход адаптации модели будет несколько более сложным. Но если сейчас вы чувствуете себя достаточно уверенно с регрессией, то дальше всё пойдёт ровно.</p>
+</blockquote>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Вообще-то так как у нас эксперимент, мы можем здесь говорить и о влиянии, которое мы контролируем с помощью экспериментального дизайна. Но будем осторожны и продолжим говорить о связи.<a href="oneway-anova.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Описание данных из источника: «FEV (forced expiratory volume) is an index of pulmonary function that measures the volume of air expelled after one second of constant effort. The data contains determinations of FEV on 654 children ages 6-22 who were seen in the Childhood Respiratory Desease Study in 1980 in East Boston, Massachusetts. The data are part of a larger study to follow the change in pulmonary function over time in children.»<a href="ancova.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Объём воздуха, выдыхаемого за первую секунду манёвра форсированного выдоха. Используется для расчёта индекса наличия/отсутствия ухудшения проходимости дыхательных путей.<a href="ancova.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -597,8 +507,8 @@ F = \frac{\text{MS}_\text{e}}{\text{MS}_\text{r}} \overset{H_0}{\sim} F(\text{df
           </div>
         </div>
       </div>
-<a href="correlations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="twoway-anova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multiple_linear.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="binomial_regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Стандартизация | Статистика для анализа данных</title>
+  <title>17 Обобщенные линейные модели. Логистическая регрессия | Статистика для анализа данных</title>
   <meta name="description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Стандартизация | Статистика для анализа данных" />
+  <meta property="og:title" content="17 Обобщенные линейные модели. Логистическая регрессия | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Стандартизация | Статистика для анализа данных" />
+  <meta name="twitter:title" content="17 Обобщенные линейные модели. Логистическая регрессия | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="normal_distribution.html"/>
-<link rel="next" href="clt_ci.html"/>
+<link rel="prev" href="ancova.html"/>
+<link rel="next" href="вырубаем-тэхно-врубаем-дип-хаус.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -233,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Статистика вывода и статметоды</b></span></li>
-<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотез</a>
+<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотех</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="nhst.html"><a href="nhst.html#базовые-понятия"><i class="fa fa-check"></i><b>8.1</b> Базовые понятия</a></li>
 <li class="chapter" data-level="8.2" data-path="nhst.html"><a href="nhst.html#errors"><i class="fa fa-check"></i><b>8.2</b> Возможные результаты проверки гипотез</a></li>
@@ -413,73 +413,462 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="standardization" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Стандартизация<a href="standardization.html#standardization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<blockquote>
-<p>Полезная вещь.</p>
-</blockquote>
-<div id="стандартное-нормальное-распределение" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Стандартное нормальное распределение<a href="standardization.html#стандартное-нормальное-распределение" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Есть одно нормальное распределение, которые выделяется среди остальных — это нормальное распределение со средним <span class="math inline">\(0\)</span> и дисперсией (стандартным отклонение) <span class="math inline">\(1\)</span>. Оно называется <span class="math inline">\(z\)</span>-распределение, а значения на шкале такого распределния называются <span class="math inline">\(z\)</span>-значениями.</p>
-<p><span class="math display">\[
-z \sim \mathcal{N}(0,\, 1)
-\]</span></p>
-<p>Выглядит оно так:</p>
-<p><img src="SFDA_files/figure-html/st_norm_dist-1.png" width="672" /></p>
-<p>Разумеется, так как стандартное нормальное распределение является частным случаем нормального распредления, оно сохраняет все его свойства.</p>
+<div id="binomial_regression" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">17</span> Обобщенные линейные модели. Логистическая регрессия<a href="binomial_regression.html#binomial_regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lm_restrictions" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Ограничения общих линейных моделей<a href="binomial_regression.html#lm_restrictions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Модели, которые мы изучали на предыдущих занятиях носят название <strong>общих линейных моделей (general linear models)</strong>. Они достаточно просты и удобны в большинстве случаев, однако имеют ряд важных ограничений.</p>
+<p>Вспомним, как выглядит уравнение такой модели:</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1 x_1 + \dots + \beta_p x_p + \varepsilon\]</span></p>
+<p>Предикторы в такой модели могут быть как дискретными, так и непрерывными.</p>
+<p>Важнейшим допущением и требованием этой модели является распределение ошибки:</p>
+<p><span class="math display">\[\varepsilon \thicksim \mathcal{N}(0, \, \sigma)\]</span></p>
+<p>Поскольку ошибка модели должна быть распределена нормально, а моделируется среднее значение, то можно сформулировать более общее допущение / требование:</p>
+<p><span class="math display">\[y_i \thicksim \mathcal{N}(\mu_i, \, \sigma)\]</span></p>
+<p>Таким образом, общие линейные модели позволяют моделировать зависимости только для нормальнораспределенных величин. Если же наша целевая переменная подчиняется другому распределению, эти модели не годятся.</p>
+<p>Однако нам на помощь приходят <strong>обобщенные линейные модели (generalized linear models)</strong>, которые позволяют моделировать зависимости величин, подчиняющихся не только нормальному распределению, но и многим другим.</p>
+<p>Мы познакомимся с общей логикой построения GLM, подробно рассмотрев один из вариантов таких моделей, а именно <strong>биномиальную регрессию</strong>.</p>
 </div>
-<div id="стандартизация" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Стандартизация<a href="standardization.html#стандартизация" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Часто возникает следующая задача: нам нужно сравнить, например, баллы по двум шкалам опросника, при этом размах баллов на шкале различный. Более того, сами распределения баллов по этим шкалам могут быть также различны.</p>
-<p>Рассмотрим пример. Есть опросник «Trust in Artificial Intelligent Agents», который состоит из шести шкал — predictability, consistency, utility, faith, dependability и understanding. Возьмем две шкалы: predictability и understanding. Посмотрим, сколько вопросов вошло в каждую из шкал:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="standardization.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(pr_items)</span></code></pre></div>
-<pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="standardization.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(un_items)</span></code></pre></div>
-<pre><code>## [1] 12</code></pre>
-<p>Видим, что в шкале predictability 10 вопросов, а в шкале understanding 12. Понятно, что размах двух величин разный — сравнивать просто сырые баллы респондентов по двум шкалам друг с другом уже не выглядит осмысленно.</p>
-<p>Посмотрим на распределения:</p>
-<p><img src="SFDA_files/figure-html/scales_raw-1.png" width="672" /></p>
-<p>Видим, что разброс переменных разный, средние тоже разные — короче, все разное. Однако сравнивать каким-то образом хоцца. Для этого придумали <strong>стандартизацию</strong>.</p>
-<p>Стандартизация — это такое преобразование исходной переменной, после которого среднее по переменной становится равно <span class="math inline">\(0\)</span>, а стандартное отклонение — <span class="math inline">\(1\)</span>. Таким образом, величина приводится к <span class="math inline">\(z\)</span>-значениям.</p>
-<p>Выполняется оно следующим образом:</p>
-<p><span class="math display">\[
-z = \frac{x - \bar x}{s},
-\]</span></p>
-<p>где <span class="math inline">\(x\)</span> — значение исходной случайное величины, <span class="math inline">\(\bar x\)</span> — выборочное среднее, <span class="math inline">\(s\)</span> — выборочное стандартное отклонение.</p>
-<p>Стандартизация состоит из двух операций:</p>
-<ul>
-<li><em>центрирование</em> — то, что происходит в числителе,</li>
-<li><em>нормирование</em> — то, что происходит в знаменателе.</li>
-</ul>
-<p>Посмотрим на две операции отдельно на примере стандартизации какого-то нормального распределения.</p>
-<p><img src="SFDA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>На рисунке черной линией представлено исходное нормальное распределение <span class="math inline">\(\mathcal{N}(-0.5, 0.25)\)</span>. Если его центрировать, то оно подвинется вправо — <span class="math inline">\(x - \bar x\)</span> — и получится синее распределение <span class="math inline">\(\mathcal{N}(0, 0.25)\)</span>. Если нормировать исходное распределение, то оно станет несколько шире — <span class="math inline">\(\dfrac{x}{s}\)</span> — как зеленое <span class="math inline">\(\mathcal{N}(-0.5, 1)\)</span>. А если осуществить обе операции вместе — <span class="math inline">\(\dfrac{x - \bar x}{s}\)</span> — это и будет стандартизация, и распределение совпадет с красным (стандартным нормальным распределением).</p>
-<p><strong>Важный момент:</strong> <em>если распределение изначально было асимметричное, или бимодальное, или какое-либо еще «ненормальное», стандартизация не изменит его форму.</em></p>
-<p>Например, вот.</p>
-<p><img src="SFDA_files/figure-html/skew_standard-1.png" width="672" /></p>
-<p>Гистрограмма, конечно, изменилась существенно, но она имеет на это право, так как достаточно сильно чувствительна ко всяким случайным флуктуациям. А вот на графике плотности хорошо видно, что хотя распределение стало чуть шире и сдвинулось влево, форма распределения осталась прежней — есть два пика, есть хвостик справа.</p>
-<p>А что же со шкалами опросника? Давайте стандартизируем:</p>
-<p><img src="SFDA_files/figure-html/scales_st-1.png" width="672" /></p>
-<p>Первое, что бросается в глаза — форма распределения, ну, прямо идентична [между стандартизированными и нестандартизированными величинами]. Шкалы исходных величин были различны [левые графики], шкалы стандартизированных величин — одинаковые [правые графики]. Обратите внимание на ось <span class="math inline">\(x\)</span>.</p>
+<div id="binary_vars" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Бинарные переменные<a href="binomial_regression.html#binary_vars" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Эти переменные достаточно широко распространены как повседневности, так и в науке. Блюдо вкусное или невкусное, команда выиграла или проиграла, пациент в результате медицинских манипуляций выжил или умер, в ходе эксперимента была выбрана какая-то опция или нет, сдал студент экзамен или не сдал — и т.д.</p>
+<p>Эти события могут быть связаны с раздичными предикторами, и такую взаимосвязь можно описать с помощью регрессионных моделей.</p>
 </div>
-<div id="интерпретация-z-значений" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Интерпретация z-значений<a href="standardization.html#интерпретация-z-значений" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Ну, хорошо, стандартизацию мы сделали — это не то чтобы очень сложно. Но как с этими числами дальше работать?</p>
-<p>Здесь надо понять всего одну вещь: <strong>единица z-шкалы — это стандартное отклонение исходной переменной.</strong></p>
-<p>Конечно, z-шкала безразмерная, то есть не имеет единиц измерения (метры, секунды, года и др.). Однако единица — в смысле <span class="math inline">\(1\)</span> — на этой шкале небессмысленна. Это <em>мера типичности</em>.</p>
-<p>Посмотрим еще раз на картинку:</p>
-<p><img src="SFDA_files/figure-html/st_norm_dist_2-1.png" width="672" /></p>
-<p>Обратим внимание вот на что: <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> и <span class="math inline">\(-1\)</span>, <span class="math inline">\(-2\)</span>, <span class="math inline">\(-3\)</span> находятся в тех самых точках, где у нас в другом нормальной распределении стандартные отклонения (<span class="math inline">\(\sigma\)</span>, <span class="math inline">\(2\sigma\)</span>, <span class="math inline">\(3\sigma\)</span>). А мы помним вот что:</p>
+<div id="managers_data" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Данные<a href="binomial_regression.html#managers_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Снова начнем с данных — на этот раз про менеджеров. Это часть данных большого датасета, собранного в рамках одного из HR-исследований.</p>
+<pre><code>## # A tibble: 6 × 10
+##   id       lvl   quali…¹ auton…² subdi…³ compa…⁴ direc…⁵ func_…⁶ incom…⁷ error…⁸
+##   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 таб_154… Сотр…       5       2       1       1       1       1       1       1
+## 2 таб_139… Сотр…       4       2       1       1       1       1       1       2
+## 3 таб_407… Сотр…       2       2       1       1       1       1       1       1
+## 4 таб_417… Сотр…       4       3       1       1       1       1       1       1
+## 5 таб_633… Мене…       5       3       2       3       2       1       3       5
+## 6 таб_162… Сотр…       2       2       1       1       1       1       2       2
+## # … with abbreviated variable names ¹​qualification, ²​autonomy,
+## #   ³​subdiv_regulations, ⁴​company_regulations, ⁵​direct_juniors, ⁶​func_juniors,
+## #   ⁷​income_influence, ⁸​error_cost</code></pre>
+<p>У нас есть следуюшие переменные:</p>
 <ul>
-<li><span class="math inline">\(\mathrm{P} \big( X \in (\mu - \sigma, \, \mu + \sigma) \big) = 68.2\%\)</span></li>
-<li><span class="math inline">\(\mathrm{P} \big( X \in (\mu - 2\sigma, \, \mu + 2\sigma) \big) = 95.6\%\)</span></li>
-<li><span class="math inline">\(\mathrm{P} \big( X \in (\mu - 3\sigma, \, \mu + 3\sigma) \big) = 99.8\%\)</span></li>
+<li><code>id</code> — табельный номер сотрудника</li>
+<li><code>lvl</code> — уровень (<code>Сотрудник</code> или <code>Менеджер</code>)</li>
+<li><code>qualification</code> — профессиональная квалификация</li>
+<li><code>autonomy</code> — автономия в принятии решений</li>
+<li><code>subdiv_regulations</code> — участие в формировании регламентов подразделения</li>
+<li><code>company_regulations</code> — участие в формировании регламентов Компании</li>
+<li><code>direct_juniors</code> — количество прямых подчинённых</li>
+<li><code>func_juniors</code> — количество функциональных подчинённых</li>
+<li><code>income_influence</code> — влияние на доход Компании</li>
+<li><code>error_cost</code> — стоимость ошибки</li>
 </ul>
-<p>То есть z-значения в интервале <span class="math inline">\((-1, \, 1)\)</span> — очень типичные, в интервалах <span class="math inline">\((-2, \, -1)\)</span> и <span class="math inline">\((1, \, 2)\)</span> — тоже достаточно типичные, в интервалах <span class="math inline">\((-3, \, -2)\)</span> и <span class="math inline">\((2, \, 3)\)</span> — менее типичные, но еще «нормальные», меньше <span class="math inline">\(-3\)</span> и больше <span class="math inline">\(3\)</span> — очень нетипичные. Это и есть <em>мера типичности</em>.</p>
-<p>Таким образом, с помощью z-значений мы можем понять, где находится наш испытуемый / респондент на нашем распределении.</p>
-<p>Можно ли это понять без перевода значений в z-шкалу? Можно. Но неудобно. Надо держать в голове среднее, стандартное отклонение конкретного распределения, а если сравниваем респондентов по нескольким шкалам, то по две характеристики для каждой шкалы — в общем, много инфы. Трудно. А по z-значениям все сразу понятно.</p>
-<p>Есть еще одно применение z-значений. От них можно перейти к значениям <em>любой стандартной шкалы</em>. Стандартных шкал существует много — Sten, Stanine, T-score, IQ-score… С ними вы познакомитесь в курсе психометрики. Они очень удобны для представления результатов тестов конечным пользователям. Однако для того, чтобы перейти к этим шкалам, сначала необходимо будет все равно перейти к z-значениям.</p>
+</div>
+<div id="binom_problem" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> Задача построения линейной модели<a href="binomial_regression.html#binom_problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>В наших данных есть бинарная переменная <code>lvl</code> — она содержит две градации: <code>Сотрудник</code> и <code>Менеджер</code>. Вопрос, на который нам необходимо ответить: по каким параметрам различаются менеджеры и сотрудники?</p>
+<pre><code>## 
+##  Менеджер Сотрудник 
+##       810      2400</code></pre>
+<p>Прежде всего надо вспомнить, что мы работаем с математической моделью, которой необходимы числа, поэтому придётся перекодировать нашу целевую переменную. Пусть <code>1</code> обозначает менеджеров, а <code>0</code> — сотрудников.</p>
+<p>Теперь мы можем построить модель, описывающую связь <code>lvl</code> с имеющимися предикторами.</p>
+<p>Попробуем обычную линейную регрессию.</p>
+<pre><code>## 
+## Call:
+## lm(formula = lvl ~ ., data = managers)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.47532 -0.07671 -0.04250  0.06891  1.02042 
+## 
+## Coefficients:
+##                      Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -0.869056   0.015520 -55.994  &lt; 2e-16 ***
+## qualification        0.048487   0.004420  10.969  &lt; 2e-16 ***
+## autonomy             0.016780   0.008309   2.019 0.043527 *  
+## subdiv_regulations   0.281009   0.014017  20.048  &lt; 2e-16 ***
+## company_regulations -0.068712   0.011403  -6.026 1.88e-09 ***
+## direct_juniors       0.369140   0.012549  29.416  &lt; 2e-16 ***
+## func_juniors         0.107304   0.008069  13.298  &lt; 2e-16 ***
+## income_influence     0.072478   0.007434   9.749  &lt; 2e-16 ***
+## error_cost          -0.026336   0.007985  -3.298 0.000984 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2235 on 3201 degrees of freedom
+## Multiple R-squared:  0.7361, Adjusted R-squared:  0.7354 
+## F-statistic:  1116 on 8 and 3201 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Модель построилась, всё суперклассно.</p>
+<p>Попробуем визуализировать, что получилось.</p>
+<p><img src="SFDA_files/figure-html/lmbad-1.png" width="672" /></p>
+<p>Но получается что-то странное…</p>
+<p>Во-первых, непонятно, какая величина отложена на оси <span class="math inline">\(y\)</span>. Во-вторых, предсказания модели выходят за границы допустимых значений (модель предсказывает отрицательные и большие единицы значения). Поэтому простая линейная модель нам не подходит. Надо искать что-то еще.</p>
+</div>
+<div id="glm_magic" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Переход от дискретной величины к непрерывной<a href="binomial_regression.html#glm_magic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="logistic_curve" class="section level3 hasAnchor" number="17.5.1">
+<h3><span class="header-section-number">17.5.1</span> Логистическая кривая<a href="binomial_regression.html#logistic_curve" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Собственно бинарные переменные неудобны для работы, поэтому надо найти способ превратить такую дискретную бинарную шкалу в «безграничную» и непрерывную. При моделировании нулей и единиц переходят к моделированию <strong>вероятности получения единиц</strong>.</p>
+<p>Сама зависимая переменная в зависимости от предиктора распределена примерно так:</p>
+<center>
+<img src="pics/predictor_binomial.jpeg">
+</center>
+<p>Введем новые обозначения:</p>
+<ul>
+<li><span class="math inline">\(p_i\)</span> — вероятность события <span class="math inline">\(y_i = 1\)</span> при данных значениях предиктора,</li>
+<li><span class="math inline">\(1 - p_i\)</span> — вероятность альтернативного события <span class="math inline">\(y_i = 0\)</span>.</li>
+</ul>
+<p>Получается непрерывная величина <span class="math inline">\(0 \leq p_i \leq 1\)</span>.</p>
+<center>
+<img src="pics/prob_with_lm.jpeg">
+</center>
+<p>И вроде бы как ее можно уже моделировать. Но нужно помнить, что вероятность изменяется в пределах от нуля до единицы, а прямая ничем не ограничена. Поэтому прямая — не лучший вариант.</p>
+<p>Такая закономерность моделируется логистической кривой.</p>
+<center>
+<img src="pics/logistic_curve_1.jpeg">
+</center>
+<p><img src="SFDA_files/figure-html/logistic_curve-1.png" width="672" /></p>
+<p>Она лежит как раз в пределах от 0 до 1. Наша логистическая кривая задается уравнением</p>
+<p><span class="math display">\[
+p_i = \frac{e^{\beta_0 + \beta_1 x_i}}{1 + e^{\beta_0 + \beta_1 x_i}}
+\]</span></p>
+<p>Логистическую кривую мы больше никогда не увидим — печаль :( — но она используется внутри функций, которыми мы строим модель.</p>
+</div>
+<div id="odds" class="section level3 hasAnchor" number="17.5.2">
+<h3><span class="header-section-number">17.5.2</span> Шансы и логиты<a href="binomial_regression.html#odds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Теперь нам надо побороться с ограниченностью логистической кривой. Для этого можно перейти от вероятностей к шансам.</p>
+<p><strong>Шанс (отношение шансов, odds, odds ratio)</strong> — это отношение вероятности успеха к вероятности неудачи. Их величина варьируется от <span class="math inline">\(0\)</span> до <span class="math inline">\(+\infty\)</span>.</p>
+<p>Уже лучше, но все еще не самый лучший вариант… Последний шаг, необходимый нам, чтобы все было хорошо, юзануть логарифм, который преобразуем шансы в логиты.</p>
+<p><span class="math display">\[
+\mathrm{logit}(p) = \ln\left(\frac{p_i}{1-p_i}\right)
+\]</span></p>
+<p>Значения логитов — трансформированные оценки вероятностей события. Они варьируют от <span class="math inline">\(-\infty\)</span> до <span class="math inline">\(+\infty\)</span>, симметричны относительно нуля, и их удобно брать в качестве зависимой переменной для построения модели. Кроме того, logit-преобразование еще и <em>линеаризует</em> логистическую кривую, то есть превращает её в прямую.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>И далет это примерно так</em>
+</summary>
+<p>Модель биномиальной регрессии с одним предиктором имеет следующий вид:</p>
+<p><span class="math display">\[
+p = \frac{e^{\beta_0 + \beta_1 x}}{1 + e^{\beta_0 + \beta_1 x}},
+\]</span></p>
+<p>где <span class="math inline">\(p\)</span> — вероятность «единицы», <span class="math inline">\(\beta_0\)</span> и <span class="math inline">\(\beta_1\)</span> — коэффициенты модели, <span class="math inline">\(x\)</span> — значение предиктора.</p>
+<p>Обозначим <span class="math inline">\(\beta_0 + \beta_1 x = t\)</span>.</p>
+<p>Необходимо доказать, что logit-преобразование</p>
+<p><span class="math display">\[
+\text{logit}(p) = \ln \left( \frac{p}{1 - p} \right)
+\]</span></p>
+<p>сделает логистическую функцию линейной — обычной прямое. Иначе говоря, необходимо доказать, что</p>
+<p><span class="math display">\[
+\ln \left( \frac{p}{1 - p} \right) = t
+\]</span></p>
+<p>Распишем формулу:</p>
+<p><span class="math display">\[
+\ln \left( \frac{p}{1 - p} \right) = \ln \left( \frac{\dfrac{e^t}{1 + e^t}}{1 - \dfrac{e^t}{1 + e^t}} \right) =
+\]</span></p>
+<p>Далее пользуемся свойствами логарифма:</p>
+<p><span class="math display">\[
+= \ln \left( \frac{e^t}{1 + e^t} \right) - \ln \left( 1 - \frac{e^t}{1 + e^t} \right) = \\
+\ln \left( \frac{e^t}{1 + e^t} \right) - \ln \left( \frac{1 + e^t - e^t}{1 + e^t} \right) = \\
+\ln \left( \frac{e^t}{1 + e^t} \right) - \ln \left( \frac{1}{1 + e^t} \right) = \\
+\ln (e^t) - \ln (1 + e^t) - \big( \ln(1) - \ln(1 + e^t)\big) = \\
+\ln(e^t) + \ln(1) = \ln(e^t) + 0 = t
+\]</span></p>
+</details>
+</div>
+<p>Функция, используемая для линеаризации связи между предиктором и зависимой переменной, называется <strong>функцией связи (linked function)</strong>. Функция logit-преобразоввания — одна из нескольких связывающих функций, применяемых для анализа бинарных переменных отклика.</p>
+<p>Итак, summary от всего, что было выше:</p>
+<ol style="list-style-type: decimal">
+<li>От дискретной оценки событий (0 и 1) переходим к оценке вероятностей.</li>
+<li>Связь вероятностей с предиктором описывается логистической кривой.</li>
+<li>Если при помощи функции связи перейти от вероятностей к логитам, то связь будет описываться прямой линией.</li>
+<li>Параметры линейной модели для такой прямой можно оценить с помощью регрессионного анализа.</li>
+</ol>
+</div>
+</div>
+<div id="binom_model" class="section level2 hasAnchor" number="17.6">
+<h2><span class="header-section-number">17.6</span> Математическая модель<a href="binomial_regression.html#binom_model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math display">\[
+p_i = \frac{e^{\beta_0 + \beta_1 x_1 + \dots + \beta_p x_p}}{1 + e^{\beta_0 + \beta_1 x_1 + \dots + \beta_p x_p}}
+\]</span></p>
+<p>Функция связи (linked function):</p>
+<p><span class="math display">\[
+\ln \left( \frac{p_i}{1 - p_i} \right) = \eta_i \\
+\eta_i = \beta_0 + \beta_1 x_{1i} + \dots + \beta_p x_{pi}
+\]</span></p>
+<p>Для перехода от логитов к вероятностям используется функция, обратная функции связи. В данном случае, логистическое преобразование:</p>
+<p><span class="math display">\[
+p_i = \frac{e^{\eta_i}}{1 + e^{\eta_i}}
+\]</span></p>
+</div>
+<div id="binom_results" class="section level2 hasAnchor" number="17.7">
+<h2><span class="header-section-number">17.7</span> Результаты логистической регрессии<a href="binomial_regression.html#binom_results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>В общем таблица достаточно похожа на обычную линейную регрессию:</p>
+<pre><code>## 
+## Call:
+## glm(formula = lvl ~ ., family = binomial(link = &quot;logit&quot;), data = managers)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.8626  -0.0897  -0.0800   0.0000   3.5607  
+## 
+## Coefficients:
+##                      Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)         -22.08642    1.13159 -19.518  &lt; 2e-16 ***
+## qualification         1.55224    0.14058  11.042  &lt; 2e-16 ***
+## autonomy              0.18304    0.24017   0.762    0.446    
+## subdiv_regulations   -0.08816    0.27523  -0.320    0.749    
+## company_regulations   0.10685    0.21973   0.486    0.627    
+## direct_juniors        8.86211    0.70679  12.539  &lt; 2e-16 ***
+## func_juniors          2.98508    0.26324  11.340  &lt; 2e-16 ***
+## income_influence      0.63992    0.16049   3.987 6.68e-05 ***
+## error_cost           -0.04441    0.15745  -0.282    0.778    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3626.58  on 3209  degrees of freedom
+## Residual deviance:  640.79  on 3201  degrees of freedom
+## AIC: 658.79
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<p>Однако есть некоторые отличия.</p>
+<p>Во-первых, нет <em>F</em>-статистики. Во-вторых, нет <span class="math inline">\(R^2\)</span>.</p>
+<p>Это связано с тем, что алгоритм GLM не работает с дисперсией и суммой квадратов, так как задача подбора коэффициентов модели логистической регрессии не имеет аналитического решения, как было в случае линейной регрессии. Поэтому модель подбирается методом максимального правдоподобия.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Чё за метод такой?</em>
+</summary>
+<p><strong>Метод максимального правдоподобия</strong></p>
+<p><strong>Правдоподобие (likelihood)</strong> — способ измерить соответствие имеющихся данных тому, что можно получить при определенных значениях параметров модели. Оно представляет собой произведение вероятностей получения каждой из точек данных:</p>
+<p><span class="math display">\[
+L(\theta | \mathrm{data}) = \prod_{i=1}^n f(\mathrm{data}|\theta),
+\]</span></p>
+<p>где <span class="math inline">\(f(\mathrm{data}|\theta)\)</span> — функция распределения с параметрами <span class="math inline">\(\theta\)</span>.</p>
+<p>Параметры модели должны максимизировать значения правдоподобия, т.е.</p>
+<p><span class="math display">\[
+L(\theta | \mathrm{data}) \rightarrow \max
+\]</span></p>
+<p>Однако для упрощения вычислений используют логарифмы правдоподобий (loglikelihood) и максимизируют их</p>
+<p><span class="math display">\[
+\ln L(\theta | \mathrm{data}) \rightarrow \max
+\]</span></p>
+<p>Аналитически такие задачи решаются редко, чаще используются методы численной оптимизации — то есть компьютер просто перебирает разные варианты чисел и смотрит, какие лучше подходят. На рандомно, конечно, а с опорой на градиентный спуск, что бы это ни значило.</p>
+</details>
+</div>
+</div>
+<div id="binom_model_analysis" class="section level2 hasAnchor" number="17.8">
+<h2><span class="header-section-number">17.8</span> Анализ модели<a href="binomial_regression.html#binom_model_analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Итак, продолжим изучать аутпут логистической регрессии.</p>
+<pre><code>## 
+## Call:
+## glm(formula = lvl ~ ., family = binomial(link = &quot;logit&quot;), data = managers)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.8626  -0.0897  -0.0800   0.0000   3.5607  
+## 
+## Coefficients:
+##                      Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)         -22.08642    1.13159 -19.518  &lt; 2e-16 ***
+## qualification         1.55224    0.14058  11.042  &lt; 2e-16 ***
+## autonomy              0.18304    0.24017   0.762    0.446    
+## subdiv_regulations   -0.08816    0.27523  -0.320    0.749    
+## company_regulations   0.10685    0.21973   0.486    0.627    
+## direct_juniors        8.86211    0.70679  12.539  &lt; 2e-16 ***
+## func_juniors          2.98508    0.26324  11.340  &lt; 2e-16 ***
+## income_influence      0.63992    0.16049   3.987 6.68e-05 ***
+## error_cost           -0.04441    0.15745  -0.282    0.778    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3626.58  on 3209  degrees of freedom
+## Residual deviance:  640.79  on 3201  degrees of freedom
+## AIC: 658.79
+## 
+## Number of Fisher Scoring iterations: 8</code></pre>
+<p>Мы видим знакомую нам табличку с оценками коэффициентов. У каждого предиктора есть информация о значении коэффициента при нем (<code>Estimate</code>), значение стандартной ошибки, <em>z</em>-value и <em>p</em>-value, рассчитанный для последнего.</p>
+<p>Судя по аутпуту, значимыми являются следующие предикторы: профессиональная квалификация, количество прямых и функциональных подчинённых и влияние на доход компании. Заметьте, что в этой модели значимых предикторов меньше, чем в модели обычной линейной регрессии. Но так ли это?</p>
+<p>Внимательно посмотрим на эту табличку. Раньше у нас были значения t-статистики — теперь z-статистики. К чему это может приводить?</p>
+<p>Чтобы ответить на этот вопрос, надо разобраться, что такое этот <em>z</em>-тест.</p>
+<div id="z-test" class="section level3 hasAnchor" number="17.8.1">
+<h3><span class="header-section-number">17.8.1</span> Тест Вальда<a href="binomial_regression.html#z-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<center>
+<img src="pics/zvalue.png">
+</center>
+<p>Значение z-value является результатом подсчета <strong>теста Вальда</strong> и позволяет оценить значимость коэффициента модели. Расчет статистики похож на подсчет t-теста, только распределение данной статистики <em>ассимптотически</em> стремиться к нормальному (отсюда и <em>z</em>). Ассимптотика приводит к тому, что опеределение значимости коэффициентов на маленьких выборках будет неточным.</p>
+<p><span class="math display">\[
+H_0: \beta_k = 0 \\
+H_1: \beta_k \neq 0 \\
+\\
+z = \frac{b_k - \beta_k}{SE_{b_k}} = \frac{b_k}{SE_{b_k}} \thicksim \mathcal{N}(0,\,1)
+\]</span></p>
+</div>
+<div id="deviance_analysis" class="section level3 hasAnchor" number="17.8.2">
+<h3><span class="header-section-number">17.8.2</span> Анализ девиансы и статистическая значимость модели<a href="binomial_regression.html#deviance_analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Для получения более точных оценок необходимо поработать c логарифмами правдоподобий. Вообще логарифмы правдоподобий используются в GLM много для чего:</p>
+<ul>
+<li>для описания качества подгонки модели;</li>
+<li>для тестирования значимости подобранной модели в целом;</li>
+<li>для тестирования значимости отдельных предикторов;</li>
+<li>для отбора моделей.</li>
+</ul>
+<p>Дла понимания механики анализа нам потребуется несколько полезных абстракций:</p>
+<ul>
+<li><strong>Насыщенная модель (saturated model)</strong> — каждое уникальное наблюдение (сочетание предикторов) описывается одним из <span class="math inline">\(n\)</span> параметров.</li>
+</ul>
+<p><span class="math display">\[
+\ln L_{\mathrm{sat}} = 0 \\
+\mathrm{df}_{\mathrm{sat}} = n - p_{\mathrm{sat}} = n - n = 0
+\]</span></p>
+<ul>
+<li><strong>Нулевая модель (null model)</strong> — все наблюдения описываются одним параметром (средним значением).</li>
+</ul>
+<p><span class="math display">\[
+\hat y_i = \beta_0 \\
+\ln L_{\mathrm{null}} \neq 0 \rightarrow -\infty \\
+\mathrm{df}_{\mathrm{null}} = n - p_{\mathrm{null}} = n - 1
+\]</span></p>
+<p>Наша <strong>реальная (предложенная) модель</strong>, которую мы подбираем, будет находится где-то между насыщенной и нулевой моделью (вернее, не сама модель, а значение логарифма её правдоподобия).</p>
+<p><span class="math display">\[
+\hat y_i = \beta_0 + \beta_1 x_{1i} + \dots + \beta_p x_{pi} \\
+\ln L_{\mathrm{model}} \neq 0 \\
+\mathrm{df}_\mathrm{model} = n - p_\mathrm{model}
+\]</span></p>
+<center>
+<img src="pics/deviance.jpeg" width="50%">
+</center>
+<p><strong>Девианса</strong> является мерой различия правдоподобий двух моделей (оценка разницы логарифмов правдоподобий). [см. рисунок выше]</p>
+<ul>
+<li><strong>Остаточная девианса</strong></li>
+</ul>
+<p><span class="math display">\[
+d_\mathrm{resid} = 2\big(\ln L_\mathrm{sat} - \ln L_\mathrm{model} \big) = -2 \ln(L_\mathrm{model})
+\]</span></p>
+<ul>
+<li><strong>Нулевая девианса</strong></li>
+</ul>
+<p><span class="math display">\[
+d_\mathrm{null} = 2 \big(\ln L_\mathrm{sat} - \ln L_\mathrm{null}\big) = -2 \ln(L_\mathrm{null})
+\]</span></p>
+<p>Сравнение нулевой и остаточной девианс позволяет судить о статистической значимости модели в целом. Такое сравнение проводится с помощью <strong>теста отношения правдоподобий (likelihood ratio test, LRT)</strong>.</p>
+<p><span class="math display">\[
+d_\mathrm{null} - d_\mathrm{resid} = -2 ( \ln L_\mathrm{null} - \ln L_\mathrm{model} ) = 2 (\ln L_\mathrm{model} - \ln L_\mathrm{null}) = 2 \ln \left( \frac{L_\mathrm{model}}{L_\mathrm{null}} \right) \\
+\mathrm{LRT} = 2 \ln \left( \frac{L_\mathrm{M_1}}{L_\mathrm{M_2}} \right) = 2 (\ln L_\mathrm{M_1} - \ln L_\mathrm{M_2}),
+\]</span>
+где <span class="math inline">\(M_1,\, M_2\)</span> — вложенные модели (<span class="math inline">\(M_1\)</span> — более полная, <span class="math inline">\(M_2\)</span> — уменьшенная),
+<span class="math inline">\(L_\mathrm{M_1}, \, L_\mathrm{M_2}\)</span> — правдоподобия.</p>
+<p>Распределение разницы логарифмов правдоподобий аппроксиммируется распределением <span class="math inline">\(\chi^2\)</span> с числом степеней свободы <span class="math inline">\(\mathrm{df} = \mathrm{df}_\mathrm{M_2} - \mathrm{df}_\mathrm{M_1}\)</span>.</p>
+<p>LRT для тестирования значимости модели в целом:</p>
+<p><span class="math display">\[
+\mathrm{LRT} = 2 \ln \left( \frac{L_\mathrm{model}}{L_\mathrm{null}} \right) = 2 (\ln L_\mathrm{model} - \ln L_{\mathrm{null}}) = d_\mathrm{null} - d_\mathrm{resid} \\
+\mathrm{df} = p_\mathrm{model} - 1
+\]</span></p>
+<p>В конечном счете результаты анализа девиансы выглядят так:</p>
+<pre><code>## Analysis of Deviance Table
+## 
+## Model 1: lvl ~ 1
+## Model 2: lvl ~ qualification + autonomy + subdiv_regulations + company_regulations + 
+##     direct_juniors + func_juniors + income_influence + error_cost
+##   Resid. Df Resid. Dev Df Deviance  Pr(&gt;Chi)    
+## 1      3209     3626.6                          
+## 2      3201      640.8  8   2985.8 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Как можно увидеть, наша модель получилась статистически значима. Ура!</p>
+<p>Кроме статистических тестов для сравнения моделей можно использовать информационные критерии, как мы делали в случае обычной линейной регрессии.</p>
+<p>AIC (Akaike information criterion):</p>
+<pre><code>##            df       AIC
+## model_null  1 3628.5775
+## model       9  658.7949</code></pre>
+<p>BIC (Bayesian information criterion):</p>
+<pre><code>##            df       BIC
+## model_null  1 3634.6516
+## model       9  713.4611</code></pre>
+</div>
+</div>
+<div id="coef_interpretation_binom" class="section level2 hasAnchor" number="17.9">
+<h2><span class="header-section-number">17.9</span> Интерпретация коэффициентов модели<a href="binomial_regression.html#coef_interpretation_binom" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Чтобы было проще интерпретировать результаты, удалим из модели незначимые предикторы. Останется приемлемый аутпут:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="binomial_regression.html#cb9-1" aria-hidden="true" tabindex="-1"></a>model_new <span class="ot">&lt;-</span> <span class="fu">update</span>(model, .<span class="sc">~</span>. <span class="sc">-</span>autonomy <span class="sc">-</span>subdiv_regulations <span class="sc">-</span>company_regulations <span class="sc">-</span>error_cost)</span></code></pre></div>
+<pre><code>## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="binomial_regression.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_new)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = lvl ~ qualification + direct_juniors + func_juniors + 
+##     income_influence, family = binomial(link = &quot;logit&quot;), data = managers)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -3.8408  -0.0852  -0.0852   0.0000   3.5391  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)      -22.0070     1.1112 -19.804  &lt; 2e-16 ***
+## qualification      1.6056     0.1112  14.441  &lt; 2e-16 ***
+## direct_juniors     8.8192     0.6459  13.653  &lt; 2e-16 ***
+## func_juniors       3.0718     0.2423  12.680  &lt; 2e-16 ***
+## income_influence   0.6440     0.1458   4.418 9.97e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 3626.58  on 3209  degrees of freedom
+## Residual deviance:  641.78  on 3205  degrees of freedom
+## AIC: 651.78
+## 
+## Number of Fisher Scoring iterations: 9</code></pre>
+<p>Что значат эти непонятные коэффициенты при предикторах? В общих линейных моделях все ясно как белый день, а тут какая-то дичь…</p>
+<p>Вспомним, что наша зависимая переменная — логарифм отношения шансов. От этого и будем толкаться.</p>
+<p><span class="math display">\[
+\ln \left(\frac{p_i}{1 - p_i}\right) = \eta_i \\
+\eta_i = -22.0 + 1.6 \, \text{qualification}_i + 8.8 \, \text{direct_juniors}_{i} + 3.1 \, \text{func_juniors}_i + 0.6 \, \text{income_influence}_i
+\]</span></p>
+<p>Тогда,</p>
+<ul>
+<li><span class="math inline">\(b_0\)</span>, интерсепт, показывает <em>логарифм отношения шансов для случая, когда все остальные предикторы равны нулю</em> — в данном примере он сложноинетерпретабелен;</li>
+<li><span class="math inline">\(b_j\)</span> показывает, <em>на сколько единиц изменяется логарифм отношения шансов</em> при изменении значения предиктора на единицу.</li>
+</ul>
+<p>Корректно, но непонятно… Чтобы разобраться лучше, немного потупим в алгебру.</p>
+<div id="algebra_ln" class="section level3 hasAnchor" number="17.9.1">
+<h3><span class="header-section-number">17.9.1</span> Немного алгебры для понимания сути коэффициентов<a href="binomial_regression.html#algebra_ln" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Пусть у нас есть модель с одним непрервным предиктором. Тогда она будет записываться так:</p>
+<p><span class="math display">\[
+\eta = b_0 + b_1 x
+\]</span></p>
+<p>В терминах логитов её можно записать следующим образом:</p>
+<p><span class="math display">\[
+\eta = \ln \left( \frac{p}{1 - p} \right) = \ln (\mathrm{odds})
+\]</span></p>
+<p>Как изменится предсказание модели при изменении предиктора на единицу?</p>
+<p><span class="math display">\[
+\eta_{x+1} - \eta_x = \ln (\mathrm{odds}_{x+1}) - \ln (\mathrm{odds}_{x}) =
+\ln \left( \frac{\mathrm{odds}_{x+1}}{\mathrm{odds}_x} \right)
+\]</span></p>
+<p><span class="math display">\[
+\eta_{x+1} - \eta_x = b_0 + b_1 (x + 1) - b_0 - b_1x = b_1
+\]</span></p>
+<p><span class="math display">\[
+\ln \left( \frac{\mathrm{odds}_{x+1}}{\mathrm{odds}_{x}} \right) = b_1
+\]</span></p>
+<p><span class="math display">\[
+\frac{\mathrm{odds}_{x+1}}{\mathrm{odds}_{x}} = e^{b_1}
+\]</span></p>
+<p>Таким образом, <span class="math inline">\(e^{b_1}\)</span> показывает, во сколько раз изменится отношение шансов при увеличении предиктора на единицу. Для дискретных предикторов <span class="math inline">\(e^{b_1}\)</span> покажет, во сколько раз различается отношение шансов для данного уровня предиктора по сравнению с базовым.</p>
+<hr />
+<p><img src="SFDA_files/figure-html/geom_interpret-1.png" width="672" /></p>
+<hr />
+<p>Теперь мы можем тракровать полученные коэффициенты нормальным языком.</p>
+<p><span class="math display">\[
+\eta_i = -22.0 + 1.6 \, \text{qualification}_i + 8.8 \, \text{direct_juniors}_{i} + 3.1 \, \text{func_juniors}_i + 0.6 \, \text{income_influence}_i
+\]</span></p>
+<p>При увеличении оценки профессиональной квалификации на 1 отношение шансов принадлежать к уровню менеджеров увеличится в <span class="math inline">\(e^{3.1} = 22.2\)</span> раза. То есть работник, имеющий более высокую оценку профессиональной квалификации, имеет больше шансов быть менеджером.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -487,8 +876,8 @@ z = \frac{x - \bar x}{s},
           </div>
         </div>
       </div>
-<a href="normal_distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="clt_ci.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ancova.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="вырубаем-тэхно-врубаем-дип-хаус.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
