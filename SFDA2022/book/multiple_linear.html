@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>14 Множественная линейная регрессия | Статистика для анализа данных</title>
+  <title>15 Множественная линейная регрессия | Статистика для анализа данных</title>
   <meta name="description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="14 Множественная линейная регрессия | Статистика для анализа данных" />
+  <meta property="og:title" content="15 Множественная линейная регрессия | Статистика для анализа данных" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="14 Множественная линейная регрессия | Статистика для анализа данных" />
+  <meta name="twitter:title" content="15 Множественная линейная регрессия | Статистика для анализа данных" />
   
   <meta name="twitter:description" content="Книжка для студентов бакалавриата «Психология» НИУ ВШЭ по курсу «Статистика для анализа данных»" />
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="simple_linear.html"/>
-
+<link rel="next" href="ancova.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -182,7 +182,7 @@
 <li class="chapter" data-level="9.2" data-path="chisq.html"><a href="chisq.html#theor_freq"><i class="fa fa-check"></i><b>9.2</b> Расчёт теоретических частот</a></li>
 <li class="chapter" data-level="9.3" data-path="chisq.html"><a href="chisq.html#chisq_test"><i class="fa fa-check"></i><b>9.3</b> Критерий независимости Пирсона</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(chi^2\)</span></a></li>
+<li class="chapter" data-level="9.3.1" data-path="chisq.html"><a href="chisq.html#распределение-chi2"><i class="fa fa-check"></i><b>9.3.1</b> Распределение <span class="math inline">\(\chi^2\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="chisq.html"><a href="chisq.html#критерий-согласия-пирсона"><i class="fa fa-check"></i><b>9.4</b> Критерий согласия Пирсона</a></li>
 </ul></li>
@@ -239,8 +239,67 @@
 </ul></li>
 <li class="chapter" data-level="12.5" data-path="twoway-anova.html"><a href="twoway-anova.html#type_of_sums"><i class="fa fa-check"></i><b>12.5</b> Типы сумм квадратов</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>13</b> Простая линейная регрессия</a></li>
-<li class="chapter" data-level="14" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>14</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="13" data-path="post_hoc.html"><a href="post_hoc.html"><i class="fa fa-check"></i><b>13</b> Post hoc тесты. Критерий Стьюдента. Проблема множественных сравнений</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="post_hoc.html"><a href="post_hoc.html#pairwise_comp"><i class="fa fa-check"></i><b>13.1</b> Попарные сравнения</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="post_hoc.html"><a href="post_hoc.html#multiple_comp"><i class="fa fa-check"></i><b>13.1.1</b> Проблема множественных сравнений</a></li>
+<li class="chapter" data-level="13.1.2" data-path="post_hoc.html"><a href="post_hoc.html#p-adj"><i class="fa fa-check"></i><b>13.1.2</b> Корректировка уровня значимости</a></li>
+<li class="chapter" data-level="13.1.3" data-path="post_hoc.html"><a href="post_hoc.html#anova_vs_mult_comp"><i class="fa fa-check"></i><b>13.1.3</b> Дисперсионный анализ и проблема множественных сравнений</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="post_hoc.html"><a href="post_hoc.html#t-test"><i class="fa fa-check"></i><b>13.2</b> Двухвыборочный t-тест</a></li>
+<li class="chapter" data-level="13.3" data-path="post_hoc.html"><a href="post_hoc.html#paired-t-test"><i class="fa fa-check"></i><b>13.3</b> Парный t-тест</a></li>
+<li class="chapter" data-level="13.4" data-path="post_hoc.html"><a href="post_hoc.html#post_hoc_test"><i class="fa fa-check"></i><b>13.4</b> Че за post hoc?</a></li>
+<li class="chapter" data-level="13.5" data-path="post_hoc.html"><a href="post_hoc.html#t-test-per-se"><i class="fa fa-check"></i><b>13.5</b> t-тест — сильный и независимый</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="simple_linear.html"><a href="simple_linear.html"><i class="fa fa-check"></i><b>14</b> Простая линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_formalization"><i class="fa fa-check"></i><b>14.1</b> Формализация модели</a></li>
+<li class="chapter" data-level="14.2" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_indentification"><i class="fa fa-check"></i><b>14.2</b> Идентификация модели</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="simple_linear.html"><a href="simple_linear.html#least-squares"><i class="fa fa-check"></i><b>14.2.1</b> Метод наименьших квадратов</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_quality"><i class="fa fa-check"></i><b>14.3</b> Тестирование качества модели</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="simple_linear.html"><a href="simple_linear.html#r-squared"><i class="fa fa-check"></i><b>14.3.1</b> Коэффициент детерминации</a></li>
+<li class="chapter" data-level="14.3.2" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_significance"><i class="fa fa-check"></i><b>14.3.2</b> Статистическая значимость модели</a></li>
+<li class="chapter" data-level="14.3.3" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_t_test"><i class="fa fa-check"></i><b>14.3.3</b> Статистическая значимость отдельных предикторов</a></li>
+<li class="chapter" data-level="14.3.4" data-path="simple_linear.html"><a href="simple_linear.html#simple_regression_results"><i class="fa fa-check"></i><b>14.3.4</b> Результаты регрессионного анализа</a></li>
+<li class="chapter" data-level="14.3.5" data-path="simple_linear.html"><a href="simple_linear.html#slope_interpretation_simple_linear"><i class="fa fa-check"></i><b>14.3.5</b> Интерпретация коэффициента при предикторе</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="simple_linear.html"><a href="simple_linear.html#simple_reg_diagnostics"><i class="fa fa-check"></i><b>14.4</b> Диагностика модели</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="multiple_linear.html"><a href="multiple_linear.html"><i class="fa fa-check"></i><b>15</b> Множественная линейная регрессия</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="multiple_linear.html"><a href="multiple_linear.html#several_predictors"><i class="fa fa-check"></i><b>15.1</b> Связи между несколькими переменными</a></li>
+<li class="chapter" data-level="15.2" data-path="multiple_linear.html"><a href="multiple_linear.html#multiple_linear_quanti"><i class="fa fa-check"></i><b>15.2</b> Множественная линейная регрессия с количественными предикторами</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="multiple_linear.html"><a href="multiple_linear.html#multicollinearity"><i class="fa fa-check"></i><b>15.2.1</b> Проблема мультиколлинеарности</a></li>
+<li class="chapter" data-level="15.2.2" data-path="multiple_linear.html"><a href="multiple_linear.html#multiple_linear_results"><i class="fa fa-check"></i><b>15.2.2</b> Результаты множественной линейной регрессии</a></li>
+<li class="chapter" data-level="15.2.3" data-path="multiple_linear.html"><a href="multiple_linear.html#r_squared_adjusted"><i class="fa fa-check"></i><b>15.2.3</b> Скорректированный <span class="math inline">\(R^2\)</span></a></li>
+<li class="chapter" data-level="15.2.4" data-path="multiple_linear.html"><a href="multiple_linear.html#vif"><i class="fa fa-check"></i><b>15.2.4</b> Исследование мультиколлинеарности</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="multiple_linear.html"><a href="multiple_linear.html#multiple_linear_quali_quanti"><i class="fa fa-check"></i><b>15.3</b> Множественная линейная регрессия с количественными и категориальными предикторами</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="multiple_linear.html"><a href="multiple_linear.html#multiple_linear_quali_quanti_model"><i class="fa fa-check"></i><b>15.3.1</b> Математическая модель</a></li>
+<li class="chapter" data-level="15.3.2" data-path="multiple_linear.html"><a href="multiple_linear.html#multiple_linear_quali_quanti_results"><i class="fa fa-check"></i><b>15.3.2</b> Результаты множественной линейной регрессии с количественными и категориальными предикторами</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="multiple_linear.html"><a href="multiple_linear.html#predictor_interaction"><i class="fa fa-check"></i><b>15.4</b> Модели со взаимодействием предикторов</a></li>
+<li class="chapter" data-level="15.5" data-path="multiple_linear.html"><a href="multiple_linear.html#regression_anova"><i class="fa fa-check"></i><b>15.5</b> Линейная регрессия только с категориальными предикторами</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="multiple_linear.html"><a href="multiple_linear.html#regression_oneway_anova"><i class="fa fa-check"></i><b>15.5.1</b> Простая линейная регрессия только с категориальными предикторами</a></li>
+<li class="chapter" data-level="15.5.2" data-path="multiple_linear.html"><a href="multiple_linear.html#regression_twoway_anova"><i class="fa fa-check"></i><b>15.5.2</b> Множественная линейная регрессия только с категориальными предикторами</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="multiple_linear.html"><a href="multiple_linear.html#model_comparison"><i class="fa fa-check"></i><b>15.6</b> Сравнение моделей</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="multiple_linear.html"><a href="multiple_linear.html#r_squared_comparison"><i class="fa fa-check"></i><b>15.6.1</b> Коэффициент детерминации</a></li>
+<li class="chapter" data-level="15.6.2" data-path="multiple_linear.html"><a href="multiple_linear.html#F_partial"><i class="fa fa-check"></i><b>15.6.2</b> Частный F-критерий</a></li>
+<li class="chapter" data-level="15.6.3" data-path="multiple_linear.html"><a href="multiple_linear.html#mse_rmse_mae"><i class="fa fa-check"></i><b>15.6.3</b> Ошибки моделей</a></li>
+<li class="chapter" data-level="15.6.4" data-path="multiple_linear.html"><a href="multiple_linear.html#bic_aic"><i class="fa fa-check"></i><b>15.6.4</b> Информационные критерии</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ancova.html"><a href="ancova.html"><i class="fa fa-check"></i><b>16</b> Ковариационный анализ</a></li>
+<li class="chapter" data-level="17" data-path="binomial_regression.html"><a href="binomial_regression.html"><i class="fa fa-check"></i><b>17</b> Логистическая регрессия</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -261,17 +320,405 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multiple_linear" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">14</span> Множественная линейная регрессия<a href="multiple_linear.html#multiple_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="multiple_linear" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">15</span> Множественная линейная регрессия<a href="multiple_linear.html#multiple_linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="several_predictors" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Связи между несколькими переменными<a href="multiple_linear.html#several_predictors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Как мы отметили в конце прошлог главы, корреляция позволяет изучать взаимосвязи только между двумя переменными. А если у нас больше двух?</p>
+<p>Будем работать с теми же данными про сотрудников и деньги. Мы уже изучили связь между грейдом и оплатой труда. Но в наших данных есть еще одна количественная переменная — <code>experience</code> (опыт работы в годах). Как бы нам так исхитриться и посмотреть связь ФОТ (фонда оплаты труда) и с грейдом, и с опытом работы.</p>
+<p>Отметим вот что: визуализировать связь между тремя количественными переменными проблематично — придется выходить в 3D, чтобы расположить наши переменные по трём осям. Но можно немного пошуршать и изобразить, например, такое:</p>
+<p><img src="SFDA_files/figure-html/scatteprplot_grade_color-1.png" width="672" /></p>
+<p>Не то чтобы прям супер визуализация, но три количественные переменные на плоскости — креативно.</p>
+<p>Но ладно, признаем, что нарисовать оптимальную визуализацию не всегда удается, а моделировать всё равно надо. Будем разбираться, как это делать.</p>
+</div>
+<div id="multiple_linear_quanti" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Множественная линейная регрессия с количественными предикторами<a href="multiple_linear.html#multiple_linear_quanti" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>В общем-то с моделью происходит не то чтобы что-то невероятное — раз у нас еще один предиктор, значим нам нужно еще одно слагаемое. Ну, добавим.</p>
+<p><span class="math display">\[
+\hat y = b_0 + b_1 x_1 + b_2 x_2
+\]</span></p>
+<p>В общем случае мы можем добавить столько предикторов, сколько надо. Однако чтоит помнить, что чем сложнее модель, тем больше данных нам нужно, чтобы её корректно построить.</p>
+<p>Ну и вот. Всё. Чё тут еще беседовать.</p>
+<p>Формулы для коэффициентов обсуждать не будем, потому что ими все равно никто не пользуется.</p>
+<p>Однако в случае множественной линейной регрессии может возникнуть одна неприятная проблема.</p>
+<div id="multicollinearity" class="section level3 hasAnchor" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> Проблема мультиколлинеарности<a href="multiple_linear.html#multicollinearity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Предикторы могут быть связаны не только с целевой перемненой, но и друг с другом, что обуславливает <strong>проблему мультиколлинеарности</strong>.</p>
+<p>В чем она заключается? Подробно, к сожалению, вникнуть не сможем, потому что для этого требуется некоторая прошаренность в линейной алгебре.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Я обладаю некоторой прошаренностью в линале</em>
+</summary>
+<p>Вспомним, что имеющуюся у нас модель мы можем переписать в следующем виде:</p>
+<p><span class="math display">\[
+\boldsymbol{y}= \boldsymbol{X}\boldsymbol{b}+ \boldsymbol{e},
+\]</span></p>
+<p>где <span class="math inline">\(\boldsymbol{y}\)</span> — вектор нашей зависимой переменной, <span class="math inline">\(\boldsymbol{X}\)</span> — матрица независимых переменных, <span class="math inline">\(\boldsymbol{b}\)</span> — вектор коэффициентов модели, <span class="math inline">\(\boldsymbol{e}\)</span> — вектор ошибок (остатков) модели.</p>
+<p>Может возникнуть резонный вопрос: почему ничего не изменилось, ведь у нас теперь множествення линейная регрессия?</p>
+<p>Все просто: матрица <span class="math inline">\(\boldsymbol{X}\)</span> теперь состоит больше, чем из двух столбцов, а вектор <span class="math inline">\(\boldsymbol{b}\)</span> — больше, чем из двух элементов:</p>
+<p><span class="math display">\[
+\boldsymbol{X}=
+\begin{pmatrix}
+1 &amp; x_{11} &amp; \dots &amp; x_{1p} \\
+1 &amp; x_{21} &amp; \dots &amp; x_{2p} \\
+1 &amp; x_{31}  &amp; \dots &amp; x_{3p}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; x_{n1} &amp; \dots &amp; x_{np}
+\end{pmatrix};
+\quad
+\boldsymbol{b}= \begin{pmatrix}
+b_0 &amp; b_1 \dots b_p
+\end{pmatrix}
+\]</span></p>
+<p>Матричное решение для коэффициентов модели совершенно идентично случаю простой линейной регрессии:</p>
+<p><span class="math display">\[
+\boldsymbol{b}= (\boldsymbol{X}^\mathrm{T}\boldsymbol{X})^{-1}\boldsymbol{X}^\mathrm{T}\boldsymbol{y}
+\]</span></p>
+Посмотрим внимательно на формулу выше: в ходе вычислений мы берем обратную матрицу. Если наши предикторы сильно коррелируют друг с другом (<span class="math inline">\(\geq 0.8\)</span>), то в нашей матрице возникают линейно зависимые столбцы, а значит обратная матрица не будет существовать.
+</details>
+</div>
+<p>Если просто, то <em>сильно коррелирующие друг с другом предикторы — это плохо</em>.</p>
+<p>В случае абсолютно линейной связи коэффициент модели просто не вычислится. Как правило, это намёк на то, чтобы проверить данные — возможно, у вас есть одна и та же переменная, записанная по-разному (например, рост в метрах и сантиметрах). В случае высоких (но меньших единицы) корреляций проблема подбора коэффициентов решается с помощью методов численной оптимизации<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, однако это может приводить к смещённым оценкам коэффициентов модели, а также большим ошибкам в оценках коэффициентов.</p>
+<p>Поэтому с мультиколлинеарностью надо бороться. Вариантов существует много. Наиболее часто используемые: исключение коллинеарных переменных из модели, метод служебной регресии, методы уменьшения размерности (кластерный анализ, PCA и др.).</p>
+</div>
+<div id="multiple_linear_results" class="section level3 hasAnchor" number="15.2.2">
+<h3><span class="header-section-number">15.2.2</span> Результаты множественной линейной регрессии<a href="multiple_linear.html#multiple_linear_results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Как вы могли догадаться по опыту дисперсионного анализа, таблица результатов изменится не сильно.</p>
+<pre><code>## 
+## Call:
+## lm(formula = fot ~ grade_score + experience, data = ds)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -169867  -29216   -2926   16049  415703 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -7.195e+04  3.908e+03  -18.41   &lt;2e-16 ***
+## grade_score  1.117e+00  2.434e-02   45.88   &lt;2e-16 ***
+## experience  -1.763e+02  1.224e+02   -1.44     0.15    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 47440 on 1992 degrees of freedom
+## Multiple R-squared:  0.5152, Adjusted R-squared:  0.5147 
+## F-statistic:  1059 on 2 and 1992 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>У нас добавилась ещё одна строка таблицы для переменной <code>experience</code>. Аутпут, как и в случае простой линейной регрессии, читаем снизу вверх.</p>
+<p>Модель в целом статистически значима (<em>F</em>(2, 1992) = 1057, <em>p</em> &lt; .001) и объясняет 51% дисперсии данных. Интегральный балл по грейду (<code>grade_score</code>) также статистически значим. Опыт работы (<code>experience</code>) не связан статистически значимо с целевой переменной.</p>
+</div>
+<div id="r_squared_adjusted" class="section level3 hasAnchor" number="15.2.3">
+<h3><span class="header-section-number">15.2.3</span> Скорректированный <span class="math inline">\(R^2\)</span><a href="multiple_linear.html#r_squared_adjusted" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Небольшое замечание относительно коэффициента детерминации в случае множественной линейной регрессии. Для оценка качества модели с точки зрения доли объясненной дисперсии в случае множественной линейной регрессии — да и в случае простой, на самом деле, тоже — лучше смотреть на <strong>скорретированный коэффициент детерминации</strong>. Так как в нашей модели теперь несколько предикторов, то скорректированный [на количество предикторов] коэффициент детерминации для нас более информативен. В частности, по его значениям мы можем сравнивать модели с разным количеством предикторов.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Как он корректируется?</em>
+</summary>
+<p>Вот так:</p>
+<span class="math display">\[
+R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n-1}{n-p}
+\]</span>
+</details>
+</div>
+</div>
+<div id="vif" class="section level3 hasAnchor" number="15.2.4">
+<h3><span class="header-section-number">15.2.4</span> Исследование мультиколлинеарности<a href="multiple_linear.html#vif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Раз у нас есть проблема мультиколлинеарности, надо как-то с ней работать. Прежде всего, на этапе разведочного анализа мы можем построить корреляционную матрицу по всем предикторам, которые у нас есть, и поискать там высокие корреляции.</p>
+<p>Сейчас у нас два предиктора, поэтому мы просто можем бахнуть коэффициент корреляции:</p>
+<pre><code>## [1] -0.04392072</code></pre>
+<p>Корреляция не высока, проблемы мультиколлинеарности не намечается.</p>
+<p>На уже построенной регрессионной модели мы тоже можем изучить коллинеарность предикторов. Чтобы это сделать, необходимо вычислить <strong>коэффициент вздутия дисперсии (variance inflation factor, VIF)</strong>.</p>
+<div class="advanced">
+<details>
+<summary>
+<em>Сакральное знание о том, как это работает</em>
+</summary>
+<p>Чтобы вычислить VIF, проводятся следующие операции:</p>
+<ul>
+<li>пусть у нас есть модель <span class="math inline">\(y = b_0 + b_1 x_1 + b_2 x_2 + \dots + b_p x_p\)</span></li>
+<li>строиться линейная регрессия, в которой один из предикторов регрессируется всеми другими. Например, для первого предиктора: <span class="math inline">\(x_1 = \alpha_0 + \alpha_2 x_2 + \dots + \alpha_p x_p\)</span></li>
+<li>вычисляется коэффициент детерминации для данной модели <span class="math inline">\(R_i\)</span></li>
+<li>вычисляется VIF для коэффциента <span class="math inline">\(b_i\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\text{VIF} = \frac{1}{1 - R_i}
+\]</span></p>
+</details>
+</div>
+<p>Для нашей модели коэфициенты вздутия дисперсии таковы:</p>
+<pre><code>## grade_score  experience 
+##    1.001933    1.001933</code></pre>
+<p>Пороговым значением для вынесение вердикта о наличии мультиколлинеарности считается 3 (иногда 2). Мы мультиколлинеарность не нашли, поэтому тихохонько порадуемся, что нам ничего делать не нужно.</p>
+</div>
+</div>
+<div id="multiple_linear_quali_quanti" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> Множественная линейная регрессия с количественными и категориальными предикторами<a href="multiple_linear.html#multiple_linear_quali_quanti" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ну, ладно, с количественными-то всё ясно. А вот можно ли нам как-то впихнуть в модель еще и категориальный предиктор? Удобненько было бы.</p>
+<p>В данных, в которыми мы работаем, есть, например, переменная <code>region</code> (региод, в котором находится подразделение компании):</p>
+<pre><code>## 
+## Moscow  Other 
+##   1317    678</code></pre>
+<p>Вполне себе категориальная переменная. Да и вообще-то было бы логично ожидать, что в Москве оплата труда сотрудников выше, чем в других регионах.</p>
+<p>Включить такой предиктор в модель, разумеется, можно. Только для этого надо немного поколдовать.</p>
+<div id="multiple_linear_quali_quanti_model" class="section level3 hasAnchor" number="15.3.1">
+<h3><span class="header-section-number">15.3.1</span> Математическая модель<a href="multiple_linear.html#multiple_linear_quali_quanti_model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Мы много говорили об угловом коэффициенте — пришло время уделить внимание свободному члену (интерсепту, intercept). Интерсепт у нас показывает некоторый базовый уровень целевой переменной — значение, когда все предикторы равны нулю. А вто значит, что «в Москве оплата труда сотрудников выше, чем в других регионах»? Это ведь и есть различие между базовыми уровнями по разным группам наблюдений, на которые наш категориальный предиктор делит нашу выборку.</p>
+<p>В модели это будет выражаться так:</p>
+<p><span class="math display">\[
+\hat y_i = b_0 + I_1 b_1 + b_2 x_2 + b_3 x_3
+\]</span></p>
+<p>В данном случае представлена модель с одним категориальным (<span class="math inline">\(I_1\)</span>) и двумя количественными (<span class="math inline">\(x_1, x_2\)</span>) предикторами.</p>
+<p>Переменная <span class="math inline">\(I_1\)</span> — это переменная индикатор, которая показывает, к какой группе относится конкретное наблюдение:</p>
+<ul>
+<li><span class="math inline">\(I_1 = 0\)</span>, если наблюдение относиться к категории A,</li>
+<li><span class="math inline">\(I_1 = 1\)</span>, если наблюдение относится к категории B.</li>
+</ul>
+<p>В нашем случае пусть будет категория A — Москва, категория B — регионы.</p>
+<p>Таким образом, у нас получается как бы две модели в одной:</p>
+<ul>
+<li>для наблюдений категории A модель принимает следующий вид: <span class="math inline">\(\hat y_i = b_0 + b_2 x_2 + b_3 x_3\)</span></li>
+<li>а для наблюдений категории B вот такой: <span class="math inline">\(\hat y_i = (b_0 + b_1) + b_2 x_2 + b_3 x_3\)</span></li>
+</ul>
+<p>Коэффициент <span class="math inline">\(b_1\)</span> показывает разницу в базовых уровнях между двумя категориями (группами) наблюдений.</p>
+</div>
+<div id="multiple_linear_quali_quanti_results" class="section level3 hasAnchor" number="15.3.2">
+<h3><span class="header-section-number">15.3.2</span> Результаты множественной линейной регрессии с количественными и категориальными предикторами<a href="multiple_linear.html#multiple_linear_quali_quanti_results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Выглядят так:</p>
+<pre><code>## 
+## Call:
+## lm(formula = fot ~ grade_score + experience + region, data = ds)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -171326  -21166   -5877   12774  410408 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -4.514e+04  3.850e+03 -11.724   &lt;2e-16 ***
+## grade_score  1.018e+00  2.294e-02  44.394   &lt;2e-16 ***
+## experience  -1.808e+02  1.124e+02  -1.608    0.108    
+## regionOther -4.068e+04  2.113e+03 -19.255   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 43570 on 1991 degrees of freedom
+## Multiple R-squared:  0.5913, Adjusted R-squared:  0.5907 
+## F-statistic: 960.3 on 3 and 1991 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Здесь появились некоторые отличия. Мы видим, что у <code>grade_score</code> и <code>experience</code> коэффициенты остались как и прежде, но добавилась ещё одна строка — <code>regionOther</code>. Так как наша переменная содержит только два уровня, базовый уровень по какой-то из двух групп уходит в интерсепт — в данном случае это <code>regionMoscow</code>. Коэффициент при <code>regionOther</code> показывается, на сколько отличается базовый уровень (среднее) группы <code>regionOther</code> по сравнению с <code>regionMoscow</code>. Итак, фонд оплаты труда в регионах в среднем на 40.5 тысяч меньше, чем в Москве. Результат, вполне согласующийся со здравым смыслом.</p>
+<p>Тестирование и диагностика модели производится аналогично тому, как мы это делали на предыдущих моделях.</p>
+</div>
+</div>
+<div id="predictor_interaction" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Модели со взаимодействием предикторов<a href="multiple_linear.html#predictor_interaction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Но можно ведь не только уловить различия в базовом уровне количественных предикторов в различных группах наблюдений, но и разную степень их связи с целевой переменной в этих группах. Так, мы можем предположить, что для Москвы опыт работы действительно не влияет на грейд, а вот в региона ситуация, возможно, отличается.</p>
+<p>Для изучения таких закономерностей нужно ввести <em>взаимодействие предикторов</em> в модель.</p>
+<p>Модель со взаимодействием выглядит так:</p>
+<p><span class="math display">\[
+\hat y_i = b_0 + b_1 I_1 + b_2 x_2 + b_3 I_1 x_2
+\]</span></p>
+<p>Для простоты здесь один количественный и один категориальный предиктор. Переменная <span class="math inline">\(I_1\)</span> снова выступает здесь индикатором. То есть наша модель как бы снова содержит в себе две «подмодели»:</p>
+<ul>
+<li>для наблюдений категории А (<span class="math inline">\(I_1 = 0\)</span>) модель принимает следующий вид: <span class="math inline">\(\hat y_i = b_0 + b_2 x_2\)</span></li>
+<li>для наблюдений категории B (<span class="math inline">\(I_1 = 1\)</span>) модель становится такой: <span class="math inline">\(\hat y_i = (b_0 + b_1) + (b_2 + b_3) x_2\)</span></li>
+</ul>
+<p>Теперь у нас не только есть поправочный коэффициент на базовый уровень (<span class="math inline">\(b_1\)</span>), но и поправочный угловой коэффициент для количественного предиктора (<span class="math inline">\(b_3\)</span>).</p>
+<p>Результаты моделей со взаимодействием предикторов выглядят как-то так:</p>
+<pre><code>## 
+## Call:
+## lm(formula = fot ~ grade_score * region, data = ds)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -180354  -18345   -3886    9895  406794 
+## 
+## Coefficients:
+##                           Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             -5.677e+04  3.591e+03 -15.808  &lt; 2e-16 ***
+## grade_score              1.083e+00  2.457e-02  44.076  &lt; 2e-16 ***
+## regionOther              1.059e+04  7.974e+03   1.327    0.185    
+## grade_score:regionOther -4.258e-01  6.392e-02  -6.661  3.5e-11 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 43120 on 1991 degrees of freedom
+## Multiple R-squared:  0.5997, Adjusted R-squared:  0.5991 
+## F-statistic: 994.3 on 3 and 1991 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Чтобы не умереть во взаимодействиях трех предикторов, оставим в модели только <code>grade_score</code> (интегральный балл по грейду) и <code>region</code> (регион филиала компании — Москва или не-Москва).</p>
+<ul>
+<li>Интерсепт содержит среднее для уровня <code>Moscow</code> переменой <code>region</code>.</li>
+<li>Коэффициент при <code>regionOther</code>, как и в предыдущей модели, показывает, насколько отличается среднее для уровня <code>Other</code> переменной <code>region</code> от среднего уровня <code>Moscow</code> этой же переменной.</li>
+<li>Коэффициент при <code>grade_score</code> — это угловой коэффициент регрессионной прямой для категории <code>regionMoscow</code></li>
+<li>Запись <code>grade_score:regionOther</code> показывает добавочный угловой коэффициент для группы <code>regionOther</code>.</li>
+</ul>
+<p>Как видите, всё аналогично тому, как это задаётся в математической модели, поэтому если вы помните её, интерпретация результатов анализа не составляет особого труда.</p>
+<p>Можно это изобразить на картинке, например, вот так:</p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="SFDA_files/figure-html/predictor_interation_vis-1.png" width="672" /></p>
+</div>
+<div id="regression_anova" class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Линейная регрессия только с категориальными предикторами<a href="multiple_linear.html#regression_anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regression_oneway_anova" class="section level3 hasAnchor" number="15.5.1">
+<h3><span class="header-section-number">15.5.1</span> Простая линейная регрессия только с категориальными предикторами<a href="multiple_linear.html#regression_oneway_anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Это <a href="oneway-anova.html#oneway-anova">вот что</a>.</p>
+</div>
+<div id="regression_twoway_anova" class="section level3 hasAnchor" number="15.5.2">
+<h3><span class="header-section-number">15.5.2</span> Множественная линейная регрессия только с категориальными предикторами<a href="multiple_linear.html#regression_twoway_anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Это <a href="twoway-anova.html#twoway-anova">вот что</a>.</p>
+</div>
+</div>
+<div id="model_comparison" class="section level2 hasAnchor" number="15.6">
+<h2><span class="header-section-number">15.6</span> Сравнение моделей<a href="multiple_linear.html#model_comparison" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Модели можно сравнивать друг с другом, чтобы выяснить, какая из них лучше улавливает и моделирует закономерности данных. Разберем это на примере сравнения двух моделей.</p>
+<p>Возьмем одну модель только с количественным предиктором:</p>
+<p><span class="math display">\[
+\hat y_i = b_0 + b_1 x_1
+\]</span></p>
+<pre><code>## 
+## Call:
+## lm(formula = fot ~ grade_score, data = ds)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -171435  -28467   -3305   15470  418192 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -7.483e+04  3.358e+03  -22.28   &lt;2e-16 ***
+## grade_score  1.118e+00  2.433e-02   45.98   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 47450 on 1993 degrees of freedom
+## Multiple R-squared:  0.5147, Adjusted R-squared:  0.5145 
+## F-statistic:  2114 on 1 and 1993 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>А другую со взаимодействием количественного и категориального предикторов (сами предикторы также автоматически включены в модель):</p>
+<p><span class="math display">\[
+\hat y_i = b_0 + b_1 x_1 + b_2 I_2 + b_3 I_2 x_2
+\]</span></p>
+<pre><code>## 
+## Call:
+## lm(formula = fot ~ region * grade_score, data = ds)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -180354  -18345   -3886    9895  406794 
+## 
+## Coefficients:
+##                           Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             -5.677e+04  3.591e+03 -15.808  &lt; 2e-16 ***
+## regionOther              1.059e+04  7.974e+03   1.327    0.185    
+## grade_score              1.083e+00  2.457e-02  44.076  &lt; 2e-16 ***
+## regionOther:grade_score -4.258e-01  6.392e-02  -6.661  3.5e-11 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 43120 on 1991 degrees of freedom
+## Multiple R-squared:  0.5997, Adjusted R-squared:  0.5991 
+## F-statistic: 994.3 on 3 and 1991 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div id="r_squared_comparison" class="section level3 hasAnchor" number="15.6.1">
+<h3><span class="header-section-number">15.6.1</span> Коэффициент детерминации<a href="multiple_linear.html#r_squared_comparison" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Мы говорили, что коэффициент детерминации показывает долю объясненной моделью дисперсии. Значит уже на основании его значения мы можем сделать определенные выводы. Помним, что для сравнения моделей используем скорректированный коэффициент детерминации.</p>
+<p>Так, для наших моделей скорректированные коэффициенты детерминации будут равны:</p>
+<p><span class="math display">\[
+R^2_{\text{adj},1} = 0.51 \\
+R^2_{\text{adj},2} = 0.60
+\]</span></p>
+<p>Вторая модель объясняет больше дисперсии данных, а значит, лучше моделирует закономерность. Изи.</p>
+</div>
+<div id="F_partial" class="section level3 hasAnchor" number="15.6.2">
+<h3><span class="header-section-number">15.6.2</span> Частный F-критерий<a href="multiple_linear.html#F_partial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Если нам нужен более статистически вариант, то есть частный <em>F</em>-критерий, который работает подобно <em>F</em>-критерию в дисперсионном анализе.</p>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: fot ~ grade_score
+## Model 2: fot ~ region * grade_score
+##   Res.Df        RSS Df  Sum of Sq      F    Pr(&gt;F)    
+## 1   1993 4.4877e+12                                   
+## 2   1991 3.7017e+12  2 7.8603e+11 211.39 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Мы видим, что вторая модель статистически значимо отличается от первой, поэтому можем сделать вывод о том, что она лучше моделирует закономерности данных.</p>
+</div>
+<div id="mse_rmse_mae" class="section level3 hasAnchor" number="15.6.3">
+<h3><span class="header-section-number">15.6.3</span> Ошибки моделей<a href="multiple_linear.html#mse_rmse_mae" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Мы в самом начале говорили, что ни одна модель никогда не сможет описать данные идеально — всегда есть некоторая ошибка модели. На основе ошибки модели мы также можем сравнивать модели. Сравнение происходит примитивно — чем меньше ошибка, тем лучше.</p>
+<div id="mse" class="section level4 hasAnchor" number="15.6.3.1">
+<h4><span class="header-section-number">15.6.3.1</span> MSE<a href="multiple_linear.html#mse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Первый вариант — <strong>mean squared error (MSE)</strong>. Она рассчитывается так:</p>
+<p><span class="math display">\[
+\text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat y_i)^2 = \frac{1}{n} \sum_{i=1}^n e_i^2
+\]</span></p>
+<p>Для наших двух моделей MSE таковы:</p>
+<pre><code>## # A tibble: 1 × 2
+##          MSE1        MSE2
+##         &lt;dbl&gt;       &lt;dbl&gt;
+## 1 2249479197. 1855480675.</code></pre>
+<p>Видим, что ошибка второй модели меньше — значит она лучше.</p>
+</div>
+<div id="rmse" class="section level4 hasAnchor" number="15.6.3.2">
+<h4><span class="header-section-number">15.6.3.2</span> RMSE<a href="multiple_linear.html#rmse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>При вычислении MSE мы получаем средний квадрат ошибки модели. Его размерность — единица измерения целевой переменной в квадрате. Если мы захоим это интерпретировать, будет сложно<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>Поэтому другая метрика — это root mean squared error (RMSE), которая есть квадратный корень из MSE.</p>
+<p><span class="math display">\[
+\text{RMSE} = \sqrt{\text{MSE}} = \sqrt{\frac{1}{n} \sum_{i=1}^n (y_i - \hat y_i)^2} = \sqrt{\frac{1}{n} \sum_{i=1}^n e_i^2}
+\]</span></p>
+<p>Для нашего случая сравнения двух моделей это будет так:</p>
+<pre><code>## # A tibble: 1 × 2
+##    RMSE1  RMSE2
+##    &lt;dbl&gt;  &lt;dbl&gt;
+## 1 47429. 43075.</code></pre>
+<p>Вот, и числа покороче, и сравнивать попроще. Разумеется, так как <span class="math inline">\(\text{MSE}_2 &lt; \text{MSE}_2\)</span>, то и <span class="math inline">\(\text{RMSE}_2 &lt; \text{RMSE}_2\)</span>. Вторая модель все ещё лучше первой.</p>
+</div>
+<div id="mae" class="section level4 hasAnchor" number="15.6.3.3">
+<h4><span class="header-section-number">15.6.3.3</span> MAE<a href="multiple_linear.html#mae" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Можно и не возводить в квадрат, а взять модуль — получится mean absolute error (MAE). Такой метрикой тоже пользуются.</p>
+<p><span class="math display">\[
+\text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat y_i|= \frac{1}{n} \sum_{i=1}^n |e_i|
+\]</span></p>
+<p>Ну, собственно, вот:</p>
+<pre><code>## # A tibble: 1 × 2
+##     MAE1   MAE2
+##    &lt;dbl&gt;  &lt;dbl&gt;
+## 1 31853. 25833.</code></pre>
+<p>Вывод ровно тот же.</p>
+</div>
+</div>
+<div id="bic_aic" class="section level3 hasAnchor" number="15.6.4">
+<h3><span class="header-section-number">15.6.4</span> Информационные критерии<a href="multiple_linear.html#bic_aic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ну, и на последок ещё один способ сравнения моделей — информационные критерии. Их два:</p>
+<ul>
+<li><strong>AIC</strong> (Akaike information criterion)</li>
+<li><strong>BIC</strong> (Bayesian information criterion)</li>
+</ul>
+<p>Че как они считаются — это мы оставим кому-нибудь умному разбираться, потому что щас надо будет о теории вероятности, о функции правдоподобия говорить, а там условная вероятность… В общем, суета. А нам надо чилл.</p>
+<p>Что про информационные критерии надо знать: чем <em>меньше</em>, тем лучше.</p>
+<p>Поглядим:</p>
+<pre><code>##         df      AIC
+## Model 1  3 48627.82
+## Model 2  5 48247.68</code></pre>
+<pre><code>##         df      BIC
+## Model 1  3 48644.62
+## Model 2  5 48275.67</code></pre>
+<p>Вторая модель всё ещё выигрывает.</p>
 
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Что бы это ни значило…<a href="multiple_linear.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Ровно такая же проблема у нас возникала в дисперсией.<a href="multiple_linear.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="simple_linear.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="simple_linear.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ancova.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
