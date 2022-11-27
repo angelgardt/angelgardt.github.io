@@ -169,7 +169,7 @@
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Статистика вывода и статметоды</b></span></li>
-<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотех</a>
+<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотез</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="nhst.html"><a href="nhst.html#базовые-понятия"><i class="fa fa-check"></i><b>8.1</b> Базовые понятия</a></li>
 <li class="chapter" data-level="8.2" data-path="nhst.html"><a href="nhst.html#errors"><i class="fa fa-check"></i><b>8.2</b> Возможные результаты проверки гипотез</a></li>
@@ -328,7 +328,7 @@
 <li class="chapter" data-level="17.9.1" data-path="binomial_regression.html"><a href="binomial_regression.html#algebra_ln"><i class="fa fa-check"></i><b>17.9.1</b> Немного алгебры для понимания сути коэффициентов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="вырубаем-тэхно-врубаем-дип-хаус.html"><a href="вырубаем-тэхно-врубаем-дип-хаус.html"><i class="fa fa-check"></i>Вырубаем тэхно, врубаем дип хаус</a></li>
+<li class="chapter" data-level="" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i>Вырубаем тэхно, врубаем дип хаус</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -420,19 +420,19 @@ b_0 &amp; b_1 \dots b_p
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -171378  -28599   -3321   15681  418200 
+## -171363  -28915   -3362   15894  417263 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -7.443e+04  3.862e+03  -19.27   &lt;2e-16 ***
-## grade_score  1.118e+00  2.433e-02   45.97   &lt;2e-16 ***
-## experience  -2.564e+01  1.224e+02   -0.21    0.834    
+## (Intercept) -7.364e+04  3.869e+03 -19.034   &lt;2e-16 ***
+## grade_score  1.118e+00  2.433e-02  45.954   &lt;2e-16 ***
+## experience  -7.484e+01  1.211e+02  -0.618    0.537    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 47460 on 1992 degrees of freedom
-## Multiple R-squared:  0.5147, Adjusted R-squared:  0.5142 
-## F-statistic:  1056 on 2 and 1992 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Multiple R-squared:  0.5148, Adjusted R-squared:  0.5143 
+## F-statistic:  1057 on 2 and 1992 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>У нас добавилась ещё одна строка таблицы для переменной <code>experience</code>. Аутпут, как и в случае простой линейной регрессии, читаем снизу вверх.</p>
 <p>Модель в целом статистически значима (<em>F</em>(2, 1992) = 1057, <em>p</em> &lt; .001) и объясняет 51% дисперсии данных. Интегральный балл по грейду (<code>grade_score</code>) также статистически значим. Опыт работы (<code>experience</code>) не связан статистически значимо с целевой переменной.</p>
 </div>
@@ -455,7 +455,7 @@ R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n-1}{n-p}
 <h3><span class="header-section-number">15.2.4</span> Исследование мультиколлинеарности<a href="multiple_linear.html#vif" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Раз у нас есть проблема мультиколлинеарности, надо как-то с ней работать. Прежде всего, на этапе разведочного анализа мы можем построить корреляционную матрицу по всем предикторам, которые у нас есть, и поискать там высокие корреляции.</p>
 <p>Сейчас у нас два предиктора, поэтому мы просто можем бахнуть коэффициент корреляции:</p>
-<pre><code>## [1] 0.003900126</code></pre>
+<pre><code>## [1] -0.01574401</code></pre>
 <p>Корреляция не высока, проблемы мультиколлинеарности не намечается.</p>
 <p>На уже построенной регрессионной модели мы тоже можем изучить коллинеарность предикторов. Чтобы это сделать, необходимо вычислить <strong>коэффициент вздутия дисперсии (variance inflation factor, VIF)</strong>.</p>
 <div class="advanced">
@@ -477,7 +477,7 @@ R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n-1}{n-p}
 </div>
 <p>Для нашей модели коэфициенты вздутия дисперсии таковы:</p>
 <pre><code>## grade_score  experience 
-##    1.000015    1.000015</code></pre>
+##    1.000248    1.000248</code></pre>
 <p>Пороговым значением для вынесение вердикта о наличии мультиколлинеарности считается 3 (иногда 2). Мы мультиколлинеарность не нашли, поэтому тихохонько порадуемся, что нам ничего делать не нужно.</p>
 </div>
 </div>
@@ -520,20 +520,20 @@ R^2_{\text{adj}} = 1 - (1 - R^2) \frac{n-1}{n-p}
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -172788  -20803   -5986   12921  412128 
+## -172937  -20756   -5770   12821  412666 
 ## 
 ## Coefficients:
 ##               Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -4.706e+04  3.822e+03 -12.315   &lt;2e-16 ***
-## grade_score  1.020e+00  2.293e-02  44.480   &lt;2e-16 ***
-## experience  -6.542e+01  1.124e+02  -0.582    0.561    
-## regionOther -4.070e+04  2.114e+03 -19.248   &lt;2e-16 ***
+## (Intercept) -4.815e+04  3.793e+03 -12.693   &lt;2e-16 ***
+## grade_score  1.020e+00  2.293e-02  44.476   &lt;2e-16 ***
+## experience   3.551e+00  1.114e+02   0.032    0.975    
+## regionOther -4.068e+04  2.116e+03 -19.228   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 43590 on 1991 degrees of freedom
-## Multiple R-squared:  0.5909, Adjusted R-squared:  0.5902 
-## F-statistic: 958.4 on 3 and 1991 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 43600 on 1991 degrees of freedom
+## Multiple R-squared:  0.5908, Adjusted R-squared:  0.5902 
+## F-statistic: 958.2 on 3 and 1991 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Здесь появились некоторые отличия. Мы видим, что у <code>grade_score</code> и <code>experience</code> коэффициенты остались как и прежде, но добавилась ещё одна строка — <code>regionOther</code>. Так как наша переменная содержит только два уровня, базовый уровень по какой-то из двух групп уходит в интерсепт — в данном случае это <code>regionMoscow</code>. Коэффициент при <code>regionOther</code> показывается, на сколько отличается базовый уровень (среднее) группы <code>regionOther</code> по сравнению с <code>regionMoscow</code>. Итак, фонд оплаты труда в регионах в среднем на 40.5 тысяч меньше, чем в Москве. Результат, вполне согласующийся со здравым смыслом.</p>
 <p>Тестирование и диагностика модели производится аналогично тому, как мы это делали на предыдущих моделях.</p>
 </div>
@@ -674,6 +674,9 @@ R^2_{\text{adj},2} = 0.60
 <p>Мы в самом начале говорили, что ни одна модель никогда не сможет описать данные идеально — всегда есть некоторая ошибка модели. На основе ошибки модели мы также можем сравнивать модели. Сравнение происходит примитивно — чем меньше ошибка, тем лучше.</p>
 <div id="mse" class="section level4 hasAnchor" number="15.6.3.1">
 <h4><span class="header-section-number">15.6.3.1</span> MSE<a href="multiple_linear.html#mse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<center>
+<img src="pics/errors_lm.jpeg">
+</center>
 <p>Первый вариант — <strong>mean squared error (MSE)</strong>. Она рассчитывается так:</p>
 <p><span class="math display">\[
 \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat y_i)^2 = \frac{1}{n} \sum_{i=1}^n e_i^2
