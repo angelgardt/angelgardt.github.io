@@ -392,7 +392,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.9.1" data-path="binomial_regression.html"><a href="binomial_regression.html#algebra_ln"><i class="fa fa-check"></i><b>17.9.1</b> Немного алгебры для понимания сути коэффициентов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="вырубаем-тэхно-врубаем-дип-хаус.html"><a href="вырубаем-тэхно-врубаем-дип-хаус.html"><i class="fa fa-check"></i>Вырубаем тэхно, врубаем дип хаус</a></li>
+<li class="chapter" data-level="" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i>Вырубаем тэхно, врубаем дип хаус</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -452,7 +452,7 @@ z = \frac{x - \bar x}{s},
 <li><em>нормирование</em> — то, что происходит в знаменателе.</li>
 </ul>
 <p>Посмотрим на две операции отдельно на примере стандартизации какого-то нормального распределения.</p>
-<p><img src="SFDA_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="SFDA_files/figure-html/centring_norming-1.png" width="672" /></p>
 <p>На рисунке черной линией представлено исходное нормальное распределение <span class="math inline">\(\mathcal{N}(-0.5, 0.25)\)</span>. Если его центрировать, то оно подвинется вправо — <span class="math inline">\(x - \bar x\)</span> — и получится синее распределение <span class="math inline">\(\mathcal{N}(0, 0.25)\)</span>. Если нормировать исходное распределение, то оно станет несколько шире — <span class="math inline">\(\dfrac{x}{s}\)</span> — как зеленое <span class="math inline">\(\mathcal{N}(-0.5, 1)\)</span>. А если осуществить обе операции вместе — <span class="math inline">\(\dfrac{x - \bar x}{s}\)</span> — это и будет стандартизация, и распределение совпадет с красным (стандартным нормальным распределением).</p>
 <p><strong>Важный момент:</strong> <em>если распределение изначально было асимметричное, или бимодальное, или какое-либо еще «ненормальное», стандартизация не изменит его форму.</em></p>
 <p>Например, вот.</p>

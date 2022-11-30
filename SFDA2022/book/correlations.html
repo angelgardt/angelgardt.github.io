@@ -169,7 +169,7 @@
 </ul></li>
 </ul></li>
 <li class="part"><span><b>III Статистика вывода и статметоды</b></span></li>
-<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотех</a>
+<li class="chapter" data-level="8" data-path="nhst.html"><a href="nhst.html"><i class="fa fa-check"></i><b>8</b> Тестирование статистических гипотез</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="nhst.html"><a href="nhst.html#базовые-понятия"><i class="fa fa-check"></i><b>8.1</b> Базовые понятия</a></li>
 <li class="chapter" data-level="8.2" data-path="nhst.html"><a href="nhst.html#errors"><i class="fa fa-check"></i><b>8.2</b> Возможные результаты проверки гипотез</a></li>
@@ -328,7 +328,7 @@
 <li class="chapter" data-level="17.9.1" data-path="binomial_regression.html"><a href="binomial_regression.html#algebra_ln"><i class="fa fa-check"></i><b>17.9.1</b> Немного алгебры для понимания сути коэффициентов</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="вырубаем-тэхно-врубаем-дип-хаус.html"><a href="вырубаем-тэхно-врубаем-дип-хаус.html"><i class="fa fa-check"></i>Вырубаем тэхно, врубаем дип хаус</a></li>
+<li class="chapter" data-level="" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i>Вырубаем тэхно, врубаем дип хаус</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -558,8 +558,11 @@ t = \frac{r_{x_1x_2}}{\sqrt{\frac{1-r_{x_1x_2}}{n-2}}} \overset{H_0}{\sim} t(
 <p>Размер эффекта нам требуется для расчета объема выборки, необходимой для корректного корреляционного анализа. В чем идея?</p>
 <p>Мы говорили, что ошибку второго рода мы контролирует в помощью статистической мощности, которая равна <span class="math inline">\(1-\beta\)</span>, где <span class="math inline">\(\beta\)</span> — вероятность ошибки второго рода. Конвенционально достаточным уровнем статистической мощности считается <span class="math inline">\(80\%\)</span>, то есть нам надо предпринять все усилия, чтобы достичь такого уровня статистической мощности. А что мы можем предпринять? Да, в общем-то только собрать достаточное количество наблюдений. Значит, надо рассчитать, сколько нам надо наблюдений, чтобы зафиксировать эффект, если он есть.</p>
 <p>Собственно, статистическая мощность, размер эффекта и объем выборки связаны вот как:</p>
-<p>↑ объем выборки → ↑ статистическая мощность</p>
-<p>↑ размер эффекта → ↓ требуемый объем выборки</p>
+<center>
+↑ объем выборки → ↑ статистическая мощность<br>
+↑ размер эффекта → ↓ требуемый объем выборки
+</center>
+<p><br></p>
 <p>Итого, если у нас есть ожидаемый размер эффекта и требуемый уровень статистической мощности, то мы можем рассчитать необходимый объем выборки. Формул не будет — мы рассчитываем объем выборки в специально обученном ПО.</p>
 <p>Что надо запомнить?</p>
 <ul>
