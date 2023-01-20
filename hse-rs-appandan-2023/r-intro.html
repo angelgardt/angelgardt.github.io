@@ -1958,10 +1958,9 @@ c’est mauvais ton, и вот почему:</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="cn">TRUE</span> <span class="co"># складываем две истины</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Внезапно, команда выполнилась. Можно задаться вопросом, почему именно
-так, ведь <a href>правила алгебры логики</a> говорят, что должно быть
-по-другому. Опуская детали, скажем, что оператор <code>+</code> несет
-только арифметический, но не логический смысл, поэтому произошло
-следующее:</p>
+так, ведь правила алгебры логики говорят, что должно быть по-другому.
+Опуская детали, скажем, что оператор <code>+</code> несет только
+арифметический, но не логический смысл, поэтому произошло следующее:</p>
 <ul>
 <li>оператор <code>+</code> умеет работать только с числовыми
 значениями</li>
@@ -2132,7 +2131,7 @@ x_n)\)</span>.</p>
 (например, для того, чтобы использовать её при сабсете случайной
 подвыборки данных):</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">size =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>##  [1] 27 25 11 16  6  5 12 29  2  4 22 28 20  3 24</code></pre>
+<pre><code>##  [1]  4 13 20 16 25 24 10  1  8 23 17  2 15  5 12</code></pre>
 <p>Чтобы результат генерации при повторном запуске кода получался одним
 и тем же, перед выполнением команды <code>sample(...)</code> нужно
 выполнить команду <code>set.seed(...)</code>:</p>
@@ -2681,7 +2680,7 @@ x_n)\)</span>.</p>
 <pre><code>## function (x, na.rm = FALSE) 
 ## sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
 ##     na.rm = na.rm))
-## &lt;bytecode: 0x7fc5883ac470&gt;
+## &lt;bytecode: 0x7fb7fa7d1870&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="#cb334-1" aria-hidden="true" tabindex="-1"></a>lm <span class="co"># функция для построения линейной регрессионной модели</span></span></code></pre></div>
 <pre><code>## function (formula, data, subset, weights, na.action, method = &quot;qr&quot;, 
@@ -2756,7 +2755,7 @@ x_n)\)</span>.</p>
 ##         z$qr &lt;- NULL
 ##     z
 ## }
-## &lt;bytecode: 0x7fc588517980&gt;
+## &lt;bytecode: 0x7fb7f6c95f80&gt;
 ## &lt;environment: namespace:stats&gt;</code></pre>
 </div>
 </div>
